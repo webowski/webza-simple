@@ -1,0 +1,56 @@
+{
+  "name": "webza",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webowski/webza.git"
+  },
+  "author": "webowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webowski/webza/issues"
+  },
+  "homepage": "https://github.com/webowski/webza#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    // "@glidejs/glide": "^3.4.1",
+    // "@popperjs/core": "^2.0.6",
+    "autoprefixer": "^9.7.3",
+    "babelify": "^10.0.0",
+    // "basiclightbox": "^5.0.2",
+    "browser-sync": "^2.26.7",
+    "browserify": "^16.5.0",
+    // "cleave.js": "^1.5.3",
+    "core-js": "^3.6.4",
+    // "glider-js": "^1.7.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-csso": "^4.0.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-streamify": "^1.0.2",
+    "gulp-svg-sprite": "^1.5.0",
+    "gulp-svgmin": "^2.2.0",
+    "gulp-terser": "^1.2.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-uglifyes": "^0.2.1",
+    "natives": "^1.1.6",
+    "postcss-custom-properties": "^9.0.2",
+    "pump": "^3.0.0",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "browserslist": [
+    "ie 11"
+  ]
+}
