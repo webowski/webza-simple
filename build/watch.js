@@ -1,4 +1,4 @@
-module.exports = (gulp, plugins) => {
+module.exports = (gulp, tools) => {
 	return function () {
 
 		// styles
@@ -42,7 +42,7 @@ module.exports = (gulp, plugins) => {
 				'content/**/*.php',
 			],
 			{cwd: './'},
-		).on('change', plugins.browserSync.reload);
+		).on('change', tools.browserSync.reload);
 
 		// php
 		// gulp.watch(
@@ -61,7 +61,7 @@ module.exports = (gulp, plugins) => {
 
 		// images
 		// gulp.watch(
-		// 	'./images/**/*').on('change', plugins.browserSync.reload
+		// 	'./images/**/*').on('change', tools.browserSync.reload
 		// );
 
 	}

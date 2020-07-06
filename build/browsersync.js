@@ -1,7 +1,7 @@
-module.exports = (gulp, plugins) => {
+module.exports = (gulp, tools) => {
 	return function () {
 
-		plugins.browserSync.init({
+		tools.browserSync.init({
 			ui: false,
 			notify: false,
 			logLevel: 'debug',

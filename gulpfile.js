@@ -1,5 +1,8 @@
 const gulp =             require('gulp')
-const plugins = {
+
+let tools = {
+	fs:                  require('fs-extra'),
+	path:                require('path'),
 	rename:              require('gulp-rename'),
 
 	browserSync:         require('browser-sync').create(),
@@ -24,9 +27,11 @@ const plugins = {
 	concat:              require('gulp-concat'),
 }
 
+tools.config = require('./build/config.js')();
+
 
 const getTask = (task) => {
-	return require('./tasks/' + task)(gulp, plugins);
+	return require('./build/' + task)(gulp, tools);
 }
 
 // Browsersync
@@ -45,7 +50,7 @@ gulp.task('icons',        getTask('icons'));
 gulp.task('watch',        getTask('watch'));
 
 // Browser reload
-gulp.task('browser-reload', () => { return plugins.browserSync.reload() });
+gulp.task('browser-reload', () => { return tools.browserSync.reload() });
 
 // Default
 gulp.task('default', gulp.parallel(

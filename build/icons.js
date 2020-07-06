@@ -1,16 +1,16 @@
-module.exports = (gulp, plugins) => {
+module.exports = (gulp, tools) => {
 	return function () {
 
 		return gulp.src('./images/vector-icons/*.svg')
 			// minify svg
-			.pipe(plugins.svgmin({ js2svg: { pretty: true } }))
+			.pipe(tools.svgmin({ js2svg: { pretty: true } }))
 			// replace spaces with hyphens, get rid of the "-icon" postfix
-			.pipe(plugins.rename(function (path) {
+			.pipe(tools.rename(function (path) {
 				path.basename = path.basename
 					.replace(/\s/g, '-')
 					.replace(/-icon/, '');
 			}))
-			.pipe(plugins.svgSprite({
+			.pipe(tools.svgSprite({
 				mode: {
 					symbol: {
 						dest: '',
@@ -21,7 +21,7 @@ module.exports = (gulp, plugins) => {
 				}
 			}))
 			.pipe(gulp.dest('./images/'))
-			.pipe(plugins.browserSync.reload({stream: true}));
+			.pipe(tools.browserSync.reload({stream: true}));
 
 	}
 }
