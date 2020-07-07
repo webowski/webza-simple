@@ -22,6 +22,8 @@ let tools = {
 	buffer:              require('vinyl-buffer'),
 	babelify:            require('babelify'),
 	source:              require('vinyl-source-stream'),
+	str:                 require('string-to-stream'),
+	inject:              require('gulp-inject-string'),
 	streamify:           require('gulp-streamify'),
 	uglify:              require('gulp-terser'),
 	concat:              require('gulp-concat'),
