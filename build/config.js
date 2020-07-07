@@ -4,15 +4,15 @@ module.exports = () => {
 
 		styles: {
 			plugins: [
-				'/cropper.min.scss',
+				'./node_modules/@glidejs/glide/src/assets/sass/glide.core.scss',
+				'./node_modules/basiclightbox/src/styles/main.scss',
 			],
 			specific: [
-				'specific',
+				'./styles/specific/settings.scss',
 			],
 			common: [
-				// '/node_modules/@glidejs/glide/src/assets/sass/glide.core.scss',
-				// '/node_modules/basiclightbox/src/styles/main.scss',
-				'/styles/common.scss',
+				'./node_modules/@glidejs/glide/src/assets/sass/glide.core.scss',
+				// './styles/common.scss',
 			]
 		},
 
@@ -25,7 +25,7 @@ module.exports = () => {
 				'./scripts/pages/settings.js',
 			],
 			common: [
-				'/scripts/common.js',
+				'./scripts/common.js',
 			]
 		}
 	}
