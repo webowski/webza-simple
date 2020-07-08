@@ -12,7 +12,7 @@ module.exports = () => {
 			],
 			common: [
 				'./node_modules/@glidejs/glide/src/assets/sass/glide.core.scss',
-				// './styles/common.scss',
+				'./styles/common.scss',
 			]
 		},
 
