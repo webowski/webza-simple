@@ -23,6 +23,7 @@ let tools = {
 	babelify:            require('babelify'),
 	source:              require('vinyl-source-stream'),
 	through:             require('through2'),
+	merge:               require('merge2'),
 	str:                 require('string-to-stream'),
 	streamify:           require('gulp-streamify'),
 	uglify:              require('gulp-terser'),
