@@ -11,6 +11,7 @@ module.exports = () => {
 				'styles/specific/settings.scss',
 				'styles/specific/test.css',
 			],
+			// common will processed with concatenating
 			common: [
 				'node_modules/@glidejs/glide/src/assets/sass/glide.core.scss',
 				'styles/common.scss',
@@ -29,6 +30,7 @@ module.exports = () => {
 				'scripts/components/editor.js',
 				'scripts/pages/settings.js',
 			],
+			// common will processed with concatenating
 			common: [
 				'scripts/common.js',
 			],
