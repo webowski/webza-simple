@@ -101,7 +101,9 @@ module.exports = (gulp, tools) => {
 
 		// gulp.series(
 		// 	() => {
-				return gulp.src(files)
+				return gulp.src(files, {
+						cwd: './'
+					})
 					// .pipe(tools.inject.prepend( scssContent ))
 					.pipe(
 						tools.through.obj(function (vinylFile, encoding, callback) {
@@ -110,6 +112,8 @@ module.exports = (gulp, tools) => {
 							// * contents can only be a Buffer, Stream, or null
 							// * This allows us to modify the vinyl file in memory and prevents the need to write back to the file system.
 							transformedFile.contents = new Buffer("whatever");
+							// vinylFile.cwd = './'
+							console.log( vinylFile.cwd );
 
 							// console.log( vinylFile.path.replace( vinylFile.cwd, '' ) );
 
