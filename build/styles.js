@@ -1,19 +1,8 @@
 
 module.exports = (gulp, tools) => {
 
-	const prepareCss = (path, pathPartToRemove) => {
-
-		let file = {
-			name:    tools.path.parse(path).name,
-			ext:     tools.path.parse(path).ext,
-			selfDir: tools.path.dirname(path).replace('./', '')
-		}
-
-		if (pathPartToRemove) {
-			file.selfDir = file.selfDir.replace(pathPartToRemove, '')
-		}
-
-		file.dest = './styles/min/' + file.selfDir + '/'
+	// add overriding scss variables to plugin scss
+	const prependScss = vinyl => {
 
 		let imports = [
 			'./styles/base/_variables.scss',
@@ -27,118 +16,92 @@ module.exports = (gulp, tools) => {
 			scssPrepend += '@import \'' + line + '\';\n'
 		})
 
-		tools.fs.mkdirsSync( './styles/min/' + file.selfDir )
+		let newContents = Buffer.concat([
+			new Buffer( scssPrepend ),
+			vinyl.contents
+		])
 
-		if (file.ext === '.scss') {
+		vinyl.contents = newContents
 
-			// let fileData = fs.readFileSync(path)
-			// let fileItself = fs.openSync(path, 'w+')
-			// let filePrepend = new Buffer( scssPrepend )
+		return vinyl
+	}
 
-			// fs.writeSync(fileItself, filePrepend, 0, filePrepend.length, 0)
-			// fs.writeSync(fileItself, fileData, 0, fileData.length, filePrepend.length)
+	// make a css destination folder
+	const makeCssDest = vinyl => {
 
-			// fs.close(fileItself, (err) => {
-			// 	if (err) throw err;
-			// });
+		vinyl.path = tools.path.relative(vinyl.cwd, vinyl.path)
 
-			return gulp.src(path)
-				.pipe(tools.inject.prepend( scssPrepend ))
-				.pipe(tools.sass({
-						outputStyle: 'compressed'
-					})
-					.on('error', console.log.bind(console, '\007'))
-				)
-				.pipe(tools.postcss([
-					// postcssImport(),
-					tools.postcssCustomProps(),
-				]))
-				.pipe(tools.autoprefixer())
-				.pipe(tools.csso())
-				.pipe(gulp.dest( file.dest ))
+		let file = {
+			name:    tools.path.parse(vinyl.path).name,
+			ext:     tools.path.parse(vinyl.path).ext,
+			dir:     tools.path.dirname(vinyl.path)
 		}
 
+		let beginningsToRemove = tools.config.styles.beginningsToRemove
 
-		// EXAMPLE
-		// var sassStream,
-		// 	cssStream;
+		beginningsToRemove.forEach(function(part) {
+			let regexp = new RegExp('^' + part)
+			file.dir = file.dir.replace(regexp, '')
+		})
 
-		// //compile sass
-		// sassStream = gulp.src('app.scss')
-		// 	.pipe(sass({
-		// 		errLogToConsole: true
-		// 	}));
+		file.dest = './styles/min/' + file.dir + '/'
 
-		// //select additional css files
-		// cssStream = gulp.src('animate.css');
+		tools.fs.mkdirsSync( file.dest )
 
-		// //merge the two streams and concatenate their contents into a single file
-		// return merge(sassStream, cssStream)
-		// 	.pipe(concat('app.css'))
-		// 	.pipe(gulp.dest(paths.public + 'css/'));
+		return file.dest
+	}
+
+	// filter files array by extension
+	const filterByExt = (files, ext) => {
+
+		let filtered = []
+
+		files.forEach( item => {
+			if (tools.path.extname(item) === ext) {
+				filtered.push(item)
+			}
+		})
+
+		return filtered
 	}
 
 	return function () {
 
 		let styles = tools.config.styles
-
-		// // Plugins
-		// styles.plugins.forEach( path => {
-		// 	prepareCss( path, 'node_modules' )
-		// })
-
-		// // Specific
-		// styles.specific.forEach( (path) => {
-		// 	prepareCss( path, 'styles' )
-		// })
-
-		// // Common
-		// prepareCss( './styles/common.scss', 'styles' )
-
-		// done()
-
-		let files = styles.plugins.concat(styles.specific)
+		let scssFiles = filterByExt( styles.plugins.concat(styles.specific), '.scss' )
+		let cssFiles = filterByExt( styles.plugins.concat(styles.specific), '.css' )
 
 		// gulp.series(
 		// 	() => {
-				return gulp.src(files, {
-						cwd: './'
-					})
-					// .pipe(tools.inject.prepend( scssContent ))
-					.pipe(
-						tools.through.obj(function (vinylFile, encoding, callback) {
-							var transformedFile = vinylFile.clone();
+				return gulp.src(scssFiles, { cwd: './' })
+					.pipe(tools.through.obj(function (vinyl, encoding, callback) {
 
-							// * contents can only be a Buffer, Stream, or null
-							// * This allows us to modify the vinyl file in memory and prevents the need to write back to the file system.
-							transformedFile.contents = new Buffer("whatever");
-							// vinylFile.cwd = './'
-							console.log( vinylFile.cwd );
+						vinyl = prependScss(vinyl);
 
-							// console.log( vinylFile.path.replace( vinylFile.cwd, '' ) );
-
-							console.log( tools.path.relative(vinylFile.cwd, vinylFile.path) );
-
-							// prepareCss(transformedFile.contents);
-
-							// 3. pass along transformed file for use in next `pipe()`
-							// callback(null, transformedFile);
-							callback(null, vinylFile);
-						})
-					)
+						callback(null, vinyl);
+					}))
 					.pipe(tools.sass({
 							outputStyle: 'compressed'
 						})
 						.on('error', console.log.bind(console, '\007'))
 					)
-					// .pipe(gulp.src())
 					.pipe(tools.postcss([
 						// postcssImport(),
 						tools.postcssCustomProps(),
 					]))
+					.pipe(gulp.src(cssFiles, { cwd: './' })) // add css files
 					.pipe(tools.autoprefixer())
 					.pipe(tools.csso())
-					.pipe(gulp.dest( './styles/min' ))
+					.pipe(tools.through.obj(function (vinyl, encoding, callback) {
+
+						let cssDest = makeCssDest(vinyl)
+
+						tools.fs.outputFileSync( cssDest + vinyl.relative, vinyl.contents.toString(encoding), function(err) {
+							console.log( err );
+						})
+
+						callback(null, vinyl);
+					}))
 					.pipe(tools.browserSync.stream())
 		// 	},
 		// 	() => {
