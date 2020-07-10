@@ -70,10 +70,10 @@ module.exports = (gulp, tools) => {
 		// separate styles
 
 		let styles = tools.config.styles
-		let scssFiles = filterByExt( styles.plugins.concat(styles.specific), '.scss' )
-		let cssFiles = filterByExt( styles.plugins.concat(styles.specific), '.css' )
+		let stylesScss = filterByExt( styles.plugins.concat(styles.specific), '.scss' )
+		let stylesCss = filterByExt( styles.plugins.concat(styles.specific), '.css' )
 
-		let streamSeparate = gulp.src(scssFiles, {
+		let streamSeparate = gulp.src(stylesScss, {
 				cwd: './',
 				nosort: true,
 			})
@@ -93,7 +93,7 @@ module.exports = (gulp, tools) => {
 				tools.postcssCustomProps(),
 			]))
 			// add css files
-			.pipe(gulp.src(cssFiles, {
+			.pipe(gulp.src(stylesCss, {
 				cwd: './',
 				nosort: true,
 			}))
@@ -116,14 +116,25 @@ module.exports = (gulp, tools) => {
 
 		// common styles
 
-			// собрать плагины *.css из *.scss
-			// склеить плагины plugin.css и собранные *.css
-			// собрать common.css из common.scss
-			// склеить plugins.css + common.css
+		// собрать дополнения *.css из *.scss
+		let stylesCommonAdds = styles.common.filter(item => {
+			return ! item.match(/^styles\/common\.scss/)
+		})
 
-		let commonStyles = tools.config.styles.common
+		let stylesAdditionalScss = filterByExt( stylesCommonAdds, '.scss' )
+		// let streamAddsScss = gulp.src()
 
-		let streamCommon = gulp.src( commonStyles.concat( ['!**/*.css'] ), {
+		// // склеить дополнения plugin.css и собранные *.css
+		// let streamAddsCss = gulp.src()
+
+		// // собрать common.css из common.scss
+		// let streamCommonScss = gulp.src()
+
+		// // склеить plugins.css + common.css
+		// let streamCommonCss = gulp.src()
+
+
+		let streamCommon = gulp.src( styles.common.concat( ['!**/*.css'] ), {
 				cwd: './',
 				nosort: true,
 			})
@@ -137,7 +148,7 @@ module.exports = (gulp, tools) => {
 				tools.postcssCustomProps(),
 			]))
 			// // add css files
-			// .pipe(gulp.src(cssFiles, {
+			// .pipe(gulp.src(stylesCss, {
 			// 	cwd: './',
 			// 	nosort: true,
 			// }))
