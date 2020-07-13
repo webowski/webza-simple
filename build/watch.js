@@ -6,7 +6,7 @@ module.exports = (gulp, tools) => {
 			[
 				'styles/**/*.scss',
 				'styles/**/*.css',
-				'!styles/app.min.css',
+				'!styles/min/**/*',
 			],
 			{cwd: './'},
 			gulp.series('styles')

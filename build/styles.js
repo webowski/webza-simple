@@ -1,19 +1,13 @@
-
 module.exports = (gulp, tools) => {
 
 	// add overriding scss variables to plugin scss
 	const prependScss = vinyl => {
 
-		let imports = [
-			'./styles/base/_variables.scss',
-			'./styles/base/_mixins.scss',
-			'./styles/base/_mediaqueries.scss',
-		]
-
+		let prependImports = tools.config.styles.prependImports
 		let scssPrepend = ''
 
-		imports.forEach(function(line) {
-			scssPrepend += '@import \'' + line + '\';\n'
+		prependImports.forEach(function(line) {
+			scssPrepend += '@import \'./' + line + '\';\n'
 		})
 
 		let newContents = Buffer.concat([
@@ -65,19 +59,20 @@ module.exports = (gulp, tools) => {
 		return filtered
 	}
 
-	return function () {
-
-		// separate styles
+	return () => {
 
 		let styles = tools.config.styles
-		let stylesScss = filterByExt( styles.plugins.concat(styles.specific), '.scss' )
-		let stylesCss = filterByExt( styles.plugins.concat(styles.specific), '.css' )
 
-		let streamSeparate = gulp.src(stylesScss, {
+
+		// separate styles
+		let stylesSeparateScss = filterByExt( styles.plugins.concat(styles.specific), '.scss' )
+		let stylesSeparateCss = filterByExt( styles.plugins.concat(styles.specific), '.css' )
+
+		let streamSeparate = gulp.src(stylesSeparateScss, {
 				cwd: './',
 				nosort: true,
 			})
-			.pipe(tools.through.obj(function (vinyl, encoding, callback) {
+			.pipe(tools.through.obj( (vinyl, encoding, callback) => {
 
 				vinyl = prependScss(vinyl);
 
@@ -93,19 +88,19 @@ module.exports = (gulp, tools) => {
 				tools.postcssCustomProps(),
 			]))
 			// add css files
-			.pipe(gulp.src(stylesCss, {
+			.pipe(gulp.src(stylesSeparateCss, {
 				cwd: './',
 				nosort: true,
 			}))
 			.pipe(tools.autoprefixer())
 			.pipe(tools.csso())
-			.pipe(tools.through.obj(function (vinyl, encoding, callback) {
+			.pipe(tools.through.obj( (vinyl, encoding, callback) => {
 
 				let cssDest = makeCssDest(vinyl)
 				let cssPath = cssDest + vinyl.relative
 				let cssContent = vinyl.contents.toString(encoding)
 
-				tools.fs.outputFileSync( cssPath, cssContent, function(err) {
+				tools.fs.outputFileSync( cssPath, cssContent, err => {
 					console.log( err );
 				})
 
@@ -115,28 +110,57 @@ module.exports = (gulp, tools) => {
 
 
 		// common styles
-
-		// собрать дополнения *.css из *.scss
-		let stylesCommonAdds = styles.common.filter(item => {
+		let stylesConcat = styles.common.filter( item => {
 			return ! item.match(/^styles\/common\.scss/)
 		})
 
-		let stylesAdditionalScss = filterByExt( stylesCommonAdds, '.scss' )
-		// let streamAddsScss = gulp.src()
-
-		// // склеить дополнения plugin.css и собранные *.css
-		// let streamAddsCss = gulp.src()
-
-		// // собрать common.css из common.scss
-		// let streamCommonScss = gulp.src()
-
-		// // склеить plugins.css + common.css
-		// let streamCommonCss = gulp.src()
+		let streamConcat = tools.merge()
 
 
-		let streamCommon = gulp.src( styles.common.concat( ['!**/*.css'] ), {
+		// (additional) *.css from *.scss
+		let stylesConcatScss = filterByExt( stylesConcat, '.scss' )
+
+		if (stylesConcatScss.length) {
+			let streamConcatScss = gulp.src( stylesConcatScss, {
+					cwd: './',
+					nosort: true,
+				})
+				.pipe(tools.through.obj( (vinyl, encoding, callback) => {
+
+					vinyl = prependScss(vinyl);
+
+					callback(null, vinyl);
+				}))
+				.pipe(tools.sass({
+						outputStyle: 'compressed'
+					})
+					.on('error', console.log.bind(console, '\007'))
+				)
+				.pipe(tools.postcss([
+					// postcssImport(),
+					tools.postcssCustomProps(),
+				]))
+
+			streamConcat.add(streamConcatScss)
+		}
+
+
+		// add simple css files
+		let stylesConcatCss = filterByExt( stylesConcat, '.css' )
+
+		if (stylesConcatCss.length) {
+			let streamConcatCss = gulp.src(stylesConcatCss, {
 				cwd: './',
 				nosort: true,
+			})
+
+			streamConcat.add(streamConcatCss)
+		}
+
+
+		// common.css from common.scss
+		let streamConcatCommon = gulp.src('styles/common.scss', {
+				cwd: './',
 			})
 			.pipe(tools.sass({
 					outputStyle: 'compressed'
@@ -147,46 +171,19 @@ module.exports = (gulp, tools) => {
 				// postcssImport(),
 				tools.postcssCustomProps(),
 			]))
-			// // add css files
-			// .pipe(gulp.src(stylesCss, {
-			// 	cwd: './',
-			// 	nosort: true,
-			// }))
+
+		streamConcat.add(streamConcatCommon)
+
+
+		// cancat (additional).css + common.css
+		streamConcat = streamConcat
 			.pipe(tools.concatCss('common.css'))
 			.pipe(tools.autoprefixer())
 			.pipe(tools.csso())
-			// .pipe(tools.through.obj(function (vinyl, encoding, callback) {
-
-			// 	let cssDest = makeCssDest(vinyl)
-			// 	let cssPath = cssDest + vinyl.relative
-			// 	let cssContent = vinyl.contents.toString(encoding)
-
-			// 	tools.fs.outputFileSync( cssPath, cssContent, function(err) {
-			// 		console.log( err );
-			// 	})
-
-			// 	callback(null, vinyl);
-			// }))
 			.pipe(gulp.dest('./styles/min/'))
 			.pipe(tools.browserSync.stream())
 
-		// gulp.series(
-		// 	() => {
-		// 	},
-		// 	() => {
-		// 		return gulp
-		// 			.src([
-		// 				// './styles/to-redo.css',
-		// 				'./styles/common.min.css',
-		// 			])
-		// 			.pipe(concatCss('appp.min.css'))
-		// 			.pipe(autoprefixer())
-		// 			.pipe(csso())
-		// 			.pipe(gulp.dest('./styles/'));
-		// 	},
-		// );
 
-
-		return tools.merge( streamSeparate, streamCommon )
+		return tools.merge( streamSeparate, streamConcat )
     }
 }

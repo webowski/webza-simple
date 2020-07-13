@@ -1,6 +1,8 @@
 const gulp =             require('gulp')
 
 let tools = {
+	config:              require('./build/config.js')(),
+
 	fs:                  require('fs-extra'),
 	path:                require('path'),
 	rename:              require('gulp-rename'),
@@ -30,7 +32,6 @@ let tools = {
 	concat:              require('gulp-concat'),
 }
 
-tools.config = require('./build/config.js')();
 
 
 const getTask = (task) => {
@@ -64,9 +65,9 @@ gulp.task('default', gulp.parallel(
 
 // Development
 gulp.task('dev', gulp.parallel(
-	'browsersync',
+	// 'browsersync',
 	'watch',
 	'styles',
-	'scripts',
-	'icons',
+	// 'scripts',
+	// 'icons',
 ));

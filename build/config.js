@@ -14,11 +14,18 @@ module.exports = () => {
 			// common will processed with concatenating
 			common: [
 				'node_modules/@glidejs/glide/src/assets/sass/glide.core.scss',
+				'styles/specific/test.css',
 				'styles/common.scss',
 			],
 			beginningsToRemove: [
 				'node_modules/',
 				'styles/',
+			],
+			// prepend @imports for overriding scss variables of plugins or specific
+			prependImports: [
+				'styles/base/_variables.scss',
+				'styles/base/_mixins.scss',
+				'styles/base/_mediaqueries.scss',
 			],
 		},
 
