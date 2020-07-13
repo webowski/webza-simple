@@ -120,7 +120,7 @@ module.exports = (gulp, tools) => {
 		let streamConcat = tools.merge()
 
 
-		// (additional) *.css from *.scss
+		// additional *.css from *.scss
 		let stylesConcatScss = filterByExt( stylesConcat, '.scss' )
 
 		if (stylesConcatScss.length) {
@@ -148,7 +148,7 @@ module.exports = (gulp, tools) => {
 		}
 
 
-		// add simple css files
+		// additional simple css files
 		let stylesConcatCss = filterByExt( stylesConcat, '.css' )
 
 		if (stylesConcatCss.length) {
@@ -178,7 +178,7 @@ module.exports = (gulp, tools) => {
 		streamConcat.add(streamConcatCommon)
 
 
-		// cancat (additional).css + common.css
+		// concat additional simple css + common.css
 		streamConcat = streamConcat
 			.pipe(tools.concatCss('common.css'))
 			.pipe(tools.autoprefixer())
