@@ -20,6 +20,7 @@ module.exports = (gulp, tools) => {
 		return vinyl
 	}
 
+
 	// make a css destination folder
 	const makeCssDest = vinyl => {
 
@@ -45,6 +46,7 @@ module.exports = (gulp, tools) => {
 		return file.dest
 	}
 
+
 	// filter files array by extension
 	const filterByExt = (files, ext) => {
 
@@ -58,6 +60,7 @@ module.exports = (gulp, tools) => {
 
 		return filtered
 	}
+
 
 	return () => {
 
