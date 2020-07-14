@@ -31,11 +31,12 @@ module.exports = () => {
 			separate: [
 				'node_modules/@glidejs/glide/dist/glide.min.js',
 				'node_modules/basiclightbox/dist/basicLightbox.min.js',
-				'scripts/components/editor.js',
-				'scripts/pages/settings.js',
+				// 'scripts/components/editor.js',
+				// 'scripts/pages/settings.js',
 			],
 			// will processed with concatenating to `scripts/min/common.js`
 			concat: [
+				'scripts/components/editor.js',
 				'scripts/common.js',
 			],
 			beginningsToRemove: [

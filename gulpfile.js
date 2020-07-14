@@ -20,9 +20,11 @@ let tools = {
 	postcss:             require('gulp-postcss'),
 	postcssCustomProps:  require('postcss-custom-properties'),
 
+	bro:                 require('gulp-bro'),
 	browserify:          require('browserify'),
 	buffer:              require('vinyl-buffer'),
 	babelify:            require('babelify'),
+	uglifyify:            require('uglifyify'),
 	source:              require('vinyl-source-stream'),
 	through:             require('through2'),
 	merge:               require('merge2'),
