@@ -68,8 +68,8 @@ module.exports = (gulp, tools) => {
 
 
 		// separate styles
-		let stylesSeparateScss = filterByExt( styles.plugins.concat(styles.specific), '.scss' )
-		let stylesSeparateCss = filterByExt( styles.plugins.concat(styles.specific), '.css' )
+		let stylesSeparateScss = filterByExt( styles.separate, '.scss' )
+		let stylesSeparateCss = filterByExt( styles.separate, '.css' )
 
 		let streamSeparate = gulp.src(stylesSeparateScss, {
 				cwd: './',
@@ -113,7 +113,7 @@ module.exports = (gulp, tools) => {
 
 
 		// common styles
-		let stylesConcat = styles.common.filter( item => {
+		let stylesConcat = styles.concat.filter( item => {
 			return ! item.match(/^styles\/common\.scss/)
 		})
 

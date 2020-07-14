@@ -3,16 +3,14 @@ module.exports = () => {
 	return {
 
 		styles: {
-			plugins: [
+			separate: [
 				'node_modules/@glidejs/glide/src/assets/sass/glide.core.scss',
 				'node_modules/basiclightbox/src/styles/main.scss',
-			],
-			specific: [
 				'styles/specific/settings.scss',
 				'styles/specific/test.css',
 			],
-			// common will processed with concatenating
-			common: [
+			// will processed with concatenating to `styles/min/common.css`
+			concat: [
 				'node_modules/@glidejs/glide/src/assets/sass/glide.core.scss',
 				'styles/specific/test.css',
 				'styles/common.scss',
@@ -21,7 +19,7 @@ module.exports = () => {
 				'node_modules/',
 				'styles/',
 			],
-			// prepend @imports for overriding scss variables of plugins or specific
+			// prepend @imports for overriding scss variables of separate components
 			prependImports: [
 				'styles/base/_variables.scss',
 				'styles/base/_mixins.scss',
@@ -30,15 +28,14 @@ module.exports = () => {
 		},
 
 		scripts: {
-			plugins: [
-				'plugins'
-			],
-			specific: [
+			separate: [
+				'node_modules/@glidejs/glide/dist/glide.min.js',
+				'node_modules/basiclightbox/dist/basicLightbox.min.js',
 				'scripts/components/editor.js',
 				'scripts/pages/settings.js',
 			],
-			// common will processed with concatenating
-			common: [
+			// will processed with concatenating to `scripts/min/common.js`
+			concat: [
 				'scripts/common.js',
 			],
 			beginningsToRemove: [
