@@ -30,6 +30,14 @@ module.exports = (gulp, tools) => {
 
 	return () => {
 
+
+	//
+	var browserified = tools.transform(function(filename) {
+		// filename = './source/scripts/app.js' in this case
+		return tools.browserify(filename)
+			.bundle();
+	});
+
 		let scripts = tools.config.scripts
 
 		let streamScripts = gulp.src(scripts.separate, {
@@ -71,46 +79,65 @@ module.exports = (gulp, tools) => {
 				cwd: './',
 				nosort: true,
 			})
-			.pipe(tools.through.obj( (vinyl, encoding, callback) => {
+			// .pipe(tools.through.obj( (vinyl, encoding, callback) => {
 
-				// vinyl = prependScss(vinyl);
+			// 	// vinyl = prependScss(vinyl);
 
-				vinyl.path = tools.path.relative(vinyl.cwd, vinyl.path)
+			// 	vinyl.path = tools.path.relative(vinyl.cwd, vinyl.path)
 
-				console.dir( vinyl.path );
+			// 	console.dir( vinyl.path );
 
-				var vinyl = tools.browserify([
-					// './scripts/common.js',
-					'./' + vinyl.path
-				])
-				.transform(tools.babelify.configure({
-					presets: [
-						[
-							'@babel/preset-env',
-							{
-								"targets": {
-									"ie": "11",
-									// "esmodules": true,
-								},
-								"corejs": "^3.6.4",
-								"useBuiltIns": "usage",
-								// "modules": "commonjs",
-							}
-						],
-					],
-					// tools: ['transform-runtime']
-					// babel/preset-flow
-				}))
-				.bundle()
+			// 	var vinylNew = tools.browserify([
+			// 		// './scripts/common.js',
+			// 		'./' + vinyl.path
+			// 	])
+			// 	.transform(tools.babelify.configure({
+			// 		presets: [
+			// 			[
+			// 				'@babel/preset-env',
+			// 				{
+			// 					"targets": {
+			// 						"ie": "11",
+			// 						// "esmodules": true,
+			// 					},
+			// 					"corejs": "^3.6.4",
+			// 					"useBuiltIns": "usage",
+			// 					// "modules": "commonjs",
+			// 				}
+			// 			],
+			// 		],
+			// 		// tools: ['transform-runtime']
+			// 		// babel/preset-flow
+			// 	}))
+			// 	.bundle()
+			// 	// .pipe(tools.source(vinyl.basename))
+			// 	.pipe(tools.buffer())
+			// 	// .pipe(tools.streamify(
+			// 	// 	tools.concat('common.js'))
+			// 	// )
+			// 	// .pipe(tools.streamify(tools.uglify({
+			// 	// 	output: {
+			// 	// 		comments: false,
+			// 	// 	}
+			// 	// })))
+			// 	// .pipe(tools.uglify({
+			// 	// 	output: {
+			// 	// 		comments: false,
+			// 	// 	}
+			// 	// }))
+			// 	// .pipe(gulp.dest('./scripts/min/'))
 
-				callback(null, vinyl);
-			}))
-			.pipe(tools.source('common.js'))
-			.pipe(tools.streamify(tools.uglify({
-				output: {
-					comments: false,
-				}
-			})))
+			// 	// console.dir( vinyl );
+
+			// 	callback(null, vinylNew);
+			// }))
+			// .pipe(browserified)
+			.pipe(
+				tools.streamify(
+				tools.concat('commonn.js')
+			)
+				)
+			// .pipe(tools.source('common.js'))
 			.pipe(gulp.dest('./scripts/min/'))
 			// .pipe(tools.browserSync.stream())
 			// .pipe(buffer())     // to continue using the stream
