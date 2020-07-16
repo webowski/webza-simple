@@ -1,4 +1,3 @@
-import { query, queryAll } from '../helpers/Common'
 import Glide from '@glidejs/glide'
 
 
@@ -6,7 +5,7 @@ import Glide from '@glidejs/glide'
 // ========================
 let glideSimple = [];
 
-queryAll('.Glide').forEach( (glide, i) => {
+document.body.querySelectorAll('.Glide').forEach( (glide, i) => {
 
 	glideSimple[i] = new Glide(glide, {
 		autoplay:            glide.dataset.autoplay || false,

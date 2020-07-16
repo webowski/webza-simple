@@ -1,4 +1,4 @@
-import { query, queryAll, isMobile } from '../helpers/Common'
+import { isMobile } from '../helpers/Common'
 
 // =========================
 //  Form fields
@@ -6,8 +6,8 @@ import { query, queryAll, isMobile } from '../helpers/Common'
 export const initFormFields = formFields => {
 
 	formFields.forEach( formField => {
-		let input = query('.FormInput', formField)
-		let label = query('.FormLabel', formField)
+		let input = formField.querySelector('.FormInput')
+		let label = formField.querySelector('.FormLabel')
 
 		input.addEventListener('focusin', () => {
 			formField.classList.add('has-focus')
@@ -26,6 +26,6 @@ export const initFormFields = formFields => {
 	})
 }
 
-let formFields = queryAll('.FormField')
+let formFields = document.body.querySelectorAll('.FormField')
 
 initFormFields(formFields)
