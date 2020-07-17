@@ -6,6 +6,7 @@ let tools = {
 	fs:                  require('fs-extra'),
 	path:                require('path'),
 	rename:              require('gulp-rename'),
+	sort:                require('gulp-sort'),
 
 	browserSync:         require('browser-sync').create(),
 
@@ -33,6 +34,7 @@ let tools = {
 	streamify:           require('gulp-streamify'),
 	uglify:              require('gulp-terser'),
 	concat:              require('gulp-concat'),
+	es:                  require('event-stream'),
 }
 
 

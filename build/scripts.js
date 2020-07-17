@@ -30,21 +30,12 @@ module.exports = (gulp, tools) => {
 
 	return () => {
 
-
-		//
-		let browserified = tools.transform(function(filename) {
-			// filename = './source/scripts/app.js' in this case
-			return tools.browserify(filename)
-				.bundle();
-		});
-
 		let scripts = tools.config.scripts
 
 		let streamScripts = gulp.src(scripts.separate, {
 				cwd: './',
 				nosort: true,
 			})
-			// .pipe(tools.concat('common.js'))
 			.pipe(tools.uglify({
 				output: {
 					comments: false,
@@ -55,6 +46,7 @@ module.exports = (gulp, tools) => {
 			})
 			.pipe(tools.through.obj( (vinyl, encoding, callback) => {
 
+				// переделать
 				let dest = makeDest(vinyl)
 				let scriptsPath = dest + vinyl.relative
 				let content = vinyl.contents.toString(encoding)
@@ -126,7 +118,6 @@ module.exports = (gulp, tools) => {
 
 		// 		callback(null, vinyl);
 		// 	}))
-		// 	// .pipe(browserified)
 		// 	.pipe(tools.concat('common.conc.js'))
 		// 	// .pipe(tools.source('common.js'))
 		// 	.pipe(gulp.dest('./scripts/min/'))
@@ -134,7 +125,7 @@ module.exports = (gulp, tools) => {
 		// 	// .pipe(buffer())     // to continue using the stream
 
 
-		tools.browserify({ entries: ['scripts/common.js'] })
+		var streamBrowserify = tools.browserify({ entries: ['scripts/common.js'] })
 				.transform(tools.babelify.configure({
 					presets: [
 						[
@@ -155,13 +146,21 @@ module.exports = (gulp, tools) => {
 				})
 			)
 			.bundle()
-			.pipe(tools.source('common.bundled.js'))
+			.pipe(tools.source('common.js'))
+			.pipe(gulp.src('./scripts/components/editor.js'))
+			.pipe(tools.through.obj( (vinyl, encoding, callback) => {
+
+				console.dir( vinyl.path );
+				callback(null, vinyl);
+			}))
 			.pipe(tools.streamify(tools.uglify({
 				output: {
 					comments: false,
 				}
 			})))
 			.pipe(gulp.dest('./scripts/min'));
+
+		// console.log( streamBrowserify );
 
 
 		// return tools.browserify([
@@ -196,7 +195,7 @@ module.exports = (gulp, tools) => {
 		// 	.pipe(tools.browserSync.stream())
 		// 	// .pipe(buffer())     // to continue using the stream
 
-		return streamScripts
+		return tools.merge( streamScripts, streamBrowserify )
 
 	}
 }

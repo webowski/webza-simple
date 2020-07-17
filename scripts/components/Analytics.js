@@ -1,4 +1,4 @@
-let statElements = document.body.querySelectorAll('.do-statYa')
+let statElements = document.body.querySelectorAll('[data-goal]')
 
 statElements.forEach(element => {
 	let goal = element.dataset.goal
@@ -15,4 +15,4 @@ statElements.forEach(element => {
 
 })
 
-// class="do-statYa" data-goal="{'click', 'OPENLS'}"
+// data-goal="{'click', 'OPENLS'}"

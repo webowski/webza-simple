@@ -1,1 +1,2 @@
-console.log( 'components/editor.js' );
+const path = 'components/editor.js'
+console.log( path );
