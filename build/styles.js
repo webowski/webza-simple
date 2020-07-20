@@ -74,6 +74,7 @@ module.exports = (gulp, tools) => {
 		let streamSeparate = gulp.src(stylesSeparateScss, {
 				cwd: './',
 				nosort: true,
+				allowEmpty: true,
 			})
 			.pipe(tools.through.obj( (vinyl, encoding, callback) => {
 
@@ -94,6 +95,7 @@ module.exports = (gulp, tools) => {
 			.pipe(gulp.src(stylesSeparateCss, {
 				cwd: './',
 				nosort: true,
+				allowEmpty: true,
 			}))
 			.pipe(tools.autoprefixer())
 			.pipe(tools.csso())
@@ -127,6 +129,7 @@ module.exports = (gulp, tools) => {
 			let streamConcatScss = gulp.src( stylesConcatScss, {
 					cwd: './',
 					nosort: true,
+					allowEmpty: true,
 				})
 				.pipe(tools.through.obj( (vinyl, encoding, callback) => {
 
