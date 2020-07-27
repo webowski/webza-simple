@@ -35,13 +35,20 @@ let tools = {
 	uglify:              require('gulp-terser'),
 	concat:              require('gulp-concat'),
 	es:                  require('event-stream'),
+	prompt:              require('enquirer'),
 }
-
-
 
 const getTask = (task) => {
 	return require('./build/' + task)(gulp, tools);
 }
+
+// Config
+try {
+	let configSpecial = require('./build/config-special.js')()
+	tools.config = { ...tools.config, ...configSpecial }
+} catch {}
+
+gulp.task('config',       getTask('task-config'));
 
 // Browsersync
 gulp.task('browsersync',  getTask('browsersync'));

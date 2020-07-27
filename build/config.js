@@ -1,3 +1,13 @@
+/* Чтобы задать имя тэстового хоста нужно создать файл config-special.js с содержанием:
+module.exports = () => {
+ 	return {
+ 		server: {
+ 			host: 'localhost',
+ 		}
+ 	}
+}
+*/
+
 module.exports = () => {
 
 	return {
