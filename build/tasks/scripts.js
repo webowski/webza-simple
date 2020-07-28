@@ -57,7 +57,6 @@ module.exports = (gulp, tools) => {
 
 				callback(null, vinyl);
 			}))
-			// .pipe(gulp.dest('./scripts/min/'))
 
 		// let streamScriptsConcat = gulp.src(scripts.concat, {
 		// 		cwd: './',
@@ -124,76 +123,56 @@ module.exports = (gulp, tools) => {
 		// 	// .pipe(tools.browserSync.stream())
 		// 	// .pipe(buffer())     // to continue using the stream
 
+		scripts.concatUMD = scripts.concat.filter( (value) => {
+			return value !== 'scripts/common.js'
+		})
 
-		var streamBrowserify = tools.browserify({ entries: ['scripts/common.js'] })
-				.transform(tools.babelify.configure({
-					presets: [
-						[
-							'@babel/preset-env',
-							{
-								"targets": {
-									"ie": "11",
-									// "esmodules": true,
-								},
-								"corejs": "^3.6.4",
-								"useBuiltIns": "usage",
-								// "modules": "commonjs",
-							}
+		var streamBrowserify =
+
+			tools.merge([
+
+				gulp.src( scripts.concatUMD, {
+					cwd: './',
+					nosort: true,
+					allowEmpty: true,
+				}),
+
+				tools.browserify({ entries: ['scripts/common.js'] })
+					.transform(tools.babelify.configure({
+						presets: [
+							[
+								'@babel/preset-env',
+								{
+									"targets": {
+										"ie": "11",
+										// "esmodules": true,
+									},
+									"corejs": "^3.6.4",
+									"useBuiltIns": "usage",
+									// "modules": "commonjs",
+								}
+							],
 						],
-					],
-					// tools: ['transform-runtime']
-					// babel/preset-flow
-				})
-			)
-			.bundle()
-			.pipe(tools.source('common.js'))
-			.pipe(gulp.src('./scripts/components/editor.js'))
-			.pipe(tools.through.obj( (vinyl, encoding, callback) => {
+						// tools: ['transform-runtime']
+						// babel/preset-flow
+					})
+				)
+				.bundle()
+				.pipe(tools.source('common.js'))
 
-				console.dir( vinyl.path );
-				callback(null, vinyl);
-			}))
-			.pipe(tools.streamify(tools.uglify({
+			])
+			// .pipe(tools.through.obj( (vinyl, encoding, callback) => {
+
+			// 	console.dir( vinyl.path );
+			// 	callback(null, vinyl);
+			// }))
+			.pipe(tools.streamify(tools.concat('common.js')))
+			.pipe(tools.uglify({
 				output: {
 					comments: false,
 				}
-			})))
+			}))
 			.pipe(gulp.dest('./scripts/min'));
-
-		// console.log( streamBrowserify );
-
-
-		// return tools.browserify([
-		// 		'./scripts/app.js',
-		// 	])
-		// 	.transform(tools.babelify.configure({
-		// 		presets: [
-		// 			[
-		// 				'@babel/preset-env',
-		// 				{
-		// 					"targets": {
-		// 						"ie": "11",
-		// 						// "esmodules": true,
-		// 					},
-		// 					"corejs": "^3.6.4",
-		// 					"useBuiltIns": "usage",
-		// 					// "modules": "commonjs",
-		// 				}
-		// 			],
-		// 		],
-		// 		// tools: ['transform-runtime']
-		// 		// babel/preset-flow
-		// 	}))
-		// 	.bundle()
-		// 	.pipe(tools.source('app.min.js'))
-		// 	.pipe(tools.streamify(tools.uglify({
-		// 		output: {
-		// 			comments: false,
-		// 		}
-		// 	})))
-		// 	.pipe(gulp.dest('./scripts/'))
-		// 	.pipe(tools.browserSync.stream())
-		// 	// .pipe(buffer())     // to continue using the stream
 
 		return tools.merge( streamScripts, streamBrowserify )
 

@@ -36,8 +36,12 @@ module.exports = () => { return {
 		],
 		// will processed with concatenating to `scripts/min/common.js`
 		concat: [
+
+			// NOT ES6
 			'scripts/components/editor.js',
-			'scripts/common.js', // ES6
+
+			// ES6
+			'scripts/common.js',
 		],
 		beginningsToRemove: [
 			'node_modules/',
