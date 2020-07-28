@@ -21,7 +21,8 @@ module.exports = (gulp, tools) => {
 			host: '${res.host}',
 		}
 	}
-}`;
+}
+`;
 
 				tools.fs.outputFileSync(file, content)
 

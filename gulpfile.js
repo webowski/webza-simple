@@ -78,7 +78,7 @@ gulp.task('default', gulp.parallel(
 
 // Development
 gulp.task('dev', gulp.parallel(
-	// 'browsersync',
+	'browsersync',
 	'watch',
 	'styles',
 	// 'scripts',
