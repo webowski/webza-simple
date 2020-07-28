@@ -36,19 +36,20 @@ let tools = {
 	concat:              require('gulp-concat'),
 	es:                  require('event-stream'),
 	prompt:              require('enquirer'),
+	chalk:               require('chalk'),
 }
 
 const getTask = (task) => {
-	return require('./build/' + task)(gulp, tools);
+	return require('./build/tasks/' + task)(gulp, tools);
 }
 
 // Config
 try {
 	let configSpecial = require('./build/config-special.js')()
 	tools.config = { ...tools.config, ...configSpecial }
-} catch {}
+} catch { }
 
-gulp.task('config',       getTask('task-config'));
+gulp.task('config',       getTask('config'));
 
 // Browsersync
 gulp.task('browsersync',  getTask('browsersync'));

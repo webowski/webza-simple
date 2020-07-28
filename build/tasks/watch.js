@@ -27,6 +27,7 @@ module.exports = (gulp, tools) => {
 				'scripts/**/*.js',
 				'!scripts/app.min.js',
 				'!scripts/head-scripts.min.js',
+				'!scripts/head-scripts-2.min.js',
 				'!scripts/footer-scripts.min.js',
 			],
 			{cwd: './'},
