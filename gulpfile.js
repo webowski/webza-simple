@@ -21,6 +21,8 @@ let tools = {
 	postcss:             require('gulp-postcss'),
 	postcssCustomProps:  require('postcss-custom-properties'),
 
+	mustache:            require('gulp-mustache'),
+
 	bro:                 require('gulp-bro'),
 	browserify:          require('browserify'),
 	buffer:              require('vinyl-buffer'),
@@ -53,6 +55,9 @@ gulp.task('config',       getTask('config'));
 
 // Browsersync
 gulp.task('browsersync',  getTask('browsersync'));
+
+// Templates
+gulp.task('templates',    getTask('templates'));
 
 // Styles
 gulp.task('styles',       getTask('styles'));
