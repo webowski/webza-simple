@@ -32,10 +32,53 @@ module.exports = (gulp, tools) => {
 
 		let scripts = tools.config.scripts
 
+		// scripts.separateEsm = scripts.concat.filter( (value) => {
+		// 	return isEsm()
+		// })
+
 		let streamScripts = gulp.src(scripts.separate, {
 				cwd: './',
 				nosort: true,
 			})
+			// .pipe(tools.through.obj( (vinyl, encoding, callback) => {
+
+			// 	console.log( vinyl.basename );
+
+			// 	// vinyl.path = tools.path.relative(vinyl.cwd, vinyl.path)
+
+			// 	// console.dir( vinyl.path );
+
+			// 	var vinylNew = tools.browserify([
+			// 		// './scripts/common.js',
+			// 		'./' + vinyl.path
+			// 	])
+			// 	.transform(tools.babelify.configure({
+			// 		presets: [
+			// 			[
+			// 				'@babel/preset-env',
+			// 				{
+			// 					"targets": {
+			// 						"ie": "11",
+			// 						// "esmodules": true,
+			// 					},
+			// 					"corejs": "^3.6.4",
+			// 					"useBuiltIns": "usage",
+			// 					// "modules": "commonjs",
+			// 				}
+			// 			],
+			// 		],
+			// 		// tools: ['transform-runtime']
+			// 		// babel/preset-flow
+			// 	}))
+			// 	.bundle()
+			// 	// .pipe(tools.source(vinyl.basename))
+			// 	.pipe(tools.buffer())
+			// 	// .pipe(tools.streamify(
+			// 	// 	tools.concat('common.js'))
+			// 	// )
+
+			// 	callback(null, vinyl);
+			// }))
 			.pipe(tools.uglify({
 				output: {
 					comments: false,
@@ -123,7 +166,7 @@ module.exports = (gulp, tools) => {
 		// 	// .pipe(tools.browserSync.stream())
 		// 	// .pipe(buffer())     // to continue using the stream
 
-		scripts.concatUMD = scripts.concat.filter( (value) => {
+		scripts.concatUmd = scripts.concat.filter( (value) => {
 			return value !== 'scripts/common.js'
 		})
 
@@ -131,7 +174,7 @@ module.exports = (gulp, tools) => {
 
 			tools.merge([
 
-				gulp.src( scripts.concatUMD, {
+				gulp.src( scripts.concatUmd, {
 					cwd: './',
 					nosort: true,
 					allowEmpty: true,

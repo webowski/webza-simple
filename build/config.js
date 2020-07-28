@@ -31,14 +31,14 @@ module.exports = () => { return {
 		separate: [
 			'node_modules/@glidejs/glide/dist/glide.min.js',
 			'node_modules/basiclightbox/dist/basicLightbox.min.js',
-			'scripts/components/editor.js',
+			'scripts/components/Editor.js',
 			// 'scripts/pages/settings.js',
 		],
 		// will processed with concatenating to `scripts/min/common.js`
 		concat: [
 
 			// NOT ES6
-			'scripts/components/editor.js',
+			'scripts/components/Editor.js',
 
 			// ES6
 			'scripts/common.js',
