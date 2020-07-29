@@ -16,13 +16,3 @@
 		box-shadow $duration--sm,
 		transform $duration--sm;
 }
-
-.Badge:hover {
-	color: $voice;
-	border-color: $voice;
-}
-
-.Badge--white {
-	color: $white;
-	border-color: $white;
-}
