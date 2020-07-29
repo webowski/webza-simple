@@ -17,16 +17,12 @@ module.exports = (gulp, tools) => {
 			}
 		}
 
-		console.dir( syncConfig )
-
 		if (tools.config.server && tools.config.server.host) {
 			let host = tools.config.server.host
 
 			syncConfig.proxy = 'http://' + host
 			syncConfig.host = host
 			delete syncConfig.server
-
-			console.dir( syncConfig )
 		}
 
 		tools.browserSync.init( syncConfig );
