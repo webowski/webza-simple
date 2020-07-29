@@ -76,6 +76,7 @@ gulp.task('browser-reload', () => { return tools.browserSync.reload() });
 
 // Default
 gulp.task('default', gulp.parallel(
+	'templates',
 	'icons',
 	'scripts',
 	'styles',
@@ -85,6 +86,7 @@ gulp.task('default', gulp.parallel(
 gulp.task('dev', gulp.parallel(
 	'browsersync',
 	'watch',
+	'templates',
 	'styles',
 	'scripts',
 	'icons',

@@ -29,30 +29,32 @@ module.exports = (gulp, tools) => {
 				const file = './build/config-special.js'
 
 				let content = `module.exports = () => {
-	return {
-		server: {
-			type: 'static',
-		}
-	}
-}
-`;
+						return {
+							server: {
+								type: 'static',
+							}
+						}
+					}
+					`;
 
 				if (res.serverType === 'Статический (localhost)') {
+
 					tools.fs.outputFileSync(file, content)
 					done()
+
 				} else {
 
 					prompt(question2)
 						.then(res => {
 
 							content = `module.exports = () => {
-	return {
-		server: {
-			host: '${res.host}',
-		}
-	}
-}
-`;
+									return {
+										server: {
+											host: '${res.host}',
+										}
+									}
+								}
+								`;
 
 							tools.fs.outputFileSync(file, content)
 
