@@ -1,9 +1,10 @@
-.fit {
+.fit-100 {
+	box-sizing: border-box;
 	width: 100%;
 	display: block;
 }
 
-.sm-fit {
+.fit-smDown-100 {
 	@include mediaDown(md) {
 		box-sizing: border-box;
 		width: 100% !important;
