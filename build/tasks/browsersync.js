@@ -6,16 +6,23 @@ module.exports = (gulp, tools) => {
 			notify: false,
 			logLevel: 'debug',
 			open: false,
-			proxy: 'http://localhost',
-			host: 'localhost',
+
+			// Host
+			// proxy: 'http://localhost',
+			// host: 'localhost',
+
+			// Static
+			server: {
+				baseDir: "./"
+			}
 		}
 
-		if (tools.config.server && tools.config.server.host) {
-			let host = tools.config.server.host
+		// if (tools.config.server && tools.config.server.host) {
+		// 	let host = tools.config.server.host
 
-			syncConfig.proxy = 'http://' + host
-			syncConfig.host = host
-		}
+		// 	syncConfig.proxy = 'http://' + host
+		// 	syncConfig.host = host
+		// }
 
 		tools.browserSync.init( syncConfig );
 

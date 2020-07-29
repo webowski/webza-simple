@@ -86,6 +86,6 @@ gulp.task('dev', gulp.parallel(
 	'browsersync',
 	'watch',
 	'styles',
-	// 'scripts',
-	// 'icons',
+	'scripts',
+	'icons',
 ));

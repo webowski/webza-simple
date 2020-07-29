@@ -447,32 +447,32 @@
 
 /* Visibility, reach, etc. */
 
-.visually-hidden {
+.visuallyHidden {
 	@include visuallyHidden;
 }
 
 
-.shift-up-1 {
+.shiftUp-1 {
 	margin-top: -1px !important;
 }
 
-.shift-up-2 {
+.shiftUp-2 {
 	margin-top: -2px !important;
 }
 
-.shift-up-3 {
+.shiftUp-3 {
 	margin-top: -3px !important;
 }
 
-.shift-down-1 {
+.shiftDown-1 {
 	margin-top: 1px !important;
 }
 
-.shift-down-2 {
+.shiftDown-2 {
 	margin-top: 2px !important;
 }
 
-.shift-down-3 {
+.shiftDown-3 {
 	margin-top: 3px !important;
 }
 

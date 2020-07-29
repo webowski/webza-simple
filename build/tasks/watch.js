@@ -1,7 +1,7 @@
 module.exports = (gulp, tools) => {
 	return function () {
 
-		// styles
+		// Styles
 		gulp.watch(
 			[
 				'styles/**/*.scss',
@@ -10,7 +10,7 @@ module.exports = (gulp, tools) => {
 			],
 			{cwd: './'},
 			gulp.series('styles')
-		);
+		)
 
 		// // scripts
 		// gulp.watch(
@@ -21,10 +21,11 @@ module.exports = (gulp, tools) => {
 		// 	gulp.series('scripts:concat')
 		// )
 
-		// scripts new
+		// Scripts new
 		gulp.watch(
 			[
 				'scripts/**/*.js',
+				'!scripts/min/**/*',
 				'!scripts/app.min.js',
 				'!scripts/head-scripts.min.js',
 				'!scripts/head-scripts-2.min.js',
@@ -32,9 +33,9 @@ module.exports = (gulp, tools) => {
 			],
 			{cwd: './'},
 			gulp.series('scripts')
-		);
+		)
 
-		// markup etc.
+		// Markup etc.
 		gulp.watch(
 			[
 				'templates/**/*.twig',
@@ -43,7 +44,16 @@ module.exports = (gulp, tools) => {
 				'content/**/*.php',
 			],
 			{cwd: './'},
-		).on('change', tools.browserSync.reload);
+		).on('change', tools.browserSync.reload)
+
+		// Templates
+		gulp.watch(
+			[
+				'templates/**/*.mustache',
+			],
+			{cwd: './'},
+			gulp.series('templates')
+		)
 
 		// php
 		// gulp.watch(
@@ -51,19 +61,19 @@ module.exports = (gulp, tools) => {
 		// 	// ['**/*.php'],
 		// 	{cwd: './'},
 		// 	gulp.series('browser-reload')
-		// );
+		// )
 
 		// vector sprite
 		gulp.watch(
 			['images/vector-icons/*.svg'],
 			{cwd: './'},
 			gulp.series('icons')
-		);
+		)
 
 		// images
 		// gulp.watch(
 		// 	'./images/**/*').on('change', tools.browserSync.reload
-		// );
+		// )
 
 	}
 }

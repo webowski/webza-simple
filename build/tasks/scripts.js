@@ -174,12 +174,14 @@ module.exports = (gulp, tools) => {
 
 			tools.merge([
 
+				// umd
 				gulp.src( scripts.concatUmd, {
 					cwd: './',
 					nosort: true,
 					allowEmpty: true,
 				}),
 
+				// es6
 				tools.browserify({ entries: ['scripts/common.js'] })
 					.transform(tools.babelify.configure({
 						presets: [
