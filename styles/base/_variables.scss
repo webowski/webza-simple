@@ -75,13 +75,13 @@ $breakpoints: (
 // Grid
 // ---------------------
 $gridColumns:               24;
-$gridGutter:                30px;
-$gridGutter--xxs:            8px;
-$gridGutter--xs:            12px;
-$gridGutter--sm:            20px;
-$gridGutter--md:            $gridGutter;
-$gridGutter--lg:            48px;
-$gridGutter--xl:            60px;
+$gridGap:                   30px;
+$gridGap--xxs:              8px;
+$gridGap--xs:               12px;
+$gridGap--sm:               20px;
+$gridGap--md:               $gridGap;
+$gridGap--lg:               48px;
+$gridGap--xl:               60px;
 
 
 //  Spacing

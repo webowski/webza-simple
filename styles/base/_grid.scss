@@ -1,8 +1,8 @@
 .row {
 	display: flex;
 	flex-wrap: wrap;
-	margin-right: -$gridGutter / 2;
-	margin-left: -$gridGutter / 2;
+	margin-right: -$gridGap / 2;
+	margin-left: -$gridGap / 2;
 }
 
 .col,
@@ -94,7 +94,7 @@
 	}
 }
 
-.row.no-gutter {
+.row.no-gap {
 	margin-left: 0;
 	margin-right: 0;
 	min-width: 100%;
@@ -105,77 +105,77 @@
 	}
 }
 
-.row.gutter-xxs {
-	/* min-width: calc(100% + #{$gridGutter--xxs}); */
-	margin-left: - $gridGutter--xxs / 2;
-	margin-right: - $gridGutter--xxs / 2;
+.row.gap-xxs {
+	/* min-width: calc(100% + #{$gridGap--xxs}); */
+	margin-left: - $gridGap--xxs / 2;
+	margin-right: - $gridGap--xxs / 2;
 
 	>* {
-		padding-right: $gridGutter--xxs / 2;
-		padding-left: $gridGutter--xxs / 2;
+		padding-right: $gridGap--xxs / 2;
+		padding-left: $gridGap--xxs / 2;
 	}
 }
 
-.row.gutter-xs {
-	/* min-width: calc(100% + #{$gridGutter--xs}); */
-	margin-left: - $gridGutter--xs / 2;
-	margin-right: - $gridGutter--xs / 2;
+.row.gap-xs {
+	/* min-width: calc(100% + #{$gridGap--xs}); */
+	margin-left: - $gridGap--xs / 2;
+	margin-right: - $gridGap--xs / 2;
 
 	>* {
-		padding-right: $gridGutter--xs / 2;
-		padding-left: $gridGutter--xs / 2;
+		padding-right: $gridGap--xs / 2;
+		padding-left: $gridGap--xs / 2;
 	}
 }
 
-.row.gutter-sm {
-	/* min-width: calc(100% + #{$gridGutter--xs}); */
-	margin-left: - $gridGutter--sm / 2;
-	margin-right: - $gridGutter--sm / 2;
+.row.gap-sm {
+	/* min-width: calc(100% + #{$gridGap--xs}); */
+	margin-left: - $gridGap--sm / 2;
+	margin-right: - $gridGap--sm / 2;
 
 	>* {
-		padding-right: $gridGutter--sm / 2;
-		padding-left: $gridGutter--sm / 2;
+		padding-right: $gridGap--sm / 2;
+		padding-left: $gridGap--sm / 2;
 	}
 }
 
 .grid > .row {
-	margin-top: -$gridGutter / 2;
-	margin-bottom: -$gridGutter / 2;
+	margin-top: -$gridGap / 2;
+	margin-bottom: -$gridGap / 2;
 }
 
 .grid > .row > * {
-	padding-top: $gridGutter / 2;
-	padding-bottom: $gridGutter / 2;
+	padding-top: $gridGap / 2;
+	padding-bottom: $gridGap / 2;
 }
 
-.grid > .row.gutter-sm {
-	margin-top: -$gridGutter--sm / 2;
-	margin-bottom: -$gridGutter--sm / 2;
+.grid > .row.gap-sm {
+	margin-top: -$gridGap--sm / 2;
+	margin-bottom: -$gridGap--sm / 2;
 }
 
-.grid > .row.gutter-sm > * {
-	padding-top: $gridGutter--sm / 2;
-	padding-bottom: $gridGutter--sm / 2;
+.grid > .row.gap-sm > * {
+	padding-top: $gridGap--sm / 2;
+	padding-bottom: $gridGap--sm / 2;
 }
 
-.grid > .row.gutter-xs {
-	margin-top: -$gridGutter--xs / 2;
-	margin-bottom: -$gridGutter--xs / 2;
+.grid > .row.gap-xs {
+	margin-top: -$gridGap--xs / 2;
+	margin-bottom: -$gridGap--xs / 2;
 }
 
-.grid > .row.gutter-xs > * {
-	padding-top: $gridGutter--xs / 2;
-	padding-bottom: $gridGutter--xs / 2;
+.grid > .row.gap-xs > * {
+	padding-top: $gridGap--xs / 2;
+	padding-bottom: $gridGap--xs / 2;
 }
 
-.grid > .row.gutter-xxs {
-	margin-top: -$gridGutter--xxs / 2;
-	margin-bottom: -$gridGutter--xxs / 2;
+.grid > .row.gap-xxs {
+	margin-top: -$gridGap--xxs / 2;
+	margin-bottom: -$gridGap--xxs / 2;
 }
 
-.grid > .row.gutter-xxs > * {
-	padding-top: $gridGutter--xxs / 2;
-	padding-bottom: $gridGutter--xxs / 2;
+.grid > .row.gap-xxs > * {
+	padding-top: $gridGap--xxs / 2;
+	padding-bottom: $gridGap--xxs / 2;
 }
 
 // Custom
@@ -184,7 +184,7 @@
 		max-width: calc(100% - 330px);
 	}
 
-	.row.gutter-sm > .col--main {
+	.row.gap-sm > .col--main {
 		max-width: calc(100% - 320px);
 	}
 }
@@ -202,6 +202,6 @@
 	max-width: calc(300px + 30px);
 }
 
-.row.gutter-sm > .col--main {
+.row.gap-sm > .col--main {
 	max-width: calc(300px + 20px);
 }
