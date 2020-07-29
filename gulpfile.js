@@ -6,7 +6,7 @@ let tools = {
 	fs:                  require('fs-extra'),
 	path:                require('path'),
 	rename:              require('gulp-rename'),
-	sort:                require('gulp-sort'),
+	// sort:                require('gulp-sort'),
 
 	browserSync:         require('browser-sync').create(),
 
@@ -23,11 +23,11 @@ let tools = {
 
 	mustache:            require('gulp-mustache'),
 
-	bro:                 require('gulp-bro'),
+	// bro:                 require('gulp-bro'),
 	browserify:          require('browserify'),
 	buffer:              require('vinyl-buffer'),
 	babelify:            require('babelify'),
-	uglifyify:           require('uglifyify'),
+	// uglifyify:           require('uglifyify'),
 	source:              require('vinyl-source-stream'),
 	transform:           require('vinyl-transform'),
 	through:             require('through2'),
