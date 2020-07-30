@@ -5,7 +5,7 @@
 	margin-left: -$gridGap / 2;
 }
 
-.col-basic,
+.col-eq,
 .col-auto {
 	@include makeColumnReady;
 }
@@ -16,8 +16,8 @@
 	}
 }
 
-.col-basic {
-	@include makeColumnBasic;
+.col-eq {
+	@include makeColumnEq;
 }
 
 .col-auto {
@@ -31,8 +31,8 @@
 }
 
 @include mediaUp(sm) {
-	.col-sm-basic {
-		@include makeColumnBasic;
+	.col-sm-eq {
+		@include makeColumnEq;
 	}
 	.col-sm-auto {
 		@include makeColumnAuto;
@@ -47,8 +47,8 @@
 }
 
 @include mediaUp(md) {
-	.col-md-basic {
-		@include makeColumnBasic;
+	.col-md-eq {
+		@include makeColumnEq;
 	}
 	.col-md-auto {
 		@include makeColumnAuto;
@@ -63,8 +63,8 @@
 }
 
 @include mediaUp(lg) {
-	.col-lg-basic {
-		@include makeColumnBasic;
+	.col-lg-eq {
+		@include makeColumnEq;
 	}
 	.col-lg-auto {
 		@include makeColumnAuto;
@@ -79,8 +79,8 @@
 }
 
 @include mediaUp(xl) {
-	.col-xl-basic {
-		@include makeColumnBasic;
+	.col-xl-eq {
+		@include makeColumnEq;
 	}
 	.col-xl-auto {
 		@include makeColumnAuto;
