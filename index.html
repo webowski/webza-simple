@@ -50,60 +50,10 @@
 
 					<div class="Box">
 
-						<h3>Именование CSS классов</h3>
-						<pre><code class="html">&lt;div class="SomeBlock SomeBlock--modifier do-scriptMagic is-stateModifier"&gt;
-	&lt;div class="SomeBlock__innerBlock"&gt;
-		&lt;div class="row gap-xs"&gt;
-			&lt;div class="col-18"&gt;
+						<h3>Именование CSS-классов</h3>
 
-			&lt;/div&gt;
-			&lt;div class="col-6"&gt;
+						<p><a href="https://webowski.github.io/ubem/" target="_blank">UBEM</a></p>
 
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-
-						<!-- <pre><code>&lt;div class="SomeBlock -modifier is-stateModifier"&gt;
-	&lt;div class="SomeBlock__innerBlock"&gt;&lt;/div&gt;
-&lt;/div&gt;</code></pre> -->
-						<ul class="list">
-							<li><code>.SomeBlock</code> - блок (TitleCase)</li>
-							<li><code>.SomeBlock__innerBlock</code> — элемент</li>
-							<li>Модификаторы:
-								<ul>
-									<li><code>.SomeBlock--modifier</code> — модификатор (camelCase)</li>
-									<li><code>.is-*</code> — состояние блока (<code>is-selected</code>)</li>
-									<li><code>.has-*</code> — наличие потомка, или состояние (<code>has-focus</code> например)</li>
-								</ul>
-							</li>
-							<li><code>.do-*</code> — префикс классов для навешивания скриптов</li>
-							<!-- <li><code>.*-set</code> — обёртка для повторяющихся блоков</li> -->
-							<!-- <li><code>.*-card</code> — повторяющийся блок (комментарий, статья)</li> -->
-							<li>Сетка <code>.row</code>, <code>.col-*</code>, <code>.grid</code>, <code>.gap-*</code></li>
-							<li>Утилиты
-								<ul class="list">
-									<li>Кастомные <code>.u-whatItDoes</code> (<code>.u-expandLinkArea</code>)</li>
-									<li>Атомарные
-										<ul class="list">
-											<li>блочные: <code>.d-*</code>, <code>.justify-*</code>, <code>.align-*</code></li>
-											<!-- <li><code>.border-*</code> </li> -->
-											<li>поля и отступы <code>.p-*</code> <code>.mx-*</code></li>
-											<!-- <li><code>.shadow-*</code> </li> -->
-											<li>текстовые: <code>.text-*</code>, <code>.font-*</code>, <code>.color-*</code>, <code>.list-*</code> (<code>.font-size-sm</code>)</li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li>Классы глобального контекста <code>.g-*</code> (<code>.g-mobile</code>, <code>.g-logged</code>, <code>.g-loggedUrist</code>)</li>
-						</ul>
-
-						<hr class="hr">
-
-						<h3 class="color-danger">Нельзя</h3>
-
-						<h5>Скрещивать блоки</h5>
-						<p><code class="html">&lt;div class="SomeBlock AnotherBlock"&gt;&lt;/div&gt;</code></p>
 						<hr class="hr">
 
 						<h3>Сборка (gulp)</h3>
