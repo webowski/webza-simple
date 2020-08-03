@@ -1,5 +1,5 @@
 module.exports = (gulp, tools) => {
-	return async done => {
+	return done => {
 
 		const { prompt } = tools.prompt;
 
@@ -60,17 +60,18 @@ module.exports = (gulp, tools) => {
 
 							console.log(
 								'\n',
-								'Адрес ' +
+								' Адрес ' +
 									tools.chalk.blue.bold( res.host ) +
 									' записан в ' +
 									tools.chalk.blue.bold( 'build/config-special.js' ),
 								'\n'
 							)
 
+							done()
+
 						})
 						.catch(() => { return false })
 
-					done()
 				}
 
 
