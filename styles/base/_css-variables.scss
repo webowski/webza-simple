@@ -29,6 +29,8 @@
 	--containerMax:         1150px;
 	--sidePadding:          16px;
 
+	--gap:                  #{$gap};
+
 	@media (min-width: $sm) {
 		--sidePadding:          20px;
 	}
