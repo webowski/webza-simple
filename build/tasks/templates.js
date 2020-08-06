@@ -7,6 +7,7 @@ module.exports = (gulp, tools) => {
 			},{
 				extension: '.html'
 			}))
+			// .pipe(tools.htmlmin({ collapseWhitespace: true }))
 			.pipe(gulp.dest("./html"))
 	}
 }

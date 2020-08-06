@@ -1,6 +1,6 @@
 const gulp =             require('gulp')
 
-let tools = {
+const tools = {
 	config:              require('./build/config.js')(),
 
 	fs:                  require('fs-extra'),
@@ -21,6 +21,7 @@ let tools = {
 	postcss:             require('gulp-postcss'),
 	postcssCustomProps:  require('postcss-custom-properties'),
 
+	htmlmin:             require('gulp-htmlmin'),
 	mustache:            require('gulp-mustache'),
 
 	// bro:                 require('gulp-bro'),
@@ -41,7 +42,7 @@ let tools = {
 	chalk:               require('chalk'),
 }
 
-const getTask = (task) => {
+const getTask = task => {
 	return require('./build/tasks/' + task)(gulp, tools);
 }
 
