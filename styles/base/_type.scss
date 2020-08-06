@@ -10,10 +10,10 @@ a {
 	color: var(--voice);
 	border-bottom: 1px solid currentColor;
 	transition:
-		color $duration--sm,
-		border-color $duration--sm,
-		background-color $duration--sm,
-		box-shadow $duration--sm;
+		color $duration-sm,
+		border-color $duration-sm,
+		background-color $duration-sm,
+		box-shadow $duration-sm;
 }
 
 a:hover {

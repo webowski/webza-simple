@@ -29,8 +29,8 @@
 	opacity: 0;
 	visibility: hidden;
 	transition:
-		opacity $duration--lg,
-		visibility 0s linear $duration--lg;
+		opacity $duration-lg,
+		visibility 0s linear $duration-lg;
 	pointer-events: none;
 	will-change: opacity;
 }
@@ -38,7 +38,7 @@
 .Header__overlay.is-shown {
 	visibility: visible;
 	opacity: .2;
-	transition: opacity $duration--lg;
+	transition: opacity $duration-lg;
 }
 
 [data-theme="dark"] .Header__overlay.is-shown {
@@ -77,7 +77,7 @@
 	max-width: 100%;
 	height: auto;
 	cursor: pointer;
-	transition: fill $duration--sm;
+	transition: fill $duration-sm;
 }
 
 .Logo:hover svg {

@@ -75,27 +75,27 @@ $breakpoints: (
 // Grid
 // ---------------------
 $gridColumns:               24;
-$gap:                   30px;
-$gap--xxs:              8px;
-$gap--xs:               12px;
-$gap--sm:               20px;
-$gap--md:               $gap;
-$gap--lg:               48px;
-$gap--xl:               60px;
+$gap:                       30px;
+$gap-xxs:                   8px;
+$gap-xs:                    12px;
+$gap-sm:                    20px;
+$gap-md:                    $gap;
+$gap-lg:                    48px;
+$gap-xl:                    60px;
 
 
 //  Spacing
 // ---------------------
-$spacer:              10px;
+$spacer:                    10px;
 
 
 // Transition & Animation
 // ---------------------
-$duration--sm:        .12s;
-$duration:            .2s;
-$duration--lg:        .3s;
-$duration--xl:        .6s;
-$duration--xxl:       1s;
+$duration-sm:               .12s;
+$duration:                  .2s;
+$duration-lg:               .3s;
+$duration-xl:               .6s;
+$duration-xxl:              1s;
 
 
 // Libraries
@@ -107,5 +107,5 @@ $glide-class:               'Glide';
 // basicLightbox
 $basicLightbox__background: rgba(0, 0, 0, .8);
 $basicLightbox__zIndex:     1000;
-$basicLightbox__duration:   $duration--lg;
+$basicLightbox__duration:   $duration-lg;
 $basicLightbox__timing:     linear;
