@@ -16,8 +16,8 @@ module.exports = (gulp, tools) => {
 		const question2 = [{
 			type: 'input',
 			name: 'host',
-			// message: 'Файл `build/config-special.js` будет перезаписан.\n  Введите свой тестовый адрес (например test.dev):'
-			message: 'Введите свой тестовый адрес (например test.dev):'
+			// message: 'Файл `build/config-special.js` будет перезаписан.\n  Введите свой тестовый адрес (например domain.dev):'
+			message: 'Введите свой тестовый адрес (например domain.dev):'
 		}]
 
 		console.log('')
