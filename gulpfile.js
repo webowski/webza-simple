@@ -1,18 +1,28 @@
 const gulp =             require('gulp')
 
 const tools = {
+	// common
 	config:              require('./build/config.js')(),
-
+	buffer:              require('vinyl-buffer'),
+	source:              require('vinyl-source-stream'),
+	streamify:           require('gulp-streamify'),
+	// transform:           require('vinyl-transform'),
+	// str:                 require('string-to-stream'),
+	// es:                  require('event-stream'),
+	merge:               require('merge2'),
+	through:             require('through2'),
 	fs:                  require('fs-extra'),
 	path:                require('path'),
 	rename:              require('gulp-rename'),
-	// sort:                require('gulp-sort'),
 
+	// server
 	browserSync:         require('browser-sync').create(),
 
+	// graphic
 	svgSprite:           require('gulp-svg-sprite'),
 	svgmin:              require('gulp-svgmin'),
 
+	// styles
 	sass:                require('gulp-sass'),
 	csso:                require('gulp-csso'),
 	autoprefixer:        require('gulp-autoprefixer'),
@@ -21,22 +31,17 @@ const tools = {
 	postcss:             require('gulp-postcss'),
 	postcssCustomProps:  require('postcss-custom-properties'),
 
+	// scripts
+	browserify:          require('browserify'),
+	babelify:            require('babelify'),
+	uglify:              require('gulp-terser'),
+	concat:              require('gulp-concat'),
+
+	// markup
 	htmlmin:             require('gulp-htmlmin'),
 	mustache:            require('gulp-mustache'),
 
-	// bro:                 require('gulp-bro'),
-	browserify:          require('browserify'),
-	buffer:              require('vinyl-buffer'),
-	babelify:            require('babelify'),
-	source:              require('vinyl-source-stream'),
-	transform:           require('vinyl-transform'),
-	through:             require('through2'),
-	merge:               require('merge2'),
-	str:                 require('string-to-stream'),
-	streamify:           require('gulp-streamify'),
-	uglify:              require('gulp-terser'),
-	concat:              require('gulp-concat'),
-	es:                  require('event-stream'),
+	// console output
 	prompt:              require('enquirer'),
 	chalk:               require('chalk'),
 }
