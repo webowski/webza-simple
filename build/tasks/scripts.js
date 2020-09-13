@@ -1,7 +1,5 @@
 module.exports = (gulp, tools) => {
 
-	const uglifyify = require('uglifyify');
-
 	// make a destination folder
 	const makeDest = vinyl => {
 
@@ -200,10 +198,10 @@ module.exports = (gulp, tools) => {
 						],
 						// tools: ['transform-runtime']
 						// babel/preset-flow
-					})
-				)
-				.bundle()
-				.pipe(tools.source('common.js'))
+					}))
+					// .transform(vueify)
+					.bundle()
+					.pipe(tools.source('common.js'))
 
 			])
 			// .pipe(tools.through.obj( (vinyl, encoding, callback) => {

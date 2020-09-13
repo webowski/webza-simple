@@ -1,7 +1,7 @@
 // Vector icons sprite
 // =======================
 
-fetch('/images-new/vector-icons.min.svg')
+fetch('/images/vector-icons.min.svg')
 	.then(response => response.text())
 	.then(text => {
 		let container = document.createElement('div')

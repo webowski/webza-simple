@@ -28,7 +28,6 @@ const tools = {
 	browserify:          require('browserify'),
 	buffer:              require('vinyl-buffer'),
 	babelify:            require('babelify'),
-	// uglifyify:           require('uglifyify'),
 	source:              require('vinyl-source-stream'),
 	transform:           require('vinyl-transform'),
 	through:             require('through2'),

@@ -1,4 +1,5 @@
-import Glide from '@glidejs/glide'
+import Glide, { Breakpoints } from '@glidejs/glide/dist/glide.modular.esm'
+// import Glide, {} from '@glidejs/glide'
 
 
 // Glide slider

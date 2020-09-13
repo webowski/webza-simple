@@ -22,11 +22,9 @@ module.exports = (gulp, tools) => {
 
 		console.log('')
 
-
 		prompt(question1)
 			.then(res => {
-
-				const file = './build/config-special.js'
+				let file = './build/config-special.js'
 
 				let content = `module.exports = () => {
 						return {
@@ -40,6 +38,7 @@ module.exports = (gulp, tools) => {
 				if (res.serverType === 'Статический (localhost)') {
 
 					tools.fs.outputFileSync(file, content)
+					console.log('')
 					done()
 
 				} else {
@@ -68,15 +67,10 @@ module.exports = (gulp, tools) => {
 							)
 
 							done()
-
 						})
 						.catch(() => { return false })
-
 				}
-
-
 			})
 			.catch(() => { return false })
-
 	}
 }
