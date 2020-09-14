@@ -50,6 +50,7 @@
     "merge2": "^1.4.1",
     "path": "^0.12.7",
     "postcss-custom-properties": "^9.1.1",
+    "swiper": "^6.2.0",
     "through2": "^4.0.2",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
