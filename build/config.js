@@ -1,5 +1,3 @@
-/* Чтобы задать имя тэстового хоста нужно запустить `gulp config` */
-
 module.exports = () => { return {
 
 	styles: {
@@ -24,29 +22,32 @@ module.exports = () => { return {
 			'styles/base/_variables.scss',
 			'styles/base/_mixins.scss',
 			'styles/base/_mediaqueries.scss',
-		],
+		]
 	},
 
 	scripts: {
-		separate: [
-			'node_modules/@glidejs/glide/dist/glide.min.js',
-			'node_modules/basiclightbox/dist/basicLightbox.min.js',
-			'scripts/components/Editor.js',
-			// 'scripts/pages/settings.js',
-		],
-		// will processed with concatenating to `scripts/min/common.js`
-		concat: [
+		separate: {
+			umd: [
+				'node_modules/@glidejs/glide/dist/glide.min.js',
+				'node_modules/basiclightbox/dist/basicLightbox.min.js',
+				'scripts/components/Editor.js',
+			],
+			esm: [
 
-			// NOT ES6
-			'scripts/components/Editor.js',
-
-			// ES6
-			'scripts/common.js',
-		],
+			]
+		},
+		// will be concatenated to `scripts/min/common.js`
+		common: {
+			umd: [
+				'scripts/components/Editor.js',
+			],
+			// esm imports file
+			esm: 'scripts/common.js'
+		},
 		beginningsToRemove: [
 			'node_modules/',
 			'scripts/',
-		],
+		]
 	}
 
 }}

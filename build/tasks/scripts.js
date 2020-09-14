@@ -34,7 +34,7 @@ module.exports = (gulp, tools) => {
 		// 	return isEsm()
 		// })
 
-		let streamScripts = gulp.src(scripts.separate, {
+		let streamScripts = gulp.src(scripts.separate.umd, {
 				cwd: './',
 				nosort: true,
 			})
@@ -164,23 +164,19 @@ module.exports = (gulp, tools) => {
 		// 	// .pipe(tools.browserSync.stream())
 		// 	// .pipe(buffer())     // to continue using the stream
 
-		scripts.concatUmd = scripts.concat.filter( (value) => {
-			return value !== 'scripts/common.js'
-		})
-
 		var streamBrowserify =
 
 			tools.merge([
 
 				// umd
-				gulp.src( scripts.concatUmd, {
+				gulp.src( scripts.common.umd, {
 					cwd: './',
 					nosort: true,
 					allowEmpty: true,
 				}),
 
-				// es6
-				tools.browserify({ entries: ['scripts/common.js'] })
+				// esm
+				tools.browserify({ entries: [ scripts.common.esm ] })
 					.transform(tools.babelify.configure({
 						presets: [
 							[
@@ -188,21 +184,16 @@ module.exports = (gulp, tools) => {
 								{
 									"targets": {
 										"ie": "11",
-										// "esmodules": true,
 									},
 									"corejs": "^3.6.4",
 									"useBuiltIns": "usage",
-									// "modules": "commonjs",
 								}
-							],
-						],
-						// tools: ['transform-runtime']
-						// babel/preset-flow
+							]
+						]
 					}))
-					// .transform(vueify)
 					.bundle()
 					.pipe(tools.source('common.js'))
-
+					.pipe(tools.buffer())
 			])
 			// .pipe(tools.through.obj( (vinyl, encoding, callback) => {
 

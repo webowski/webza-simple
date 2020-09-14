@@ -1,33 +1,26 @@
-import Glide, { Breakpoints } from '@glidejs/glide/dist/glide.modular.esm'
-// import Glide, {} from '@glidejs/glide'
+import Swiper, { Navigation, Pagination } from 'swiper'
+// import swiper from 'swiper/bundle'
 
+console.log( `
+hello
+my
+friend
+` )
 
-// Glide slider
-// ========================
-let glideSimple = [];
+Swiper.use([Navigation, Pagination]);
 
-document.body.querySelectorAll('.Glide').forEach( (glide, i) => {
+let sliders = document.querySelectorAll('.slider')
+let slidersInstances = ['new']
 
-	glideSimple[i] = new Glide(glide, {
-		autoplay:            glide.dataset.autoplay || false,
-		rewind:              glide.dataset.rewind || true,
-		animationDuration:   glide.dataset.duration || 300,
-		animationTimingFunc: 'linear',
-		touchRatio:          1,
-		rewindDuration:      glide.dataset.rewindDuration || 500,
-		classes: {
-			direction: {
-				ltr: 'Glide--ltr',
-				rtl: 'Glide--rtl'
-			},
-			slider: 'Glide--slider',
-			carousel: 'Glide--carousel',
-			swipeable: 'is-swipeable',
-			dragging: 'is-dragging',
-			cloneSlide: 'is-clone',
-			activeNav: 'is-active',
-			activeSlide: 'is-active',
-			disabledArrow: 'is-disabled'
-		},
-	}).mount()
+sliders.forEach((slider, i) => {
+	let container = slider.querySelector('.swiper-container')
+
+	let options = {
+		speed: slider.dataset.speed || 300,
+		loop: slider.dataset.loop || true,
+	}
+
+	slidersInstances[i] = new Swiper(container, options)
 })
+
+export default slidersInstances
