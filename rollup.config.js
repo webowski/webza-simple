@@ -1,5 +1,6 @@
-import babel from 'rollup-plugin-babel'
 import resolve from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
+import babel from '@rollup/plugin-babel'
 
 const dist = 'scripts/min'
 
@@ -9,17 +10,18 @@ export default {
 		{
 			name: 'slider',
 			file: `${dist}/bundle.umd.js`,
-			format: 'umd'
+			format: 'iife',
+			globals: {
+				'swiper': 'Swiper'
+			}
 		}
 	],
-	external: [
-		'swiper'
-	],
 	plugins: [
+		commonjs(),
 		resolve(),
 		babel({
 			exclude: 'node_modules/..',
-			runtimeHelpers: false
+			babelHelpers: 'bundled'
 		})
 	]
 }

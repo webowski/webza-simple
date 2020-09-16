@@ -1,16 +1,10 @@
-import Swiper, { Navigation, Pagination } from 'swiper'
-// import swiper from 'swiper/bundle'
+// import Swiper, { Navigation, Pagination } from 'swiper'
+import Swiper from 'swiper/bundle'
 
-console.log( `
-hello
-my
-friend
-` )
-
-Swiper.use([Navigation, Pagination]);
+// Swiper.use([Navigation, Pagination]);
 
 let sliders = document.querySelectorAll('.slider')
-let slidersInstances = ['new']
+let slidersInstances = []
 
 sliders.forEach((slider, i) => {
 	let container = slider.querySelector('.swiper-container')
@@ -23,4 +17,4 @@ sliders.forEach((slider, i) => {
 	slidersInstances[i] = new Swiper(container, options)
 })
 
-export default slidersInstances
+window.sliders = slidersInstances

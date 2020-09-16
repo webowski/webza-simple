@@ -19,64 +19,19 @@ module.exports = (gulp, tools) => {
 		})
 
 		file.dest = './scripts/min/' + file.dir + '/'
-
 		tools.fs.mkdirsSync( file.dest )
 
 		return file.dest
 	}
 
-
 	return () => {
 
 		let scripts = tools.config.scripts
 
-		// scripts.separateEsm = scripts.concat.filter( (value) => {
-		// 	return isEsm()
-		// })
-
-		let streamScripts = gulp.src(scripts.separate.umd, {
+		let streamSeparate = gulp.src(scripts.separate.umd, {
 				cwd: './',
 				nosort: true,
 			})
-			// .pipe(tools.through.obj( (vinyl, encoding, callback) => {
-
-			// 	console.log( vinyl.basename );
-
-			// 	// vinyl.path = tools.path.relative(vinyl.cwd, vinyl.path)
-
-			// 	// console.dir( vinyl.path );
-
-			// 	var vinylNew = tools.browserify([
-			// 		// './scripts/common.js',
-			// 		'./' + vinyl.path
-			// 	])
-			// 	.transform(tools.babelify.configure({
-			// 		presets: [
-			// 			[
-			// 				'@babel/preset-env',
-			// 				{
-			// 					"targets": {
-			// 						"ie": "11",
-			// 						// "esmodules": true,
-			// 					},
-			// 					"corejs": "^3.6.4",
-			// 					"useBuiltIns": "usage",
-			// 					// "modules": "commonjs",
-			// 				}
-			// 			],
-			// 		],
-			// 		// tools: ['transform-runtime']
-			// 		// babel/preset-flow
-			// 	}))
-			// 	.bundle()
-			// 	// .pipe(tools.source(vinyl.basename))
-			// 	.pipe(tools.buffer())
-			// 	// .pipe(tools.streamify(
-			// 	// 	tools.concat('common.js'))
-			// 	// )
-
-			// 	callback(null, vinyl);
-			// }))
 			.pipe(tools.uglify({
 				output: {
 					comments: false,
@@ -99,74 +54,7 @@ module.exports = (gulp, tools) => {
 				callback(null, vinyl);
 			}))
 
-		// let streamScriptsConcat = gulp.src(scripts.concat, {
-		// 		cwd: './',
-		// 		nosort: true,
-		// 		allowEmpty: true,
-		// 	})
-		// 	.pipe(tools.through.obj( (vinyl, encoding, callback) => {
-
-		// 		console.log( vinyl.basename );
-
-		// 		// vinyl = prependScss(vinyl);
-
-		// 		// vinyl.path = tools.path.relative(vinyl.cwd, vinyl.path)
-
-		// 		// console.dir( vinyl.path );
-
-		// 		// var vinylNew = tools.browserify([
-		// 		// 	// './scripts/common.js',
-		// 		// 	'./' + vinyl.path
-		// 		// ])
-		// 		// .transform(tools.babelify.configure({
-		// 		// 	presets: [
-		// 		// 		[
-		// 		// 			'@babel/preset-env',
-		// 		// 			{
-		// 		// 				"targets": {
-		// 		// 					"ie": "11",
-		// 		// 					// "esmodules": true,
-		// 		// 				},
-		// 		// 				"corejs": "^3.6.4",
-		// 		// 				"useBuiltIns": "usage",
-		// 		// 				// "modules": "commonjs",
-		// 		// 			}
-		// 		// 		],
-		// 		// 	],
-		// 		// 	// tools: ['transform-runtime']
-		// 		// 	// babel/preset-flow
-		// 		// }))
-		// 		// .bundle()
-		// 		// // .pipe(tools.source(vinyl.basename))
-		// 		// .pipe(tools.buffer())
-		// 		// // .pipe(tools.streamify(
-		// 		// // 	tools.concat('common.js'))
-		// 		// // )
-		// 		// // .pipe(tools.streamify(tools.uglify({
-		// 		// // 	output: {
-		// 		// // 		comments: false,
-		// 		// // 	}
-		// 		// // })))
-		// 		// // .pipe(tools.uglify({
-		// 		// // 	output: {
-		// 		// // 		comments: false,
-		// 		// // 	}
-		// 		// // }))
-		// 		// // .pipe(gulp.dest('./scripts/min/'))
-
-		// 		// // console.dir( vinyl );
-
-		// 		callback(null, vinyl);
-		// 	}))
-		// 	.pipe(tools.concat('common.conc.js'))
-		// 	// .pipe(tools.source('common.js'))
-		// 	.pipe(gulp.dest('./scripts/min/'))
-		// 	// .pipe(tools.browserSync.stream())
-		// 	// .pipe(buffer())     // to continue using the stream
-
-		var streamBrowserify =
-
-			tools.merge([
+		let streamCommon = tools.merge([
 
 				// umd
 				gulp.src( scripts.common.umd, {
@@ -176,39 +64,52 @@ module.exports = (gulp, tools) => {
 				}),
 
 				// esm
-				tools.browserify({ entries: [ scripts.common.esm ] })
-					.transform(tools.babelify.configure({
-						presets: [
-							[
-								'@babel/preset-env',
-								{
-									"targets": {
-										"ie": "11",
-									},
-									"corejs": "^3.6.4",
-									"useBuiltIns": "usage",
-								}
-							]
-						]
-					}))
-					.bundle()
-					.pipe(tools.source('common.js'))
-					.pipe(tools.buffer())
-			])
-			// .pipe(tools.through.obj( (vinyl, encoding, callback) => {
+				gulp.src('scripts/common.js', {
+						cwd: './',
+						nosort: true,
+					})
+					.pipe(tools.through.obj( (vinyl, encoding, callback) => {
 
-			// 	console.dir( vinyl.path );
-			// 	callback(null, vinyl);
-			// }))
+						tools.rollup.rollup({
+							input: 'scripts/common.js',
+							plugins: [
+								tools.commonjs(),
+								tools.resolve(),
+								tools.babel({
+									exclude: 'node_modules/..',
+									babelHelpers: 'bundled'
+								})
+							]
+						}).then( bundle => {
+							bundle.generate({
+								name: 'bundle',
+								format: 'umd',
+								globals: {
+									'swiper': 'Swiper'
+								}
+							}).then(output => {
+
+								vinyl.contents = Buffer.from(output.output[0].code, 'utf8' )
+
+								callback(null, vinyl)
+							})
+						})
+
+					}))
+				// 	// .pipe(tools.rename('bundle'))
+				// 	// .pipe(tools.source('bundle.js'))
+				// 	// .pipe(tools.buffer())
+			])
 			.pipe(tools.streamify(tools.concat('common.js')))
 			.pipe(tools.uglify({
 				output: {
 					comments: false,
 				}
 			}))
-			.pipe(gulp.dest('./scripts/min'));
+			.pipe(gulp.dest('./scripts/min'))
+			.pipe(tools.browserSync.stream())
 
-		return tools.merge( streamScripts, streamBrowserify )
+		return tools.merge( streamSeparate, streamCommon )
 
 	}
 }

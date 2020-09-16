@@ -12,23 +12,13 @@ module.exports = (gulp, tools) => {
 			gulp.series('styles')
 		)
 
-		// // scripts
-		// gulp.watch(
-		// 	[
-		// 		'js/**/*.js',
-		// 	],
-		// 	{cwd: './'},
-		// 	gulp.series('scripts:concat')
-		// )
-
-		// Scripts new
+		// Scripts
 		gulp.watch(
 			[
 				'scripts/**/*.js',
 				'!scripts/min/**/*',
 				'!scripts/app.min.js',
 				'!scripts/head-scripts.min.js',
-				'!scripts/head-scripts-2.min.js',
 				'!scripts/footer-scripts.min.js',
 			],
 			{cwd: './'},

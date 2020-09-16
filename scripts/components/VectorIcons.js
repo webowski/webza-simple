@@ -1,7 +1,9 @@
 // Vector icons sprite
 // =======================
 
-fetch('/images/vector-icons.min.svg')
+const svg = '/images/vector-icons.min.svg'
+
+fetch(svg)
 	.then(response => response.text())
 	.then(text => {
 		let container = document.createElement('div')
@@ -9,4 +11,6 @@ fetch('/images/vector-icons.min.svg')
 		container.innerHTML = text;
 		document.body.appendChild(container)
 	})
-	.catch(console.error.bind(console))
+	.catch((err) => {
+		console.log( 'svg file not found:', svg)
+	})

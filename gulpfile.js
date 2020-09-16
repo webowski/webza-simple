@@ -32,6 +32,10 @@ const tools = {
 	postcssCustomProps:  require('postcss-custom-properties'),
 
 	// scripts
+	rollup:              require('rollup'),
+	babel:               require('@rollup/plugin-babel').default,
+	resolve:             require('@rollup/plugin-node-resolve').default,
+	commonjs:            require('@rollup/plugin-commonjs'),
 	browserify:          require('browserify'),
 	babelify:            require('babelify'),
 	uglify:              require('gulp-terser'),
@@ -80,11 +84,11 @@ gulp.task('watch',        getTask('watch'));
 gulp.task('browser-reload', () => { return tools.browserSync.reload() });
 
 // Default
-gulp.task('default', gulp.parallel(
+gulp.task('default', gulp.series(
 	'templates',
+	'styles',
 	'icons',
 	'scripts',
-	'styles',
 ));
 
 // Development
@@ -93,6 +97,6 @@ gulp.task('dev', gulp.parallel(
 	'watch',
 	'templates',
 	'styles',
-	'scripts',
 	'icons',
+	'scripts',
 ));
