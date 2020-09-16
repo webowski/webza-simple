@@ -2,8 +2,8 @@
 /package-lock.json
 /build/config-special.js
 /html/
-/images/vector-icons.min.svg
-/images/sprite.symbol.html
+/images/icons.min.svg
+/images/icons.html
 /scripts/app.min.js
 /scripts/min
 /styles/min

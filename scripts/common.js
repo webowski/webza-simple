@@ -1,6 +1,6 @@
 // App Components
 // import './components/Analytics'
-import './components/VectorIcons'
+import './components/Icons'
 // import './components/Dropdown'
 // import './components/FormField'
 // import './components/InputMask'
