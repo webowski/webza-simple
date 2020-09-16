@@ -32,7 +32,7 @@ $btnShadow3:      0 10px 14px -8px rgba(59,80,100,.29);
 		border-color $duration,
 		color $duration,
 		box-shadow $duration,
-		transform $duration-sm;
+		transform $duration--sm;
 	box-shadow: $btnShadow;
 }
 

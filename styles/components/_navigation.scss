@@ -23,7 +23,7 @@
 
 .g-desktop .MainMenu__item:hover {
 	filter: drop-shadow(0 0 10px rgba(0,0,0,.2));
-	/* transition: filter $duration-lg; */
+	/* transition: filter $duration--lg; */
 }
 
 .MainMenu__submenu {
@@ -35,8 +35,8 @@
 	opacity: 0;
 	visibility: hidden;
 /* 	transition:
-		opacity $duration-lg,
-		visibility 0s linear $duration-lg; */
+		opacity $duration--lg,
+		visibility 0s linear $duration--lg; */
 
 	@include mediaUp(md) {
 		padding: 8px 20px 20px;
@@ -46,7 +46,7 @@
 .g-desktop .MainMenu__item:hover .MainMenu__submenu {
 	visibility: visible;
 	opacity: 1;
-	/* transition: opacity $duration-lg; */
+	/* transition: opacity $duration--lg; */
 }
 
 .MainMenu__item:hover .MainMenu__itemLink .Icon {
@@ -98,7 +98,7 @@
 	text-transform: uppercase;
 	transition: none;
 	/* transition:
-		background-color $duration-lg; */
+		background-color $duration--lg; */
 
 	@include mediaUp(md) {
 		padding: 19px 18px 11px 14px;
@@ -123,7 +123,7 @@
 	top: 12px;
 	fill: currentColor;
 	transition:
-		transform $duration-sm;
+		transform $duration--sm;
 
 	@include mediaUp(md) {
 		width: 7px;
@@ -289,8 +289,8 @@
 	line-height: 120%;
 	font-weight: 500;
 	transition:
-		color $duration-lg,
-		background-color $duration-lg;
+		color $duration--lg,
+		background-color $duration--lg;
 
 	@include mediaUp(md) {
 		padding: 9px 20px 7px;
@@ -303,7 +303,7 @@
 	margin-right: 10px;
 	flex: 0 0 auto;
 	fill: var(--muted);
-	transition: fill $duration-lg;
+	transition: fill $duration--lg;
 }
 
 .MenuItem__text {
@@ -312,7 +312,7 @@
 
 .MenuItem__count {
 	color: var(--brand);
-	transition: color $duration-lg;
+	transition: color $duration--lg;
 }
 
 .MenuItem:hover {
@@ -389,7 +389,7 @@
 	position: relative;
 	z-index: 75;
 	transition:
-		transform $duration-sm cubic-bezier(0.4,0.0,1,1),
+		transform $duration--sm cubic-bezier(0.4,0.0,1,1),
 		z-index $duration step-end;
 
 	@include mediaUp(md) {
@@ -414,7 +414,7 @@
 	z-index: 110;
 	transform: rotate(90deg);
 	transition:
-		transform $duration-sm cubic-bezier(0.4,0.0,1,1),
+		transform $duration--sm cubic-bezier(0.4,0.0,1,1),
 		z-index $duration step-start;
 }
 

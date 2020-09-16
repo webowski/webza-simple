@@ -102,8 +102,8 @@ textarea.FormInput {
 	// line-height: 18px;
 	// font-weight: normal;
 	transition:
-		color $duration-sm linear,
-		transform $duration-sm linear;
+		color $duration--sm linear,
+		transform $duration--sm linear;
 
 	// @include mediaUp(md) {
 	// 	font-size: 15px;
@@ -239,7 +239,7 @@ textarea.FormInput {
 	border: 1px solid $brand;
 	border-radius: 2px;
 	transition:
-		background-color $duration-sm;
+		background-color $duration--sm;
 }
 
 .Checkbox__tick {
@@ -253,8 +253,8 @@ textarea.FormInput {
 	opacity: 0;
 	transform: scale(2);
 	transition:
-		transform $duration-sm,
-		opacity $duration-sm;
+		transform $duration--sm,
+		opacity $duration--sm;
 }
 
 .Checkbox input:checked ~ .Checkbox__label:before {
@@ -296,7 +296,7 @@ textarea.FormInput {
 	border: 1px solid var(--brand);
 	border-radius: 12px;
 	transition:
-		background-color $duration-sm;
+		background-color $duration--sm;
 }
 
 .Radio__tick {
@@ -310,8 +310,8 @@ textarea.FormInput {
 	opacity: 0;
 	transform: scale(2);
 	transition:
-		transform $duration-sm,
-		opacity $duration-sm;
+		transform $duration--sm,
+		opacity $duration--sm;
 }
 
 .Radio input:checked ~ .Radio__label:before {
@@ -342,7 +342,7 @@ textarea.FormInput {
 .Radio--voting {
 	padding: 15px 20px 15px 44px;
 	background-color: var(--mutedLightest);
-	transition: background-color $duration-xl;
+	transition: background-color $duration--xl;
 }
 
 .Radio--voting:hover {
