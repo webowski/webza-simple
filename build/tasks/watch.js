@@ -1,5 +1,5 @@
 module.exports = (gulp, tools) => {
-	return function () {
+	return () => {
 
 		// Styles
 		gulp.watch(
@@ -12,13 +12,19 @@ module.exports = (gulp, tools) => {
 			gulp.series('styles')
 		)
 
+		// Vector icons
+		gulp.watch(
+			['images/vector-icons/*.svg'],
+			{cwd: './'},
+			gulp.series('icons')
+		)
+
 		// Scripts
 		gulp.watch(
 			[
 				'scripts/**/*.js',
 				'!scripts/min/**/*',
 				'!scripts/app.min.js',
-				'!scripts/head-scripts.min.js',
 				'!scripts/footer-scripts.min.js',
 			],
 			{cwd: './'},
@@ -28,13 +34,10 @@ module.exports = (gulp, tools) => {
 		// Markup etc.
 		gulp.watch(
 			[
-				'templates/**/*.twig',
-				'templates-new/**/*',
-				'test/**/*.html',
-				'content/**/*.php',
+				'index.html',
 			],
 			{cwd: './'},
-		).on('change', tools.browserSync.reload)
+		).on('change', tools.browserSync.reload);
 
 		// Templates
 		gulp.watch(
@@ -45,25 +48,12 @@ module.exports = (gulp, tools) => {
 			gulp.series('templates')
 		)
 
-		// php
-		// gulp.watch(
-		// 	['**/*.php', '!vendor', '!test'],
-		// 	// ['**/*.php'],
-		// 	{cwd: './'},
-		// 	gulp.series('browser-reload')
-		// )
-
-		// vector sprite
+		// PHP
 		gulp.watch(
-			['images/vector-icons/*.svg'],
+			['**/*.php', '!vendor', '!test'],
 			{cwd: './'},
-			gulp.series('icons')
+			gulp.series('browser-reload')
 		)
-
-		// images
-		// gulp.watch(
-		// 	'./images/**/*').on('change', tools.browserSync.reload
-		// )
 
 	}
 }
