@@ -1,4 +1,4 @@
-module.exports = () => { return {
+module.exports = {
 
 	styles: {
 		separate: [
@@ -8,11 +8,17 @@ module.exports = () => { return {
 			'styles/specific/test.css',
 		],
 		// will processed with concatenating to `styles/min/common.css`
-		concat: [
+		common: [
 			'node_modules/@glidejs/glide/src/assets/sass/glide.core.scss',
 			'styles/specific/test.css',
 			'styles/common.scss',
 		],
+		critical: {
+			css: [
+				'path/to/file.css',
+			],
+			scss: 'styles/critical.scss'
+		},
 		beginningsToRemove: [
 			'node_modules/',
 			'styles/',
@@ -50,4 +56,4 @@ module.exports = () => { return {
 		]
 	}
 
-}}
+}

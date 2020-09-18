@@ -1,24 +1,25 @@
-.HeaderOrigin {
+.SiteHeaderOrigin {
 	height: 60px;
 }
 
-.Header {
-	height: 60px;
+.SiteHeader {
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
+	height: 60px;
+	box-shadow: 0 0 10px rgba(0,0,4,.23);
+	box-shadow: 0 6px 15px -8px rgba(0,0,0,.23);
 	z-index: 50;
-	box-shadow: 0 0px 5px rgba(0,0,0,.05);
-	background-color: var(--bgAlter);
+	background-color: var(--bg);
 	cursor: default;
 }
 
-[data-theme="dark"] .Header {
+[data-theme="dark"] .SiteHeader {
 	box-shadow: 0 8px 20px -8px rgba(0,0,0,.6);
 }
 
-.Header__overlay {
+.SiteHeader__overlay {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -29,23 +30,23 @@
 	opacity: 0;
 	visibility: hidden;
 	transition:
-		opacity $duration-lg,
-		visibility 0s linear $duration-lg;
+		opacity $duration--lg,
+		visibility 0s linear $duration--lg;
 	pointer-events: none;
 	will-change: opacity;
 }
 
-.Header__overlay.is-shown {
+.SiteHeader__overlay.is-shown {
 	visibility: visible;
 	opacity: .2;
-	transition: opacity $duration-lg;
+	transition: opacity $duration--lg;
 }
 
-[data-theme="dark"] .Header__overlay.is-shown {
+[data-theme="dark"] .SiteHeader__overlay.is-shown {
 	opacity: .1;
 }
 
-.Header__grid {
+.SiteHeader__grid {
 	height: 60px;
 	display: flex;
 	justify-content: space-between;
@@ -53,7 +54,7 @@
 	position: relative;
 }
 
-.Logo {
+.SiteLogo {
 	@include linkReset;
 	display: block;
 	width: 58px;
@@ -65,21 +66,21 @@
 	}
 }
 
-.Logo img,
-.Logo svg {
+.SiteLogo img,
+.SiteLogo svg {
 	display: block;
 	width: 100%;
 }
 
-.Logo svg {
+.SiteLogo svg {
 	fill: var(--intense);
 	width: 100%;
 	max-width: 100%;
 	height: auto;
 	cursor: pointer;
-	transition: fill $duration-sm;
+	transition: fill $duration--sm;
 }
 
-.Logo:hover svg {
+.SiteLogo:hover svg {
 	fill: var(--brand);
 }

@@ -2,22 +2,6 @@ body {
 	background-color: var(--bg);
 }
 
-.Wrap  {
-	overflow: hidden;
-	position: relative;
-	min-height: 100vh;
-}
-
-.Main {
-	padding-top: 20px;
-	padding-bottom: 40px;
-	word-break: break-word;
-
-	@include mediaUp(md) {
-		padding-bottom: 70px;
-	}
-}
-
 .container {
 	max-width: var(--containerMax);
 	padding-left: var(--sidePadding);
@@ -34,12 +18,7 @@ hr, .Hr {
 	border-top: 1px solid var(--border);
 }
 
-.Hr--beyond {
-	margin-left: -30px;
-	margin-right: -30px;
-}
-
-body.g-noScroll {
+.G-noScroll {
 	touch-action: none;
 	overflow: hidden;
 }

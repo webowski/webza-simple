@@ -5,7 +5,7 @@
 	margin-left: -$gap / 2;
 }
 
-.col-eq,
+.col,
 .col-auto {
 	@include makeColumnReady;
 }
@@ -16,7 +16,7 @@
 	}
 }
 
-.col-eq {
+.col {
 	@include makeColumnEq;
 }
 
@@ -31,15 +31,15 @@
 }
 
 @include mediaUp(sm) {
-	.col-sm-eq {
+	.sm\:col {
 		@include makeColumnEq;
 	}
-	.col-sm-auto {
+	.sm\:col-auto {
 		@include makeColumnAuto;
 	}
 
 	@for $i from 1 through $gridColumns {
-		.col-sm-#{$i} {
+		.sm\:col-#{$i} {
 			@include makeColumnReady;
 			@include makeColumn($i);
 		}
@@ -47,15 +47,15 @@
 }
 
 @include mediaUp(md) {
-	.col-md-eq {
+	.md\:col {
 		@include makeColumnEq;
 	}
-	.col-md-auto {
+	.md\:col-auto {
 		@include makeColumnAuto;
 	}
 
 	@for $i from 1 through $gridColumns {
-		.col-md-#{$i} {
+		.md\:col-#{$i} {
 			@include makeColumnReady;
 			@include makeColumn($i);
 		}
@@ -63,15 +63,15 @@
 }
 
 @include mediaUp(lg) {
-	.col-lg-eq {
+	.lg\:col {
 		@include makeColumnEq;
 	}
-	.col-lg-auto {
+	.lg\:col-auto {
 		@include makeColumnAuto;
 	}
 
 	@for $i from 1 through $gridColumns {
-		.col-lg-#{$i} {
+		.lg\:col-#{$i} {
 			@include makeColumnReady;
 			@include makeColumn($i);
 		}
@@ -79,15 +79,15 @@
 }
 
 @include mediaUp(xl) {
-	.col-xl-eq {
+	.xl\:col {
 		@include makeColumnEq;
 	}
-	.col-xl-auto {
+	.xl\:col-auto {
 		@include makeColumnAuto;
 	}
 
 	@for $i from 1 through $gridColumns {
-		.col-xl-#{$i} {
+		.xl\:col-#{$i} {
 			@include makeColumnReady;
 			@include makeColumn($i);
 		}
@@ -182,32 +182,4 @@
 .grid > .row.gap-xxs > * {
 	padding-top: $gap-xxs / 2;
 	padding-bottom: $gap-xxs / 2;
-}
-
-// Custom
-@include mediaUp(lg) {
-	.col--main {
-		max-width: calc(100% - 330px);
-	}
-
-	.row.gap-sm > .col--main {
-		max-width: calc(100% - 320px);
-	}
-}
-
-@include mediaUp(xl) {
-	.col--main {
-		// max-width: 860px;
-		max-width: 810px;
-	}
-}
-
-.col--right {
-	flex: 0 0 auto !important;
-    width: auto !important;
-	max-width: calc(300px + 30px);
-}
-
-.row.gap-sm > .col--main {
-	max-width: calc(300px + 20px);
 }

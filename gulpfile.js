@@ -2,7 +2,7 @@ const gulp =             require('gulp')
 
 const tools = {
 	// common
-	config:              require('./build/config.js')(),
+	config:              require('./build/config.js'),
 	buffer:              require('vinyl-buffer'),
 	source:              require('vinyl-source-stream'),
 	streamify:           require('gulp-streamify'),

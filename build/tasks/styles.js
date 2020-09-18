@@ -115,18 +115,18 @@ module.exports = (gulp, tools) => {
 
 
 		// common styles
-		let stylesConcat = styles.concat.filter( item => {
+		let stylesCommon = styles.common.filter( item => {
 			return ! item.match(/^styles\/common\.scss/)
 		})
 
-		let streamConcat = tools.merge()
+		let streamCommon = tools.merge()
 
 
 		// additional *.css from *.scss
-		let stylesConcatScss = filterByExt( stylesConcat, '.scss' )
+		let stylesCommonScss = filterByExt( stylesCommon, '.scss' )
 
-		if (stylesConcatScss.length) {
-			let streamConcatScss = gulp.src( stylesConcatScss, {
+		if (stylesCommonScss.length) {
+			let streamCommonScss = gulp.src( stylesCommonScss, {
 					cwd: './',
 					nosort: true,
 					allowEmpty: true,
@@ -147,25 +147,25 @@ module.exports = (gulp, tools) => {
 					tools.postcssCustomProps(),
 				]))
 
-			streamConcat.add(streamConcatScss)
+			streamCommon.add(streamCommonScss)
 		}
 
 
 		// additional simple css files
-		let stylesConcatCss = filterByExt( stylesConcat, '.css' )
+		let stylesCommonCss = filterByExt( stylesCommon, '.css' )
 
-		if (stylesConcatCss.length) {
-			let streamConcatCss = gulp.src(stylesConcatCss, {
+		if (stylesCommonCss.length) {
+			let streamCommonCss = gulp.src(stylesCommonCss, {
 				cwd: './',
 				nosort: true,
 			})
 
-			streamConcat.add(streamConcatCss)
+			streamCommon.add(streamCommonCss)
 		}
 
 
 		// common.css from common.scss
-		let streamConcatCommon = gulp.src('styles/common.scss', {
+		let streamCommonCommon = gulp.src('styles/common.scss', {
 				cwd: './',
 			})
 			.pipe(tools.sass({
@@ -178,11 +178,11 @@ module.exports = (gulp, tools) => {
 				tools.postcssCustomProps(),
 			]))
 
-		streamConcat.add(streamConcatCommon)
+		streamCommon.add(streamCommonCommon)
 
 
 		// concat additional simple css + common.css
-		streamConcat = streamConcat
+		streamCommon = streamCommon
 			.pipe(tools.concatCss('common.css'))
 			.pipe(tools.autoprefixer())
 			.pipe(tools.csso())
@@ -190,6 +190,6 @@ module.exports = (gulp, tools) => {
 			.pipe(tools.browserSync.stream())
 
 
-		return tools.merge( streamSeparate, streamConcat )
+		return tools.merge( streamSeparate, streamCommon )
     }
 }

@@ -62,7 +62,7 @@ h1, .h1 {
 	line-height: 1.2;
 
 	@include mediaUp(md) {
-		font-size: 36px;
+		font-size: 32px;
 		line-height: 1.05;
 	}
 }
@@ -88,6 +88,7 @@ h4, .h4 {
 }
 
 h5, .h5 {
+	color: var(--muted);
 	font-size: 18px;
 }
 
@@ -99,15 +100,18 @@ code {
 	font-family: monospace;
 	border-radius: 3px;
 	color: #eb5a46;
-	padding: 2px 3px;
+	padding: 2px 4px;
 	margin: -1px 2px;
 	font-size: 14px;
 	color: #e83e8c;
+	color: #df1e65;
 	word-wrap: break-word;
 	background-color: #f0f0f4;
+	background-color: #eae8ef;
 }
 
 pre {
+	@include marginFirstLast;
 	-webkit-overflow-scrolling: touch;
 	-webkit-transform: translateZ(0);
 	background-color: #f0f0f4;
@@ -147,18 +151,18 @@ ul > li {
 	position: relative;
 	margin-top: .5rem;
 	margin-left: 0;
-	padding-left: 18px;
+	padding-left: 1rem;
 
 	@include mediaUp(md) {
-		padding-left: 22px;
+		padding-left: 1.175rem;
 	}
 }
 
 ul > li:before {
-	@include pseudoBlock(7px, 7px);
+	@include pseudoBlock(6px, 6px);
 	top: .55rem;
 	left: 2px;
-	background-color: $brand;
+	background-color: var(--major);
 	border-radius: 8px;
 }
 
@@ -192,31 +196,9 @@ blockquote {
 	}
 }
 
-.ListNoMark {
-	@include listReset;
-
-	> li + li {
-		margin-top: 6px;
-	}
-}
-
-.ListNoMark--spread > li + li {
-	margin-top: 10px;
-}
-
 sup {
 	font-size: .6em;
 	vertical-align: 0;
     position: relative;
     top: -0.5em;
-}
-
-.Lead {
-	font-size: 18px;
-	line-height: 135%;
-
-	@include mediaUp(md) {
-		font-size: 20px;
-		line-height: 140%;
-	}
 }

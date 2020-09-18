@@ -3,7 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Webza</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<link href="//fonts.googleapis.com/css2?family=Rubik:wght@400;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="./styles/min/common.css">
 	<!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/atom-one-dark.min.css"> -->
 	<!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/railscasts.min.css"> -->
@@ -28,360 +30,271 @@
 <body>
 	<div class="Wrap">
 
-		<!-- <div class="Sidepanel">
+		<header class="Sidepanel">
+			<div class="Sidepanel__top">
 
-			<ul>
-				<li><a href="#naming">Именование классов</a></li>
-			</ul>
+				<h1 class="color-white">Webza</h1>
 
-		</div> -->
+				<hr>
+
+				<nav class="SideNav">
+					<ul>
+						<li><a href="#build">Build</a>
+							<ul>
+								<li><a href="#build-add">Add files</a></li>
+							</ul>
+						</li>
+						<!-- <li><a href="#">Variables</a></li> -->
+						<!-- <li><a href="#">Typo</a></li> -->
+						<li><a href="#component">Components</a>
+							<ul>
+								<li><a href="#components-button">Button</a></li>
+								<!-- <li><a href="#components-form">Form</a></li> -->
+								<li><a href="#components-slider">Slider</a></li>
+								<!-- <li><a href="#components-popup">Popup</a></li> -->
+								<li><a href="#components-layout">Layout</a></li>
+							</ul>
+						</li>
+						<li><a href="#utilities">Utilities</a>
+							<ul>
+								<li><a href="#utilities-text">Text</a></li>
+								<li><a href="#utilities-grid">Grid</a></li>
+								<li><a href="#utilities-display">display</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+
+			</div>
+			<div class="Sidepanel__bottom">
+
+				<a href="mailto:dev@webowski.ru">dev@webowski.ru</a>
+
+			</div>
+		</header>
 
 		<div class="Main">
 
-			<div class="Section">
-				<div class="container">
+			<div class="Section container">
 
-					<h1 class="h2">Webza</h1>
+				<p class="fz-xl lh-130">The blank for a quick start of the web project.</p>
 
-                    <div class="slider slider--listing" data-loop="true" data-speed="200">
-                        <div class="swiper-container">
-                            <div class="swiper-wrapper">
+				<h2 id="build">Build</h2>
 
-                                <div class="swiper-slide">
-                                    1
-                                </div>
+				<ul>
+					<li>Install all dependencies by run <code>npm i</code>.</li>
+					<li>Run <code>gulp</code> to build styles, icons, templates and scripts.</li>
+					<li>Run <code>gulp dev</code> to start the development server (е.g. <code>http://localost:3000</code>) and automatically rebuild files when they are changing.</li>
+				</ul>
 
-                                <div class="swiper-slide">
-                                    2
-                                </div>
+				<h2 id="build-add-files">Add files</h2>
 
-                                <div class="swiper-slide">
-                                    3
-                                </div>
+				<h3>Adding a stylesheet</h3>
 
-                            </div>
-                        </div>
-                        <div class="swiper-button-prev">
-                            <
-                        </div>
-                        <div class="swiper-button-next">
-                        	>
-                        </div>
-                    </div>
+				<h5>As separate SCSS or CSS</code></h5>
 
+				<p>Add the path to a stylesheet in <code>build/config.js</code> in <code>styles.separate</code> section</p>
+
+				<pre><code class="scss">styles: {
+	separate: [
+		'path/to/a.scss',
+		'path/to/a.css',
+	]
+}</code></pre>
+
+				<h5>As common SCSS</code></h5>
+
+				<p>Add the path to a stylesheet in <code>styles/common.scss</code></p>
+
+				<h5>As common CSS</h5>
+
+				<p>Add the path to a stylesheet in <code>build/config.js</code> in <code>styles.common</code> section</p>
+
+				<pre><code class="scss">styles: {
+	common: [
+		'path/to/a.css',
+	]
+}</code></pre>
+
+				<!-- <pre><code class="html">&lt;link rel="stylesheet" href="path/to.css" media="nope!" onload="this.media='all'"&gt;</code></pre> -->
+
+				<h3>Adding a script</h3>
+
+				<h5>As separate ESM or UMD</h5>
+
+				<p>Add the script path in <code>build/config.js</code> in <code>styles.separate.esm</code> or <code>styles.separate.umd</code> section</p>
+
+				<pre><code class="javascript">scripts: {
+	separate: {
+		esm: [
+			'path/to/a.esm.js',
+		],
+		umd: [
+			'path/to/a.umd.js',
+		]
+	}
+}</code></pre>
+
+				<h5>As common ESM</h5>
+
+				<p>Import the script in <code>scripts/common.js</code></p>
+
+				<pre><code class="javascript">import './components/esm.js'</code></pre>
+
+				<!-- <pre><code>&lt;script defer="defer" src="path/to.js"&gt;&lt;/script&gt;</code></pre> -->
+
+				<h5>As common UMD</h5>
+
+				<pre><code class="javascript">scripts: {
+	common: {
+		umd: [
+			'path/to/a.umd.js',
+		]
+	}
+}</code></pre>
+
+				<!-- <pre><code>&lt;script defer="defer" src="path/to.js"&gt;&lt;/script&gt;</code></pre> -->
+
+				<h3>Adding an icon</h3>
+
+				<ul>
+					<li>Put the SVG file in folder <code>images/icons</code></li>
+					<li>Run <code>gulp icons</code></li>
+					<li>Copy the svg snippet from <code>images/icons.html</code>
+						<pre><code class="html">&lt;svg&gt;
+	&lt;use xlink:href="#icon"&gt;&lt;/use&gt;
+&lt;/svg&gt;</code></pre>
+
+					</li>
+				</ul>
+
+				<h2 id="naming">CSS naming</h2>
+
+				<p><a href="//webowski.github.io/ubem/" target="_blank">UBEM</a></p>
+
+				<h2 id="components">Components</h2>
+
+				<h3 id="components-slider">Slider</h3>
+
+				<div class="Slider  slider slider--listing"
+					data-loop="true"
+					data-speed="200"
+					>
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+
+							<div class="swiper-slide">
+								1
+							</div>
+
+							<div class="swiper-slide">
+								2
+							</div>
+
+							<div class="swiper-slide">
+								3
+							</div>
+
+						</div>
+					</div>
+					<div class="swiper-button-prev">
+						<
+					</div>
+					<div class="swiper-button-next">
+						>
+					</div>
 				</div>
+
+				<h3>Button</h3>
+
+				<h5>Simple button</h5>
+
+				<div class="grid">
+					<div class="row gap-sm align-center">
+						<div class="col lg:col-14">
+
+							<pre><code class="html">&lt;button class="Btn"&gt;Simple button&lt;/button&gt;</code></pre>
+
+						</div>
+						<div class="col lg:col-10">
+
+							<button class="Btn">Simple button</button>
+
+						</div>
+					</div>
+				</div>
+
+
+				<h5>Primary button</h5>
+
+				<div class="grid">
+					<div class="row gap-sm align-center">
+						<div class="col lg:col-14">
+
+							<pre><code class="html">&lt;button class="Btn Btn--primary"&gt;Primary button&lt;/button&gt;</code></pre>
+
+						</div>
+						<div class="col lg:col-10">
+
+							<button class="Btn Btn--primary">Primary button</button>
+
+						</div>
+					</div>
+				</div>
+
+				<h2 id="utilities">Utilities</h2>
+
+				<h3 id="utilities-text">Text</h3>
+
+				<pre><code class="html">&lt;span class="fz-3xl fw-extraBold color-major"&gt;&lt;/span&gt;</code></pre>
+
+				<h3 id="utilities-grid">Responsive grid</h3>
+
+				<pre><code class="html">&lt;div class="row  gap-sm lg:gap-md"&gt;
+	&lt;div class="col-12 md:col-4 lg:col-3"&gt;
+
+	&lt;/div&gt;
+	&lt;div class="col-12 md:col-8 lg:col-9"&gt;
+
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+				<h3 id="utilities-display">Display property</h3>
+
+				<pre><code class="html">&lt;div class="d-block md:d-none"&gt;&lt;/div&gt;
+
+&lt;div class="xsOnly:d-none"&gt;Something not for smallest screens&lt;/div&gt;
+
+&lt;div class="print:d-none"&gt;&lt;/div&gt;
+
+&lt;div class="d-flex  justify-start md:justify-between  align-stretch"&gt;
+	&lt;div class="grow-1 shrink-0"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
 			</div>
 
-			<div class="Section">
+			<div class="Footer">
 				<div class="container">
-
-					<div class="Box">
-
-						<h3>Именование CSS-классов</h3>
-
-						<p><a href="https://webowski.github.io/ubem/" target="_blank">UBEM</a></p>
-
-						<hr class="hr">
-
-						<h3>Сборка (gulp)</h3>
-						<ul>
-							<li><code>styles</code></li>
-							<li><code>watch</code></li>
-							<li><code>browsersync</code></li>
-							<li><code>default (gulp)</code> — minifyjs, minifycss</li>
-							<li><code>dev</code> — styles + watch + browsersync</li>
-							<li><code>settings.json</code></li>
-						</ul>
-
-						<hr class="hr">
-
-						<h3>Добавление значка</h3>
-						<ul>
-							<li>положить svg файл в папку <code>images/vector-icons</code></li>
-							<li>запустить <code>gulp icons</code></li>
-							<li>скопировать из <code>images/sprite.symbol.html</code> код для вставки</li>
-						</ul>
-
-						<hr class="hr">
-
-						<h3>Добавление стиля</h3>
-						<h6>В качестве файла <code>.css</code></h6>
-
-						<pre><code class="html">&lt;!-- отложенная загрузка --&gt;
-&lt;link rel="stylesheet" href="path/to.css" media="nope!" onload="this.media='all'"&gt;</code></pre>
-
-
-						<h6>В качестве файла <code>.scss</code></h6>
-
-						<pre><code class="scss">// общие стили для всех страниц в main.scss
-
-// scss-стили для отдельных интерфейсов</code></pre>
-
-
-						<hr class="hr">
-
-						<h3>Добавление скрипта</h3>
-
-						<h6>В качестве модуля</h6>
-
-						<pre><code class="javascript">// в gulpfile.js
-
-// в scripts/app.js
-</code></pre>
-
-
-						<h6>В качестве файла <code>.js</code></h6>
-
-						<pre><code>&lt;!-- отложенная загрузка --&gt;
-&lt;script defer="defer" src="path/to.js"&gt;&lt;/script&gt;</code></pre>
-
-					</div>
-
-				</div>
-			</div>
-
-			<div class="Section">
-				<div class="container">
-
-					<h3>Сетка</h3>
-
-					<!-- <div class="grid">
-						<div class="row">
-							<div class="col-4">
-
-								<code>col-4</code>
-
-							</div>
-							<div class="col-4">
-
-								<code>col-4</code>
-
-							</div>
-							<div class="col-4">
-
-								<code>col-4</code>
-
-							</div>
-							<div class="col-4">
-
-								<code>col-4</code>
-
-							</div>
-							<div class="col-4">
-
-								<code>col-4</code>
-
-							</div>
-							<div class="col-4">
-
-								<code>col-4</code>
-
-							</div>
-						</div>
-					</div> -->
-
-					<h3>.Box</h3>
-
-					<!-- <div class="Box Box--sm"><code>Box Box--sm</code></div>
-
-					<div class="Box">Box</div>
-					<div class="Box Box--border">Box Box--border</div>
-
-					<div class="Box Box--lg">Box Box--lg</div> -->
-
-				</div>
-			</div>
-
-			<!-- <div class="Section">
-				<div class="container">
-
-					<button class="Btn">Btn</button>
-					<button class="Btn Btn--blue">Btn Btn--blue</button>
-
-				</div>
-			</div> -->
-
-			<hr class="hr">
-
-			<div class="Section Section--bgg">
-				<div class="container">
-
-					<h2>Замена jQuery на Native JS</h2>
-
-					<h4>Выбор элементов</h4>
-
-					<div class="row gap-sm">
-						<div class="col-24 col-lg-12">
-
-							<h6 class="color-muted mb-5">jQuery</h6>
-
-<pre>
-<code class="javascript">$('.element')
-
-
-// в контексте .container
-var $container = $('.container');
-$('.element', $container)</code></pre>
-
-						</div>
-						<div class="col-24 col-lg-12">
-
-							<h6 class="color-muted mb-5">JS</h6>
-
-<pre>
-<code class="javascript">document.querySelector('.element') // один элемент
-document.querySelectorAll('.element') // все элементы
-
-// в контексте .container
-var container = document.querySelector('.container')
-container.querySelectorAll('.element')
-</code></pre>
-
-						</div>
-					</div>
-
-
-
-					<h4>Добавление/удаление классов</h4>
-
-					<div class="row gap-sm">
-						<div class="col-24 col-lg-12">
-
-							<h6 class="color-muted mb-5">jQuery</h6>
-
-<pre>
-<code class="javascript">$(element).addClass(className);
-$(element).removeClass(className);</code></pre>
-
-						</div>
-						<div class="col-24 col-lg-12">
-
-							<h6 class="color-muted mb-5">JS</h6>
-
-<pre>
-<code class="javascript">element.classList.add(className);
-element.classList.remove(className);</code></pre>
-
-						</div>
-					</div>
-
-
-
-					<h4>Цикл</h4>
-
-					<div class="row gap-sm">
-						<div class="col-24 col-lg-12">
-
-							<h6 class="color-muted mb-5">jQuery</h6>
-
-<pre>
-<code class="javascript">// each
-$(selector).each(function(i, el) {
-
-});</code></pre>
-
-						</div>
-						<div class="col-24 col-lg-12">
-
-							<h6 class="color-muted mb-5">JS</h6>
-
-<pre>
-<code class="javascript">// forEach
-var elements = document.querySelectorAll(selector);
-Array.prototype.forEach.call(elements, function(el, i) {
-
-});</code></pre>
-
-						</div>
-					</div>
-
-
-					<h4>Готовность документа</h4>
-
-					<div class="row gap-sm">
-						<div class="col-24 col-lg-12">
-
-							<h6 class="color-muted mb-5">jQuery</h6>
-
-<pre><code class="javascript">$(document).ready(function() {
-
-});</code></pre>
-
-						</div>
-						<div class="col-24 col-lg-12">
-
-							<h6 class="color-muted mb-5">JS</h6>
-
-<pre><code class="javascript">document.addEventListener('DOMContentLoaded', function() {
-
-});</code></pre>
-
-						</div>
-					</div>
-
-
-					<h4>Анимация slide</h4>
-
-					<div class="row gap-sm">
-						<div class="col-24 col-lg-12">
-
-							<h6 class="color-muted mb-5">jQuery</h6>
-
-<pre><code class="javascript">$(element).slideDown(200, function() {
-	// callback
-});
-</code></pre>
-
-						</div>
-						<div class="col-24 col-lg-12">
-
-							<h6 class="color-muted mb-5">JS</h6>
-
-<pre><code class="javascript">// с помощью scripts/helpers/Slide.js
-slideDown(element, 200, function() {
-	// callback
-});</code></pre>
-
-						</div>
-					</div>
 
 
 				</div>
 			</div>
 
-		</div>
-
-		<div class="Footer">
-			<div class="Footer__top">
-				<div class="container">
-
-
-
-				</div>
-			</div>
-			<div class="Footer__bottom">
-				<div class="container">
-
-
-
-				</div>
-			</div>
 		</div>
 
 	</div>
 
-<!-- <script defer="defer" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script> -->
+<script defer="defer" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
 
-<!-- <script>
+<script>
 	document.addEventListener('DOMContentLoaded', (event) => {
 		document.querySelectorAll('pre code').forEach((block) => {
 			hljs.highlightBlock(block);
 		});
 	});
 </script>
- -->
+
 <script defer="defer" src="./scripts/min/common.js"></script>
-<!-- <script defer="defer" src="./scripts/min/bundle.umd.js"></script> -->
 
 </body>
 </html>
