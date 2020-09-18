@@ -17,7 +17,7 @@ $whiteDark:                 #e9ebf2;
 $black:                     #090914;
 $gold:                      #ca9e28;
 $blue:                      #4974c2;
-$blueLight:                 #60a7ee;
+$blueLight:                 lighten($blue, 10);
 $blueLightest:              #e9f6fd;
 $red:                       #db4815;
 $green:                     #55b43c;
@@ -30,6 +30,7 @@ $grayLightest:              #f5f5f5;
 
 // theme colors
 $brand:                     $blue;
+$brandLight:                $blueLight;
 $voice:                     $blue;
 $voiceLightest:             $blueLightest;
 // $voiceLight:                     $blueLight;
@@ -47,7 +48,7 @@ $disabled:                  $grayLight;
 $inverse:                   $white;
 $bg:                        $white;
 $bgAlter:                   #ebebef;
-$border:                    #e3e3e3;
+$border:                    #c4c4cd;
 
 
 // Shapes
