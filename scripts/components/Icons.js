@@ -1,4 +1,4 @@
-const svg = '/images/icons.min.svg'
+const svg = './images/icons.min.svg'
 
 fetch(svg)
 	.then(response => response.text())
