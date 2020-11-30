@@ -1,15 +1,12 @@
-import { query, queryAll } from '../helpers/Common'
-
-
 // Scroll to Id
 // =======================
-let headerHeight = query('.SiteHeader').offsetHeight
-let scrollOffset = headerHeight + 30
+let headerHeight = document.querySelector('.SiteHeader').offsetHeight
+let scrollOffset = headerHeight
 
 scrollTo()
 
 export function scrollTo() {
-	let links = queryAll('.do-scrollTo, .ArticleIndex a[href^="#"]')
+	let links = document.querySelectorAll('.do-scrollTo, .ArticleIndex a[href^="#"]')
 	links.forEach( each => {
 		each.onclick = scrollAnchors
 	})
@@ -21,12 +18,12 @@ function scrollAnchors(e, respond = null) {
 		return Math.floor(el.getBoundingClientRect().top)
 	}
 	let targetID = (respond) ? respond.getAttribute('href') : this.getAttribute('href')
-	
-	let targetAnchor = query(targetID)
+
+	let targetAnchor = document.querySelector(targetID)
 	if (!targetAnchor) return
-	
+
 	let originalTop = -scrollOffset + distanceToTop(targetAnchor)
-	
+
 	window.scrollBy({ top: originalTop, left: 0, behavior: 'smooth' })
 
 	let checkIfDone = setInterval( () => {
