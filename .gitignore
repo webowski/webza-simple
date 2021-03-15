@@ -1,13 +1,7 @@
 /node_modules
 /package-lock.json
-/build/config-special.js
 /html/
-# /images/icons.min.svg
-/images/icons.html
-# /scripts/min
-# /styles/min
-
-images/icons.svg
+images/icons.min.svg
 styles/*.min.css
 styles/*.min.css.map
 scripts/*.min.js
