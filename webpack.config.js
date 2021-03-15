@@ -84,7 +84,7 @@ module.exports = {
 		}),
 		new SVGSpritemapPlugin('./images/icons/*.svg', {
 			output: {
-				filename: 'images/icons.svg'
+				filename: 'images/icons.min.svg'
 			},
 			sprite: {
 				prefix: false
