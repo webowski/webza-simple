@@ -14,7 +14,7 @@ const target = mode === 'development' ? 'web' : 'browserslist'
 export default {
 	mode: mode,
 
-	context: resolve(__dirname),
+	context: __dirname,
 
 	entry: {
 		styles: './styles/index.scss',
@@ -22,7 +22,7 @@ export default {
 	},
 
 	output: {
-		path: resolve(__dirname),
+		path: __dirname,
 		filename: 'scripts/[name].min.js',
 		assetModuleFilename: 'images/[hash][ext][query]',
 		chunkFilename: '[id].[chunkhash].js',
@@ -159,7 +159,7 @@ export default {
 		// },
 		// publicPath: '/',
 		// hot: true,
-		contentBase: resolve(__dirname),
+		contentBase: __dirname,
 		watchContentBase: true,
 	}
 }
