@@ -125,6 +125,10 @@ export default {
 		},
 	},
 
+	watchOptions: {
+		ignored: '**/node_modules',
+	},
+
 	target: target,
 	devtool: mode === 'development' ? 'source-map' : false,
 	performance: {
@@ -132,36 +136,72 @@ export default {
 		maxEntrypointSize: 512000,
 		maxAssetSize: 512000
 	},
+
+	// Host
+	// devServer: {
+	// 	before(app, server) {
+	// 		console.log('before')
+	// 		chokidar.watch([
+	// 			'./**/*.php',
+	// 			'./**/*.twig',
+	// 			'./**/*.html',
+	// 		], {
+	// 			ignored: /(node_modules|cache)/,
+	// 		}).on('all', function() {
+	// 			// fs.rmdir('./cache/twig', { recursive: true })
+	// 			server.sockWrite(server.sockets, 'content-changed');
+	// 		})
+	// 	},
+	// 	host: 'site.loc',
+	// 	port: 3000,
+	// 	// proxy: {
+	// 	// 	'/': {
+	// 	// 		target: 'http://site.ru:3000',
+	// 	// 	},
+	// 	// },
+	// 	// proxy: {
+	// 	// 	'/api': 'http://localhost:3000',
+	// 	// 	pathRewrite: { '^/api' : '' }
+	// 	// },
+	// 	// publicPath: '/',
+	// 	// hot: true,
+	// 	contentBase: __dirname,
+	// 	watchContentBase: true,
+	// },
+
+	// Static
 	devServer: {
-		before(app, server) {
-			console.log('before')
-			chokidar.watch([
-				'./**/*.php',
-				'./**/*.twig',
-				'./**/*.html',
-			], {
-				ignored: /(node_modules|cache)/,
-			}).on('all', function() {
-				// fs.rmdir('./cache/twig', { recursive: true })
-				server.sockWrite(server.sockets, 'content-changed');
-			})
+    static: {
+			directory: __dirname,
+      staticOptions: {},
+      publicPath: "/",
+      serveIndex: true,
+      watch: true,
+    },
+		setupMiddlewares: function(middlewares, devServer) {
+
+			// middlewares.unshift({
+			// 	name: 'before',
+			// 	middleware: (req, res) => {
+			// 		chokidar.watch([
+			// 			'./**/*.php',
+			// 			'./**/*.twig',
+			// 			'./**/*.html',
+			// 		], {
+			// 			ignored: /(node_modules|cache)/,
+			// 		}).on('all', function() {
+			// 			// fs.rmdir('./cache/twig', { recursive: true })
+			// 			console.log('chokidar')
+			// 			devServer.sendMessage(devServer.sockets, 'content-changed');
+			// 		})
+			// 		res.send('Foo!')
+			// 	}
+			// })
+
+			return middlewares
 		},
-		host: 'site.loc',
-		port: 3000,
-		// proxy: {
-		// 	'/': {
-		// 		target: 'http://site.ru:3000',
-		// 	},
-		// },
-		// proxy: {
-		// 	'/api': 'http://localhost:3000',
-		// 	pathRewrite: { '^/api' : '' }
-		// },
-		// publicPath: '/',
-		// hot: true,
-		contentBase: __dirname,
-		watchContentBase: true,
-	}
+  },
+
 }
 
 function cleanTwigCache(callback) {
