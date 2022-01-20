@@ -103,7 +103,7 @@ a.Avatar:hover img {
 .UsersExpo {
 	margin-top: 20px;
 	margin-bottom: 20px;
-	@include marginFirstLast;
+	@include flowMargin;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

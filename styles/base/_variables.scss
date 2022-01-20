@@ -3,10 +3,11 @@
 $fontSans:                  'Rubik', sans-serif;
 $fontSerif:                 'Times New Roman', Georgia, serif;
 $fontMono:                  'Ubuntu Mono', monospace;
+// $fontExtra:                 $fontNarrow;
 $fontMain:                  $fontSans;
 $fontSize:                  16px;
 $lineHeight:                1.50;
-$fontWeight:                400;
+$rem:                       16px;
 
 
 // Colors
@@ -37,7 +38,7 @@ $voiceLightest:             $blueLightest;
 $success:                   $green;
 $successLight:              $greenLight;
 $danger:                    $red;
-/* $accent:                    #000; */
+$accent:                    $gold;
 $intense:                   $black;
 $major:                     $grayDarkest;
 $minor:                     $gray;
@@ -58,19 +59,29 @@ $border:                    #c4c4cd;
 
 // Breakpoints
 // ---------------------
-$xs:    0;       /* Extra small devices (portrait phones, less than 576px) */
-$sm:    576px;   /* Small devices (landscape phones, less than 768px) */
-$md:    768px;   /* Medium devices (tablets, less than 992px) */
-$lg:    992px;   /* Large devices (desktops, less than 1200px) */
-$xl:    1200px;  /* Extra large devices (large desktops) */
+$xs:    0;
+$sm:    576px;
+$md:    768px;
+$lg:    992px;
+$xl:    1200px;
+$xxl:   1600px;
 
 $breakpoints: (
-	xs: 0,
-	sm: 576px,
-	md: 768px,
-	lg: 992px,
-	xl: 1200px
+	xs: $xs,
+	sm: $sm,
+	md: $md,
+	lg: $lg,
+	xl: $xl,
+	xxl: $xxl,
 );
+
+
+// Container
+// ---------------------
+$sidePadding--xs:           16px;
+$sidePadding--sm:           20px;
+$sidePadding:               32px;
+$containerMax:              1140px + ($sidePadding * 2);
 
 
 // Grid
@@ -93,7 +104,7 @@ $spacer:                    10px;
 // Transition & Animation
 // ---------------------
 $duration--sm:               .12s;
-$duration:                  .2s;
+$duration:                   .2s;
 $duration--lg:               .3s;
 $duration--xl:               .6s;
 $duration--xxl:              1s;
@@ -101,9 +112,6 @@ $duration--xxl:              1s;
 
 // Libraries
 // ---------------------
-
-// Glide
-$glide-class:               'Glide';
 
 // basicLightbox
 $basicLightbox__background: rgba(0, 0, 0, .8);

@@ -24,11 +24,23 @@ html {
 body {
 	margin: 0;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	// cursor: default;
+}
+
+img {
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+picture,
+picture img {
+	display: block;
 }
 
 input,
 textarea,
 button {
+	font-size: inherit;
 	font-family: inherit;
 }
 

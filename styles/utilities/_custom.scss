@@ -50,3 +50,8 @@
 .listReset {
 	@include listReset(true);
 }
+
+.stroke-100 { stroke-width: 1px !important }
+.stroke-150 { stroke-width: 1.5px !important }
+.stroke-200 { stroke-width: 2px !important }
+.stroke-300 { stroke-width: 3px !important }

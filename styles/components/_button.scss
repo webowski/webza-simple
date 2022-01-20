@@ -71,6 +71,15 @@ $btnShadow3:      0 10px 14px -8px rgba(59,80,100,.29);
 		0 0 0 4px rgba(100,201,255,.6);
 }
 
+// – :any-link
+// – :focus-visible
+// – :focus-within
+// – :is
+// – :where
+// – :not
+// – :has()
+// – :empty
+
 .Btn .Icon {
 	fill: currentColor;
 }
@@ -274,3 +283,147 @@ $btnShadow3:      0 10px 14px -8px rgba(59,80,100,.29);
 		padding-right: 10px;
 	}
 }
+
+
+.wpcf7-submit,
+.Button {
+	width: auto;
+	max-width: 100%;
+	padding: 12px 20px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid transparent;
+	appearance: none;
+	background-color: $accent;
+	box-shadow: none;
+	border-radius: 24px;
+	color: #000;
+	font-family: $fontMain;
+	font-size: 1rem;
+	line-height: 1.25;
+	letter-spacing: 0.05em;
+	font-weight: 700;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	text-transform: uppercase;
+	cursor: pointer;
+	white-space: nowrap;
+	transition:
+		background-color $duration--sm,
+		border-color $duration--sm,
+		color $duration--sm,
+		box-shadow $duration--sm,
+		transform $duration--sm;
+	will-change: transform;
+	user-select: none;
+
+	@include mediaUp(md) {
+		padding: 12px 20px;
+	}
+}
+
+.wpcf7-submit:hover,
+.Button:hover {
+	text-decoration: none;
+	background-color: darken($accent, 4);
+}
+
+.wpcf7-submit:active,
+.Button:active {
+	transform: translateY(1px);
+}
+
+.wpcf7-submit:focus,
+.Button:focus {
+	outline: none;
+}
+
+.Button.is-pressed {
+	background-color: #cacaca;
+	// box-shadow:
+	// 	inset -3px -3px 8px 2px rgba(white, .1),
+	// 	inset 3px 3px 8px 2px rgba(black, .11),
+	// 	0 0 0 1px rgba(white,.1);
+	color: #555;
+}
+
+.wpcf7-submit[disabled],
+.Button[disabled] {
+	cursor: default;
+	color: #b7b7b7 !important;
+	background-color: #e2e2e2 !important;
+	// box-shadow:
+	// 	-6px -6px 15px rgba(255, 255, 255, 0.302),
+	// 	6px 6px 15px rgba(0, 0, 0, 0.153);
+}
+
+.Button.-xs {
+	padding: 4px 8px;
+	font-size: .75rem;
+	text-transform: none;
+	letter-spacing: 0;
+}
+
+.Button.-sm {
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.25;
+	text-transform: none;
+	letter-spacing: 0;
+}
+
+.Button.-outline {
+	border-color: $accent;
+	background-color: transparent;
+}
+
+.Button.-outline:hover {
+	border-color: darken($accent, 4);
+	background-color: transparent;
+}
+
+.Button.-outlineThin {
+	padding: 13px 21px;
+	border-width: 1px;
+	border-color: $accent;
+	background-color: transparent;
+}
+
+.Button.-outlineThin:hover {
+	border-color: darken($accent, 4);
+	background-color: transparent;
+}
+
+// .Button.-hoverDanger:hover {
+// 	background-color: $danger;
+// 	color: $white;
+// }
+
+.Button.-outline.-inverse {
+	color: $inverse;
+	background-color: rgba($intense, .12);
+}
+
+.Button .Icon {
+	flex-shrink: 0;
+}
+
+.Button.-width-md {
+	width: 188px;
+}
+
+.Button.-width-lg {
+	width: 240px;
+}
+
+.Button.-square {
+	border-radius: 8px;
+}
+
+.Button.-inverse {
+	color: $intense;
+	background-color: $inverse;
+}
+

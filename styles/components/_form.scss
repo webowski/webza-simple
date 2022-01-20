@@ -34,7 +34,8 @@ input.FormInput {
 	}
 }
 
-.FormInput:focus {
+.FormInput:focus,
+.FormInput:focus-within {
 	background-color: var(--bg);
 	color: var(--intense);
 	box-shadow:
@@ -81,9 +82,6 @@ textarea.FormInput {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-}
-
-.FormInput--file label {
 }
 
 .FormInput--file input[type=file] {
@@ -209,6 +207,164 @@ textarea.FormInput {
 
 }
 
+
+
+.FormInput.-range {
+	padding: 0 10px 0 23px;
+	position: relative;
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+}
+
+.FormInput__min,
+.FormInput__max {
+	@include inputReset;
+	padding-top: 13px;
+	padding-bottom: 13px;
+	width: 100%;
+	font-size: 1rem;
+	line-height: 1.25;
+}
+
+.FormInput__label {
+	position: absolute;
+	top: 6px;
+	font-size: .75rem;
+	line-height: .9;
+	font-weight: 500;
+	color: $muted;
+}
+
+.FormInput__label.-min {
+	left: 23px;
+}
+
+.FormInput__label.-max {
+	left: 125px;
+}
+
+.FormInput__middle {
+	white-space: nowrap;
+}
+
+.FormInput__units {
+	width: 32px;
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-self: center;
+	white-space: nowrap;
+	font-weight: 500;
+	color: $voice;
+	user-select: none;
+}
+
+.FormInput__units.-switch {
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: $accent;
+	color: $intense;
+	border-radius: 32px;
+	cursor: pointer;
+}
+
+.FormInput__units.-switch:active {
+	background-color: darken($accent, 2);
+}
+
+.FormInput.-range + .Toddler {
+	margin-top: 1rem;
+}
+
+.FormInput.-search {
+	padding: 0;
+	display: flex;
+}
+
+.FormInput__input {
+	@include inputReset;
+	padding: 13px 0 13px 24px;
+	font-size: 1rem;
+	flex-grow: 1;
+	flex-shrink: 1;
+}
+
+.FormInput.-search .FormInput__button {
+	@include buttonReset;
+	flex-shrink: 0;
+	height: 46px;
+	padding-left: .5rem;
+	padding-right: 1rem;
+	color: rgba($black, .16);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: color $duration;
+	border-radius: 0 46px 46px 0;
+	pointer-events: none;
+}
+
+.FormInput.-search .FormInput__button:hover {
+	color: $accent;
+}
+
+.SearchForm {
+	position: relative;
+}
+
+.SearchForm__button {
+	@include buttonReset;
+	height: 2rem;
+	width: 2.5rem;
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: rgba($black, .16);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: color $duration;
+}
+
+.SearchForm__button:hover {
+	color: $major;
+}
+
+.FormField {
+	margin-top: .75rem;
+	margin-bottom: .75rem;
+	@include flowMargin;
+}
+
+.FormField.-inactive {
+	opacity: .4;
+	pointer-events: none;
+}
+
+.FormLabel {
+	margin-left: 1.5rem;
+	margin-right: 1.5rem;
+	margin-bottom: .5rem;
+	display: block;
+	font-size: .875rem;
+	line-height: 1.15;
+	font-weight: 500;
+}
+
+.FormInput.-inverse {
+	background-color: rgba(#494949, .84);
+	border-color: rgba(#d3d3d3, .56);
+	color: $white;
+
+	@include placeholder() {
+		color: rgba($white, .64);
+	}
+}
 
 .Checkbox {
 	margin-top: 12px;
@@ -370,4 +526,70 @@ textarea.FormInput {
 
 .Radio--voting.Radio--colorSuccess:hover {
 	background-color: var(--successLight);
+}
+
+.FormSelect {
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 11px 27px 11px 14px;
+	position: relative;
+	z-index: 1;
+	appearance: none;
+	user-select: none;
+	cursor: pointer;
+	border-radius: 7px;
+	box-sizing: border-box;
+	border: 1px solid #ccd1d7;
+	background-color: $white;
+	background-size: 10px 5px;
+	background-image: url("data:image/svg+xml,%3Csvg width='10' height='5' viewBox='0 0 10 5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 5L1.39079e-06 -6.59627e-06L10 -1.90735e-06L5 5Z'/%3E%3C/svg%3E%0A");
+	background-repeat: no-repeat;
+	background-position: calc(100% - 14px) 50%;
+	background-clip: padding-box;
+	color: $major;
+	font-size: 14px;
+	line-height: 1.2;
+	text-align: center;
+}
+
+// .FormSelect option {
+// 	background-color: rgb(184, 194, 203);
+// 	font-size: 14px;
+// }
+
+.FormCheck[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+	vertical-align: top;
+	background-color: $white;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 12px 9px;
+	border: 2px solid $green;
+	border-radius: 5px;
+	appearance: none;
+	color-adjust: exact;
+	cursor: pointer;
+}
+
+.FormCheck:checked[type="checkbox"] {
+	background-color: $green;
+	background-image: url("data:image/svg+xml,%3Csvg width='22' height='16' viewBox='0 0 22 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.3556 3.75656L9.74968 15.3556C8.89025 16.2148 7.49611 16.2148 6.63587 15.3556L0.644818 9.36726C-0.214939 8.50811 -0.214939 7.11454 0.644818 6.25522C1.50474 5.39575 2.89876 5.39575 3.7583 6.2549L8.19324 10.6876L18.2416 0.644362C19.1015 -0.215113 20.4957 -0.214462 21.3553 0.644362C22.2149 1.50367 22.2149 2.89676 21.3556 3.75656Z' fill='white'/%3E%3C/svg%3E%0A");
+}
+
+.Button[type="checkbox"] {
+	appearance: none;
+	cursor: pointer;
+	display: block;
+	flex-shrink: 0;
+}
+
+.Button[type="checkbox"]:after {
+	content: 'not checked';
+	display: block;
+}
+
+.Button[type="checkbox"]:checked:after {
+	content: 'checked';
 }

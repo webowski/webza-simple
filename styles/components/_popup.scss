@@ -23,3 +23,25 @@
 	transform: scale(1);
 	opacity: 1;
 }
+
+.Popup {
+	width: 540px;
+	padding: 2.5rem;
+	background-color: $white;
+}
+
+.Popup__closer {
+	@include buttonReset;
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	transition: color $duration--sm;
+}
+
+.Popup__closer:hover {
+	color: $danger;
+}
+
+.Popup__closer + * {
+	margin-top: 0;
+}

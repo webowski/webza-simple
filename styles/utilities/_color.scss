@@ -1,5 +1,7 @@
 /* Color */
 
+.color-inherit { color: inherit !important }
+
 .color-intense {
 	color: var(--intense) !important;
 }
@@ -206,3 +208,5 @@
 .bg-yandex {
 	background-color: #d82e2e;
 }
+
+.bg-transparent { background-color: transparent !important }

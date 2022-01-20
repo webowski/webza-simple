@@ -1,8 +1,8 @@
-.SiteHeaderOrigin {
+.HeaderOrigin {
 	height: 60px;
 }
 
-.SiteHeader {
+.Header {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -15,11 +15,11 @@
 	cursor: default;
 }
 
-[data-theme="dark"] .SiteHeader {
+[data-theme="dark"] .Header {
 	box-shadow: 0 8px 20px -8px rgba(0,0,0,.6);
 }
 
-.SiteHeader__overlay {
+.Header__overlay {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -36,17 +36,17 @@
 	will-change: opacity;
 }
 
-.SiteHeader__overlay.is-shown {
+.Header__overlay.is-shown {
 	visibility: visible;
 	opacity: .2;
 	transition: opacity $duration--lg;
 }
 
-[data-theme="dark"] .SiteHeader__overlay.is-shown {
+[data-theme="dark"] .Header__overlay.is-shown {
 	opacity: .1;
 }
 
-.SiteHeader__grid {
+.Header__grid {
 	height: 60px;
 	display: flex;
 	justify-content: space-between;

@@ -1,3 +1,7 @@
+html {
+	font-size: $rem;
+}
+
 body {
 	color: var(--major);
 	font-family: var(--fontMain);
@@ -9,6 +13,8 @@ a {
 	@include linkReset;
 	color: var(--voice);
 	border-bottom: 1px solid currentColor;
+	text-decoration: underline;
+	text-underline-position: under;
 	transition:
 		color $duration--sm,
 		border-color $duration--sm,
@@ -17,8 +23,16 @@ a {
 }
 
 a:hover {
-	border-bottom-color: transparent;
 }
+
+// – :any-link
+// – :focus-visible
+// – :focus-within
+// – :is
+// – :where
+// – :not
+// – :has()
+// – :empty
 
 // a:focus {
 // 	outline: none;
@@ -32,9 +46,9 @@ a:hover {
 
 p {
 	max-width: 750px;
-	margin-top: 0.8rem;
-	margin-bottom: 0.8rem;
-	@include marginFirstLast;
+	@include flowMargin;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 
 	@include mediaUp(md) {
 		margin-top: 1rem;
@@ -46,7 +60,7 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
 	margin-top: 2.2rem;
 	margin-bottom: 1rem;
-	@include marginFirstLast;
+	@include flowMargin;
 	color: var(--intense);
 	line-height: 1.2;
 	font-weight: bold;
@@ -111,9 +125,9 @@ code {
 }
 
 pre {
-	@include marginFirstLast;
+	@include flowMargin;
 	-webkit-overflow-scrolling: touch;
-	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
 	background-color: #f0f0f4;
 	border-radius: 3px;
 	margin: 12px 0;
@@ -142,7 +156,7 @@ ul {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 	padding-left: 0;
-	@include marginFirstLast;
+	@include flowMargin;
 	list-style-type: none;
 }
 

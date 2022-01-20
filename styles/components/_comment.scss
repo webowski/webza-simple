@@ -1,7 +1,7 @@
 .Comment {
 	margin-top: 25px;
 	margin-bottom: 25px;
-	@include marginFirstLast;
+	@include flowMargin;
 	// margin-top: 15px;
 	// margin-bottom: 15px;
 	// background: var(--mutedLightest);
@@ -92,14 +92,14 @@
 	border: 1px solid $border;
 	border-radius: 2px;
 	background-color: $white;
-	transition: 
+	transition:
 		background-color $duration,
 		border-color $duration,
 		color $duration,
 		box-shadow $duration,
 		transform $duration;
 }
-	
+
 .CommentReplies__expander:before {
 	@include pseudoBlock(6px, 2px);
 	background-color: $muted;
@@ -108,7 +108,7 @@
 	transition:
 		background-color $duration;
 }
-	
+
 .CommentReplies__expander:after {
 	@include pseudoBlock(200%, 200%);
 	top: -50%;
