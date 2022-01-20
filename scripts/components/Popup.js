@@ -71,3 +71,82 @@ queryAll('.ArticleContent img').forEach(image => {
 		applyLightbox(image)
 	}
 })
+
+
+
+
+// import * as basicLightbox from 'basiclightbox'
+
+// var popupOpeners = document.querySelectorAll('[href^="#popup"]');
+// // var lonelyPopup = document.querySelector('.do-lonelyPopup');
+
+// var popupIds = [];
+
+// [].forEach.call(popupOpeners, function(popupOpener, i) {
+
+// 	var href = popupOpener.getAttribute('href');
+// 	popupIds.push(href);
+
+// });
+
+// // popupIds.push( '#' + lonelyPopup.getAttribute('id') );
+
+// var popupIdsUnique = popupIds.filter(onlyUnique);
+
+// var popupInstances = [];
+// var popupAsk;
+
+// [].forEach.call(popupIdsUnique, function(popupId, i) {
+
+// 	var content = document.querySelector( popupId );
+
+// 	if (content) {
+
+// 		var popupCloser = content.querySelector('.Popup__closer')
+
+// 		var cssClass = 'PopupContainer -mod';
+
+// 		if (popupId == '#popupAsk') {
+// 			cssClass += ' -modAsk';
+// 		}
+
+// 		var instance = basicLightbox.create( content, {
+// 			className: cssClass,
+// 			onShow: function (instance) {
+// 				// console.log('onShow');
+// 			},
+// 			onClose: function (instance) {
+// 				// console.log('onClose');
+// 			}
+// 		})
+
+// 		instance.id = popupId;
+
+// 		if (popupId == '#popupAsk') {
+// 			popupAsk = instance;
+// 		}
+
+// 		if (popupCloser) {
+// 			popupCloser.addEventListener('click', function(e) {
+// 				e.preventDefault()
+// 				instance.close()
+// 			})
+// 		}
+
+// 		var popupOpeners = document.querySelectorAll('[href="' + popupId + '"]');
+
+// 		[].forEach.call(popupOpeners, function(popupOpener, i) {
+// 			popupOpener.addEventListener('click', function(e) {
+// 				e.preventDefault()
+// 				instance.show()
+// 			})
+// 		});
+
+// 		popupInstances.push(instance);
+// 	}
+
+// });
+
+// function onlyUnique(value, index, self) {
+// 	return self.indexOf(value) === index;
+// }

@@ -90,3 +90,64 @@ menuItemsLinks.forEach( menuItemLink => {
 	})
 
 })
+
+
+
+
+// import { trigger } from '../helpers/Event'
+
+// let $menuItems = document.querySelectorAll('.NavMain__item.-dropdown')
+// let $menuItemsLinks = document.querySelectorAll('.NavMain__item.-dropdown > a')
+
+// $menuItemsLinks.forEach( $menuItemLink => {
+// 	let $menuItem = $menuItemLink.closest('li')
+// 	let $closeButton = $menuItem.querySelector('.do-closeMenu')
+
+// 	$menuItem.addEventListener('open', (e) => {
+// 		$menuItem.classList.add('is-open')
+// 		closeRestItems($menuItem)
+// 	})
+
+// 	$menuItem.addEventListener('close', (e) => {
+// 		$menuItem.classList.remove('is-open')
+// 	})
+
+// 	if ($closeButton) {
+// 		$closeButton.addEventListener('click', (e) => {
+// 			$menuItem.classList.remove('is-open')
+// 		})
+// 	}
+
+// 	$menuItemLink.addEventListener('click', e => {
+// 		e.preventDefault()
+
+// 		if ($menuItem.classList.contains('is-open')) {
+// 			// slideUp($submenu, 200, () => {
+// 				trigger($menuItem, 'close')
+// 			// })
+// 		} else {
+// 			trigger($menuItem, 'open')
+// 			// slideDown($submenu, 200)
+// 		}
+// 	})
+
+// })
+
+// function closeRestItems($element) {
+// 	$menuItems.forEach($menuItem => {
+// 		if ($menuItem !== $element ) {
+// 			trigger($menuItem, 'close')
+// 		}
+// 	})
+// }
+
+// // event outer click
+// document.addEventListener('mousedown', e => {
+// 	if (
+// 		!e.target.closest('.NavMain__items')
+// 	){
+// 		$menuItems.forEach($menuItem => {
+// 			trigger($menuItem, 'close')
+// 		})
+// 	}
+// })
