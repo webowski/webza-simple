@@ -4,15 +4,6 @@
 	box-sizing: border-box;
 }
 
-img {
-	max-width: 100%;
-	vertical-align: middle;
-}
-
-svg {
-	display: inline-block;
-}
-
 html {
 	// overflow-y: scroll;
 	text-size-adjust: 100%;
@@ -30,6 +21,10 @@ body {
 img {
 	max-width: 100%;
 	vertical-align: middle;
+}
+
+svg {
+	display: inline-block;
 }
 
 picture,
