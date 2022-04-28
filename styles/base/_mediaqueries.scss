@@ -28,7 +28,7 @@
 		$breakpoint-value: map-get($breakpoints, $breakpoint);
 
 		// Write the media query.
-		@media (max-width: ($breakpoint-value - 1)) {
+		@media (max-width: ($breakpoint-value - 0.02)) {
 			@content;
 		}
 
@@ -50,10 +50,10 @@
 		$upper-breakpoint: map-get($breakpoints, $upper);
 
 		// Write the media query.
-		@media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+		@media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 0.02)) {
 			@content;
 		}
-	
+
 	// If one or both of the breakpoints don't exist.
 	} @else {
 
