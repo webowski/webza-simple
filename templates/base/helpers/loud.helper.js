@@ -28,14 +28,30 @@
 // 				alt=alt
 // 			)
 
-Handlebars.registerHelper('list', (context, options) => {
-  let output = '<ul>'
+// Handlebars.registerHelper('list', (context, options) => {
+//   let output = '<ul>'
 
-  for (let i = 0, j = context.length; i < j; i++) {
-    output = output + '<li>' + options.fn(context[i]) + '</li>';
-  }
+//   for (let i = 0, j = context.length; i < j; i++) {
+//     output = output + '<li>' + options.fn(context[i]) + '</li>';
+//   }
 
-  output += '</ul>'
+//   output += '</ul>'
 
-  return output
-});
+//   return output
+// });
+
+
+// Handlebars.registerHelper('loud', function (aString) {
+//   return aString.toUpperCase()
+// })
+
+
+// export default function loud(aString) {
+//   return aString.toUpperCase()
+// }
+
+const loud = (aString) => {
+  return aString.toUpperCase()
+}
+
+module.exports = loud

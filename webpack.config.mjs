@@ -1,9 +1,10 @@
-import { resolve }              from 'path'
+import path, { resolve }        from 'path'
 import fs                       from 'fs-extra'
 import chalk                    from 'chalk'
 import chokidar                 from 'chokidar'
 import BeforeBuildPlugin        from 'before-build-webpack'
 import MiniCssExtractPlugin     from 'mini-css-extract-plugin'
+import HandlebarsPlugin         from 'handlebars-webpack-plugin'
 import SVGSpritemapPlugin       from 'svg-spritemap-webpack-plugin'
 import { VueLoaderPlugin }      from 'vue-loader'
 
@@ -114,6 +115,45 @@ export default {
 			}
 		}),
 		new VueLoaderPlugin(),
+		new HandlebarsPlugin({
+      // path to hbs entry file(s). Also supports nested directories if write path.join(process.cwd(), "app", "src", "**", "*.hbs"),
+      entry: path.join(process.cwd(), "templates", "*.hbs"),
+      // entry: "./templates/*.hbs",
+      // output path and filename(s). This should lie within the webpacks output-folder
+      // if ommited, the input filepath stripped of its extension will be used
+      output: path.join(process.cwd(), "dest", "[name].html"),
+      // output: "./html/[name].html",
+      // you can also add a [path] variable, which will emit the files with their relative path, like
+      // output: path.join(process.cwd(), "build", [path], "[name].html"),
+
+      // data passed to main hbs template: `main-template(data)`
+      // data: require("./templates/base/data.json"),
+      // or add it as filepath to rebuild data on change using webpack-dev-server
+      data: path.join(__dirname, "templates/base/data.json"),
+      // data: "./templates/base/data.json",
+
+      // globbed path to partials, where folder/filename is unique
+      partials: [
+        path.join(process.cwd(), "templates", "{partials,components}", "*.hbs")
+      ],
+
+      // register custom helpers. May be either a function or a glob-pattern
+      helpers: {
+        // nameOfHbsHelper: Function.prototype,
+      //   // projectHelpers: path.join(process.cwd(), "app", "helpers", "*.helper.js")
+        projectHelpers: path.join(process.cwd(), "templates", "base", "helpers", "*.helper.js")
+      },
+
+      // hooks
+      // getTargetFilepath: function (filepath, outputTemplate) {},
+      // getPartialId: function (filePath) {}
+      onBeforeSetup: function (Handlebars) {},
+      onBeforeAddPartials: function (Handlebars, partialsMap) {},
+      onBeforeCompile: function (Handlebars, templateContent) {},
+      onBeforeRender: function (Handlebars, data, filename) {},
+      onBeforeSave: function (Handlebars, resultHtml, filename) {},
+      onDone: function (Handlebars, filename) {}
+    })
 	],
 
 	resolve: {
@@ -121,7 +161,6 @@ export default {
 		alias: {
       // 'vue': mode === 'development' ? 'vue/dist/vue.esm-browser' : 'vue/dist/vue.esm-browser.prod',
       'vue': 'vue/dist/vue.esm-browser',
-      // 'vue': 'vue/dist/vue.esm-bundler',
 		},
 	},
 
