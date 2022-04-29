@@ -138,7 +138,7 @@
 	flex: 1 1 auto;
 	border-radius: 2px;
 	background-color: rgba($inverse, .4);
-	transition: background-color $duration--lg;
+	transition: background-color $duration-lg;
 	position: relative;
 	cursor: pointer;
 }
@@ -261,7 +261,7 @@
 	flex: 1 1 auto;
 	border-radius: 2px;
 	background-color: rgba($inverse, .4);
-	transition: background-color $duration--lg;
+	transition: background-color $duration-lg;
 	position: relative;
 	cursor: pointer;
 }
@@ -336,7 +336,7 @@
 
 .Slider.-carousel > .swiper-container > .swiper-wrapper > .swiper-slide {
 	opacity: .16;
-	transition: opacity $duration--xl !important;
+	transition: opacity $duration-xl !important;
 	pointer-events: none;
 }
 
@@ -369,7 +369,7 @@
 	flex: 1 1 auto;
 	border-radius: 2px;
 	background-color: rgba($intense, .16);
-	transition: background-color $duration--lg;
+	transition: background-color $duration-lg;
 	position: relative;
 	cursor: pointer;
 }

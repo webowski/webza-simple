@@ -79,7 +79,7 @@
 	fill: $voice;
 	transform: rotate(90deg);
 	transition:
-		transform $duration--sm;
+		transform $duration-sm;
 }
 
 .CustomSelect__dropdown {
@@ -118,9 +118,9 @@
 .CustomSelect.is-open {
 	z-index: 5;
 	transition:
-		background-color $duration--sm,
-		border-color $duration--sm,
-		color $duration--sm;
+		background-color $duration-sm,
+		border-color $duration-sm,
+		color $duration-sm;
 }
 
 .CustomSelect.is-open .CustomSelect__arrow .Icon {
@@ -131,7 +131,7 @@
 	visibility: visible;
 	opacity: 1;
 	transition:
-		opacity $duration--sm;
+		opacity $duration-sm;
 }
 
 .CustomSelect__list {

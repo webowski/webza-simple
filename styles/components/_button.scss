@@ -31,7 +31,7 @@ $btnShadow3:      0 10px 14px -8px rgba(59,80,100,.29);
 		border-color $duration,
 		color $duration,
 		box-shadow $duration,
-		transform $duration--sm;
+		transform $duration-sm;
 	box-shadow: $btnShadow;
 }
 
@@ -311,11 +311,11 @@ $btnShadow3:      0 10px 14px -8px rgba(59,80,100,.29);
 	cursor: pointer;
 	white-space: nowrap;
 	transition:
-		background-color $duration--sm,
-		border-color $duration--sm,
-		color $duration--sm,
-		box-shadow $duration--sm,
-		transform $duration--sm;
+		background-color $duration-sm,
+		border-color $duration-sm,
+		color $duration-sm,
+		box-shadow $duration-sm,
+		transform $duration-sm;
 	will-change: transform;
 	user-select: none;
 

@@ -16,10 +16,10 @@ a {
 	text-decoration: underline;
 	text-underline-position: under;
 	transition:
-		color $duration--sm,
-		border-color $duration--sm,
-		background-color $duration--sm,
-		box-shadow $duration--sm;
+		color $duration-sm,
+		border-color $duration-sm,
+		background-color $duration-sm,
+		box-shadow $duration-sm;
 }
 
 a:hover {
