@@ -1,0 +1,95 @@
+.AccordionItem {
+	padding-top: 1.75rem;
+	padding-bottom: 1.75rem;
+	transition:
+		border-color $duration,
+		background-color $duration;
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid transparent;
+}
+
+.AccordionItem__body {
+	margin-top: 1rem;
+}
+
+.AccordionItem--open {
+	background-color: var(--bg);
+	border-top-color: var(--major);
+	border-bottom-color: var(--major);
+}
+
+.AccordionItem {
+	position: relative;
+}
+
+.AccordionItem + .AccordionItem {
+	margin-top: -1px;
+}
+
+.AccordionItem__opener {
+	color: var(--brand);
+	cursor: pointer;
+	transition:
+		color $duration-sm;
+}
+
+.AccordionItem__opener:hover {
+	color: var(--brandLight);
+}
+
+.AccordionItem__header,
+.AccordionItem__body {
+
+	@include mediaUp(md) {
+		padding-left: 2.5rem;
+	}
+
+	@include mediaUp(lg) {
+		padding-left: 3.625rem;
+	}
+}
+
+.AccordionItem__body {
+	display: none;
+}
+
+.AccordionItem:after {
+	opacity: 1;
+	@include pseudoBlock(auto, 1px);
+	max-width: calc($containerMax - 2 * var(--sidePadding));
+	bottom: -1px;
+	right: 0;
+	left: 0;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: var(--brand);
+}
+
+.AccordionItem__hidden {
+	visibility: hidden;
+	opacity: 0;
+	transition:
+		visibility 0s ease $duration-xl,
+		opacity $duration-xl ease,
+		transform $duration-xl ease;
+}
+
+.AccordionItem--open .AccordionItem__opener {
+	color: var(--major);
+}
+
+.AccordionItem--open .AccordionItem__body {
+	display: block;
+}
+
+.AccordionItem--open:after {
+	opacity: 0;
+}
+
+.AccordionItem--open .AccordionItem__hidden {
+	visibility: visible;
+	opacity: 1;
+	transition:
+		opacity $duration-xl ease,
+		transform $duration-xl ease;
+}
