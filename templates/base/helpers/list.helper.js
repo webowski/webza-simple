@@ -28,17 +28,20 @@
 // 				alt=alt
 // 			)
 
-// Handlebars.registerHelper('list', (context, options) => {
-//   let output = '<ul>'
 
-//   for (let i = 0, j = context.length; i < j; i++) {
-//     output = output + '<li>' + options.fn(context[i]) + '</li>';
-//   }
+const Handlebars = require('handlebars')
 
-//   output += '</ul>'
+Handlebars.registerHelper('list', (context, options) => {
+  let output = '<ul>'
 
-//   return output
-// });
+  for (let i = 0, j = context.length; i < j; i++) {
+    output = output + '<li>' + options.fn(context[i]) + '</li>';
+  }
+
+  output += '</ul>'
+
+  return output
+});
 
 
 // Handlebars.registerHelper('loud', function (aString) {
@@ -50,8 +53,8 @@
 //   return aString.toUpperCase()
 // }
 
-const loud = (aString) => {
-  return aString.toUpperCase()
-}
+// const loud = (aString) => {
+//   return aString.toUpperCase()
+// }
 
-module.exports = loud
+// module.exports = loud
