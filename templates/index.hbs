@@ -53,6 +53,17 @@
 
 			{{> components/image}}
 
+			<ul>
+				{{#each nav}}
+					<li><a href="{{url}}">{{title}}</a></li>
+				{{/each}}
+			</ul>
+
+			{{!-- {{#list nav}}
+				<div>1</div>
+				<a href="{{url}}">{{title}}</a>
+			{{/list}} --}}
+
 		</div>
 	</main>
 
