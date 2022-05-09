@@ -5,6 +5,7 @@ import chokidar                 from 'chokidar'
 import BeforeBuildPlugin        from 'before-build-webpack'
 import MiniCssExtractPlugin     from 'mini-css-extract-plugin'
 import HandlebarsPlugin         from 'handlebars-webpack-plugin'
+import pretty                   from 'pretty'
 import SVGSpritemapPlugin       from 'svg-spritemap-webpack-plugin'
 import { VueLoaderPlugin }      from 'vue-loader'
 
@@ -18,13 +19,13 @@ export default {
 	context: __dirname,
 
 	entry: {
-		styles: './styles/index.scss',
-		bundle: './scripts/index.js',
+		'styles/index': './styles/index.scss',
+		'scripts/bundle': './scripts/index.js',
 	},
 
 	output: {
 		path: __dirname,
-		filename: 'scripts/[name].min.js',
+		filename: '[name].min.js',
 		assetModuleFilename: 'images/[hash][ext][query]',
 		chunkFilename: '[id].[chunkhash].js',
 	},
@@ -90,18 +91,45 @@ export default {
         loader: 'vue-loader'
       },
 
+			// // Handlebars
+			// {
+			// 	test: /\.hbs$/,
+			// 	// loader: 'handlebars-loader',
+			// 	// query: {
+			// 	// 	helperDirs: [
+			// 	// 		__dirname + '/base/helpers',
+			// 	// 		// __dirname + '/helpers2',
+			// 	// 	],
+			// 	// 	debug: true,
+			// 	// },
+			// 	use: [
+			// 		{
+			// 			loader: 'handlebars-loader',
+			// 			options: {
+			// 				helperDirs: [
+			// 					__dirname + '/base/helpers',
+			// 				],
+			// 				// debug: true,
+			// 			}
+			// 		}
+			// 	]
+			// }
+
 		]
 	},
 
 	plugins: [
+
 		new BeforeBuildPlugin(function(stats, callback) {
 			console.log( '\n' + chalk.blue.bold('Run webpack build') + ' on ' + chalk.green.bold(__dirname) )
 			// cleanTwigCache(callback)
 			callback()
 		}),
+
 		new MiniCssExtractPlugin({
 			filename: 'styles/[name].min.css',
 		}),
+
 		new SVGSpritemapPlugin('./images/icons/*.svg', {
 			output: {
 				filename: 'images/icons.min.svg',
@@ -114,7 +142,20 @@ export default {
 				}
 			}
 		}),
+
 		new VueLoaderPlugin(),
+
+		// new HtmlWebpackPlugin({
+		// 	template: './templates/about.hbs',
+		// 	// filename: (entryName) => './dest/' + entryName + '.html',
+		// 	filename: './dest/about.html',
+		// 	minify: false,
+		// 	inject: false,
+		// 	templateParameters: JSON.parse(
+		// 		fs.readFileSync('./templates/base/data.json')
+		// 	)
+		// }),
+
 		new HandlebarsPlugin({
       // path to hbs entry file(s). Also supports nested directories if write path.join(process.cwd(), "app", "src", "**", "*.hbs"),
       entry: path.join(process.cwd(), "templates", "*.hbs"),
@@ -148,10 +189,20 @@ export default {
       // getTargetFilepath: function (filepath, outputTemplate) {},
       // getPartialId: function (filePath) {}
       onBeforeSetup: function (Handlebars) {},
-      onBeforeAddPartials: function (Handlebars, partialsMap) {},
+      onBeforeAddPartials: function (Handlebars, partialsMap) {
+				// register layout
+				let tplPath = path.join(process.cwd(), "templates/partials/layout.hbs")
+				let tplLayout = fs.readFileSync(tplPath, 'utf8')
+				Handlebars.registerPartial('layout', tplLayout)
+			},
       onBeforeCompile: function (Handlebars, templateContent) {},
       onBeforeRender: function (Handlebars, data, filename) {},
-      onBeforeSave: function (Handlebars, resultHtml, filename) {},
+      onBeforeSave: function (Handlebars, resultHtml, filename) {
+				resultHtml = pretty(resultHtml, {
+					ocd: false
+				})
+				return resultHtml
+			},
       onDone: function (Handlebars, filename) {}
     })
 	],
