@@ -87,33 +87,9 @@ export default {
 
 			// Vue
 			{
-        test: /\.vue$/,
-        loader: 'vue-loader'
-      },
-
-			// // Handlebars
-			// {
-			// 	test: /\.hbs$/,
-			// 	// loader: 'handlebars-loader',
-			// 	// query: {
-			// 	// 	helperDirs: [
-			// 	// 		__dirname + '/base/helpers',
-			// 	// 		// __dirname + '/helpers2',
-			// 	// 	],
-			// 	// 	debug: true,
-			// 	// },
-			// 	use: [
-			// 		{
-			// 			loader: 'handlebars-loader',
-			// 			options: {
-			// 				helperDirs: [
-			// 					__dirname + '/base/helpers',
-			// 				],
-			// 				// debug: true,
-			// 			}
-			// 		}
-			// 	]
-			// }
+				test: /\.vue$/,
+				loader: 'vue-loader'
+			},
 
 		]
 	},
@@ -145,73 +121,62 @@ export default {
 
 		new VueLoaderPlugin(),
 
-		// new HtmlWebpackPlugin({
-		// 	template: './templates/about.hbs',
-		// 	// filename: (entryName) => './dest/' + entryName + '.html',
-		// 	filename: './dest/about.html',
-		// 	minify: false,
-		// 	inject: false,
-		// 	templateParameters: JSON.parse(
-		// 		fs.readFileSync('./templates/base/data.json')
-		// 	)
-		// }),
-
 		new HandlebarsPlugin({
-      // path to hbs entry file(s). Also supports nested directories if write path.join(process.cwd(), "app", "src", "**", "*.hbs"),
-      entry: path.join(process.cwd(), "templates", "*.hbs"),
-      // entry: "./templates/*.hbs",
-      // output path and filename(s). This should lie within the webpacks output-folder
-      // if ommited, the input filepath stripped of its extension will be used
-      output: path.join(process.cwd(), "dest", "[name].html"),
-      // output: "./html/[name].html",
-      // you can also add a [path] variable, which will emit the files with their relative path, like
-      // output: path.join(process.cwd(), "build", [path], "[name].html"),
+			// path to hbs entry file(s). Also supports nested directories if write path.join(process.cwd(), "app", "src", "**", "*.hbs"),
+			// entry: path.join(process.cwd(), "templates", "*.hbs"),
+			entry: "./templates/*.hbs",
+			// output path and filename(s). This should lie within the webpacks output-folder
+			// if ommited, the input filepath stripped of its extension will be used
+			output: path.join(process.cwd(), "dest", "[name].html"),
+			// output: "./html/[name].html",
+			// you can also add a [path] variable, which will emit the files with their relative path, like
+			// output: path.join(process.cwd(), "build", [path], "[name].html"),
 
-      // data passed to main hbs template: `main-template(data)`
-      // data: require("./templates/base/data.json"),
-      // or add it as filepath to rebuild data on change using webpack-dev-server
-      data: path.join(__dirname, "templates/base/data.json"),
-      // data: "./templates/base/data.json",
+			// data passed to main hbs template: `main-template(data)`
+			// data: require("./templates/base/data.json"),
+			// or add it as filepath to rebuild data on change using webpack-dev-server
+			data: path.join(__dirname, "templates/base/data.json"),
+			// data: "./templates/base/data.json",
 
-      // globbed path to partials, where folder/filename is unique
-      partials: [
-        path.join(process.cwd(), "templates", "{partials,components}", "*.hbs")
-      ],
+			// globbed path to partials, where folder/filename is unique
+			partials: [
+				path.join(process.cwd(), "templates", "{partials,components}", "*.hbs")
+			],
 
-      // register custom helpers. May be either a function or a glob-pattern
-      helpers: {
-        // nameOfHbsHelper: Function.prototype,
-      //   // projectHelpers: path.join(process.cwd(), "app", "helpers", "*.helper.js")
-        projectHelpers: path.join(process.cwd(), "templates", "base", "helpers", "*.helper.js")
-      },
+			// register custom helpers. May be either a function or a glob-pattern
+			helpers: {
+				// nameOfHbsHelper: Function.prototype,
+				// projectHelpers: path.join(process.cwd(), "app", "helpers", "*.helper.js")
+				projectHelpers: path.join(process.cwd(), "templates", "base", "helpers", "*.helper.js")
+			},
 
-      // hooks
-      // getTargetFilepath: function (filepath, outputTemplate) {},
-      // getPartialId: function (filePath) {}
-      onBeforeSetup: function (Handlebars) {},
-      onBeforeAddPartials: function (Handlebars, partialsMap) {
+			// hooks
+			// getTargetFilepath: function (filepath, outputTemplate) {},
+			// getPartialId: function (filePath) {}
+			onBeforeSetup: function (Handlebars) {},
+			onBeforeAddPartials: function (Handlebars, partialsMap) {
 				// register layout
 				let tplPath = path.join(process.cwd(), "templates/partials/layout.hbs")
 				let tplLayout = fs.readFileSync(tplPath, 'utf8')
 				Handlebars.registerPartial('layout', tplLayout)
 			},
-      onBeforeCompile: function (Handlebars, templateContent) {},
-      onBeforeRender: function (Handlebars, data, filename) {},
-      onBeforeSave: function (Handlebars, resultHtml, filename) {
+			onBeforeCompile: function (Handlebars, templateContent) {},
+			onBeforeRender: function (Handlebars, data, filename) {},
+			onBeforeSave: function (Handlebars, resultHtml, filename) {
 				resultHtml = pretty(resultHtml, {
 					ocd: false
 				})
 				return resultHtml
 			},
-      onDone: function (Handlebars, filename) {}
-    })
+			onDone: function (Handlebars, filename) {}
+		})
 	],
 
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		alias: {
-      // 'vue': mode === 'development' ? 'vue/dist/vue.esm-browser' : 'vue/dist/vue.esm-browser.prod',
-      'vue': 'vue/dist/vue.esm-browser',
+			// 'vue': mode === 'development' ? 'vue/dist/vue.esm-browser' : 'vue/dist/vue.esm-browser.prod',
+			'vue': 'vue/dist/vue.esm-browser',
 		},
 	},
 
@@ -261,13 +226,13 @@ export default {
 
 	// Static
 	devServer: {
-    static: {
+		static: {
 			directory: __dirname,
-      staticOptions: {},
-      publicPath: "/",
-      serveIndex: true,
-      watch: true,
-    },
+			staticOptions: {},
+			publicPath: "/",
+			serveIndex: true,
+			watch: true,
+		},
 		setupMiddlewares: function(middlewares, devServer) {
 
 			// middlewares.unshift({
@@ -290,7 +255,7 @@ export default {
 
 			return middlewares
 		},
-  },
+	},
 
 }
 
