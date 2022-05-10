@@ -146,8 +146,7 @@ export default {
 			// register custom helpers. May be either a function or a glob-pattern
 			helpers: {
 				// nameOfHbsHelper: Function.prototype,
-				// projectHelpers: path.join(process.cwd(), "app", "helpers", "*.helper.js")
-				projectHelpers: path.join(process.cwd(), "templates", "base", "helpers", "*.helper.js")
+				projectHelpers: path.join(process.cwd(), "templates", "base", "helpers", "*.js")
 			},
 
 			// hooks

@@ -23,10 +23,8 @@ const picture = (options) => {
 
 	let path = src.replace('@2x', '')
 	let pathWebp = path.replace(/\.jpg|\.png/, '.webp')
-
-	let srcsetWebp = `${pathWebp}`
-	let srcset = `${path}`
-
+	let srcsetWebp = pathWebp
+	let srcset = path
 	let is2x = src.match(/@2x/)
 
 	if (is2x) {
