@@ -40,7 +40,7 @@ export default {
 					{
 						loader: MiniCssExtractPlugin.loader,
 						options: {
-							publicPath: __dirname,
+							publicPath: __dirname + '/styles',
 						}
 					},
 					{
