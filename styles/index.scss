@@ -1,6 +1,5 @@
 @use 'sass:math';
 
-
 // Base
 // ------------------------------
 @import 'base/variables';
@@ -10,11 +9,9 @@
 @import 'base/normalize';
 @import 'base/type';
 
-
 // Components
 // ------------------------------
 // @import 'components/accordion';
-// @import 'components/animation';
 // @import 'components/article';
 // @import 'components/badge';
 @import 'components/box';
@@ -44,9 +41,9 @@
 // @import 'components/user';
 // @import 'components/user-panel';
 
-
 // Utilities
 // ------------------------------
+@import 'utilities/animation';
 @import 'utilities/grid';
 @import 'utilities/block';
 @import 'utilities/color';

@@ -15,9 +15,9 @@
 		transform $duration-xl ease;
 }
 
-.appear-slide-in-right,
-.appear-slide-in-down,
-.appear-fade-in {
+.appear-slideInRight,
+.appear-slideInDown,
+.appear-fadeIn {
 	--appearDuration: .6s;
 	--appearDelay: .2s;
 	--fromX: 1rem;
@@ -27,17 +27,17 @@
 	animation-timing-function: ease-in-out;
 }
 
-.appear-slide-in-right {
+.appear-slideInRight {
 	--fromX: -10px;
 	animation-name: appearSlideInRight;
 }
 
-.appear-slide-in-down {
+.appear-slideInDown {
 	--fromX: -10px;
 	animation-name: appearSlideInDown;
 }
 
-.appear-fade-in {
+.appear-fadeIn {
 	animation-name: appearFadeIn;
 }
 
@@ -72,7 +72,7 @@
   }
 }
 
-@keyframes pulse-ring {
+@keyframes pulseRing {
 	0% {
 		transform: scale(0.33);
 		opacity: 1;
@@ -85,7 +85,7 @@
 	}
 }
 
-@keyframes pulse-dot {
+@keyframes pulseDot {
 	0% {
 		transform: scale(0.8);
 	}
@@ -127,7 +127,7 @@
 	}
 }
 
-@keyframes flickerAnimation {
+@keyframes flicker {
   0% {
     opacity: 1;
   }
