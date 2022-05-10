@@ -8,6 +8,7 @@ import HandlebarsPlugin         from 'handlebars-webpack-plugin'
 import pretty                   from 'pretty'
 import SVGSpritemapPlugin       from 'svg-spritemap-webpack-plugin'
 import { VueLoaderPlugin }      from 'vue-loader'
+import FileManagerPlugin        from 'filemanager-webpack-plugin'
 
 const __dirname = resolve()
 const mode = process.env.NODE_ENV || 'development'
@@ -41,6 +42,7 @@ export default {
 						loader: MiniCssExtractPlugin.loader,
 						options: {
 							publicPath: __dirname + '/styles',
+							esModule: false,
 						}
 					},
 					{
@@ -168,6 +170,16 @@ export default {
 				return resultHtml
 			},
 			onDone: function (Handlebars, filename) {}
+		}),
+
+		new FileManagerPlugin({
+			events: {
+				onEnd: {
+					delete: [
+						__dirname + '/styles/styles.min.js*'
+					]
+				}
+			}
 		})
 	],
 
