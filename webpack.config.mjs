@@ -19,7 +19,7 @@ export default {
 	context: __dirname,
 
 	entry: {
-		'styles/index': './styles/index.scss',
+		'styles/styles': './styles/index.scss',
 		'scripts/bundle': './scripts/index.js',
 	},
 
@@ -40,7 +40,7 @@ export default {
 					{
 						loader: MiniCssExtractPlugin.loader,
 						options: {
-							publicPath: '',
+							publicPath: __dirname,
 						}
 					},
 					{
@@ -103,7 +103,7 @@ export default {
 		}),
 
 		new MiniCssExtractPlugin({
-			filename: 'styles/[name].min.css',
+			filename: '[name].min.css',
 		}),
 
 		new SVGSpritemapPlugin('./images/icons/*.svg', {
