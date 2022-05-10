@@ -172,9 +172,9 @@
 
 				<h2 id="components">Components</h2>
 
-				<h4>Pictures</h4>
+				<h3>Pictures</h3>
 
-				<h5>Retina display support</h5>
+				<h4>Retina display support</h4>
 
 				<p>Add `@2x` right before the file extension.</p>
 
@@ -183,6 +183,20 @@
 				{{icon "search" class="Icon fill-brand"}}
 
 				{{> components/grid}}
+
+				<h3 id="components-animation">Animation</h3>
+
+				<h4>Pure CSS</h4>
+
+				<div class="Illustration do-animation appear-fade-in">
+					{{picture src="/media/picture@2x.png" class="Illustration__image parallax" data-depth="0.50" alt="Some picture alt"}}
+				</div>
+
+				<h4>GSAP</h4>
+
+				<div class="Illustration do-animation appear-fade-in">
+					{{picture src="/media/picture@2x.png" class="Illustration__image parallax" data-depth="0.50" alt="Some picture alt"}}
+				</div>
 
 				<h3 id="components-slider">Slider</h3>
 
