@@ -51,47 +51,46 @@
     </header>
 
     <main class="Main">
-      <div class="container">
 
+      <picture class="Illustration">
+        <source srcset="/media/picture.webp, /media/picture@2x.webp 2x" type="image/webp">
+        <img src="/media/picture.png" srcset="/media/picture.png, /media/picture@2x.png 2x" alt="Some picture alt">
+      </picture>
 
-        <picture class="Illustration">
-          <source srcset="/media/picture.webp, /media/picture@2x.webp 2x" type="image/webp">
-          <img src="/media/picture.png" srcset="/media/picture.png, /media/picture@2x.png 2x" alt="Some picture alt">
-        </picture>
+      <div class="Accordion">
+        <div class="AccordionItem is-open">
+          <div class="AccordionItem__header">
 
-        <div class="Accordion">
-          <div class="AccordionItem is-open">
-            <div class="AccordionItem__header">
-
-            </div>
-            <div class="AccordionItem__body">
-
-            </div>
           </div>
-          <div class="AccordionItem">
-            <div class="AccordionItem__header">
+          <div class="AccordionItem__body">
 
-            </div>
-            <div class="AccordionItem__body">
-
-            </div>
-          </div>
-          <div class="AccordionItem">
-            <div class="AccordionItem__header">
-
-            </div>
-            <div class="AccordionItem__body">
-
-            </div>
           </div>
         </div>
+        <div class="AccordionItem">
+          <div class="AccordionItem__header">
 
-        <details class="Dropdown">
-          <summary class="Dropdown__button Btn">Dropdown</summary>
-          <div class="Dropdown__body">
-            <p>Dropdown content</p>
           </div>
-        </details>
+          <div class="AccordionItem__body">
+
+          </div>
+        </div>
+        <div class="AccordionItem">
+          <div class="AccordionItem__header">
+
+          </div>
+          <div class="AccordionItem__body">
+
+          </div>
+        </div>
+      </div>
+
+      <details class="Dropdown">
+        <summary class="Dropdown__button Btn">Dropdown</summary>
+        <div class="Dropdown__body">
+          <p>Dropdown content</p>
+        </div>
+      </details>
+
       <div class="row">
         <div class="col-24 md:col-12 lg:col-6">
 
@@ -121,7 +120,7 @@
     <footer class="Footer">
       <div class="container">
 
-
+        <p>webowski.ru @ All rights reserved</p>
 
       </div>
     </footer>

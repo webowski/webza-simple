@@ -174,6 +174,20 @@
 
           <h2 id="components">Components</h2>
 
+          <h4>Pictures</h4>
+
+          <h5>Retina display support</h5>
+
+          <p>Add `@2x` right before the file extension.</p>
+
+          <picture class="Illustration">
+            <source srcset="/media/picture.webp, /media/picture@2x.webp 2x" type="image/webp">
+            <img src="/media/picture.png" srcset="/media/picture.png, /media/picture@2x.png 2x" alt="Some picture alt">
+          </picture>
+
+          <svg class="Icon fill-brand">
+            <use href="/images/icons.min.svg#icon-search">
+          </svg>
 
           <div class="row">
             <div class="col-24 md:col-12 lg:col-6">
@@ -192,6 +206,7 @@
 
             </div>
           </div>
+
           <h3 id="components-slider">Slider</h3>
 
           <div class="Slider overflow-hidden" data-loop="true" data-speed="200">
