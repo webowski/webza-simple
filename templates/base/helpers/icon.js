@@ -1,4 +1,3 @@
-
 const Handlebars = require('handlebars')
 
 const icon = (name, options) => {

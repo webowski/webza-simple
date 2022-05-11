@@ -151,15 +151,20 @@ export default {
 				projectHelpers: path.join(process.cwd(), "templates", "base", "helpers", "*.js")
 			},
 
+			cache: false,
+
 			// hooks
 			// getTargetFilepath: function (filepath, outputTemplate) {},
 			// getPartialId: function (filePath) {}
 			onBeforeSetup: function (Handlebars) {},
 			onBeforeAddPartials: function (Handlebars, partialsMap) {
-				// register layout
-				let tplPath = path.join(process.cwd(), "templates/partials/layout.hbs")
-				let tplLayout = fs.readFileSync(tplPath, 'utf8')
-				Handlebars.registerPartial('layout', tplLayout)
+
+				let layouts = getLayoutsNames(__dirname + '/templates/partials/')
+
+				layouts.forEach(layoutFilename => {
+					registerLayout(Handlebars, layoutFilename)
+				})
+
 			},
 			onBeforeCompile: function (Handlebars, templateContent) {},
 			onBeforeRender: function (Handlebars, data, filename) {},
@@ -238,34 +243,34 @@ export default {
 	// Static
 	devServer: {
 		static: {
-			directory: __dirname,
+			directory: __dirname + '/dest/',
 			staticOptions: {},
-			publicPath: "/",
+			publicPath: '/',
 			serveIndex: true,
 			watch: true,
 		},
-		setupMiddlewares: function(middlewares, devServer) {
+		// setupMiddlewares: function(middlewares, devServer) {
 
-			// middlewares.unshift({
-			// 	name: 'before',
-			// 	middleware: (req, res) => {
-			// 		chokidar.watch([
-			// 			'./**/*.php',
-			// 			'./**/*.twig',
-			// 			'./**/*.html',
-			// 		], {
-			// 			ignored: /(node_modules|cache)/,
-			// 		}).on('all', function() {
-			// 			// fs.rmdir('./cache/twig', { recursive: true })
-			// 			console.log('chokidar')
-			// 			devServer.sendMessage(devServer.sockets, 'content-changed');
-			// 		})
-			// 		res.send('Foo!')
-			// 	}
-			// })
+		// 	// middlewares.unshift({
+		// 	// 	name: 'before',
+		// 	// 	middleware: (req, res) => {
+		// 	// 		chokidar.watch([
+		// 	// 			'./**/*.php',
+		// 	// 			'./**/*.twig',
+		// 	// 			'./**/*.html',
+		// 	// 		], {
+		// 	// 			ignored: /(node_modules|cache)/,
+		// 	// 		}).on('all', function() {
+		// 	// 			// fs.rmdir('./cache/twig', { recursive: true })
+		// 	// 			console.log('chokidar')
+		// 	// 			devServer.sendMessage(devServer.sockets, 'content-changed');
+		// 	// 		})
+		// 	// 		res.send('Foo!')
+		// 	// 	}
+		// 	// })
 
-			return middlewares
-		},
+		// 	return middlewares
+		// },
 	},
 
 }
@@ -285,4 +290,17 @@ function cleanTwigCache(callback) {
 			// console.error(err)
 			callback()
 		})
+}
+
+function registerLayout(Handlebars, tplFilename) {
+	let tplPath = __dirname + '/templates/partials/' + tplFilename
+	let tplContent = fs.readFileSync(tplPath, 'utf8')
+	let tplName = tplFilename.replace('.hbs', '')
+	Handlebars.registerPartial(tplName, tplContent)
+}
+
+function getLayoutsNames(layoutsPath) {
+	let tplFilenames = fs.readdirSync(layoutsPath, 'utf8')
+	tplFilenames = tplFilenames.filter(tpl => tpl.match(/layout.*\.hbs/))
+	return tplFilenames
 }
