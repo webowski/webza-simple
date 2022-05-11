@@ -151,8 +151,6 @@ export default {
 				projectHelpers: path.join(process.cwd(), "templates", "base", "helpers", "*.js")
 			},
 
-			cache: false,
-
 			// hooks
 			// getTargetFilepath: function (filepath, outputTemplate) {},
 			// getPartialId: function (filePath) {}
@@ -199,6 +197,7 @@ export default {
 	watchOptions: {
 		ignored: '**/node_modules',
 	},
+	cache: false,
 
 	target: target,
 	devtool: mode === 'development' ? 'source-map' : false,
@@ -293,7 +292,7 @@ function cleanTwigCache(callback) {
 }
 
 function registerLayout(Handlebars, tplFilename) {
-	let tplPath = __dirname + '/templates/partials/' + tplFilename
+	let tplPath = __dirname + '/templates/layouts/' + tplFilename
 	let tplContent = fs.readFileSync(tplPath, 'utf8')
 	let tplName = tplFilename.replace('.hbs', '')
 	Handlebars.registerPartial(tplName, tplContent)

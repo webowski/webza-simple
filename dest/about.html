@@ -1,129 +1,62 @@
-<!doctype html>
-<html lang="en">
+<picture class="Illustration">
+  <source srcset="../media/picture.webp, ../media/picture@2x.webp 2x" type="image/webp">
+  <img src="../media/picture.png" srcset="../media/picture.png, ../media/picture@2x.png 2x" alt="Some picture alt">
+</picture>
 
-  <head>
-    <meta charset="utf-8">
-    <title>About</title>
-    <script>
-      // setting dark vars before DOM content is loading to avoid flicker
-      if (
-        window.localStorage.darkMode === 'true' ||
-        (
-          window.matchMedia &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches
-        )
-      ) {
-        // prioritise local storage light mode over system preference
+<div class="Accordion">
+  <div class="AccordionItem is-open">
+    <div class="AccordionItem__header">
 
-        if (window.localStorage.darkMode !== 'false') {
-          localStorage.setItem('darkMode', true)
+    </div>
+    <div class="AccordionItem__body">
 
-          document.documentElement.style.setProperty('--color-mint', 'hsl(316, 30%, 36%)')
-          document.documentElement.style.setProperty('--color-highlight', 'hsl(240, 33%, 77%)')
-          document.documentElement.style.setProperty('--color-lilac', 'hsl(263, 29%, 32%)')
-          document.documentElement.style.setProperty('--color-sherbet', 'hsl(260, 24%, 18%)')
-          document.documentElement.style.setProperty('--color-light', 'hsl(274, 4%, 15%)')
-          document.documentElement.style.setProperty('--color-light-fade', 'hsl(274, 4%, 16%)')
-          document.documentElement.style.setProperty('--color-light-down', 'hsl(210, 4%, 98%)')
-          document.documentElement.style.setProperty('--color-light-down-2', 'hsl(210, 4%, 95%)')
-          document.documentElement.style.setProperty('--color-light-down-3', 'hsl(210, 4%, 80%)')
-          document.documentElement.style.setProperty('--color-mid', 'hsl(0, 0%, 80%)')
-          document.documentElement.style.setProperty('--color-dark', 'hsl(0, 0%, 98%)')
-          document.documentElement.style.setProperty('--color-dark-down', 'hsl(0, 0%, 98%)')
-        }
-      }
-    </script>
-    <link rel="stylesheet" href="/styles/styles.min.css">
-  </head>
+    </div>
+  </div>
+  <div class="AccordionItem">
+    <div class="AccordionItem__header">
 
-  <body class="G-notLogged G-frontpage" style="--scrollY:0px;">
+    </div>
+    <div class="AccordionItem__body">
 
-    <header class="Header">
-      <div class="container">
+    </div>
+  </div>
+  <div class="AccordionItem">
+    <div class="AccordionItem__header">
 
-        <a href="" class="Logo" aria-label="logo">
-          <img src="logo.svg" alt="">
-        </a>
+    </div>
+    <div class="AccordionItem__body">
 
-      </div>
-    </header>
+    </div>
+  </div>
+</div>
 
-    <main class="Main">
+<details class="Dropdown">
+  <summary class="Dropdown__button Btn">Dropdown</summary>
+  <div class="Dropdown__body">
+    <p>Dropdown content</p>
+  </div>
+</details>
 
-      <picture class="Illustration">
-        <source srcset="../media/picture.webp, ../media/picture@2x.webp 2x" type="image/webp">
-        <img src="../media/picture.png" srcset="../media/picture.png, ../media/picture@2x.png 2x" alt="Some picture alt">
-      </picture>
+<div class="row">
+  <div class="col-24 md:col-12 lg:col-6">
 
-      <div class="Accordion">
-        <div class="AccordionItem is-open">
-          <div class="AccordionItem__header">
+    <code>col-24 md:col-12 lg:col-6</code>
 
-          </div>
-          <div class="AccordionItem__body">
+  </div>
+  <div class="col-24 md:col-12">
 
-          </div>
-        </div>
-        <div class="AccordionItem">
-          <div class="AccordionItem__header">
+    <code>col-24 md:col-12</code>
 
-          </div>
-          <div class="AccordionItem__body">
+  </div>
+  <div class="col-24 md:col-12">
 
-          </div>
-        </div>
-        <div class="AccordionItem">
-          <div class="AccordionItem__header">
+    <code>col-24 md:col-12</code>
 
-          </div>
-          <div class="AccordionItem__body">
+  </div>
+</div>
 
-          </div>
-        </div>
-      </div>
-
-      <details class="Dropdown">
-        <summary class="Dropdown__button Btn">Dropdown</summary>
-        <div class="Dropdown__body">
-          <p>Dropdown content</p>
-        </div>
-      </details>
-
-      <div class="row">
-        <div class="col-24 md:col-12 lg:col-6">
-
-          <code>col-24 md:col-12 lg:col-6</code>
-
-        </div>
-        <div class="col-24 md:col-12">
-
-          <code>col-24 md:col-12</code>
-
-        </div>
-        <div class="col-24 md:col-12">
-
-          <code>col-24 md:col-12</code>
-
-        </div>
-      </div>
-
-      <ul>
-        <li><a href="https://google.com">Page title 1</a></li>
-        <li><a href="https://google.com">Page title 2</a></li>
-        <li><a href="https://google.com">Page title 3</a></li>
-      </ul>
-
-    </main>
-
-    <footer class="Footer">
-      <div class="container">
-
-        <p>webowski.ru @ All rights reserved</p>
-
-      </div>
-    </footer>
-
-    <script src="/scripts/bundle.min.js"></script>
-  </body>
-
-</html>
+<ul>
+  <li><a href="https://google.com">Page title 1</a></li>
+  <li><a href="https://google.com">Page title 2</a></li>
+  <li><a href="https://google.com">Page title 3</a></li>
+</ul>
