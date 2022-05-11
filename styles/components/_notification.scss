@@ -4,13 +4,23 @@
 	left: 0;
 	bottom: 0;
 	right: 0;
-	pointer-events: none;
+	// pointer-events: none;
 	visibility: hidden;
 	overflow: hidden;
+	z-index: $z-notification;
 }
 
 .Notification {
+	padding: 1.5rem;
 	visibility: visible;
 	position: absolute;
-	transform: translateX(-100%);
+	right: 1.5rem;
+	top: 1.5rem;
+	transform: translateX(calc(100% + 1.5rem));
+	transition:
+		opacity $duration-sm,
+		transform $duration-sm;
+	background-color: var(--bgAlter);
+	border-radius: $radius;
+	box-shadow: 0 2px 3px rgba(0,0,0,.2);
 }

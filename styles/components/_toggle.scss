@@ -1,5 +1,5 @@
 .Toggle {
-	--borderRadius: 32px;
+	--radius: 32px;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -23,7 +23,7 @@
 	font-weight: 500;
 	color: #026D6E;
 	background-color: #E5E5E5;
-	border-radius: var(--borderRadius);
+	border-radius: var(--radius);
 }
 
 .Toggle.is-checked .Toggle__caption,
@@ -46,13 +46,13 @@
 }
 
 .ToggleGroup > .Toggle {
-	--borderRadius: 0;
+	--radius: 0;
 }
 
 .ToggleGroup > .Toggle:first-child {
-	--borderRadius: 32px 0 0 32px;
+	--radius: 32px 0 0 32px;
 }
 
 .ToggleGroup > .Toggle:last-child {
-	--borderRadius: 0 32px 32px 0;
+	--radius: 0 32px 32px 0;
 }

@@ -54,7 +54,7 @@ $border:                    #c4c4cd;
 
 // Shapes
 // ---------------------
- $borderRadius:             4px;
+ $radius:                   4px;
 
 
 // Breakpoints
@@ -108,6 +108,11 @@ $duration:                   .2s;
 $duration-lg:               .3s;
 $duration-xl:               .6s;
 $duration-xxl:              1s;
+
+
+// Layers
+// ---------------------
+$z-notification:            500;
 
 
 // Libraries
