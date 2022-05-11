@@ -157,7 +157,7 @@ export default {
 			onBeforeSetup: function (Handlebars) {},
 			onBeforeAddPartials: function (Handlebars, partialsMap) {
 
-				let layouts = getLayoutsNames(__dirname + '/templates/partials/')
+				let layouts = getLayoutsNames(__dirname + '/templates/layouts/')
 
 				layouts.forEach(layoutFilename => {
 					registerLayout(Handlebars, layoutFilename)
