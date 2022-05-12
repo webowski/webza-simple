@@ -1,27 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{lang}}">
 <head>
 	<meta charset="utf-8">
-	<title>{{title}}j</title>
-	{{> partials/theme-switch}}
-
-	<link href="//fonts.googleapis.com/css2?family=Rubik:wght@400;700;800&display=swap" rel="stylesheet">
-	<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/agate.min.css" rel="stylesheet">
-
-	<style>
-		pre {
-			padding: 0;
-			background-color: transparent;
-		}
-
-		pre code {
-			background-color: transparent;
-			padding: 20px !important;
-			border-radius: 3px;
-		}
-	</style>
-
-	<link rel="stylesheet" href="/styles/styles.min.css">
+	<title>{{title}}</title>
+	{{> partials/head-scripts-manual}}
 </head>
 <body class="G-notLogged G-frontpage" style="--scrollY:0px;">
 
@@ -39,16 +21,6 @@
 
 	{{> components/notifications}}
 
-	<script defer="defer" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
-
-	<script>
-		document.addEventListener('DOMContentLoaded', (event) => {
-			document.querySelectorAll('pre code').forEach((block) => {
-				hljs.highlightBlock(block);
-			});
-		});
-	</script>
-
-	<script src="/scripts/bundle.min.js"></script>
+	{{> partials/footer-scripts-manual}}
 </body>
 </html>
