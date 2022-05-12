@@ -6,7 +6,7 @@
 	{{> partials/theme-switch}}
 
 	<link href="//fonts.googleapis.com/css2?family=Rubik:wght@400;700;800&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/agate.min.css">
+	<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/agate.min.css" rel="stylesheet">
 
 	<style>
 		pre {
@@ -25,61 +25,15 @@
 </head>
 <body class="G-notLogged G-frontpage" style="--scrollY:0px;">
 
-	<div class="Wrap Origin">
+	<div class="Wrap">
 
-		<header class="Sidepanel">
-			<div class="Sidepanel__top">
-
-				<h1 class="color-white">Webza</h1>
-
-				<hr>
-
-				<nav class="SideNav">
-					<ul>
-						<li><a href="#build">Build</a>
-							<ul>
-								<li><a href="#build-add">Add files</a></li>
-							</ul>
-						</li>
-						<!-- <li><a href="#">Variables</a></li> -->
-						<!-- <li><a href="#">Typo</a></li> -->
-						<li><a href="#component">Components</a>
-							<ul>
-								<li><a href="#components-button">Button</a></li>
-								<!-- <li><a href="#components-form">Form</a></li> -->
-								<li><a href="#components-slider">Slider</a></li>
-								<!-- <li><a href="#components-popup">Popup</a></li> -->
-								<li><a href="#components-layout">Layout</a></li>
-							</ul>
-						</li>
-						<li><a href="#utilities">Utilities</a>
-							<ul>
-								<li><a href="#utilities-text">Text</a></li>
-								<li><a href="#utilities-grid">Grid</a></li>
-								<li><a href="#utilities-display">display</a></li>
-							</ul>
-						</li>
-					</ul>
-				</nav>
-
-			</div>
-			<div class="Sidepanel__bottom">
-
-				<a href="mailto:dev@webowski.ru">dev@webowski.ru</a>
-
-			</div>
-		</header>
+		{{> partials/sidepanel-manual}}
 
 		<main class="Main">
 			{{> @partial-block }}
 		</main>
 
-		<div class="Footer">
-			<div class="container">
-
-
-			</div>
-		</div>
+		{{> partials/footer}}
 
 	</div>
 
