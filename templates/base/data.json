@@ -1,8 +1,8 @@
 {
   "lang": "en",
   "nav": [
-    { "url": "https://google.com", "title": "Page title 1" },
-    { "url": "https://google.com", "title": "Page title 2" },
-    { "url": "https://google.com", "title": "Page title 3" }
+    { "url": "/catalog", "title": "Catalog" },
+    { "url": "/about", "title": "About" },
+    { "url": "/contacts", "title": "Contacts" }
   ]
 }
