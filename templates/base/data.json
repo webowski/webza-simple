@@ -1,8 +1,8 @@
 {
   "lang": "en",
   "nav": [
-    { "url": "/catalog", "title": "Catalog" },
-    { "url": "/about", "title": "About" },
-    { "url": "/contacts", "title": "Contacts" }
+    { "url": "/", "title": "Homepage" },
+    { "url": "/about.html", "title": "About" },
+    { "url": "/contacts.html", "title": "Contacts" }
   ]
 }

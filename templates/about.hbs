@@ -1,4 +1,4 @@
-{{#> layout title="About"}}
+{{#> layout title="About" currentUrl="/about.html"}}
 
 	{{picture src="../media/picture@2x.png" class="Illustration" alt="Some picture alt"}}
 
@@ -7,9 +7,5 @@
 	{{> components/dropdown}}
 
 	{{> components/grid}}
-
-	{{#list nav}}
-		<a href="{{url}}">{{title}}</a>
-	{{/list}}
 
 {{/layout}}

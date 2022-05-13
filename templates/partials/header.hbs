@@ -5,5 +5,13 @@
 			<img src="logo.svg" alt="">
 		</a>
 
+		<nav class="Nav">
+			<ul>
+				{{#each nav}}
+					<li class="Nav__item{{#ifEquals url ../currentUrl }} is-current{{/ifEquals}}"><a href="{{url}}">{{title}}</a></li>
+				{{/each}}
+			</ul>
+		</nav>
+
 	</div>
 </header>
