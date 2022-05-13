@@ -11,15 +11,7 @@ const picture = (options) => {
 		delete options.hash.alt
 	}
 
-	let attributes = []
-
-	Object.keys(options.hash).forEach(key => {
-		let escapedKey = Handlebars.escapeExpression(key)
-		let escapedValue = Handlebars.escapeExpression(options.hash[key])
-		attributes.unshift(escapedKey + '="' + escapedValue + '"')
-	})
-
-	attributes = attributes.join(' ')
+	let attributes = makeAttributesString(options.hash)
 
 	let path = src.replace('@2x', '')
 	let pathWebp = path.replace(/\.jpg|\.png/, '.webp')
@@ -40,6 +32,19 @@ const picture = (options) => {
 	</picture>`
 
   return new Handlebars.SafeString(output)
+}
+
+function makeAttributesString(obj) {
+	let attributes = []
+
+	Object.keys(obj).forEach(key => {
+		let escapedKey = Handlebars.escapeExpression(key)
+		let escapedValue = Handlebars.escapeExpression(obj[key])
+		attributes.unshift(escapedKey + '="' + escapedValue + '"')
+	})
+
+	attributes = attributes.join(' ')
+	return attributes
 }
 
 module.exports = picture
