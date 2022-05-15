@@ -1,5 +1,30 @@
 const Handlebars = require('handlebars')
 
+class Paths {
+	initial
+	srcset
+	srcsetWebp
+
+	constructor(src) {
+
+		this.initial = src.replace('@2x', '')
+		this.srcset = this.initial
+
+		let pathWebp = this.initial.replace(/\.jpg|\.png/, '.webp')
+		this.srcsetWebp = pathWebp
+
+		let is2x = src.match(/@2x/)
+
+		if (is2x) {
+			let pathWebp2x = src.replace(/\.jpg|\.png/, '.webp 2x')
+			let path2x = src + ' 2x'
+			this.srcsetWebp = `${pathWebp}, ${pathWebp2x}`
+			this.srcset = `${this.initial}, ${path2x}`
+		}
+
+	}
+}
+
 const picture = (options) => {
 
 	let src = options.hash.src
@@ -13,22 +38,11 @@ const picture = (options) => {
 
 	let attributes = makeAttributesString(options.hash)
 
-	let path = src.replace('@2x', '')
-	let pathWebp = path.replace(/\.jpg|\.png/, '.webp')
-	let srcsetWebp = pathWebp
-	let srcset = path
-	let is2x = src.match(/@2x/)
-
-	if (is2x) {
-		let pathWebp2x = src.replace(/\.jpg|\.png/, '.webp 2x')
-		let path2x = src + ' 2x'
-		srcsetWebp = `${pathWebp}, ${pathWebp2x}`
-		srcset = `${path}, ${path2x}`
-	}
+	let paths = new Paths(src)
 
 	let output = `<picture ${attributes}>
-		<source srcset="${srcsetWebp}" type="image/webp">
-		<img src="${path}" srcset="${srcset}" alt="${altText}">
+		<source srcset="${paths.srcsetWebp}" type="image/webp">
+		<img src="${paths.initial}" srcset="${paths.srcset}" alt="${altText}">
 	</picture>`
 
   return new Handlebars.SafeString(output)
