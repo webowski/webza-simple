@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Front page</title>
+	<script>
+		// setting dark vars before DOM content is loading to avoid flicker
+		if (
+			window.localStorage.darkMode === 'true'
+			||
+			(
+				window.matchMedia
+				&&
+				window.matchMedia('(prefers-color-scheme: dark)').matches
+			)
+		) {
+			// prioritise local storage light mode over system preference
+	
+			if (window.localStorage.darkMode !== 'false') {
+				localStorage.setItem('darkMode', true)
+	
+				document.documentElement.style.setProperty('--color-mint', 'hsl(316, 30%, 36%)')
+				document.documentElement.style.setProperty('--color-highlight', 'hsl(240, 33%, 77%)')
+				document.documentElement.style.setProperty('--color-lilac', 'hsl(263, 29%, 32%)')
+				document.documentElement.style.setProperty('--color-sherbet', 'hsl(260, 24%, 18%)')
+				document.documentElement.style.setProperty('--color-light', 'hsl(274, 4%, 15%)')
+				document.documentElement.style.setProperty('--color-light-fade', 'hsl(274, 4%, 16%)')
+				document.documentElement.style.setProperty('--color-light-down', 'hsl(210, 4%, 98%)')
+				document.documentElement.style.setProperty('--color-light-down-2', 'hsl(210, 4%, 95%)')
+				document.documentElement.style.setProperty('--color-light-down-3', 'hsl(210, 4%, 80%)')
+				document.documentElement.style.setProperty('--color-mid', 'hsl(0, 0%, 80%)')
+				document.documentElement.style.setProperty('--color-dark', 'hsl(0, 0%, 98%)')
+				document.documentElement.style.setProperty('--color-dark-down', 'hsl(0, 0%, 98%)')
+			}
+		}
+	</script>
+	
+	<link rel="stylesheet" href="/styles/styles.min.css">
+</head>
+<body class="G-notLogged G-frontpage" style="--scrollY:0px;">
+
+	<header class="Header">
+		<div class="container">
+	
+			<a href="" class="Logo" aria-label="logo">
+				<img src="logo.svg" alt="">
+			</a>
+	
+			<nav class="Nav">
+				<ul>
+						<li class="Nav__item is-current">
+							<a href="/">Homepage</a>
+						</li>
+						<li class="Nav__item">
+							<a href="/about.html">About</a>
+						</li>
+						<li class="Nav__item">
+							<a href="/contacts.html">Contacts</a>
+						</li>
+				</ul>
+			</nav>
+	
+		</div>
+	</header>
+
+	<main class="Main">
+		
+			<div class="Hero">
+				<picture class="Hero__image">
+					<source srcset="/media/hero.webp, /media/hero@2x.webp 2x" type="image/webp">
+					<img src="/media/hero.png" srcset="/media/hero.png, /media/hero@2x.png 2x" alt="Hero image alt">
+				</picture>
+			</div>
+		
+			<div class="Section">
+				<div class="container">
+		
+					<h1>Front page</h1>
+		
+				</div>
+			</div>
+		
+	</main>
+
+	<footer class="Footer">
+		<div class="container">
+	
+			<p>webowski.ru @ All rights reserved</p>
+	
+		</div>
+	</footer>
+
+	<div class="NotificationsOrigin">
+	
+		<article class="Notification">
+			<h4>Notification</h4>
+		</article>
+	
+	</div>
+
+	<script src="/scripts/bundle.min.js"></script>
+</body>
+</html>
