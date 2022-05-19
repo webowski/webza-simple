@@ -10,18 +10,15 @@ export default {
 	mode: mode,
 	context: __dirname + '/src',
 	entry: {
-    // bundle: {
-		// 	import: resolve('./src/scripts/index.js'),
-		// 	filename: './[name].js'
-		// },
-    // template: {
-		// 	import: resolve('./src/templates/index.hbs'),
-		// 	filename: './templates/[name].js'
-		// },
+    bundle: {
+			import: resolve('./src/scripts/index.js'),
+			filename: './scripts/[name].js'
+		},
 	},
 	// output: {
 	// 	path: path.resolve('dist/scripts'),
 	// },
+
 	module: {
 		rules: [
 
@@ -36,8 +33,8 @@ export default {
 						],
 						partialDirs: [
 							resolve('src/templates/layouts'),
-							// resolve('src/templates/partials'),
-							// resolve('src/templates/components'),
+							resolve('src/templates/partials'),
+							resolve('src/templates/components'),
 						],
 						// debug: true,
 					}
@@ -46,10 +43,11 @@ export default {
 
 		]
 	},
+
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: 'templates/index.hbs',
 			// filename: (entryName) => './dist/' + entryName + '.html',
+			template: 'templates/index.hbs',
 			filename: 'index.html',
 
 			// template: 'templates/about.hbs',
@@ -59,26 +57,24 @@ export default {
 			// filename: 'manual.html',
 
 			minify: false,
-			inject: false,
+			inject: true,
 			templateParameters: JSON.parse(
 				fs.readFileSync(resolve('src/templates/base/data.json'))
 			)
 		})
 	],
+
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		alias: {
 			handlebars: 'handlebars/dist/handlebars.js',
-			// 'express-handlebars': 'handlebars/dist/handlebars.min.js'
 		}
 	},
 	target: target,
-	stats: {
-		// children: true
-	},
-	watchOptions: {
-		ignored: '**/node_modules',
-	},
+	// stats: {
+	// 	children: true
+	// },
+
 	devtool: mode === 'development' ? 'source-map' : false,
 	performance: {
 		// hints: false,
@@ -86,11 +82,15 @@ export default {
 		maxAssetSize: 512000
 	},
 
+	watchOptions: {
+		ignored: '**/node_modules',
+	},
+
 	devServer: {
 		static: {
 			directory: __dirname + '/dist/',
 			staticOptions: {},
-			publicPath: '/',
+			publicPath: '/dist/',
 			serveIndex: true,
 			watch: true,
 		}

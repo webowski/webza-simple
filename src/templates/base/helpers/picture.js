@@ -1,17 +1,5 @@
 const Handlebars = require('handlebars')
 
-// Handlebars.registerHelper('list', (context, options) => {
-//   let output = '<ul>\n'
-
-//   for (let i = 0, j = context.length; i < j; i++) {
-//     output = output + '\t<li>' + options.fn(context[i]).trim() + '</li>\n'
-//   }
-
-//   output += '</ul>\n'
-
-//   return output
-// })
-
 class PathsGen {
 	initial
 	srcset
@@ -36,28 +24,6 @@ class PathsGen {
 	}
 }
 
-const picture = (options) => {
-
-	let src = options.hash.src
-	delete options.hash.src
-
-	let altText = ''
-	if (options.hash.hasOwnProperty('alt')) {
-		altText = options.hash.alt
-		delete options.hash.alt
-	}
-
-	let attributes = makeAttributesString(options.hash)
-	let paths = new PathsGen(src)
-
-	let output = `<picture ${attributes}>
-		<source srcset="${paths.srcsetWebp}" type="image/webp">
-		<img src="${paths.initial}" srcset="${paths.srcset}" alt="${altText}">
-	</picture>`
-
-  return new Handlebars.SafeString(output)
-}
-
 function makeAttributesString(obj) {
 	let attributes = []
 
@@ -71,4 +37,23 @@ function makeAttributesString(obj) {
 	return attributes
 }
 
-module.exports = picture
+module.exports = function(options) {
+		let src = options.hash.src
+		delete options.hash.src
+
+		let altText = ''
+		if (options.hash.hasOwnProperty('alt')) {
+			altText = options.hash.alt
+			delete options.hash.alt
+		}
+
+		let attributes = makeAttributesString(options.hash)
+		let paths = new PathsGen(src)
+
+		let output = `<picture ${attributes}>
+			<source srcset="${paths.srcsetWebp}" type="image/webp">
+			<img src="${paths.initial}" srcset="${paths.srcset}" alt="${altText}">
+		</picture>`
+
+		return new Handlebars.SafeString(output)
+}
