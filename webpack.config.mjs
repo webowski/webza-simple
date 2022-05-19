@@ -6,13 +6,35 @@ const __dirname = resolve()
 const mode = process.env.NODE_ENV || 'development'
 const target = mode === 'development' ? 'web' : 'browserslist'
 
+const templates = fs
+	.readdirSync(resolve(__dirname, 'src/templates/'))
+	.filter(filename => {
+		return filename.match(/\.hbs/)
+	})
+const templatesPlugins = []
+
+templates.forEach(templateName => {
+	templatesPlugins.push(
+		new HtmlWebpackPlugin({
+			template: 'templates/' + templateName,
+			filename: templateName.replace('.hbs', '.html'),
+			minify: false,
+			inject: false,
+			templateParameters: JSON.parse(
+				fs.readFileSync(resolve('src/templates/base/data.json'))
+			),
+			cache: false
+		})
+	)
+})
+
 export default {
 	mode: mode,
 	context: __dirname + '/src',
 	entry: {
     bundle: {
 			import: resolve('./src/scripts/index.js'),
-			filename: './scripts/[name].js'
+			filename: './scripts/[name].min.js'
 		},
 	},
 	// output: {
@@ -45,23 +67,7 @@ export default {
 	},
 
 	plugins: [
-		new HtmlWebpackPlugin({
-			// filename: (entryName) => './dist/' + entryName + '.html',
-			template: 'templates/index.hbs',
-			filename: 'index.html',
-
-			// template: 'templates/about.hbs',
-			// filename: 'about.html',
-
-			// template: 'templates/manual.hbs',
-			// filename: 'manual.html',
-
-			minify: false,
-			inject: true,
-			templateParameters: JSON.parse(
-				fs.readFileSync(resolve('src/templates/base/data.json'))
-			)
-		})
+		...templatesPlugins
 	],
 
 	resolve: {
@@ -87,12 +93,19 @@ export default {
 	},
 
 	devServer: {
+		open: true,
+    liveReload: true,
+		hot: false,
+    watchFiles: [
+			resolve('src/templates/*.hbs')
+		],
+		port: 3000,
 		static: {
-			directory: __dirname + '/dist/',
+			directory: resolve(__dirname, '/dist/'),
 			staticOptions: {},
 			publicPath: '/dist/',
 			serveIndex: true,
-			watch: true,
+			watch: false,
 		}
 	}
 }
