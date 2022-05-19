@@ -7,7 +7,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 // import BeforeBuildPlugin        from 'before-build-webpack'
 import MiniCssExtractPlugin     from 'mini-css-extract-plugin'
 // import pretty                   from 'pretty'
-// import SVGSpritemapPlugin       from 'svg-spritemap-webpack-plugin'
+import SVGSpritemapPlugin       from 'svg-spritemap-webpack-plugin'
 import { VueLoaderPlugin }      from 'vue-loader'
 // import FileManagerPlugin        from 'filemanager-webpack-plugin'
 
@@ -138,6 +138,19 @@ export default {
 
 		new MiniCssExtractPlugin({
 			filename: 'styles/[name].min.css',
+		}),
+
+		new SVGSpritemapPlugin(resolve('./src/images/icons/*.svg'), {
+			output: {
+				filename: 'images/icons.min.svg',
+				svgo: false,
+			},
+			sprite: {
+				prefix: 'icon-',
+				generate: {
+					title: false,
+				}
+			}
 		}),
 
 		new VueLoaderPlugin(),

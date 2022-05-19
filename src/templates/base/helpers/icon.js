@@ -12,8 +12,9 @@ const icon = (name, options) => {
 
 	attributes = attributes.join(' ')
 
+	// <use href="/images/icons.min.svg#icon-${name}">
 	let output = `<svg ${attributes}>
-		<use href="/images/icons.min.svg#icon-${name}">
+		<use href="#icon-${name}">
 	</svg>`
 
   return new Handlebars.SafeString(output)
