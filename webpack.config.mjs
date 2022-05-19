@@ -22,7 +22,7 @@ const templatesPlugins = []
 templates.forEach(templateName => {
 	templatesPlugins.push(
 		new HtmlWebpackPlugin({
-			template: 'templates/' + templateName,
+			template: 'src/templates/' + templateName,
 			filename: templateName.replace('.hbs', '.html'),
 			minify: false,
 			inject: false,
@@ -36,7 +36,7 @@ templates.forEach(templateName => {
 
 export default {
 	mode: mode,
-	context: __dirname + '/src',
+	// context: __dirname + '/src',
 	entry: {
 		styles: {
 			import: resolve('./src/styles/index.scss'),
@@ -47,9 +47,9 @@ export default {
 			filename: './scripts/[name].min.js'
 		},
 	},
-	// output: {
-	// 	path: path.resolve('dist/scripts'),
-	// },
+	output: {
+    path: resolve(__dirname, 'dist')
+	},
 
 	module: {
 		rules: [
@@ -99,6 +99,20 @@ export default {
 						cacheDirectory: true,
 					}
 				}
+			},
+
+			// Images
+			{
+				test: /\.(png|jpe?g|gif|svg)$/i,
+				type: 'asset/resource',
+				// use: [{
+				// 	loader: 'file-loader',
+				// 	options: {
+        //     name: "[name].[ext]",
+        //     outputPath: "dest/media/",
+        //     useRelativePath: true
+        //   }
+				// }]
 			},
 
 			// Vue
@@ -155,6 +169,12 @@ export default {
 		new FileManagerPlugin({
 			events: {
 				onEnd: {
+					// copy: [
+          //   {
+					// 		source: resolve(__dirname, 'src/media/*'),
+					// 		destination: resolve(__dirname, 'dist/media/')
+					// 	},
+          // ],
 					delete: [
 						resolve(__dirname + '/dist/styles/styles.min.js*')
 					]
@@ -196,9 +216,9 @@ export default {
 		],
 		port: 3000,
 		static: {
-			directory: resolve(__dirname, '/dist/'),
+			directory: resolve(__dirname, 'dist'),
 			staticOptions: {},
-			publicPath: '/dist/',
+			publicPath: resolve(__dirname, 'dist'),
 			serveIndex: true,
 			watch: false,
 		}
