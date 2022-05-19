@@ -1,7 +1,6 @@
 import fs                   from 'fs-extra'
 import { resolve }          from 'path'
 import HtmlWebpackPlugin    from 'html-webpack-plugin'
-// import BeforeBuildPlugin        from 'before-build-webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 // import pretty                   from 'pretty'
 import SVGSpritemapPlugin   from 'svg-spritemap-webpack-plugin'
