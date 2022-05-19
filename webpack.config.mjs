@@ -8,7 +8,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 // import pretty                   from 'pretty'
 import SVGSpritemapPlugin   from 'svg-spritemap-webpack-plugin'
 import { VueLoaderPlugin }  from 'vue-loader'
-// import FileManagerPlugin        from 'filemanager-webpack-plugin'
+import FileManagerPlugin    from 'filemanager-webpack-plugin'
 
 const __dirname = resolve()
 const mode = process.env.NODE_ENV || 'development'
@@ -126,7 +126,7 @@ export default {
 						// debug: true,
 					}
 				}]
-			}
+			},
 
 		]
 	},
@@ -153,6 +153,16 @@ export default {
 		}),
 
 		new VueLoaderPlugin(),
+
+		new FileManagerPlugin({
+			events: {
+				onEnd: {
+					delete: [
+						resolve(__dirname + '/dist/styles/styles.min.js*')
+					]
+				}
+			}
+		})
 
 	],
 
