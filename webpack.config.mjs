@@ -1,3 +1,4 @@
+import webpack           from 'webpack'
 import fs                from 'fs-extra'
 import path, { resolve } from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
@@ -5,10 +6,9 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 // import chokidar                 from 'chokidar'
 // import BeforeBuildPlugin        from 'before-build-webpack'
 import MiniCssExtractPlugin     from 'mini-css-extract-plugin'
-// import HandlebarsPlugin         from 'handlebars-webpack-plugin'
 // import pretty                   from 'pretty'
 // import SVGSpritemapPlugin       from 'svg-spritemap-webpack-plugin'
-// import { VueLoaderPlugin }      from 'vue-loader'
+import { VueLoaderPlugin }      from 'vue-loader'
 // import FileManagerPlugin        from 'filemanager-webpack-plugin'
 
 const __dirname = resolve()
@@ -89,6 +89,27 @@ export default {
 				]
 			},
 
+			// Scripts
+			{
+				test: /\.jsx?$/,
+				exclude: /node_modules/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: [
+							'@babel/preset-env',
+						],
+						cacheDirectory: true,
+					}
+				}
+			},
+
+			// Vue
+			{
+				test: /\.vue$/,
+				loader: 'vue-loader'
+			},
+
 			// Templates
 			{
 				test: /\.hbs$/,
@@ -119,12 +140,15 @@ export default {
 			filename: 'styles/[name].min.css',
 		}),
 
+		new VueLoaderPlugin(),
+
 	],
 
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		alias: {
 			handlebars: 'handlebars/dist/handlebars.js',
+			vue: 'vue/dist/vue.esm-browser',
 		}
 	},
 	target: target,
