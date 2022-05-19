@@ -1,6 +1,15 @@
 import fs                from 'fs-extra'
 import path, { resolve } from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+// import chalk                    from 'chalk'
+// import chokidar                 from 'chokidar'
+// import BeforeBuildPlugin        from 'before-build-webpack'
+import MiniCssExtractPlugin     from 'mini-css-extract-plugin'
+// import HandlebarsPlugin         from 'handlebars-webpack-plugin'
+// import pretty                   from 'pretty'
+// import SVGSpritemapPlugin       from 'svg-spritemap-webpack-plugin'
+// import { VueLoaderPlugin }      from 'vue-loader'
+// import FileManagerPlugin        from 'filemanager-webpack-plugin'
 
 const __dirname = resolve()
 const mode = process.env.NODE_ENV || 'development'
@@ -32,6 +41,10 @@ export default {
 	mode: mode,
 	context: __dirname + '/src',
 	entry: {
+		styles: {
+			import: resolve('./src/styles/index.scss'),
+			filename: './styles/[name].min.js'
+		},
     bundle: {
 			import: resolve('./src/scripts/index.js'),
 			filename: './scripts/[name].min.js'
@@ -43,6 +56,38 @@ export default {
 
 	module: {
 		rules: [
+
+			// Styles
+			{
+				test: /\.(scss|css)$/i,
+				use: [
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options: {
+							publicPath: resolve(__dirname, '/src/styles'),
+							esModule: false,
+						}
+					},
+					{
+						loader: 'css-loader',
+						options: {
+							url: false,
+						}
+					},
+					{
+						loader: 'postcss-loader',
+						options: {
+							postcssOptions: {
+								plugins: [
+									['postcss-preset-env'],
+									// ['flex-gap-polyfill', ],
+								]
+							}
+						}
+					},
+					'sass-loader',
+				]
+			},
 
 			// Templates
 			{
@@ -67,7 +112,13 @@ export default {
 	},
 
 	plugins: [
-		...templatesPlugins
+
+		...templatesPlugins,
+
+		new MiniCssExtractPlugin({
+			filename: 'styles/[name].min.css',
+		}),
+
 	],
 
 	resolve: {
