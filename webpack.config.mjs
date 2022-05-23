@@ -37,10 +37,10 @@ export default {
 	mode: mode,
 	// context: __dirname + '/src',
 	entry: {
-		styles: {
-			import: resolve('./src/styles/index.scss'),
-			filename: './styles/[name].min.js'
-		},
+		// styles: {
+		// 	import: resolve('./src/styles/index.scss'),
+		// 	filename: './styles/[name].min.js'
+		// },
     bundle: {
 			import: resolve('./src/scripts/index.js'),
 			filename: './scripts/[name].min.js'
@@ -60,7 +60,7 @@ export default {
 					{
 						loader: MiniCssExtractPlugin.loader,
 						options: {
-							publicPath: resolve(__dirname, '/src/styles'),
+							publicPath: resolve(__dirname, '/dist/styles'),
 							esModule: false,
 						}
 					},
@@ -104,14 +104,6 @@ export default {
 			{
 				test: /\.(png|jpe?g|gif|svg)$/i,
 				type: 'asset/resource',
-				// use: [{
-				// 	loader: 'file-loader',
-				// 	options: {
-        //     name: "[name].[ext]",
-        //     outputPath: "dest/media/",
-        //     useRelativePath: true
-        //   }
-				// }]
 			},
 
 			// Vue
@@ -210,9 +202,9 @@ export default {
 		open: true,
     liveReload: true,
 		hot: false,
-    watchFiles: [
-			resolve('src/templates/*.hbs')
-		],
+    // watchFiles: [
+		// 	resolve('src/templates/*.hbs')
+		// ],
 		port: 3000,
 		static: {
 			directory: resolve(__dirname, 'dist'),
