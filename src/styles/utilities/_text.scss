@@ -193,3 +193,16 @@
 .marker-success > li::marker {
 	color: $success;
 }
+
+.counterRoot {
+	--counter: attr(data-counter)
+	counter-reset: var(--counter)
+}
+
+.counterRoot .counterItem {
+	counter-increment: var(--counter);
+}
+
+.counterRoot .counterItem:before {
+	content: counter(var(--counter)) ": ";
+}
