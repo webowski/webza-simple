@@ -166,6 +166,10 @@
 	@include listReset(true);
 }
 
+.marker-emoji > ::marker {
+	content: '🤣'
+}
+
 .textButton {
 	cursor: pointer;
 	color: var(--brand);
