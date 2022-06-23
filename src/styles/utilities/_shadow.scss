@@ -1,0 +1,18 @@
+.shadowRoot {
+	isolation: isolate;
+	padding: clamp(2rem, 7vh, 4rem);
+}
+
+.shadowObject {
+	background-color: white;
+	position: relative;
+}
+
+.shadowObject:before {
+	@include pseudoBlock();
+	position: absolute;
+	inset: -1rem;
+	z-index: -1;
+	background-image: linear-gradient(to bottom right, blue 0%, yellow 100%);
+	filter: blur(1rem);
+}
