@@ -22,7 +22,7 @@ a {
 		box-shadow $duration-sm;
 }
 
-a:hover {
+a:is(:hover) {
 	text-decoration: none;
 }
 
