@@ -1,37 +1,14 @@
-import fs                   from 'fs-extra'
 import { resolve }          from 'path'
-import HtmlWebpackPlugin    from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 // import pretty                   from 'pretty'
 import SVGSpritemapPlugin   from 'svg-spritemap-webpack-plugin'
 import { VueLoaderPlugin }  from 'vue-loader'
+import makeTemplatesPlugins from './build/make-templates-plugins/index.js'
 import FileManagerPlugin    from 'filemanager-webpack-plugin'
 
 const __dirname = resolve()
 const mode = process.env.NODE_ENV || 'development'
 const target = mode === 'development' ? 'web' : 'browserslist'
-
-const templates = fs
-	.readdirSync(resolve(__dirname, 'src/templates/'))
-	.filter(filename => {
-		return filename.match(/\.hbs/)
-	})
-const templatesPlugins = []
-
-templates.forEach(templateName => {
-	templatesPlugins.push(
-		new HtmlWebpackPlugin({
-			template: 'src/templates/' + templateName,
-			filename: templateName.replace('.hbs', '.html'),
-			minify: false,
-			inject: false,
-			templateParameters: JSON.parse(
-				fs.readFileSync(resolve('src/templates/base/data.json'))
-			),
-			cache: false
-		})
-	)
-})
 
 export default {
 	mode: mode,
@@ -127,6 +104,7 @@ export default {
 							resolve('src/templates/components'),
 						],
 						// debug: true,
+						inlineRequires: '\/media\/'
 					}
 				}]
 			},
@@ -135,8 +113,6 @@ export default {
 	},
 
 	plugins: [
-
-		...templatesPlugins,
 
 		new MiniCssExtractPlugin({
 			filename: 'styles/[name].min.css',
@@ -171,7 +147,11 @@ export default {
 					]
 				}
 			}
-		})
+		}),
+
+		...makeTemplatesPlugins({
+			templatesPath: 'src/templates/'
+		}),
 
 	],
 
