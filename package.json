@@ -20,9 +20,12 @@
   },
   "homepage": "https://github.com/webowski/webza#readme",
   "browserslist": [
-    "last 3 versions",
+    "last 2 versions",
     "> 1%",
-    "not IE > 0"
+    "not ie > 0",
+    "not ie_mob > 0",
+    "not op_mini all",
+    "not dead"
   ],
   "devDependencies": {
     "@babel/core": "^7.17.12",
