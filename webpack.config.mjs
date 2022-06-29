@@ -2,7 +2,6 @@ import { resolve }          from 'path'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 // import pretty                   from 'pretty'
 import SVGSpritemapPlugin   from 'svg-spritemap-webpack-plugin'
-import { VueLoaderPlugin }  from 'vue-loader'
 import makeTemplatesPlugins from './build/make-templates-plugins/index.js'
 import FileManagerPlugin    from 'filemanager-webpack-plugin'
 
@@ -83,12 +82,6 @@ export default {
 				type: 'asset/resource',
 			},
 
-			// Vue
-			{
-				test: /\.vue$/,
-				loader: 'vue-loader'
-			},
-
 			// Templates
 			{
 				test: /\.hbs$/,
@@ -131,8 +124,6 @@ export default {
 			}
 		}),
 
-		new VueLoaderPlugin(),
-
 		new FileManagerPlugin({
 			events: {
 				onEnd: {
@@ -159,7 +150,6 @@ export default {
 		extensions: ['.js', '.jsx'],
 		alias: {
 			handlebars: 'handlebars/dist/handlebars.js',
-			vue: 'vue/dist/vue.esm-browser',
 		}
 	},
 	target: target,
@@ -182,9 +172,6 @@ export default {
 		open: true,
     liveReload: true,
 		hot: false,
-    // watchFiles: [
-		// 	resolve('src/templates/*.hbs')
-		// ],
 		port: 3000,
 		static: {
 			directory: resolve(__dirname, 'dist'),
