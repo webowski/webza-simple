@@ -1,3 +1,5 @@
+import '../styles/index.scss'
+
 // App Components
 // import './components/Accordion'
 // import './components/Analytics'
@@ -12,6 +14,3 @@ import './components/Icons'
 // import './components/Slider'
 // import './components/Tooltip'
 // import './components/ThemeSwitch'
-
-// import '../styles/index.css'
-// import '../templates/index.hbs'

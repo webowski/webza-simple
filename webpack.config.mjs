@@ -11,17 +11,16 @@ const target = mode === 'development' ? 'web' : 'browserslist'
 
 export default {
 	mode: mode,
+	target: target,
+
 	// context: __dirname + '/src',
 	entry: {
-		// styles: {
-		// 	import: resolve('./src/styles/index.scss'),
-		// 	filename: './styles/[name].min.js'
-		// },
     bundle: {
 			import: resolve('./src/scripts/index.js'),
 			filename: './scripts/[name].min.js'
 		},
 	},
+
 	output: {
     path: resolve(__dirname, 'dist')
 	},
@@ -152,7 +151,6 @@ export default {
 			handlebars: 'handlebars/dist/handlebars.js',
 		}
 	},
-	target: target,
 	// stats: {
 	// 	children: true
 	// },
