@@ -2,6 +2,7 @@
 
 .Slider {
 	--containerBorderRadius: 0;
+	display: grid; // https://github.com/nolimits4web/swiper/issues/3599#issuecomment-731753681
 	position: relative;
 	padding-left: 0rem;
 	padding-right: 0rem;
