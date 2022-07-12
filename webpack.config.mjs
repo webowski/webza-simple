@@ -42,10 +42,7 @@ export default {
 						}
 					},
 					{
-						loader: 'css-loader',
-						options: {
-							url: false,
-						}
+						loader: 'css-loader'
 					},
 					{
 						loader: 'postcss-loader',
@@ -58,7 +55,9 @@ export default {
 							}
 						}
 					},
-					'sass-loader',
+					{
+						loader: 'sass-loader'
+					}
 				]
 			},
 
@@ -72,7 +71,7 @@ export default {
 						presets: [
 							'@babel/preset-env',
 						],
-						cacheDirectory: true,
+						// cacheDirectory: true,
 					}
 				}
 			},
@@ -104,7 +103,7 @@ export default {
 							resolve('src/templates/components'),
 						],
 						// debug: true,
-						inlineRequires: '\/media\/'
+						inlineRequires: /(media|images)\//
 					}
 				}]
 			},
