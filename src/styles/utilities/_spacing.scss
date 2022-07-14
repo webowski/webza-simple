@@ -1,5 +1,4 @@
-$spaces: '0', '025', '050', '075', '100', '150', '200', '300', '400', '500';
-
+$spaces: '0', '025', '050', '075', '100', '150', '200', '300', '375', '400', '500';
 
 @function toNum($value) {
   @if type-of($value) == 'number' {
@@ -143,138 +142,142 @@ $spaces: '0', '025', '050', '075', '100', '150', '200', '300', '400', '500';
 
 @include mediaUp(sm) {
 
-	/* Отступы
-	=================== */
+	// Marings
 
 	@each $spaceValue in $spaces {
-		.mt-sm-#{$spaceValue} { margin-top: toRem($spaceValue) !important; }
+		.sm\:mt-#{$spaceValue} { margin-top: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.mr-sm-#{$spaceValue} { margin-right: toRem($spaceValue) !important; }
+		.sm\:mr-#{$spaceValue} { margin-right: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.mb-sm-#{$spaceValue} { margin-bottom: toRem($spaceValue) !important; }
+		.sm\:mb-#{$spaceValue} { margin-bottom: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.ml-sm-#{$spaceValue} { margin-left: toRem($spaceValue) !important; }
+		.sm\:ml-#{$spaceValue} { margin-left: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.m-sm-#{$spaceValue} { margin: toRem($spaceValue) !important; }
+		.sm\:m-#{$spaceValue} { margin: toRem($spaceValue) !important; }
 	}
 
-	/* Поля
-	================= */
+	// Paddings
 
 	@each $spaceValue in $spaces {
-		.pt-sm-#{$spaceValue} { padding-top: toRem($spaceValue) !important; }
-	}
-
-	@each $spaceValue in $spaces {
-		.pr-sm-#{$spaceValue} { padding-right: toRem($spaceValue) !important; }
+		.sm\:pt-#{$spaceValue} { padding-top: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.pb-sm-#{$spaceValue} { padding-bottom: toRem($spaceValue) !important; }
+		.sm\:pr-#{$spaceValue} { padding-right: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.pl-sm-#{$spaceValue} { padding-left: toRem($spaceValue) !important; }
+		.sm\:pb-#{$spaceValue} { padding-bottom: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.p-sm-#{$spaceValue} { padding: toRem($spaceValue) !important; }
+		.sm\:pl-#{$spaceValue} { padding-left: toRem($spaceValue) !important; }
+	}
+
+	@each $spaceValue in $spaces {
+		.sm\:p-#{$spaceValue} { padding: toRem($spaceValue) !important; }
 	}
 }
 
 @include mediaUp(md) {
 
+	// Marings
+
 	@each $spaceValue in $spaces {
-		.mt-md-#{$spaceValue} { margin-top: toRem($spaceValue) !important; }
+		.md\:mt-#{$spaceValue} { margin-top: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.mr-md-#{$spaceValue} { margin-right: toRem($spaceValue) !important; }
+		.md\:mr-#{$spaceValue} { margin-right: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.mb-md-#{$spaceValue} { margin-bottom: toRem($spaceValue) !important; }
+		.md\:mb-#{$spaceValue} { margin-bottom: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.ml-md-#{$spaceValue} { margin-left: toRem($spaceValue) !important; }
+		.md\:ml-#{$spaceValue} { margin-left: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.m-md-#{$spaceValue} { margin: toRem($spaceValue) !important; }
+		.md\:m-#{$spaceValue} { margin: toRem($spaceValue) !important; }
 	}
 
+	// Paddings
 
 	@each $spaceValue in $spaces {
-		.pt-md-#{$spaceValue} { padding-top: toRem($spaceValue) !important; }
-	}
-
-	@each $spaceValue in $spaces {
-		.pr-md-#{$spaceValue} { padding-right: toRem($spaceValue) !important; }
+		.md\:pt-#{$spaceValue} { padding-top: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.pb-md-#{$spaceValue} { padding-bottom: toRem($spaceValue) !important; }
+		.md\:pr-#{$spaceValue} { padding-right: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.pl-md-#{$spaceValue} { padding-left: toRem($spaceValue) !important; }
+		.md\:pb-#{$spaceValue} { padding-bottom: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.p-md-#{$spaceValue} { padding: toRem($spaceValue) !important; }
+		.md\:pl-#{$spaceValue} { padding-left: toRem($spaceValue) !important; }
+	}
+
+	@each $spaceValue in $spaces {
+		.md\:p-#{$spaceValue} { padding: toRem($spaceValue) !important; }
 	}
 }
 
 @include mediaUp(lg) {
 
+	// Marings
+
 	@each $spaceValue in $spaces {
-		.mt-lg-#{$spaceValue} { margin-top: toRem($spaceValue) !important; }
+		.lg\:mt-#{$spaceValue} { margin-top: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.mr-lg-#{$spaceValue} { margin-right: toRem($spaceValue) !important; }
+		.lg\:mr-#{$spaceValue} { margin-right: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.mb-lg-#{$spaceValue} { margin-bottom: toRem($spaceValue) !important; }
+		.lg\:mb-#{$spaceValue} { margin-bottom: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.ml-lg-#{$spaceValue} { margin-left: toRem($spaceValue) !important; }
+		.lg\:ml-#{$spaceValue} { margin-left: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.m-lg-#{$spaceValue} { margin: toRem($spaceValue) !important; }
+		.lg\:m-#{$spaceValue} { margin: toRem($spaceValue) !important; }
 	}
 
+	// Paddings
 
 	@each $spaceValue in $spaces {
-		.pt-lg-#{$spaceValue} { padding-top: toRem($spaceValue) !important; }
-	}
-
-	@each $spaceValue in $spaces {
-		.pr-lg-#{$spaceValue} { padding-right: toRem($spaceValue) !important; }
+		.lg\:pt-#{$spaceValue} { padding-top: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.pb-lg-#{$spaceValue} { padding-bottom: toRem($spaceValue) !important; }
+		.lg\:pr-#{$spaceValue} { padding-right: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.pl-lg-#{$spaceValue} { padding-left: toRem($spaceValue) !important; }
+		.lg\:pb-#{$spaceValue} { padding-bottom: toRem($spaceValue) !important; }
 	}
 
 	@each $spaceValue in $spaces {
-		.p-lg-#{$spaceValue} { padding: toRem($spaceValue) !important; }
+		.lg\:pl-#{$spaceValue} { padding-left: toRem($spaceValue) !important; }
+	}
+
+	@each $spaceValue in $spaces {
+		.lg\:p-#{$spaceValue} { padding: toRem($spaceValue) !important; }
 	}
 }
 
