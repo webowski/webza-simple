@@ -1,9 +1,5 @@
 .container {
-	max-width: var(--containerMax);
-	padding-left: var(--sidePadding);
-	padding-right: var(--sidePadding);
-	margin-left: auto;
-	margin-right: auto;
+	@include container;
 }
 
 .container-wide {
@@ -39,4 +35,16 @@ hr {
 .G-noScroll {
 	touch-action: none;
 	overflow: hidden;
+}
+
+.origin {
+	max-width: calc(var(--containerMax) + var(--sidePadding) * 2);
+	box-sizing: content-box;
+	position: fixed;
+	inset: 0;
+	visibility: hidden;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 50;
+	display: grid;
 }

@@ -1,3 +1,12 @@
+@mixin container {
+	box-sizing: content-box;
+	max-width: var(--containerMax);
+	padding-left: var(--sidePadding);
+	padding-right: var(--sidePadding);
+	margin-left: auto;
+	margin-right: auto;
+}
+
 @mixin makeColumnReady($gutter: $gap) {
 	width: 100%;
 	padding-right: $gutter * 0.5;
