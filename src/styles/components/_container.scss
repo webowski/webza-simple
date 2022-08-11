@@ -3,25 +3,9 @@
 }
 
 .container-wide {
-	--sidePaddingWide: 1rem;
-	padding-left: var(--sidePaddingWide);
-	padding-right: var(--sidePaddingWide);
-
-	@media (min-width: $sm) {
-		--sidePaddingWide: 1.5rem;
-	}
-
-	@media (min-width: $md) {
-		--sidePaddingWide: 2rem;
-	}
-
-	@media (min-width: $lg) {
-		--sidePaddingWide: 3rem;
-	}
-
-	@media (min-width: $xl) {
-		--sidePaddingWide: 4rem;
-	}
+	@include container;
+	margin-left: 0;
+	margin-right: 0;
 }
 
 hr {
