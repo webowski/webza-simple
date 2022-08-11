@@ -109,6 +109,7 @@ export default {
 							resolve('src/templates/base/helpers'),
 						],
 						partialDirs: [
+							resolve('src/templates/components'),
 							resolve('src/templates/layouts'),
 							resolve('src/templates/partials'),
 						],
