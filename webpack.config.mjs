@@ -1,10 +1,9 @@
-import { resolve }          from 'path'
+import path, { resolve }    from 'path'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-// import pretty                   from 'pretty'
 import SVGSpritemapPlugin   from 'svg-spritemap-webpack-plugin'
-import { VueLoaderPlugin }  from 'vue-loader'
 import makeTemplatesPlugins from './build/make-templates-plugins/index.js'
-import FileManagerPlugin    from 'filemanager-webpack-plugin'
+import ImageMinimizerPlugin from 'image-minimizer-webpack-plugin'
+
 
 const __dirname = resolve()
 const mode = process.env.NODE_ENV || 'development'
@@ -12,20 +11,19 @@ const target = mode === 'development' ? 'web' : 'browserslist'
 
 export default {
 	mode: mode,
+	target: target,
 	// context: __dirname + '/src',
+
 	entry: {
-		// styles: {
-		// 	import: resolve('./src/styles/index.scss'),
-		// 	filename: './styles/[name].min.js'
-		// },
-    bundle: {
+		bundle: {
 			import: resolve('./src/scripts/index.js'),
 			filename: './scripts/[name].min.js'
-		},
+		}
 	},
-	output: {
-    path: resolve(__dirname, 'dist')
-	},
+
+	// output: {
+  //   path: resolve(__dirname, 'dist')
+	// },
 
 	module: {
 		rules: [
@@ -37,12 +35,12 @@ export default {
 					{
 						loader: MiniCssExtractPlugin.loader,
 						options: {
-							publicPath: resolve(__dirname, '/dist/styles'),
-							esModule: false,
+							publicPath: '../'
+							// publicPath: resolve(__dirname, '/dist/styles'),
 						}
 					},
 					{
-						loader: 'css-loader'
+						loader: 'css-loader',
 					},
 					{
 						loader: 'postcss-loader',
@@ -50,13 +48,12 @@ export default {
 							postcssOptions: {
 								plugins: [
 									['postcss-preset-env'],
-									// ['flex-gap-polyfill', ],
 								]
 							}
 						}
 					},
 					{
-						loader: 'sass-loader'
+						loader: 'sass-loader',
 					}
 				]
 			},
@@ -78,14 +75,28 @@ export default {
 
 			// Images
 			{
-				test: /\.(png|jpe?g|gif|svg)$/i,
+				test: /\.(png|jpg|jpeg|gif|svg)$/i,
 				type: 'asset/resource',
+				generator: {
+					filename: (pathData) => {
+						let relativePath = pathData.module.resourceResolveData.relativePath
+						let dirName = path.dirname(relativePath).replace('./src/', '')
+						return dirName + '/[name][ext]'
+					}
+				}
 			},
 
-			// Vue
+			// Fonts
 			{
-				test: /\.vue$/,
-				loader: 'vue-loader'
+				test: /\.(woff|woff2)$/i,
+				type: 'asset/resource',
+				generator: {
+					filename: (pathData) => {
+						let relativePath = pathData.module.resourceResolveData.relativePath
+						let dirName = path.dirname(relativePath).replace('./src/', '')
+						return dirName + '/[name][ext]'
+					}
+				}
 			},
 
 			// Templates
@@ -100,7 +111,6 @@ export default {
 						partialDirs: [
 							resolve('src/templates/layouts'),
 							resolve('src/templates/partials'),
-							resolve('src/templates/components'),
 						],
 						// debug: true,
 						inlineRequires: /(media|images)\//
@@ -130,45 +140,53 @@ export default {
 			}
 		}),
 
-		new VueLoaderPlugin(),
-
-		new FileManagerPlugin({
-			events: {
-				onEnd: {
-					// copy: [
-          //   {
-					// 		source: resolve(__dirname, 'src/media/*'),
-					// 		destination: resolve(__dirname, 'dist/media/')
-					// 	},
-          // ],
-					delete: [
-						resolve(__dirname + '/dist/styles/styles.min.js*')
-					]
-				}
-			}
-		}),
-
 		...makeTemplatesPlugins({
 			templatesPath: 'src/templates/'
 		}),
 
 	],
 
+	optimization: {
+    minimizer: [
+      '...',
+			new ImageMinimizerPlugin({
+				deleteOriginalAssets: true,
+				minimizer: {
+					implementation: ImageMinimizerPlugin.squooshMinify,
+          options: {
+            encodeOptions: {
+              mozjpeg: {
+                quality: 84,
+              },
+              webp: {
+								quality: 90,
+              },
+							oxipng: {
+								level: 4,
+								interlace: true,
+								// strip: 'all'
+							}
+            },
+          },
+				}
+			})
+    ]
+  },
+
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		alias: {
 			handlebars: 'handlebars/dist/handlebars.js',
-			vue: 'vue/dist/vue.esm-browser',
 		}
 	},
-	target: target,
 	// stats: {
 	// 	children: true
 	// },
 
 	devtool: mode === 'development' ? 'source-map' : false,
 	performance: {
-		// hints: false,
+		// hints: 'warning',
+		hints: false,
 		maxEntrypointSize: 512000,
 		maxAssetSize: 512000
 	},
@@ -181,9 +199,6 @@ export default {
 		open: true,
     liveReload: true,
 		hot: false,
-    // watchFiles: [
-		// 	resolve('src/templates/*.hbs')
-		// ],
 		port: 3000,
 		static: {
 			directory: resolve(__dirname, 'dist'),
