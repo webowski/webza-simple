@@ -1,3 +1,7 @@
+if (module.hot) module.hot.accept()
+
+import '../styles/index.scss'
+
 // App Components
 // import './components/Accordion'
 // import './components/Analytics'
