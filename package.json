@@ -13,7 +13,7 @@
     "watch": "webpack --watch",
     "build": "NODE_ENV=production webpack",
     "build:dev": "webpack",
-    "clean": "rm -rf dist scripts/*.min.js* styles/*.min.css* images/icons.svg"
+    "clean": "rm -rf dist"
   },
   "browserslist": [
     "last 2 versions",
