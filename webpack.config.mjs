@@ -199,6 +199,9 @@ export default {
 		open: true,
     liveReload: true,
 		hot: false,
+    // watchFiles: [
+		// 	resolve('src/templates/*.hbs')
+		// ],
 		port: 3000,
 		static: {
 			directory: resolve(__dirname, 'dist'),
