@@ -12,7 +12,6 @@ body {
 a {
 	@include linkReset;
 	color: var(--voice);
-	border-bottom: 1px solid currentColor;
 	text-decoration: underline;
 	text-underline-position: under;
 	transition:
