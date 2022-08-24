@@ -10,7 +10,6 @@ body {
 }
 
 a {
-	@include linkReset;
 	color: var(--voice);
 	text-decoration: underline;
 	text-underline-position: under;
