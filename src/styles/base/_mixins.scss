@@ -57,17 +57,17 @@
 		margin-bottom: 0;
 	}
 
-	> li {
+	> :where(li) {
 		margin-bottom: 0;
 		padding-left: 0;
 		margin-left: 0;
 		position: static;
 
-		+ li {
+		+ :where(li) {
 			margin-top: 0;
 		}
 
-		&:before{
+		&:before {
 			display: none;
 		}
 	}
