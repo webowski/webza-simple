@@ -2,7 +2,7 @@
   "lang": "en",
   "nav": [
     { "url": "/", "title": "Homepage" },
-    { "url": "/about.html", "title": "About" },
+    { "url": "/components.html", "title": "Components" },
     { "url": "/contacts.html", "title": "Contacts" }
   ]
 }
