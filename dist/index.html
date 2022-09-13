@@ -1,69 +1,62 @@
-Html Webpack Plugin:
-<pre>
-  Error: Child compilation failed:
-  Module not found: Error: Can't resolve './images/logo.svg' in '/mnt/storage/repos/webza/src/templates/partials'
-  ModuleNotFoundError: Module not found: Error: Can't resolve './images/logo.svg' in '/mnt/storage/repos/webza/src/tem  plates/partials'
-      at /mnt/storage/repos/webza/node_modules/webpack/lib/Compilation.js:2016:28
-      at /mnt/storage/repos/webza/node_modules/webpack/lib/NormalModuleFactory.js:798:13
-      at eval (eval at create (/mnt/storage/repos/webza/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous  >:10:1)
-      at /mnt/storage/repos/webza/node_modules/webpack/lib/NormalModuleFactory.js:270:22
-      at eval (eval at create (/mnt/storage/repos/webza/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous  >:9:1)
-      at /mnt/storage/repos/webza/node_modules/webpack/lib/NormalModuleFactory.js:434:22
-      at /mnt/storage/repos/webza/node_modules/webpack/lib/NormalModuleFactory.js:116:11
-      at /mnt/storage/repos/webza/node_modules/webpack/lib/NormalModuleFactory.js:670:25
-      at /mnt/storage/repos/webza/node_modules/webpack/lib/NormalModuleFactory.js:855:8
-      at /mnt/storage/repos/webza/node_modules/webpack/lib/NormalModuleFactory.js:975:5
-  
-  - Compilation.js:2016 
-    [webza]/[webpack]/lib/Compilation.js:2016:28
-  
-  - NormalModuleFactory.js:798 
-    [webza]/[webpack]/lib/NormalModuleFactory.js:798:13
-  
-  
-  - NormalModuleFactory.js:270 
-    [webza]/[webpack]/lib/NormalModuleFactory.js:270:22
-  
-  
-  - NormalModuleFactory.js:434 
-    [webza]/[webpack]/lib/NormalModuleFactory.js:434:22
-  
-  - NormalModuleFactory.js:116 
-    [webza]/[webpack]/lib/NormalModuleFactory.js:116:11
-  
-  - NormalModuleFactory.js:670 
-    [webza]/[webpack]/lib/NormalModuleFactory.js:670:25
-  
-  - NormalModuleFactory.js:855 
-    [webza]/[webpack]/lib/NormalModuleFactory.js:855:8
-  
-  - NormalModuleFactory.js:975 
-    [webza]/[webpack]/lib/NormalModuleFactory.js:975:5
-  
-  - child-compiler.js:169 
-    [webza]/[html-webpack-plugin]/lib/child-compiler.js:169:18
-  
-  - Compiler.js:551 finalCallback
-    [webza]/[webpack]/lib/Compiler.js:551:5
-  
-  - Compiler.js:577 
-    [webza]/[webpack]/lib/Compiler.js:577:11
-  
-  - Compiler.js:1196 
-    [webza]/[webpack]/lib/Compiler.js:1196:17
-  
-  
-  - Hook.js:18 Hook.CALL_ASYNC_DELEGATE [as _callAsync]
-    [webza]/[tapable]/lib/Hook.js:18:14
-  
-  - Compiler.js:1192 
-    [webza]/[webpack]/lib/Compiler.js:1192:33
-  
-  - Compilation.js:2787 finalCallback
-    [webza]/[webpack]/lib/Compilation.js:2787:11
-  
-  - Compilation.js:3092 
-    [webza]/[webpack]/lib/Compilation.js:3092:11
-  
-  
-</pre>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Front page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" href="/styles/bundle.min.css">
+</head>
+<body class="G-notLogged" style="--scrollY:0px;">
+
+	<header class="Header">
+		<div class="container">
+	
+			<a href="" class="Logo Header__logo" aria-label="logo">
+			</a>
+	
+			<nav class="NavMain Header__nav">
+				<ul>
+						<li class="Nav__item is-current">
+							<a href="/">Homepage</a>
+						</li>
+						<li class="Nav__item">
+							<a href="/components.html">Components</a>
+						</li>
+						<li class="Nav__item">
+							<a href="/contacts.html">Contacts</a>
+						</li>
+				</ul>
+			</nav>
+	
+	
+		</div>
+	</header>
+
+	<main class="Main">
+		
+			<div class="Hero">
+			</div>
+		
+			<div class="Section">
+				<div class="container">
+		
+					<h1>Front page</h1>
+		
+				</div>
+			</div>
+		
+	</main>
+
+	<footer class="Footer">
+		<div class="container">
+	
+			<p class="fz-075"><b>webowski.ru</b> &copy; All rights reserved.</p>
+	
+		</div>
+	</footer>
+
+
+	<script src="/scripts/bundle.min.js"></script>
+</body>
+</html>

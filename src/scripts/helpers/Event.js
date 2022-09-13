@@ -1,7 +1,3 @@
-// Events helpers
-// ========================
-
-// Custom events
 let customEvents = {
 	open: new Event('open'),
 	close: new Event('close'),
