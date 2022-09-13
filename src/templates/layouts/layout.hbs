@@ -10,13 +10,15 @@
 </head>
 <body class="G-notLogged" style="--scrollY:0px;">
 
-	{{> header}}
+	<div class="Wrap">
+		{{> header}}
 
-	<main class="Main">
-		{{> @partial-block }}
-	</main>
+		<main class="Main">
+			{{> @partial-block }}
+		</main>
 
-	{{> footer}}
+		{{> footer}}
+	</div>
 
 	{{!-- {{> notifications}} --}}
 

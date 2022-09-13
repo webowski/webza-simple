@@ -1,7 +1,7 @@
 body {
 	background-color: var(--bg);
 
-	@include mediaUp(down) {
+	@include mediaUp(md) {
 		padding-top: var(--headerHeight);
 	}
 
@@ -11,8 +11,8 @@ body {
 }
 
 .Wrap {
-	// height: 100vh;
-	// overflow: hidden;
+	height: 200vh;
+	overflow-x: hidden;
 	// display: flex;
 	position: relative;
 }
