@@ -59,21 +59,21 @@
 
 // Breakpoints
 // ---------------------
-	// $xs:    0;
-	// $sm:    576px;
-	// $md:    768px;
-	// $lg:    992px;
-	// $xl:    1200px;
-	// $xxl:   1600px;
+$xs:    0;
+$sm:    576px;
+$md:    768px;
+$lg:    992px;
+$xl:    1200px;
+$xxl:   1600px;
 
-	// $breakpoints: (
-	// 	xs: $xs,
-	// 	sm: $sm,
-	// 	md: $md,
-	// 	lg: $lg,
-	// 	xl: $xl,
-	// 	xxl: $xxl,
-	// );
+$breakpoints: (
+	xs: $xs,
+	sm: $sm,
+	md: $md,
+	lg: $lg,
+	xl: $xl,
+	xxl: $xxl,
+);
 
 
 // Container
