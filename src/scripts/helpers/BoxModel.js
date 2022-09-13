@@ -3,7 +3,7 @@ export const getHeight = (element) => {
 	return height
 }
 
-export const isElementReached = (el, offsetY) {
+export const isElementReached = (el, offsetY) => {
 	let top = el.offsetTop
 	let height = el.offsetHeight
 	let bottom = top + height
