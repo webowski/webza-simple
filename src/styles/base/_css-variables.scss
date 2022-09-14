@@ -27,18 +27,8 @@
 		// --border:               #{$border};
 
 	// Dimensions
-		// --containerMax:         #{$containerMax};
-		// --sidePadding:          16px;
-
-		// --gap:                  #{$gap};
-
-	@media (min-width: $sm) {
-			// --sidePadding:          20px;
-	}
-
-	@media (min-width: $md) {
-			// --sidePadding:          20px;
-	}
+	--containerMax:         #{$containerMax};
+	--sidePadding:          clamp(1.25rem, 4vw, 4rem);
 
 	// Shape
 		// --radius:              #{$radius};
