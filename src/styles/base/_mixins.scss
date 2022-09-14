@@ -1,6 +1,8 @@
-@mixin container {
+@mixin container($type: normal) {
+	@if ($type == normal) {
+		max-width: var(--containerMax);
+	}
 	box-sizing: content-box;
-	max-width: var(--containerMax);
 	padding-left: var(--sidePadding);
 	padding-right: var(--sidePadding);
 	margin-left: auto;

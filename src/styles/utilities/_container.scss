@@ -2,11 +2,9 @@
 	@include container;
 }
 
-// .container-wide {
-// 	@include container;
-// 	margin-left: 0;
-// 	margin-right: 0;
-// }
+.container-wide {
+	@include container(wide);
+}
 
 // hr {
 // 	margin-top: 1rem;
