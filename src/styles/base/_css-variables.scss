@@ -2,9 +2,9 @@
 // ---------------------
 :root {
 	// Text
-		// --fontMain:             #{$fontMain};
-		// --fontSize:             #{$fontSize};
-		// --lineHeight:           #{$lineHeight};
+	--fontMain:             #{$fontMain};
+	--fontSize:             #{$fontSize};
+	--lineHeight:           #{$lineHeight};
 
 	// Color
 		// --brand:                #{$brand};
@@ -29,12 +29,19 @@
 	// Dimensions
 	--containerMax:         #{$containerMax};
 	--sidePadding:          clamp(1.25rem, 4vw, 4rem);
+	--headerHeight:         clamp(64px, 11vw, 104px);
 
 	// Shape
 		// --radius:              #{$radius};
+
+	// Animation
+	--duration-sm:         #{$duration-sm};
+	--duration-md:         #{$duration-md};
+	--duration-lg:         #{$duration-lg};
+	--duration-xl:         #{$duration-xl};
 }
 
-[data-theme="dark"] {
+// [data-theme="dark"] {
 		// $grayDarkest: 			lighten($grayDarkest, 10);
 		// $brand:                 ;
 		// $voice:                 $blueLight;
@@ -77,4 +84,4 @@
 		// --bg:                   #{$bg};
 		// --bgAlter:              #{$bgAlter};
 		// --border:               #{$border};
-}
+// }

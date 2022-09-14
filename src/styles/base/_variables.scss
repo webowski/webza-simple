@@ -1,13 +1,13 @@
 // Text
 // ---------------------
-	// $fontSans:                  'Rubik', sans-serif;
+$fontSans:                  'Rubik', sans-serif;
 	// $fontSerif:                 'Times New Roman', Georgia, serif;
 	// $fontMono:                  'Ubuntu Mono', monospace;
 	// $fontExtra:                 $fontNarrow;
-	// $fontMain:                  $fontSans;
+$fontMain:                  $fontSans;
 $rem:                       16px;
-	// $fontSize:                  1rem;
-	// $lineHeight:                1.57;
+$fontSize:                  1rem;
+$lineHeight:                1.57;
 
 
 // Colors
@@ -100,11 +100,11 @@ $containerMax:              1600px;
 
 // Transition & Animation
 // ---------------------
-	// $duration-sm:               .12s;
-	// $duration:                   .2s;
-	// $duration-lg:               .3s;
-	// $duration-xl:               .6s;
-	// $duration-xxl:              1s;
+$duration-sm:               .12s;
+$duration-md:               .2s;
+$duration-lg:               .3s;
+$duration-xl:               .6s;
+$duration-xxl:              1s;
 
 
 // Layers
