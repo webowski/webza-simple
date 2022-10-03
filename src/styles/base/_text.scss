@@ -13,6 +13,10 @@ a {
 	color: var(--voice);
 	text-decoration: underline;
 	text-underline-position: under;
+	// text-decoration-color: rgba(91,65,245,.3);
+	// text-decoration-skip: ink;
+	// text-decoration-thickness: 0.06em;
+	// text-underline-offset: 0.15em;
 	transition:
 		color $duration-sm,
 		border-color $duration-sm,
