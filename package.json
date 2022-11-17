@@ -18,12 +18,8 @@
   "browserslist": [
     "last 2 versions",
     "> 1%",
-    "not ie > 0",
-    "not ie_mob > 0",
-    "not baidu > 0",
-    "not and_qq > 0",
-    "not op_mini all",
-    "not dead"
+    "not dead",
+    "not op_mini all"
   ],
   "devDependencies": {
     "@babel/core": "^7.18.10",
