@@ -1,13 +1,17 @@
-import path, { resolve }    from 'path'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import SVGSpritemapPlugin   from 'svg-spritemap-webpack-plugin'
-import makeTemplatesPlugins from './build/make-templates-plugins/index.js'
+import path, { resolve } from 'path'
+// import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import SVGSpritemapPlugin from 'svg-spritemap-webpack-plugin'
+import PugPlugin from 'pug-plugin'
 import ImageMinimizerPlugin from 'image-minimizer-webpack-plugin'
-
 
 const __dirname = resolve()
 const mode = process.env.NODE_ENV || 'development'
 const target = mode === 'development' ? 'web' : 'browserslist'
+
+const templates = {
+	index: './src/templates/index.pug',
+	components: './src/templates/components.pug',
+}
 
 export default {
 	mode: mode,
@@ -15,30 +19,25 @@ export default {
 	// context: __dirname + '/src',
 
 	entry: {
-		bundle: {
-			import: resolve('./src/scripts/index.js'),
-			filename: './scripts/[name].min.js'
-		}
+		...templates,
+		// bundle: {
+		// 	import: resolve('./src/scripts/index.js'),
+		// 	filename: './scripts/[name].min.js',
+		// },
 	},
 
-	// output: {
-  //   path: resolve(__dirname, 'dist')
-	// },
+	output: {
+		path: path.join(__dirname, 'dist/'),
+		// publicPath: '/',
+		filename: 'scripts/[name].js',
+	},
 
 	module: {
 		rules: [
-
 			// Styles
 			{
 				test: /\.(scss|css)$/i,
 				use: [
-					{
-						loader: MiniCssExtractPlugin.loader,
-						options: {
-							publicPath: '../'
-							// publicPath: resolve(__dirname, '/dist/styles'),
-						}
-					},
 					{
 						loader: 'css-loader',
 					},
@@ -46,21 +45,19 @@ export default {
 						loader: 'postcss-loader',
 						options: {
 							postcssOptions: {
-								plugins: [
-									['postcss-preset-env'],
-								]
-							}
-						}
+								plugins: [['postcss-preset-env']],
+							},
+						},
 					},
 					{
 						loader: 'sass-loader',
 						options: {
-              sassOptions: {
-                includePaths: ['node_modules']
-              }
-            }
-					}
-				]
+							sassOptions: {
+								includePaths: ['node_modules'],
+							},
+						},
+					},
+				],
 			},
 
 			// Scripts
@@ -70,12 +67,10 @@ export default {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: [
-							'@babel/preset-env',
-						],
+						presets: ['@babel/preset-env'],
 						// cacheDirectory: true,
-					}
-				}
+					},
+				},
 			},
 
 			// Images
@@ -87,8 +82,8 @@ export default {
 						let relativePath = pathData.module.resourceResolveData.relativePath
 						let dirName = path.dirname(relativePath).replace('./src/', '')
 						return dirName + '/[name][ext]'
-					}
-				}
+					},
+				},
 			},
 
 			// Fonts
@@ -100,38 +95,25 @@ export default {
 						let relativePath = pathData.module.resourceResolveData.relativePath
 						let dirName = path.dirname(relativePath).replace('./src/', '')
 						return dirName + '/[name][ext]'
-					}
-				}
+					},
+				},
 			},
 
 			// Templates
 			{
-				test: /\.hbs$/,
-				use: [{
-					loader: 'handlebars-loader',
-					options: {
-						helperDirs: [
-							resolve('src/templates/base/helpers'),
-						],
-						partialDirs: [
-							resolve('src/templates/components'),
-							resolve('src/templates/layouts'),
-							resolve('src/templates/partials'),
-						],
-						// debug: true,
-						inlineRequires: /(media|images)\//
-					}
-				}]
+				test: /\.pug$/,
+				loader: PugPlugin.loader,
+				options: {
+					method: 'render',
+				},
 			},
-
-		]
+		],
 	},
 
 	plugins: [
-
-		new MiniCssExtractPlugin({
-			filename: 'styles/[name].min.css',
-		}),
+		// new MiniCssExtractPlugin({
+		// 	filename: 'styles/[name].min.css',
+		// }),
 
 		new SVGSpritemapPlugin(resolve('./src/images/icons/*.svg'), {
 			output: {
@@ -142,49 +124,56 @@ export default {
 				prefix: 'icon-',
 				generate: {
 					title: false,
-				}
-			}
+				},
+			},
 		}),
 
-		...makeTemplatesPlugins({
-			templatesPath: 'src/templates/'
+		new PugPlugin({
+			pretty: true,
+			extractCss: {
+				filename: 'styles/[name].css',
+			},
 		}),
 
+		// ...makeTemplatesPlugins({
+		// 	templatesPath: 'src/templates/',
+		// }),
 	],
 
 	optimization: {
-    minimizer: [
-      '...',
+		minimizer: [
+			'...',
 			new ImageMinimizerPlugin({
 				deleteOriginalAssets: true,
 				minimizer: {
 					implementation: ImageMinimizerPlugin.squooshMinify,
-          options: {
-            encodeOptions: {
-              mozjpeg: {
-                quality: 84,
-              },
-              webp: {
+					options: {
+						encodeOptions: {
+							mozjpeg: {
+								quality: 84,
+							},
+							webp: {
 								quality: 90,
-              },
+							},
 							oxipng: {
 								level: 4,
 								interlace: true,
 								// strip: 'all'
-							}
-            },
-          },
-				}
-			})
-    ]
-  },
+							},
+						},
+					},
+				},
+			}),
+		],
+	},
 
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		alias: {
-			handlebars: 'handlebars/dist/handlebars.js',
-		}
+			'~': path.join(__dirname, 'src/'),
+		},
 	},
+
 	// stats: {
 	// 	children: true
 	// },
@@ -194,7 +183,7 @@ export default {
 		// hints: 'warning',
 		hints: false,
 		maxEntrypointSize: 512000,
-		maxAssetSize: 512000
+		maxAssetSize: 512000,
 	},
 
 	watchOptions: {
@@ -203,9 +192,9 @@ export default {
 
 	devServer: {
 		open: true,
-    liveReload: true,
+		liveReload: true,
 		hot: false,
-    // watchFiles: [
+		// watchFiles: [
 		// 	resolve('src/templates/*.hbs')
 		// ],
 		port: 3000,
@@ -215,6 +204,6 @@ export default {
 			publicPath: resolve(__dirname, 'dist'),
 			serveIndex: true,
 			watch: false,
-		}
-	}
+		},
+	},
 }
