@@ -1,8 +1,8 @@
 {
-  "lang": "en",
-  "nav": [
-    { "url": "/", "title": "Homepage" },
-    { "url": "/components.html", "title": "Components" },
-    { "url": "/contacts.html", "title": "Contacts" }
-  ]
+	"lang": "ru",
+	"nav": [
+		{ "url": "/", "title": "Homepage" },
+		{ "url": "/components.html", "title": "Components" },
+		{ "url": "/contacts.html", "title": "Contacts" }
+	]
 }
