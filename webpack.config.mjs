@@ -150,6 +150,85 @@ export default {
 					},
 				},
 			}),
+
+			new ImageMinimizerPlugin({
+				generator: [
+					{
+						preset: 'jpg1024',
+						implementation: ImageMinimizerPlugin.squooshGenerate,
+						filename: (pathData) => {
+							const ext = path.extname(pathData.filename)
+							const name = path
+								.basename(pathData.filename, ext)
+								.replace('@2x', '')
+							return name + '[ext]'
+						},
+						options: {
+							resize: {
+								enabled: true,
+								width: 1024,
+							},
+							encodeOptions: {
+								mozjpeg: {
+									quality: 84,
+								},
+							},
+						},
+					},
+					{
+						preset: 'jpg2048',
+						implementation: ImageMinimizerPlugin.squooshGenerate,
+						options: {
+							resize: {
+								enabled: true,
+								width: 2048,
+							},
+							encodeOptions: {
+								mozjpeg: {
+									quality: 84,
+								},
+							},
+						},
+					},
+					{
+						preset: 'webp1024',
+						implementation: ImageMinimizerPlugin.squooshGenerate,
+						filename: (pathData) => {
+							const ext = path.extname(pathData.filename)
+							const name = path
+								.basename(pathData.filename, ext)
+								.replace('@2x', '')
+							return name + '[ext]'
+						},
+						options: {
+							resize: {
+								enabled: true,
+								width: 1024,
+							},
+							encodeOptions: {
+								webp: {
+									quality: 80,
+								},
+							},
+						},
+					},
+					{
+						preset: 'webp2048',
+						implementation: ImageMinimizerPlugin.squooshGenerate,
+						options: {
+							resize: {
+								enabled: true,
+								width: 2048,
+							},
+							encodeOptions: {
+								webp: {
+									quality: 80,
+								},
+							},
+						},
+					},
+				],
+			}),
 		],
 	},
 
