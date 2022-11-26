@@ -1,5 +1,4 @@
 import path, { resolve } from 'path'
-// import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import SVGSpritemapPlugin from 'svg-spritemap-webpack-plugin'
 import PugPlugin from 'pug-plugin'
 import ImageMinimizerPlugin from 'image-minimizer-webpack-plugin'
@@ -16,14 +15,9 @@ const templates = {
 export default {
 	mode: mode,
 	target: target,
-	// context: __dirname + '/src',
 
 	entry: {
 		...templates,
-		// bundle: {
-		// 	import: resolve('./src/scripts/index.js'),
-		// 	filename: './scripts/[name].min.js',
-		// },
 	},
 
 	output: {
@@ -111,10 +105,6 @@ export default {
 	},
 
 	plugins: [
-		// new MiniCssExtractPlugin({
-		// 	filename: 'styles/[name].min.css',
-		// }),
-
 		new SVGSpritemapPlugin(resolve('./src/images/icons/*.svg'), {
 			output: {
 				filename: 'images/icons.min.svg',
@@ -134,10 +124,6 @@ export default {
 				filename: 'styles/[name].css',
 			},
 		}),
-
-		// ...makeTemplatesPlugins({
-		// 	templatesPath: 'src/templates/',
-		// }),
 	],
 
 	optimization: {
@@ -195,7 +181,7 @@ export default {
 		liveReload: true,
 		hot: false,
 		// watchFiles: [
-		// 	resolve('src/templates/*.hbs')
+		// 	resolve('src/templates/*.pug')
 		// ],
 		port: 3000,
 		static: {
