@@ -2,23 +2,22 @@
 	<div class="container">
 
 		<a href="" class="Logo Header__logo" aria-label="logo">
-			//- <img src="../../images/logo.svg" alt="">
+			<img src="images/logo.svg" alt="">
 		</a>
 
 		<nav class="NavMain Header__nav">
 			<ul>
-				//- {{#each nav}}
-				//- 	<li class="Nav__item{{#ifEquals url ../currentUrl }} is-current{{/ifEquals}}">
-				//- 		<a href="{{url}}">{{title}}</a>
-				//- 	</li>
-				//- {{/each}}
+				each item in data.nav
+					<li class="Nav__item#{item.url === currentUrl ? ' is-current' : ''}">
+						<a href=#{item.url}">#{item.title}</a>
+					</li>
 			</ul>
 		</nav>
 
-		//- <button class="Btn d-flex align-center Header__search">
-		//- 	{{icon "search" class="Icon rect-150 mr-050"}}
-		//- 	<span>Search</span>
-		//- </button>
+		<button class="Btn d-flex align-center Header__search">
+			+icon("search").rect-150.mr-050
+			<span>Search</span>
+		</button>
 
 	</div>
 </header>
