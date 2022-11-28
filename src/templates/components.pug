@@ -1,7 +1,7 @@
 extends base/layout.pug
 
 block variables
-	- var title = 'Компоненты'
+	- var title = 'Components'
 	- var currentUrl = '/'
 
 block main
@@ -10,14 +10,17 @@ block main
 
 			<h1>#{title}</h1>
 
+			<h3>Picture</h3>
 			+picture(src="media/hero@2x.jpg" alt="Alt text").Picture
 
+			<h3>Notifications</h3>
 			+notifications
 				p notification
 
+			<h3>Icon</h3>
 			+icon("search")
 
-			<h4>Tabs</h4>
+			<h3>Tabs</h3>
 			+tabs
 
 		</div>
