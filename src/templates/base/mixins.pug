@@ -1,5 +1,5 @@
 mixin icon(name)
-	svg(class="Icon")&attributes(attributes)
+	svg(class=`Icon -${name}`)&attributes(attributes)
 		use(href="#icon-" + name)
 
 mixin picture()
