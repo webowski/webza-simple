@@ -1,0 +1,112 @@
+.Tabs {
+	position: relative;
+}
+
+.Tabs__nav {
+	@include listReset(true);
+	display: none;
+
+	@include mediaUp(md) {
+		display: flex;
+	}
+}
+
+.Tabs__navItem {
+	padding: 22px 20px;
+	background-color: var(--muted);
+	cursor: pointer;
+	font-size: var(--fontSize-xl);
+	font-weight: 500;
+
+	@include mediaUp(md) {
+		padding: 20px 24px;
+	}
+}
+
+.Tabs__navItem.is-open {
+	background-color: var(--bgLight);
+	color: var(--brand);
+	cursor: default;
+}
+
+.Tabs__item	{
+	padding: 30px 20px;
+	background-color: var(--bgLight);
+	overflow: hidden;
+
+	@include mediaUp(sm) {
+		padding: 30px 30px;
+	}
+
+	@include mediaUp(md) {
+		display: none;
+		padding: 35px 40px;
+	}
+
+	@include mediaUp(xl) {
+		padding: 40px 60px;
+	}
+}
+
+.Tabs__item + .Tabs__item {
+	@include mediaDown(md) {
+		margin-top: 1.25rem;
+	}
+}
+
+.Tabs__item.is-open {
+	display: block;
+}
+
+.Tabs__itemHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: var(--fontSize-xl);
+	font-weight: 500;
+	padding: 30px 20px;
+	margin: -30px -20px;
+	position: relative;
+	z-index: 1;
+
+	@include mediaUp(sm) {
+		padding: 30px 30px;
+		margin: -30px -20px;
+	}
+
+	@include mediaUp(md) {
+		display: none;
+	}
+}
+
+.Tabs__item.is-open .Tabs__itemHeader {
+	color: var(--brand);
+}
+
+.Tabs__itemArrow {
+	width: 16px;
+	height: 8px;
+	margin-left: 18px;
+	transform: rotate(180deg);
+	transition: transform $duration-md;
+}
+
+.Tabs__item.is-open .Tabs__itemArrow {
+	transform: rotate(0deg);
+}
+
+.Tabs__item-content {
+	@include mediaDown(md) {
+		opacity: 0;
+		height: 0;
+		transition: opacity $duration-md, margin-top $duration-md;
+	}
+}
+
+.Tabs__item.is-open .Tabs__itemContent {
+	@include mediaDown(md) {
+		opacity: 1;
+		height: auto;
+		margin-top: 30px;
+	}
+}
