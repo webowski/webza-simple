@@ -24,6 +24,7 @@ export default {
 		path: path.join(__dirname, 'dist/'),
 		// publicPath: '/',
 		filename: 'scripts/[name].js',
+		clean: true,
 	},
 
 	module: {
