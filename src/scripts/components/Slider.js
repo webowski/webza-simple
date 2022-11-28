@@ -3,7 +3,6 @@ import Swiper, { Navigation, Pagination, Thumbs } from 'swiper'
 Swiper.use([Navigation, Pagination, Thumbs])
 
 export default class Slider {
-
 	constructor($slider) {
 		let slider = this.constructor.makeSlider($slider)
 		return slider
@@ -15,11 +14,11 @@ export default class Slider {
 		this.$container = $slider.querySelector(':scope > .swiper-container')
 		this.$pagination = $slider.querySelector(':scope > .Slider__pagination')
 		this.$buttonPrev =
-			$slider.querySelector(':scope > .Slider__nav.-prev')
-			|| $container.querySelector(':scope > .Slider__nav.-prev')
+			$slider.querySelector(':scope > .Slider__nav.-prev') ||
+			$container.querySelector(':scope > .Slider__nav.-prev')
 		this.$buttonNext =
-			$slider.querySelector(':scope > .Slider__nav.-next')
-			|| $container.querySelector(':scope > .Slider__nav.-next')
+			$slider.querySelector(':scope > .Slider__nav.-next') ||
+			$container.querySelector(':scope > .Slider__nav.-next')
 
 		let slidesPerView = $slider.dataset.slides
 		if (slidesPerView != 'auto') {
@@ -48,26 +47,26 @@ export default class Slider {
 			// 	// }
 			// })
 
-			$bullets.forEach($bullet => {
-				$bullet.addEventListener('mouseover', e => {
+			$bullets.forEach(($bullet) => {
+				$bullet.addEventListener('mouseover', (e) => {
 					$bullet.click()
 				})
 			})
 		}
 
 		let options = {
-			direction:                'horizontal',
-			speed:                    parseInt($slider.dataset.speed) || 300,
-			loop:                     $slider.dataset.loop || false,
-			slidesPerGroup:           1,
-			slidesPerView:            slidesPerView,
-			freeMode:                 $slider.dataset.freeMode || false,
-			spaceBetween:             parseInt($slider.dataset.spaceBetween) || 0,
-			centeredSlides:           $slider.dataset.centered || false,
+			direction: 'horizontal',
+			speed: parseInt($slider.dataset.speed) || 300,
+			loop: $slider.dataset.loop || false,
+			slidesPerGroup: 1,
+			slidesPerView: slidesPerView,
+			freeMode: $slider.dataset.freeMode || false,
+			spaceBetween: parseInt($slider.dataset.spaceBetween) || 0,
+			centeredSlides: $slider.dataset.centered || false,
 			centerInsufficientSlides: $slider.dataset.centerInsufficient || false,
-			watchSlidesProgress:      true,
-			watchSlidesVisibility:    true,
-			autoHeight:               $slider.dataset.autoHeight || false,
+			watchSlidesProgress: true,
+			watchSlidesVisibility: true,
+			autoHeight: $slider.dataset.autoHeight || false,
 			on: {
 				init: () => {
 					// $slider.addClass('is-ready')
@@ -120,7 +119,7 @@ export default class Slider {
 
 		// console.log(NodeList.prototype.isPrototypeOf($sliders))
 
-		$sliders.forEach($slider => {
+		$sliders.forEach(($slider) => {
 			instances.push(this.makeSlider($slider))
 		})
 
@@ -128,12 +127,11 @@ export default class Slider {
 	}
 
 	// static createUser(value) {
-  //   return new User(value)
-  // }
+	//   return new User(value)
+	// }
 }
 
 window.sliders = Slider.makeSliders(document.querySelectorAll('.Slider'))
-
 
 // // Thumbs
 // slidersInstances.forEach(sliderInstance => {
