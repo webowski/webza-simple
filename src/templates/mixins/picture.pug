@@ -1,0 +1,19 @@
+mixin picture()
+	- let alt = attributes.alt
+	- delete attributes.alt
+	- let src = attributes.src
+	- delete attributes.src
+	- let ext = src.split('.').pop()
+	- let srcWebp = src.replace(ext, 'webp')
+	- let is2x = (/@2x/).test(src)
+
+	if !is2x
+		picture&attributes(attributes)
+			source(srcset=require(`~/${src}?as=webp1024`) type="image/webp")
+			img(src=require(`~/${src}?as=${ext}1024`) alt=alt)
+	else
+		- let src1x = src.replace('@2x', '')
+		- let srcWebp1x = srcWebp.replace('@2x', '')
+		picture&attributes(attributes)
+			source(srcset=`${require(`~/${src}?as=webp1024`)} 1x, ${require(`~/${src}?as=webp2048`)} 2x` type="image/webp")
+			img(src=src1x srcset=`${require(`~/${src}?as=${ext}1024`)} 1x, ${require(`~/${src}?as=${ext}2048`)} 2x` alt=alt)
