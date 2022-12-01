@@ -3,7 +3,7 @@
 .basicLightbox {
 	background-color: transparent;
 	opacity: 1;
-	transition: background-color var(--duration-lg),;
+	transition: background-color var(--duration-lg);
 	will-change: background-color;
 }
 
@@ -15,8 +15,8 @@
 	transform: scale(.7);
 	opacity: 0;
 	transition:
-		opacity var(--duration-lg),,
-		transform var(--duration-lg),;
+		opacity var(--duration-lg),
+		transform var(--duration-lg);
 }
 
 .basicLightbox--visible .basicLightbox__placeholder {
