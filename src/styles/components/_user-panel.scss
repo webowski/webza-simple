@@ -77,7 +77,7 @@ a.UserPanel__icon:hover {
 .UserDropdown__button .Icon {
 	margin-left: 8px;
 	fill: var(--intense);
-	transition: transform $duration-sm;
+	transition: transform var(--duration-sm);
 
 	@include mediaDown(md) {
 		display: none;
@@ -98,9 +98,9 @@ a.UserPanel__icon:hover {
 	opacity: 0;
 	visibility: hidden;
 	transition:
-		opacity $duration,
-		transform $duration cubic-bezier(0.4,0.0,1,1),
-		visibility $duration step-end;
+		opacity var(--duration-md),
+		transform var(--duration-md) cubic-bezier(0.4,0.0,1,1),
+		visibility var(--duration-md) step-end;
 
 	@include mediaUp(md) {
 		display: none;
@@ -112,9 +112,9 @@ a.UserPanel__icon:hover {
 	visibility: visible;
 	transform: rotate(90deg);
 	transition:
-		opacity $duration,
-		transform $duration cubic-bezier(0.4,0.0,1,1),
-		visibility $duration step-start;
+		opacity var(--duration-md),
+		transform var(--duration-md) cubic-bezier(0.4,0.0,1,1),
+		visibility var(--duration-md) step-start;
 }
 
 .UserDropdown__body {
@@ -136,9 +136,9 @@ a.UserPanel__icon:hover {
 		opacity: 0;
 		visibility: hidden;
 		transition:
-			opacity $duration,
-			transform $duration,
-			visibility 0s linear $duration;
+			opacity var(--duration-md),
+			transform var(--duration-md),
+			visibility 0s linear var(--duration-md);
 		will-change: opacity, transform;
 		transform: translateY(-20px);
 	}
@@ -157,8 +157,8 @@ a.UserPanel__icon:hover {
 		opacity: 1;
 		z-index: 100;
 		transition:
-			opacity $duration,
-			transform $duration;
+			opacity var(--duration-md),
+			transform var(--duration-md);
 		transform: translateY(0);
 	}
 }

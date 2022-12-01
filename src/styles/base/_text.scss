@@ -18,10 +18,10 @@ a {
 	// text-decoration-thickness: 0.06em;
 	// text-underline-offset: 0.15em;
 	transition:
-		color $duration-sm,
-		border-color $duration-sm,
-		background-color $duration-sm,
-		box-shadow $duration-sm;
+		color var(--duration-sm),
+		border-color var(--duration-sm),
+		background-color var(--duration-sm),
+		box-shadow var(--duration-sm);
 }
 
 a:is(:hover) {

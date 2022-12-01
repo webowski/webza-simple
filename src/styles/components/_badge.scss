@@ -11,11 +11,11 @@
 	font-weight: 500;
 	white-space: nowrap;
 	transition:
-		background-color $duration-sm,
-		border-color $duration-sm,
-		color $duration-sm,
-		box-shadow $duration-sm,
-		transform $duration-sm;
+		background-color var(--duration-sm),
+		border-color var(--duration-sm),
+		color var(--duration-sm),
+		box-shadow var(--duration-sm),
+		transform var(--duration-sm);
 }
 
 .Badge.-accent {

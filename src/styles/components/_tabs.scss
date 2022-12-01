@@ -88,7 +88,7 @@
 	height: 8px;
 	margin-left: 18px;
 	transform: rotate(180deg);
-	transition: transform $duration-md;
+	transition: transform var(--duration-md);
 }
 
 .Tabs__item.is-open .Tabs__itemArrow {
@@ -99,7 +99,7 @@
 	@include mediaDown(md) {
 		opacity: 0;
 		height: 0;
-		transition: opacity $duration-md, margin-top $duration-md;
+		transition: opacity var(--duration-md), margin-top var(--duration-md);
 	}
 }
 

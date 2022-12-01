@@ -138,7 +138,7 @@
 // 	flex: 1 1 auto;
 // 	border-radius: 2px;
 // 	background-color: rgba($inverse, .4);
-// 	transition: background-color $duration-lg;
+// 	transition: background-color var(--duration-lg),;
 // 	position: relative;
 // 	cursor: pointer;
 // }
@@ -233,7 +233,7 @@
 // .Slider.-card .slider__more span {
 // 	display: block;
 // 	border-bottom: 1px solid rgba($white,.2);
-// 	transition: border-color $duration;
+// 	transition: border-color var(--duration-md);
 // }
 
 // .Slider.-card .swiper-button-prev,
@@ -261,7 +261,7 @@
 // 	flex: 1 1 auto;
 // 	border-radius: 2px;
 // 	background-color: rgba($inverse, .4);
-// 	transition: background-color $duration-lg;
+// 	transition: background-color var(--duration-lg),;
 // 	position: relative;
 // 	cursor: pointer;
 // }
@@ -336,7 +336,7 @@
 
 // .Slider.-carousel > .swiper-container > .swiper-wrapper > .swiper-slide {
 // 	opacity: .16;
-// 	transition: opacity $duration-xl !important;
+// 	transition: opacity var(--duration-xl) !important;
 // 	pointer-events: none;
 // }
 
@@ -369,7 +369,7 @@
 // 	flex: 1 1 auto;
 // 	border-radius: 2px;
 // 	background-color: rgba($intense, .16);
-// 	transition: background-color $duration-lg;
+// 	transition: background-color var(--duration-lg),;
 // 	position: relative;
 // 	cursor: pointer;
 // }

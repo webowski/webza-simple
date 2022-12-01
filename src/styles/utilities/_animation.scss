@@ -2,17 +2,17 @@
 	visibility: hidden;
 	opacity: 0;
 	transition:
-		visibility 0s ease $duration-xl,
-		opacity $duration-xl ease,
-		transform $duration-xl ease;
+		visibility 0s ease var(--duration-xl),
+		opacity var(--duration-xl) ease,
+		transform var(--duration-xl) ease;
 }
 
 .is-open .contextHidden {
 	visibility: visible;
 	opacity: 1;
 	transition:
-		opacity $duration-xl ease,
-		transform $duration-xl ease;
+		opacity var(--duration-xl) ease,
+		transform var(--duration-xl) ease;
 }
 
 .appear-slideInRight,

@@ -11,9 +11,9 @@
 	opacity: 0;
 	visibility: hidden;
 	transition:
-		opacity $duration,
-		// transform $duration cubic-bezier(0.4,0.0,1,1),
-		visibility $duration step-end;
+		opacity var(--duration-md),
+		// transform var(--duration-md) cubic-bezier(0.4,0.0,1,1),
+		visibility var(--duration-md) step-end;
 }
 
 .Tooltip[data-show] {
@@ -21,9 +21,9 @@
 	visibility: visible;
 	transform: rotate(90deg);
 	transition:
-		opacity $duration,
-		// transform $duration cubic-bezier(0.4,0.0,1,1),
-		visibility $duration step-start;
+		opacity var(--duration-md),
+		// transform var(--duration-md) cubic-bezier(0.4,0.0,1,1),
+		visibility var(--duration-md) step-start;
 }
 
 .Tooltip [data-popper-arrow],

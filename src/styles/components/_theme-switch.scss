@@ -35,8 +35,8 @@
 	background-color: var(--muted);
 	border-radius: 40px;
 	transition:
-		$duration ease background-color,
-		$duration ease opacity;
+		var(--duration-md) ease background-color,
+		var(--duration-md) ease opacity;
 }
 
 .ThemeSwitch span:before,
@@ -53,8 +53,8 @@
 	height: 20px;
 	border-radius: 50%;
 	transition:
-		$duration-lg ease transform,
-		$duration ease background-color;
+		var(--duration-lg), ease transform,
+		var(--duration-md) ease background-color;
 }
 
 .ThemeSwitch span:before

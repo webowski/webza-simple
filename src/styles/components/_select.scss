@@ -28,10 +28,10 @@
 	border-radius: 48px !important;
 	box-shadow: none;
 	transition:
-		background-color $duration,
-		border-color $duration,
-		color $duration,
-		z-index 0s linear $duration;
+		background-color var(--duration-md),
+		border-color var(--duration-md),
+		color var(--duration-md),
+		z-index 0s linear var(--duration-md);
 	resize: none;
 	color: $major;
 	font-size: 1rem;
@@ -79,7 +79,7 @@
 	fill: $voice;
 	transform: rotate(90deg);
 	transition:
-		transform $duration-sm;
+		transform var(--duration-sm);
 }
 
 .CustomSelect__dropdown {
@@ -97,8 +97,8 @@
 	visibility: hidden;
 	opacity: 0;
 	transition:
-		visibility 0s linear $duration,
-		opacity $duration;
+		visibility 0s linear var(--duration-md),
+		opacity var(--duration-md);
 	scrollbar-color: $mutedLight transparent;
 	scrollbar-width: thin;
 
@@ -118,9 +118,9 @@
 .CustomSelect.is-open {
 	z-index: 5;
 	transition:
-		background-color $duration-sm,
-		border-color $duration-sm,
-		color $duration-sm;
+		background-color var(--duration-sm),
+		border-color var(--duration-sm),
+		color var(--duration-sm);
 }
 
 .CustomSelect.is-open .CustomSelect__arrow .Icon {
@@ -131,7 +131,7 @@
 	visibility: visible;
 	opacity: 1;
 	transition:
-		opacity $duration-sm;
+		opacity var(--duration-sm);
 }
 
 .CustomSelect__list {

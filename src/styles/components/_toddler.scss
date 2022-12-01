@@ -53,7 +53,7 @@ $toddlerColor:       rgba($intense,.16);
 	border: 2px solid var(--toddlerColor);
 	cursor: pointer;
 	box-shadow: none;
-	transition: border-color $duration-sm;
+	transition: border-color var(--duration-sm);
 }
 
 .Toddler.noUi-horizontal .noUi-handle:hover {

@@ -91,5 +91,5 @@ $containerMax:              1600px;
 // basicLightbox
 	// $basicLightbox__background: rgba(0, 0, 0, .8);
 	// $basicLightbox__zIndex:     1000;
-	// $basicLightbox__duration:   $duration-lg;
+	// $basicLightbox__duration:   var(--duration-lg),;
 	// $basicLightbox__timing:     linear;

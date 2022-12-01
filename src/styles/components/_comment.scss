@@ -75,7 +75,7 @@
 	left: 5px;
 	border-left: 1px solid $border;
 	transition:
-		border-color $duration;
+		border-color var(--duration-md);
 }
 
 .CommentReplies:hover:before {
@@ -93,11 +93,11 @@
 	border-radius: 2px;
 	background-color: $white;
 	transition:
-		background-color $duration,
-		border-color $duration,
-		color $duration,
-		box-shadow $duration,
-		transform $duration;
+		background-color var(--duration-md),
+		border-color var(--duration-md),
+		color var(--duration-md),
+		box-shadow var(--duration-md),
+		transform var(--duration-md);
 }
 
 .CommentReplies__expander:before {
@@ -106,7 +106,7 @@
 	top: 4px;
 	left: 2px;
 	transition:
-		background-color $duration;
+		background-color var(--duration-md);
 }
 
 .CommentReplies__expander:after {

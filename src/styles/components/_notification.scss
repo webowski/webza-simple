@@ -18,8 +18,8 @@
 	top: 1.5rem;
 	transform: translateX(calc(100% + 1.5rem));
 	transition:
-		opacity $duration-sm,
-		transform $duration-sm;
+		opacity var(--duration-sm),
+		transform var(--duration-sm);
 	background-color: var(--bgAlter);
 	border-radius: $radius;
 	box-shadow: 0 2px 3px rgba(0,0,0,.2);

@@ -2,8 +2,8 @@
 	padding-top: 1.75rem;
 	padding-bottom: 1.75rem;
 	transition:
-		border-color $duration,
-		background-color $duration;
+		border-color var(--duration-md),
+		background-color var(--duration-md);
 	border-top: 1px solid transparent;
 	border-bottom: 1px solid transparent;
 }
@@ -30,7 +30,7 @@
 	color: var(--brand);
 	cursor: pointer;
 	transition:
-		color $duration-sm;
+		color var(--duration-sm);
 }
 
 .AccordionItem__opener:hover {
@@ -69,9 +69,9 @@
 	visibility: hidden;
 	opacity: 0;
 	transition:
-		visibility 0s ease $duration-xl,
-		opacity $duration-xl ease,
-		transform $duration-xl ease;
+		visibility 0s ease var(--duration-xl),
+		opacity var(--duration-xl) ease,
+		transform var(--duration-xl) ease;
 }
 
 .AccordionItem--open .AccordionItem__opener {
@@ -90,6 +90,6 @@
 	visibility: visible;
 	opacity: 1;
 	transition:
-		opacity $duration-xl ease,
-		transform $duration-xl ease;
+		opacity var(--duration-xl) ease,
+		transform var(--duration-xl) ease;
 }

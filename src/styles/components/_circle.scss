@@ -9,9 +9,9 @@
 	justify-content: center;
 	flex-shrink: 0;
 	transition:
-		color $duration,
-		border-color $duration,
-		background-color $duration;
+		color var(--duration-md),
+		border-color var(--duration-md),
+		background-color var(--duration-md);
 	color: $major;
 	font-size: 1.25rem;
 	line-height: 1.2;

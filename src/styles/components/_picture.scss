@@ -33,7 +33,7 @@ $pictureRadius: 4px;
 	border: 2px solid transparent;
 	border-radius: 7px;
 	transition:
-		border-color $duration;
+		border-color var(--duration-md);
 }
 
 .swiper-slide-thumb-active > .Picture.-thumb:after,

@@ -23,11 +23,11 @@ $btnShadow3:      0 10px 14px -8px rgba(59,80,100,.29);
 	cursor: pointer;
 	white-space: nowrap;
 	transition:
-		background-color $duration,
-		border-color $duration,
-		color $duration,
-		box-shadow $duration,
-		transform $duration-sm;
+		background-color var(--duration-sm),
+		border-color var(--duration-sm),
+		color var(--duration-sm),
+		box-shadow var(--duration-sm),
+		transform var(--duration-sm);
 	box-shadow: $btnShadow;
 }
 

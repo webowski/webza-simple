@@ -5,9 +5,9 @@
 	flex-shrink: 0;
 	fill: currentColor;
 	transition:
-		fill $duration-sm,
-		transform $duration-sm,
-		stroke $duration-sm;
+		fill var(--duration-sm),
+		transform var(--duration-sm),
+		stroke var(--duration-sm);
 }
 
 .IconLink {
