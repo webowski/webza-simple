@@ -5,6 +5,8 @@
 
 .NavMain > ul {
 	@include listReset(true);
+	display: flex;
+	gap: 1.5rem;
 }
 
 // .NavMain__container {

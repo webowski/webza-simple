@@ -46,7 +46,8 @@
 	opacity: .1;
 }
 
-.Header__grid {
+.Header__container {
+	@include container;
 	height: 60px;
 	display: flex;
 	justify-content: space-between;
