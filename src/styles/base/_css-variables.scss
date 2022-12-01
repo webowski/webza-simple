@@ -32,13 +32,15 @@
 	--headerHeight:         clamp(64px, 11vw, 104px);
 
 	// Shape
-		// --radius:              #{$radius};
+		// --radius:               10px;
+		// --radius-sm:            4px;
 
 	// Animation
-	--duration-sm:         #{$duration-sm};
-	--duration-md:         #{$duration-md};
-	--duration-lg:         #{$duration-lg};
-	--duration-xl:         #{$duration-xl};
+		// --duration-sm:          .12s;
+		// --duration-md:          .2s;
+		// --duration-lg:          .3s;
+		// --duration-xl:          .6s;
+		// --duration-xxl:         1s;
 }
 
 // [data-theme="dark"] {
