@@ -7,24 +7,21 @@
 	--lineHeight:           #{$lineHeight};
 
 	// Color
-		// --brand:                #{$brand};
-		// --brandLight:           #{$brandLight};
-		// --voice:                #{$voice};
-		// --voiceLightest:        #{$voiceLightest};
-		// --success:              #{$success};
-		// --successLight:         #{$successLight};
-		// --danger:               #{$danger};
-		// --intense:              #{$intense};
-		// --major:                #{$major};
-		// --minor:                #{$minor};
-		// --muted:                #{$muted};
-		// --mutedLight:           #{$mutedLight};
-		// --mutedLightest:        #{$mutedLightest};
-		// --disabled:             #{$disabled};
-		// --inverse:              #{$inverse};
-		// --bg:                   #{$bg};
-		// --bgAlter:              #{$bgAlter};
-		// --border:               #{$border};
+		--brand:                #{$brand};
+		--voice:                #{$voice};
+		--success:              #{$success};
+		--danger:               #{$danger};
+		--intense:              #{$intense};
+		--major:                #{$major};
+		--minor:                #{$minor};
+		--muted:                #{$muted};
+		--mutedLight:           #{$mutedLight};
+		--mutedLightest:        #{$mutedLightest};
+		--disabled:             #{$disabled};
+		--inverse:              #{$inverse};
+		--bg:                   #{$bg};
+		--bgAlter:              #{$bgAlter};
+		--border:               #{$border};
 
 	// Dimensions
 	--containerMax:         #{$containerMax};
@@ -32,15 +29,15 @@
 	--headerHeight:         clamp(64px, 11vw, 104px);
 
 	// Shape
-		// --radius:               10px;
-		// --radius-sm:            4px;
+		--radius:               10px;
+		--radius-sm:            4px;
 
 	// Animation
-		// --duration-sm:          .12s;
-		// --duration-md:          .2s;
-		// --duration-lg:          .3s;
-		// --duration-xl:          .6s;
-		// --duration-xxl:         1s;
+		--duration-sm:          .12s;
+		--duration-md:          .2s;
+		--duration-lg:          .3s;
+		--duration-xl:          .6s;
+		--duration-xxl:         1s;
 }
 
 // [data-theme="dark"] {
