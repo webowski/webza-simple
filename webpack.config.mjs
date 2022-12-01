@@ -9,7 +9,7 @@ const target = mode === 'development' ? 'web' : 'browserslist'
 
 const templates = {
 	index: './src/templates/index.pug',
-	components: './src/templates/components.pug',
+	docs: './src/templates/docs.pug',
 }
 
 export default {

@@ -2,6 +2,6 @@
 	"lang": "ru",
 	"nav": [
 		{ "url": "/", "title": "Homepage" },
-		{ "url": "/components.html", "title": "Components" }
+		{ "url": "/docs.html", "title": "Docs" }
 	]
 }
