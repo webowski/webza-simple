@@ -30,9 +30,34 @@
         </div>
       </header>
       <main class="Main">
+        <link rel="stylesheet" href="styles/prism.css">
         <div class="Section">
           <div class="container">
             <h1>Components</h1>
+            <h3>Button</h3>
+            <div class="flex gap-4  flex-col items-stretch">
+              <div class="flex flex-col gap-2 items-start">
+                <pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Button<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Button<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+</code></pre>
+                <button class="Button">Button</button>
+              </div>
+              <div class="flex flex-col gap-2 items-start">
+                <pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Button -primary<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Button<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+</code></pre>
+                <button class="Button -primary">Button</button>
+              </div>
+              <div class="flex flex-col gap-2 items-start">
+                <pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Button -lg -primary<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Button<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+</code></pre>
+                <button class="Button -lg -primary">Button</button>
+              </div>
+              <div class="flex flex-col gap-2 items-start">
+                <pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Button -sm -primary<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Button<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+</code></pre>
+                <button class="Button -sm -primary">Button</button>
+              </div>
+            </div>
+            <hr>
             <h3>Picture</h3>
             <picture class="Picture">
               <source sizes="(max-width: 1024px) 1024w, 2048px" srcset="media/hero.webp 1024w, media/hero@2x.webp 2048w"
@@ -86,6 +111,6 @@
         </div>
       </footer>
     </div>
-    <script src="scripts/index.2.js"></script>
+    <script src="scripts/index.1.js"></script>
   </body>
 </html>

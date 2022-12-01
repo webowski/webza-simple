@@ -79,11 +79,6 @@ $btnShadow-focus:
 	color: var(--inverse);
 }
 
-.Button.-primary:hover {
-	border-color: var(--brandLight);
-	background-color: var(--brandLight);
-}
-
 .Button.-mutedToPrimary {
 	color: var(--muted);
 }

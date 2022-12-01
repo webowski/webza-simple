@@ -6,14 +6,63 @@ block variables
 
 block main
 	link(rel='stylesheet' href=require('~/../node_modules/prismjs/themes/prism.css'))
+
 	<div class="Section">
 		<div class="container">
 
 			<h1>#{title}</h1>
 
 			<h3>Button</h3>
-			<button class="Button">.Button</button>
-			<button class="Button -primary">.Button.-primary</button>
+
+			<div class="flex gap-4  flex-col items-stretch">
+				<div class="grid grid-cols-2 items-start gap-6">
+					<div class="">
+						:markdown
+							```html
+							<button class="Button">Button</button>
+							```
+					</div>
+					<div class="">
+						<button class="Button">Button</button>
+					</div>
+				</div>
+
+				<div class="grid grid-cols-2 items-start gap-6">
+					<div class="">
+						:markdown
+							```html
+							<button class="Button -primary">Button</button>
+							```
+					</div>
+					<div class="">
+						<button class="Button -primary">Button</button>
+					</div>
+				</div>
+
+				<div class="grid grid-cols-2 items-start gap-6">
+					<div class="">
+						:markdown
+							```html
+							<button class="Button -lg -primary">Button</button>
+							```
+					</div>
+					<div class="">
+						<button class="Button -lg -primary">Button</button>
+					</div>
+				</div>
+
+				<div class="grid grid-cols-2 items-start gap-6">
+					<div class="">
+						:markdown
+							```html
+							<button class="Button -sm -primary">Button</button>
+							```
+					</div>
+					<div class="">
+						<button class="Button -sm -primary">Button</button>
+					</div>
+				</div>
+			</div>
 
 			<hr>
 
