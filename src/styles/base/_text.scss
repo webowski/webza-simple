@@ -121,48 +121,6 @@ hr {
 	border-top: 1px solid var(--border);
 }
 
-code {
-	font-family: monospace;
-	border-radius: 3px;
-	color: #eb5a46;
-	padding: 2px 4px;
-	margin: -1px 2px;
-	font-size: 14px;
-	color: #e83e8c;
-	color: #df1e65;
-	word-wrap: break-word;
-	background-color: #f0f0f4;
-	background-color: #eae8ef;
-}
-
-pre {
-	@include flowMargin;
-	-webkit-overflow-scrolling: touch;
-	transform: translateZ(0);
-	background-color: #f0f0f4;
-	border-radius: 3px;
-	margin: 12px 0;
-	padding: 10px 12px;
-	word-break: normal;
-	word-wrap: normal;
-	overflow-wrap: normal;
-	tab-size: 4;
-	font-size: 14px;
-	line-height: 1.5;
-}
-
-pre code {
-	background-color: none;
-	border-radius: 0;
-	box-shadow: none;
-	color: #172b4d;
-	margin: 0;
-	padding: 0;
-	color: #e83e8c;
-}
-
-/* code, kbd, pre, samp */
-
 ul {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
