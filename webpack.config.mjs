@@ -100,6 +100,14 @@ export default {
 				loader: PugPlugin.loader,
 				options: {
 					method: 'render',
+					embedFilters: {
+						markdown: {
+							highlight: {
+								verbose: true,
+								use: 'prismjs',
+							},
+						},
+					},
 				},
 			},
 		],
