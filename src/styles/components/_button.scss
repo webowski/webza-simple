@@ -52,15 +52,6 @@ $btnShadow-focus:
 	}
 }
 
-.Button:focus {
-	outline: none;
-	box-shadow: $btnShadow-focus;
-}
-
-// [data-theme="dark"] .Button:focus {
-
-// }
-
 .Button.-sm {
 	padding: 6px 16px;
 	font-size: 13px;
