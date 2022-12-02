@@ -44,8 +44,11 @@ button {
 	touch-action: manipulation;
 }
 
-input:focus,
-textarea:focus,
-button:focus {
+:focus {
 	outline: none;
+}
+
+:focus-visible {
+	border-radius: var(--radius-xs);
+	outline: 4px solid rgba(50,151,211,.3);
 }
