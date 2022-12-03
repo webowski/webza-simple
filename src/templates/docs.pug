@@ -13,22 +13,10 @@ block main
 			<h1>#{title}</h1>
 
 			include partials/docs/button
-
-			<hr>
-
-			<h3>Tabs</h3>
-
 			include partials/docs/tabs
-
-			<h3>Picture</h3>
-			+picture(src="media/hero@2x.jpg" alt="Alt text").Picture
-
-			<h3>Notifications</h3>
-			+notifications
-				p notification
-
-			<h3>Icon</h3>
-			+icon("search")
+			include partials/docs/picture
+			include partials/docs/notification
+			include partials/docs/icon
 
 		</div>
 	</div>
