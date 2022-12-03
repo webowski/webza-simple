@@ -1,4 +1,27 @@
 <h3>Notifications</h3>
 
-+notifications
-	p notification
+<div class="flex gap-6  flex-col items-stretch">
+	<div class="grid grid-cols-2 items-start gap-6">
+		<div class="">
+			:markdown
+				```html
+				<div class="NotificationsOrigin">
+					<article class="Notification">
+						<button class="Btn -nude do-close">
+							<svg class="Icon -close">
+								<use href="#icon-close"></use>
+							</svg>
+						</button>
+						<h4>Notification</h4>
+						<p>notification</p>
+					</article>
+				</div>
+				```
+		</div>
+		<div class="">
+			+notifications
+				p notification
+		</div>
+	</div>
+</div>
+
