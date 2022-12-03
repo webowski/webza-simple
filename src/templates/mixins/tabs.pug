@@ -1,27 +1,18 @@
-mixin tabs
+mixin tabs(tabs)
 	<div class="Tabs">
 		<ul class="Tabs__nav">
-			<li class="Tabs__navItem is-open">Tab 1</li>
-			<li class="Tabs__navItem">Tab 2</li>
+			each tab, index in tabs
+				<li class="Tabs__navItem#{index === 0 ? ' is-open' : ''}">#{tab.title}</li>
 		</ul>
-		<div class="Tabs__item is-open">
-			<div class="Tabs__itemHeader">
-				<div>Tab 1</div>
-				+icon("chevron").Tabs__itemArrow
-			</div>
-			<div class="Tabs__itemContent">
 
-
+		each tab, index in tabs
+			<div class="Tabs__item#{index === 0 ? ' is-open' : ''}">
+				<div class="Tabs__itemHeader">
+					<div>!{tab.title}</div>
+					+icon("chevron").Tabs__itemArrow
+				</div>
+				<div class="Tabs__itemContent">
+					| !{tab.content}
+				</div>
 			</div>
-		</div>
-		<div class="Tabs__item">
-			<div class="Tabs__itemHeader">
-				<div>Tab 2</div>
-				+icon("chevron").Tabs__itemArrow
-			</div>
-			<div class="Tabs__itemContent">
-
-
-			</div>
-		</div>
 	</div>

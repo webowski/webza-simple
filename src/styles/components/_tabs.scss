@@ -1,5 +1,6 @@
 .Tabs {
 	position: relative;
+	filter: drop-shadow(0 6px 8px rgba(0, 0, 0, .18));
 }
 
 .Tabs__nav {
@@ -12,27 +13,40 @@
 }
 
 .Tabs__navItem {
-	padding: 22px 20px;
-	background-color: var(--muted);
+	padding: 12px 24px;
+	background-color: var(--mutedLight);
 	cursor: pointer;
 	font-size: var(--fontSize-xl);
 	font-weight: 500;
+	transition: background-color var(--duration-md);
 
 	@include mediaUp(md) {
-		padding: 20px 24px;
+		padding: 12px 28px;
+	}
+
+	&:first-child {
+    border-top-left-radius: var(--radius-md);
+	}
+
+	&:last-child {
+    border-top-right-radius: var(--radius-md);
 	}
 }
 
 .Tabs__navItem.is-open {
-	background-color: var(--bgLight);
+	background-color: var(--bg);
 	color: var(--brand);
 	cursor: default;
+	transition: none;
 }
 
 .Tabs__item	{
 	padding: 30px 20px;
-	background-color: var(--bgLight);
+	background-color: var(--bg);
 	overflow: hidden;
+	border-bottom-left-radius: var(--radius-md);
+	border-bottom-right-radius: var(--radius-md);
+	border-top-right-radius: var(--radius-md);
 
 	@include mediaUp(sm) {
 		padding: 30px 30px;
