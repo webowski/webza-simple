@@ -4,7 +4,7 @@ if (module.hot) module.hot.accept()
 // import './components/Accordion'
 // import './components/Analytics'
 // import './components/Animation'
-import './components/Icons'
+import './init/Icons'
 // import './components/Dropdown'
 // import './components/FormField'
 // import './components/InputMask'
