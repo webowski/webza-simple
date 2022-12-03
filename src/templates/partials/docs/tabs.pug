@@ -1,0 +1,49 @@
+<div class="grid grid-cols-2 items-start gap-6">
+	<div class="">
+		:markdown
+			```html
+			<div class="Tabs">
+				<ul class="Tabs__nav">
+					<li class="Tabs__navItem is-open">Tab 1</li>
+					<li class="Tabs__navItem">Tab 2</li>
+				</ul>
+
+				<div class="Tabs__item is-open">
+					<div class="Tabs__itemHeader">
+						<div>Tab 1</div>
+						<svg class="Icon -chevron Tabs__itemArrow">
+							<use href="#icon-chevron"></use>
+						</svg>
+					</div>
+					<div class="Tabs__itemContent">
+						<div>Tab 1 content</div>
+					</div>
+				</div>
+
+				<div class="Tabs__item">
+					<div class="Tabs__itemHeader">
+						<div>Tab 2</div>
+						<svg class="Icon -chevron Tabs__itemArrow">
+							<use href="#icon-chevron"></use>
+						</svg>
+					</div>
+					<div class="Tabs__itemContent">
+						<div>Tab 2 content</div>
+					</div>
+				</div>
+			</div>
+			```
+	</div>
+	<div class="">
+		+tabs([
+			{
+				title: 'Tab 1',
+				content: '<div>Tab 1 content</div>'
+			},
+			{
+				title: 'Tab 2',
+				content: 'Tab 2 content'
+			},
+		])
+	</div>
+</div>
