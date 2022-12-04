@@ -1,15 +1,11 @@
-.HeaderOrigin {
-	height: 60px;
-}
-
 .Header {
+	height: var(--headerHeight);
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
-	height: 60px;
-	box-shadow: 0 0 10px rgba(0,0,4,.23);
-	box-shadow: 0 6px 15px -8px rgba(0,0,0,.23);
+	box-shadow:
+		0 .5rem 1rem rgb(0 0 0 / 15%);
 	z-index: 50;
 	background-color: var(--bg);
 	cursor: default;
@@ -48,7 +44,7 @@
 
 .Header__container {
 	@include container;
-	height: 60px;
+	height: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

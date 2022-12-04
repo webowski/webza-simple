@@ -9,33 +9,25 @@
 	gap: 1.5rem;
 }
 
-// .NavMain__container {
-// 	z-index: 1;
-// }
+.NavMain__item > a {
+	@include linkReset;
+	color: var(--inverse);
+	font-weight: 500;
+}
 
-// .NavMain__items {
-// 	@include listReset(true);
-// 	display: flex;
-// }
+.NavMain__item > a:hover {
+	text-decoration: underline;
+}
 
-// .NavMain__item {
-// 	font-weight: 500;
-// }
+.NavMain__item.is-current a {
+	color: var(--muted);
+	text-decoration: none;
+	pointer-events: none;
+}
 
-// .NavMain__item > a {
-// 	padding-top: 11px;
-// 	padding-bottom: 8px;
-// 	position: relative;
-// 	z-index: 1;
-// 	display: block;
+// .NavMain__item > a:hover,
+// .NavMain__item.is-open > a {
 // 	color: $intense;
-// 	line-height: 1.2;
-// 	text-transform: uppercase;
-// 	text-decoration: none !important;
-// }
-
-// .NavMain__item + .NavMain__item {
-// 	margin-left: 1rem;
 // }
 
 // .NavMain__item.-dropdown > a:after {
@@ -47,44 +39,12 @@
 // 	transition: background-color var(--duration-md);
 // }
 
-// .NavMain__item > a:hover,
-// .NavMain__item.is-open > a {
-// 	color: $intense;
-// }
-
 // .NavMain__item.-dropdown > a:hover:after {
 // 	background-color: $accent;
 // }
 
 // .NavMain__item.-dropdown.is-open > a:after {
 // 	background-color: $intense;
-// }
-
-// .NavMain__item > a > span {
-// 	margin-top: .125rem;
-// 	display: block;
-// 	color: rgba($intense, .5);
-// 	font-size: .8125rem;
-// 	font-weight: 400;
-// 	text-transform: none;
-// }
-
-// .NavMain__item.-favorite {
-// 	align-self: center;
-// }
-
-// .NavMain__item.-favorite > a {
-// 	padding-top: 0;
-// 	padding-bottom: 0;
-// 	font-size: 0;
-// }
-
-// .NavMain__item.-favorite > a .Icon {
-// 	width: 20px;
-// 	height: 18px;
-// 	fill: transparent;
-// 	stroke: lighten($intense, 15);
-// 	stroke-width: 2px;
 // }
 
 // .NavMain__dropdown {
@@ -249,61 +209,4 @@
 // 	align-items: flex-start;
 // 	justify-content: flex-start;
 // 	margin-top: 2.5rem;
-// }
-
-// .Link {
-// 	cursor: pointer;
-// 	padding-top: .75rem;
-// 	padding-bottom: .75rem;
-// 	position: relative;
-// 	display: inline-block;
-// 	color: $gray;
-// 	font-size: 1.25rem;
-// 	line-height: 1.2;
-// 	font-weight: 500;
-// }
-
-// .Link:after {
-// 	@include pseudoBlock(100%, 2px);
-// 	border-radius: 2px;
-// 	background-color: transparent;
-// 	bottom: 0;
-// 	left: 0;
-// 	transition:
-// 		background-color 0.2s;
-// }
-
-// .Link:hover {
-// 	border-bottom-color: #000;
-// }
-
-// .Link:hover:after {
-// 	background-color: $major;
-// }
-
-// .swiper-slide-thumb-active > .Link,
-// .Link.is-selected {
-// 	color: $intense;
-// }
-
-// .swiper-slide-thumb-active > .Link:after,
-// .Link.is-selected:after {
-// 	background-color: $accent;
-// }
-
-
-// .ContentsList {
-// 	@include listReset;
-// 	font-size: 0.875rem;
-// }
-
-// .ContentsList ul {
-// 	@include listReset;
-// 	padding-left: 1rem;
-// }
-
-// .ContentsList ul,
-// .ContentsList li + li,
-// .ContentsList ul li + li {
-// 	margin-top: 0.4rem;
 // }
