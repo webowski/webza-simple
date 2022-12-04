@@ -13,13 +13,13 @@
 // ---------------------
 // absolute colors
 	$white:                     #fff;
-	$black:                     #090914;
+	$black:                     rgb(30 41 59); //#090914
 	$blue:                      #4974c2;
 	$red:                       #db4815;
 	$yellow:                    #dddd00;
 	$green:                     #55b43c;
 	$greenLight:                #d1ebcb;
-	$grayDarkest:               #343b4c;
+	$grayDarkest:               rgb(51 65 85); //#343b4c
 	$grayDark:                  #555559;
 	$gray:                      #6c6c6c;
 	$grayLight:                 #dadada;
@@ -34,13 +34,11 @@
 	$intense:                   $black;
 	$major:                     $grayDarkest;
 	$minor:                     $gray;
-	$muted:                     #92929a;
+	$muted:                     rgb(100 116 139);
 	$mutedLight:                $grayLight;
 	$mutedLightest:             $grayLightest;
 	$disabled:                  $grayLight;
 	$inverse:                   $white;
-	$bg:                        $white;
-	$bgAlter:                   #ebebef;
 
 
 // Breakpoints
