@@ -6,7 +6,12 @@ block variables
 <html lang="#{data.lang}">
 <head>
 	<meta charset="utf-8">
-	<title>#{title}</title>
+	<title>
+		if title
+			| #{title} &laquo; Webza
+		else
+			| Webza
+	</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	//- <meta name="theme-color" content="#17171d">
 	//- <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
