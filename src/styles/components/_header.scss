@@ -5,9 +5,9 @@
 	left: 0;
 	right: 0;
 	box-shadow:
-		0 .5rem 1rem rgb(0 0 0 / 15%);
+		0 .5rem 1rem rgba($gray-700, .25);
 	z-index: 50;
-	background-color: var(--bg);
+	background-color: var(--minor);
 	cursor: default;
 }
 

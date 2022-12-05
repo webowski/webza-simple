@@ -20,7 +20,7 @@
 }
 
 .NavMain__item.is-current a {
-	color: var(--minor);
+	color: var(--major);
 	text-decoration: none;
 	pointer-events: none;
 }
@@ -99,6 +99,10 @@
 // 		opacity var(--duration-md);
 // }
 
+// .MenuDropdown {
+// 	box-shadow: 0	12px 24px rgba($intense, .14);
+// }
+
 // .MenuDropdown__close {
 // 	@include buttonReset;
 // 	position: absolute;
@@ -110,8 +114,6 @@
 // 	width: 34px;
 // 	height: 34px;
 // }
-
-// //
 
 // .NavMain__list {
 // 	@include listReset;
@@ -198,15 +200,4 @@
 
 // .NavMain__toggle {
 // 	display: none;
-// }
-
-// .MenuDropdown {
-// 	box-shadow: 0	12px 24px rgba($intense, .14);
-// }
-
-// .MenuDropdown__footer {
-// 	display: flex;
-// 	align-items: flex-start;
-// 	justify-content: flex-start;
-// 	margin-top: 2.5rem;
 // }
