@@ -33,6 +33,10 @@
 	}
 }
 
+[data-theme="dark"] .Tabs__navItem {
+	background-color: var(--lighter);
+}
+
 .Tabs__navItem.is-open {
 	background-color: var(--bg);
 	color: var(--brand);

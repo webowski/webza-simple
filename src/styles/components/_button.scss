@@ -67,6 +67,10 @@ $btnShadow-focus:
 	color: var(--inverse);
 }
 
+[data-theme="dark"] .Button.-primary {
+	color: var(--major);
+}
+
 .Button.-mutedToPrimary {
 	color: var(--muted);
 }

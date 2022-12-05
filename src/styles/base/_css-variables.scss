@@ -42,47 +42,21 @@
 		--duration-xxl:         1s;
 }
 
-// [data-theme="dark"] {
-		// $grayDarkest: 			lighten($grayDarkest, 10);
-		// $brand:                 ;
-		// $voice:                 $blueLight;
-		// $voiceLightest:         $blueLightest;
-		// $success:                 ;
-		// $successLight:                 ;
-		// $danger:                #eb3a3f;
-		// $intense:               $white;
-		// $intense:               $whiteDark;
-		// $major:                 $white;
-		// $major:                 $whiteDark;
-		// $minor:                 $grayLightest;
-		// $muted:                 $gray;
-		// $light:            $gray;
-		// $lightest:         rgba(255,255,255,.1);
-		// $lightest:         #393c44;
-		// $disabled:              $grayLight;
-		// $inverse:               $grayDarkest;
-		// $bg:                    $grayDarkest;
-		// $bg:                    #1b1e27; //$grayDarkest;
-		// $bg:                    #22252e; //$grayDarkest;
-		// $bgAlter:               $grayDark;
-		// $border:                $grayDark;
-
-	// Color
-		// --brand:                #{$brand};
-		// --voice:                #{$voice};
-		// --voiceLightest:        #{$voiceLightest};
-		// --success:              #{$success};
-		// --successLight:         #{$successLight};
-		// --danger:               #{$danger};
-		// --intense:              #{$intense};
-		// --major:                #{$major};
-		// --minor:                #{$minor};
-		// --muted:                #{$muted};
-		// --light:           #{$light};
-		// --lightest:        #{$lightest};
-		// --disabled:             #{$disabled};
-		// --inverse:              #{$inverse};
-		// --bg:                   #{$bg};
-		// --bgAlter:              #{$bgAlter};
-		// --border:               #{$border};
-// }
+[data-theme="dark"] {
+		--brand:                #{$blue};
+		--success:              #{$green};
+		--accent:               #{$yellow};
+		--danger:               #{$red};
+		--intense:              #{$white};
+		--major:                #{$gray-200};
+		--minor:                #{$gray-400};
+		--muted:                #{$gray-500};
+		--light:                #{$gray-600};
+		--lighter:              #{$gray-700};
+		--lightest:             #{$gray-800};
+		--disabled:             #{$gray-400};
+		--inverse:              #{$gray-700};
+		--bg:                   #{$gray-800};
+		--bgAlter:              #{$gray-400};
+		--border:               #{$gray-300};
+}
