@@ -7,21 +7,22 @@
 		--lineHeight:           1.57;
 
 	// Color
-		--brand:                #{$brand};
-		--voice:                #{$voice};
-		--success:              #{$success};
-		--danger:               #{$danger};
-		--intense:              #{$intense};
-		--major:                #{$major};
-		--minor:                #{$minor};
-		--muted:                #{$muted};
-		--mutedLight:           #{$mutedLight};
-		--mutedLightest:        #{$mutedLightest};
-		--disabled:             #{$disabled};
-		--inverse:              #{$inverse};
+		--brand:                #{$blue};
+		--success:              #{$green};
+		--accent:               #{$yellow};
+		--danger:               #{$red};
+		--intense:              #{$black};
+		--major:                #{$gray-700};
+		--minor:                #{$gray-500};
+		--muted:                #{$gray-400};
+		--light:                #{$gray-300};
+		--lighter:              #{$gray-200};
+		--lightest:             #{$gray-100};
+		--disabled:             #{$gray-300};
+		--inverse:              #{$white};
 		--bg:                   #{$white};
-		--bgAlter:              #{$muted};
-		--border:               #{$mutedLight};
+		--bgAlter:              #{$gray-400};
+		--border:               #{$gray-300};
 
 	// Dimensions
 	--containerMax:         #{$containerMax};
@@ -55,9 +56,9 @@
 		// $major:                 $whiteDark;
 		// $minor:                 $grayLightest;
 		// $muted:                 $gray;
-		// $mutedLight:            $gray;
-		// $mutedLightest:         rgba(255,255,255,.1);
-		// $mutedLightest:         #393c44;
+		// $light:            $gray;
+		// $lightest:         rgba(255,255,255,.1);
+		// $lightest:         #393c44;
 		// $disabled:              $grayLight;
 		// $inverse:               $grayDarkest;
 		// $bg:                    $grayDarkest;
@@ -77,8 +78,8 @@
 		// --major:                #{$major};
 		// --minor:                #{$minor};
 		// --muted:                #{$muted};
-		// --mutedLight:           #{$mutedLight};
-		// --mutedLightest:        #{$mutedLightest};
+		// --light:           #{$light};
+		// --lightest:        #{$lightest};
 		// --disabled:             #{$disabled};
 		// --inverse:              #{$inverse};
 		// --bg:                   #{$bg};
