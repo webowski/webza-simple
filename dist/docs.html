@@ -2,28 +2,28 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
-    <title>Docs</title>
+    <title>Docs &laquo; Webza</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/index.css">
   </head>
   <body class="G-notLogged" style="--scrollY:0px;">
     <div class="Wrap">
-      <header class="Header">
+      <header class="Header bg-slate-400">
         <div class="Header__container">
           <a href="" class="Logo Header__logo" aria-label="logo">
             <img src="images/logo.svg" alt="">
           </a>
           <nav class="NavMain Header__nav">
             <ul>
-              <li class="Nav__item">
+              <li class="NavMain__item">
                 <a href="/">Homepage</a>
               </li>
-              <li class="Nav__item is-current">
+              <li class="NavMain__item is-current">
                 <a href="/docs.html">Docs</a>
               </li>
             </ul>
           </nav>
-          <button class="Button -primary items-center gap-2 Header__search"><svg class="Icon -search w-4 h-4">
+          <button class="Button items-center gap-2 Header__search"><svg class="Icon -search w-4 h-4">
               <use href="#icon-search"></use>
             </svg><span>Search</span>
           </button>
@@ -34,7 +34,126 @@
         <div class="Section">
           <div class="container">
             <h1>Docs</h1>
-            <h3>Button</h3>
+            <h2>Colors</h2>
+            <div class="flex gap-4">
+              <div class="flex-1">
+                <h6>Brand</h6>
+                <div class="w-full h-14" style="background-color: var(--brand)"></div>
+              </div>
+              <div class="flex-1">
+                <h6>Accent</h6>
+                <div class="w-full h-14" style="background-color: var(--accent)"></div>
+              </div>
+              <div class="flex-1">
+                <h6>Danger</h6>
+                <div class="w-full h-14" style="background-color: var(--danger)"></div>
+              </div>
+              <div class="flex-1">
+                <h6>Success</h6>
+                <div class="w-full h-14" style="background-color: var(--success)"></div>
+              </div>
+              <div class="flex-1">
+                <h6>bg</h6>
+                <div class="w-full h-14" style="background-color: var(--inverse); border: 1px solid var(--light);">
+                </div>
+              </div>
+              <div class="flex-1">
+                <h6>lightest</h6>
+                <div class="w-full h-14" style="background-color: var(--lightest)"></div>
+              </div>
+              <div class="flex-1">
+                <h6>Lighter</h6>
+                <div class="w-full h-14" style="background-color: var(--lighter)"></div>
+              </div>
+              <div class="flex-1">
+                <h6>Light</h6>
+                <div class="w-full h-14" style="background-color: var(--light)"></div>
+              </div>
+              <div class="flex-1">
+                <h6>Muted</h6>
+                <div class="w-full h-14" style="background-color: var(--muted)"></div>
+              </div>
+              <div class="flex-1">
+                <h6>Minor</h6>
+                <div class="w-full h-14" style="background-color: var(--minor)"></div>
+              </div>
+              <div class="flex-1">
+                <h6>Major</h6>
+                <div class="w-full h-14" style="background-color: var(--major)"></div>
+              </div>
+              <div class="flex-1">
+                <h6>Intense</h6>
+                <div class="w-full h-14" style="background-color: var(--intense)"></div>
+              </div>
+            </div>
+            <h6>Brand</h6>
+            <p><a href="">Lorem ipsum dolor sit amet</a></p>
+            <h6>Muted</h6>
+            <p class="text-slate-400">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h6>Minor</h6>
+            <p class="text-slate-500">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h6>Major</h6>
+            <p class="text-slate-700">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h6>Intense</h6>
+            <p style="color: var(--intense)">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h2>Headings</h2>
+            <div class="flex gap-6  flex-col items-stretch">
+              <div class="grid grid-cols-2 items-start gap-6">
+                <div class="">
+                  <pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Heading<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span> or <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>h1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Heading<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+                </div>
+                <div class="">
+                  <h1>&lt;h1&gt; Heading</h1>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 items-start gap-6">
+                <div class="">
+                  <pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>Heading<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span> or <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>h2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Heading<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+                </div>
+                <div class="">
+                  <h2>&lt;h2&gt; Heading</h2>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 items-start gap-6">
+                <div class="">
+                  <pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>Heading<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span> or <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>h3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Heading<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+                </div>
+                <div class="">
+                  <h3>&lt;h3&gt; Heading</h3>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 items-start gap-6">
+                <div class="">
+                  <pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span><span class="token punctuation">></span></span>Heading<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">></span></span> or <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>h4<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Heading<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+                </div>
+                <div class="">
+                  <h4>&lt;h4&gt; Heading</h4>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 items-start gap-6">
+                <div class="">
+                  <pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h5</span><span class="token punctuation">></span></span>Heading<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h5</span><span class="token punctuation">></span></span> or <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>h5<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Heading<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+                </div>
+                <div class="">
+                  <h5>&lt;h5&gt; Heading</h5>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 items-start gap-6">
+                <div class="">
+                  <pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h6</span><span class="token punctuation">></span></span>Heading<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h6</span><span class="token punctuation">></span></span> or <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>h6<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Heading<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+                </div>
+                <div class="">
+                  <h6>&lt;h6&gt; Heading</h6>
+                </div>
+              </div>
+            </div>
+            <h2>Button</h2>
             <div class="flex gap-6  flex-col items-stretch">
               <div class="grid grid-cols-2 items-start gap-6">
                 <div class="">
@@ -73,8 +192,7 @@
                 </div>
               </div>
             </div>
-            <hr>
-            <h3>Tabs</h3>
+            <h2>Tabs</h2>
             <div class="grid grid-cols-2 items-start gap-6">
               <div class="">
                 <pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Tabs<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -136,33 +254,90 @@
                 </div>
               </div>
             </div>
-            <h3>Picture</h3>
-            <picture class="Picture">
-              <source sizes="(max-width: 1024px) 1024w, 2048px" srcset="media/hero.webp 1024w, media/hero@2x.webp 2048w"
-                type="image/webp"><img sizes="(max-width: 1024px) 1024px, 2048px" src="media/hero.jpg"
-                srcset="media/hero.jpg 1024w, media/hero@2x.jpg 2048w" alt="Alt text">
-            </picture>
-            <h3>Notifications</h3>
-            <div class="NotificationsOrigin">
-              <article class="Notification">
-                <button class="Btn -nude do-close"><svg class="Icon -close">
-                    <use href="#icon-close"></use>
-                  </svg></button>
-                <h4>Notification</h4>
-                <p>notification</p>
-              </article>
+            <h2>Picture</h2>
+            <div class="grid grid-cols-2 items-start gap-6">
+              <div class="">
+                <pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>picture</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Picture<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>source</span>
+		<span class="token attr-name">sizes</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(max-width: 1024px) 1024w, 2048px<span class="token punctuation">"</span></span>
+		<span class="token attr-name">srcset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>media/hero@2x.jpg 1024w, media/hero@2x.jpg 2048w<span class="token punctuation">"</span></span>
+		<span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image/webp<span class="token punctuation">"</span></span>
+	<span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span>
+		<span class="token attr-name">sizes</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(max-width: 1024px) 1024px, 2048px<span class="token punctuation">"</span></span>
+		<span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>media/hero.jpg<span class="token punctuation">"</span></span>
+		<span class="token attr-name">srcset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>media/hero@2x.jpg 1024w, media/hero@2x.jpg 2048w<span class="token punctuation">"</span></span>
+		<span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Alt text<span class="token punctuation">"</span></span>
+	<span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>picture</span><span class="token punctuation">></span></span>
+</code></pre>
+              </div>
+              <div class="">
+                <picture class="Picture">
+                  <source sizes="(max-width: 1024px) 1024w, 2048px"
+                    srcset="media/hero.webp 1024w, media/hero@2x.webp 2048w" type="image/webp"><img
+                    sizes="(max-width: 1024px) 1024px, 2048px" src="media/hero.jpg"
+                    srcset="media/hero.jpg 1024w, media/hero@2x.jpg 2048w" alt="Alt text">
+                </picture>
+              </div>
             </div>
-            <h3>Icon</h3><svg class="Icon -search">
-              <use href="#icon-search"></use>
-            </svg>
+            <h2>Notification</h2>
+            <div class="flex gap-6  flex-col items-stretch">
+              <div class="grid grid-cols-2 items-start gap-6">
+                <div class="">
+                  <pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>NotificationsOrigin<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Notification is-shown<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>notification1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Button -nude Notification__closer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Icon<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>use</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#icon-cross<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>use</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Notification__body<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span><span class="token punctuation">></span></span>Notification<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Some notification text<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>article</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+                </div>
+                <div class="">
+                  <button class="Button do-notify" data-target="#notification1">Call a notification</button>
+                </div>
+              </div>
+            </div>
+            <h2>Icon</h2>
+            <div class="grid grid-cols-2 items-start gap-6">
+              <div class="">
+                <pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Icon -search<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>use</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#icon-search<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>use</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+</code></pre>
+              </div>
+              <div class=""><svg class="Icon -search">
+                  <use href="#icon-search"></use>
+                </svg></div>
+            </div>
           </div>
         </div>
       </main>
-      <footer class="Footer">
+      <footer class="Footer bg-slate-800">
         <div class="container">
-          <p class="fz-075"><b>webowski.ru</b> &copy; All rights reserved.</p>
+          <div class="text-sm text-center"><b>Webza</b> &copy; All rights reserved</div>
         </div>
       </footer>
+    </div>
+    <div class="NotificationsOrigin">
+      <article class="Notification" id="notification1">
+        <button class="Button -nude Notification__closer"><svg class="Icon -cross">
+            <use href="#icon-cross"></use>
+          </svg></button>
+        <div class="Notification__body">
+          <h4>Notification</h4>
+          <p>Some notification text</p>
+        </div>
+      </article>
     </div>
     <script src="scripts/index.2.js"></script>
   </body>
