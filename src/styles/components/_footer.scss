@@ -1,13 +1,12 @@
 .Footer {
-	cursor: default;
-	padding-top: 24px;
-	padding-bottom: 24px;
-	background-color: #382f3d;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	background-color: var(--major);
 	color: var(--inverse);
 
 	@include mediaUp(md) {
-		padding-top: 48px;
-		padding-bottom: 40px;
+		padding-top: 3rem;
+		padding-bottom: 3rem;
 	}
 }
 
@@ -20,22 +19,6 @@
 	color: var(--brand);
 }
 
-.Footer__main {
-	padding-top: 104px;
-	padding-bottom: 104px;
-	background-color: var(--bg);
-}
-
-.Footer__heading {
-	padding-bottom: 1.25rem;
-	margin-bottom: 3rem;
-	border-bottom: 1px solid rgba($black, .16);
-	font-size: 40px;
-	font-weight: 300;
-	text-transform: uppercase;
-	color: var(--intense);
-	letter-spacing: .04em;
-}
 
 .Footer__menu {
 	@include listReset;
@@ -49,21 +32,6 @@
 .Footer__menu a {
 	font-weight: 500;
 }
-
-.Footer__menuItemSub {
-	font-size: .875rem;
-}
-
-.Footer__menu2 {
-	font-size: .875rem;
-}
-
-.Footer__menu2 .menu,
-.Footer__menu2 .sitemaps ul {
-	@include listReset();
-	margin-top: 0;
-}
-
 .SocialNav {
 	@include listReset;
 	margin-top: 2rem;
@@ -78,9 +46,9 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 36px;
-	height: 36px;
-	border-radius: 18px;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 2rem;
 	border: 2px solid var(--yellow);
 }
 
@@ -88,19 +56,7 @@
 	background-color: var(--yellow);
 }
 
-.SocialNav a .icon {
-	width: 18px;
-	height: 18px;
-}
-
-.Footer__info {
-	margin-top: 3.5rem;
-	font-size: 14px;
-	padding-bottom: 1.5rem;
-	border-bottom: 1px solid rgba($black, .16);
-}
-
-.Footer__catalog {
-	padding-top: 6.5rem;
-	padding-bottom: 6.5rem;
+.SocialNav a .Icon {
+	width: 1.5rem;
+	height: 1.5rem;
 }
