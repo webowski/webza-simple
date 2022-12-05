@@ -4,15 +4,10 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	box-shadow:
-		0 .5rem 1rem rgba($gray-700, .25);
+	box-shadow: var(--shadow-sm);
 	z-index: 50;
 	background-color: var(--minor);
 	cursor: default;
-}
-
-[data-theme="dark"] .Header {
-	box-shadow: 0 8px 20px -8px rgba(0,0,0,.6);
 }
 
 .Header__overlay {

@@ -25,7 +25,8 @@
 		--border:               #{$gray-300};
 
 	// Shadow
-		--shadow-md:            #{0 6px 8px rgba($gray-700, .25)};
+		--shadow-sm:            #{0 .375rem .5rem rgba($gray-700, .25)};
+		--shadow-md:            #{0 .5rem 1rem rgba($gray-700, .25)};
 
 	// Dimensions
 	--containerMax:         #{$containerMax};
@@ -62,4 +63,7 @@
 		--bg:                   #{$gray-800};
 		--bgAlter:              #{$gray-400};
 		--border:               #{$gray-300};
+
+	// Shadow
+		--shadow-sm:            #{0 8px 20px -8px rgba(0,0,0,.6)};
 }
