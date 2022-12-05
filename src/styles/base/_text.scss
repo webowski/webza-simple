@@ -84,6 +84,7 @@ h1, .h1 {
 
 h2, .h2 {
 	font-size: 2.25rem;
+	color: var(--minor);
 
 	@include mediaUp(md) {
 		font-size: 2.125rem;
@@ -94,6 +95,8 @@ h3, .h3 {
 	font-size: 1.75rem;
 
 	@include mediaUp(md) {
+		margin-top: 1.5rem;
+		margin-bottom: 1.25rem;
 		font-size: 1.75rem;
 	}
 }
@@ -109,10 +112,16 @@ h5, .h5 {
 }
 
 h6, .h6 {
+	margin-top: 1.5rem;
+	margin-bottom: .25rem;
 	text-transform: uppercase;
 	color: var(--minor);
-	font-size: .875rem;
+	font-size: .75rem;
 	letter-spacing: .15em;
+
+	+ * {
+		margin-top: .25rem !important;
+	}
 }
 
 hr {
