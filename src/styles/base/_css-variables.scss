@@ -24,6 +24,9 @@
 		--bgAlter:              #{$gray-400};
 		--border:               #{$gray-300};
 
+	// Shadow
+		--shadow-md:            #{0 6px 8px rgba($gray-700, .25)};
+
 	// Dimensions
 	--containerMax:         #{$containerMax};
 	--sidePadding:          clamp(1.25rem, 4vw, 4rem);
