@@ -1,3 +1,11 @@
+html {
+	color-scheme: light;
+
+	[data-theme=dark] {
+		color-scheme: dark;
+	}
+}
+
 body {
 	background-color: var(--bg);
 }
