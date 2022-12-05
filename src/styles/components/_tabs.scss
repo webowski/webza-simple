@@ -1,6 +1,6 @@
 .Tabs {
 	position: relative;
-	filter: drop-shadow(0 6px 8px rgba(0, 0, 0, .18));
+	filter: drop-shadow(var(--shadow-md));
 }
 
 .Tabs__nav {
@@ -45,24 +45,16 @@
 }
 
 .Tabs__item	{
-	padding: 30px 20px;
+	padding: 1.25rem 1.5rem;
 	background-color: var(--bg);
 	overflow: hidden;
 	border-bottom-left-radius: var(--radius-md);
 	border-bottom-right-radius: var(--radius-md);
 	border-top-right-radius: var(--radius-md);
 
-	@include mediaUp(sm) {
-		padding: 30px 30px;
-	}
-
 	@include mediaUp(md) {
 		display: none;
-		padding: 35px 40px;
-	}
-
-	@include mediaUp(xl) {
-		padding: 40px 60px;
+		padding: 1.75rem 2rem;
 	}
 }
 
