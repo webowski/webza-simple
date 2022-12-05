@@ -3,7 +3,7 @@
 	padding-top: 24px;
 	padding-bottom: 24px;
 	background-color: #382f3d;
-	color: $white;
+	color: var(--inverse);
 
 	@include mediaUp(md) {
 		padding-top: 48px;
@@ -13,27 +13,27 @@
 
 .Footer a {
 	@include linkReset;
-	color: $white;
+	color: var(--inverse);
 }
 
 .Footer a:hover {
-	color: $brand;
+	color: var(--brand);
 }
 
 .Footer__main {
 	padding-top: 104px;
 	padding-bottom: 104px;
-	background-color: $white;
+	background-color: var(--bg);
 }
 
 .Footer__heading {
 	padding-bottom: 1.25rem;
 	margin-bottom: 3rem;
-	border-bottom: 1px solid rgba($intense, .16);
+	border-bottom: 1px solid rgba($black, .16);
 	font-size: 40px;
 	font-weight: 300;
 	text-transform: uppercase;
-	color: $intense;
+	color: var(--intense);
 	letter-spacing: .04em;
 }
 
@@ -81,11 +81,11 @@
 	width: 36px;
 	height: 36px;
 	border-radius: 18px;
-	border: 2px solid $accent;
+	border: 2px solid var(--yellow);
 }
 
 .SocialNav a:hover {
-	background-color: $accent;
+	background-color: var(--yellow);
 }
 
 .SocialNav a .icon {
@@ -97,7 +97,7 @@
 	margin-top: 3.5rem;
 	font-size: 14px;
 	padding-bottom: 1.5rem;
-	border-bottom: 1px solid rgba($intense, .16);
+	border-bottom: 1px solid rgba($black, .16);
 }
 
 .Footer__catalog {

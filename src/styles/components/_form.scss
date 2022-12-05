@@ -9,7 +9,7 @@ input.FormInput {
 	padding: 8px 10px;
 	border: 1px solid var(--border);
 	display: block;
-	background-color: var(--mutedLightest);
+	background-color: var(--lightest);
 	background-repeat: no-repeat;
 	box-shadow: none;
 	transition:
@@ -497,12 +497,12 @@ textarea.FormInput {
 
 .Radio--voting {
 	padding: 15px 20px 15px 44px;
-	background-color: var(--mutedLightest);
+	background-color: var(--lightest);
 	transition: background-color var(--duration-xl);
 }
 
 .Radio--voting:hover {
-	background-color: var(--mutedLight);
+	background-color: var(--light);
 	transition: none;
 }
 
