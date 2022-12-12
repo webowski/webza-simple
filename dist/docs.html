@@ -1,18 +1,17 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-theme="light">
   <head>
     <meta charset="utf-8">
     <title>Docs &laquo; Webza</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/favicon.svg" sizes="any" type="image/svg+xml">
     <link rel="stylesheet" href="styles/index.css">
   </head>
   <body class="G-notLogged" style="--scrollY:0px;">
     <div class="Wrap">
-      <header class="Header bg-slate-400">
+      <header class="Header">
         <div class="Header__container">
-          <a href="" class="Logo Header__logo" aria-label="logo">
-            <img src="images/logo.svg" alt="">
-          </a>
+          <a href="/" class="Logo Header__logo" aria-label="logo"><img src="images/logo.svg" alt="Webza"></a>
           <nav class="NavMain Header__nav">
             <ul>
               <li class="NavMain__item">
@@ -23,9 +22,12 @@
               </li>
             </ul>
           </nav>
-          <button class="Button items-center gap-2 Header__search"><svg class="Icon -search w-4 h-4">
-              <use href="#icon-search"></use>
-            </svg><span>Search</span>
+          <button class="Button items-center gap-2 Header__search">
+<!-- inline: search.svg -->
+<svg viewBox="0 0 30 32" class="Icon -search w-4 h-4">
+<path class="path1" d="M20.571 14.857q0-3.304-2.348-5.652t-5.652-2.348-5.652 2.348-2.348 5.652 2.348 5.652 5.652 2.348 5.652-2.348 2.348-5.652zM29.714 29.714q0 0.929-0.679 1.607t-1.607 0.679q-0.964 0-1.607-0.679l-6.125-6.107q-3.196 2.214-7.125 2.214-2.554 0-4.884-0.991t-4.018-2.679-2.679-4.018-0.991-4.884 0.991-4.884 2.679-4.018 4.018-2.679 4.884-0.991 4.884 0.991 4.018 2.679 2.679 4.018 0.991 4.884q0 3.929-2.214 7.125l6.125 6.125q0.661 0.661 0.661 1.607z"></path>
+</svg>
+<span>Search</span>
           </button>
         </div>
       </header>
@@ -35,6 +37,11 @@
           <div class="container">
             <h1>Docs</h1>
             <h2>Colors</h2>
+            <h4>Theme switch</h4>
+            <div class="mt-2 mb-8"><label class="ThemeSwitch">
+                <input type="checkbox" name="themeDark">
+                <span></span>
+              </label></div>
             <div class="flex gap-4">
               <div class="flex-1">
                 <h6>Brand</h6>
@@ -54,8 +61,7 @@
               </div>
               <div class="flex-1">
                 <h6>bg</h6>
-                <div class="w-full h-14" style="background-color: var(--inverse); border: 1px solid var(--light);">
-                </div>
+                <div class="w-full h-14" style="background-color: var(--bg); border: 1px solid var(--light);"></div>
               </div>
               <div class="flex-1">
                 <h6>lightest</h6>
@@ -89,11 +95,11 @@
             <h6>Brand</h6>
             <p><a href="">Lorem ipsum dolor sit amet</a></p>
             <h6>Muted</h6>
-            <p class="text-slate-400">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p style="color: var(--muted)">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             <h6>Minor</h6>
-            <p class="text-slate-500">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p style="color: var(--minor)">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             <h6>Major</h6>
-            <p class="text-slate-700">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p style="color: var(--major)">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             <h6>Intense</h6>
             <p style="color: var(--intense)">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             <h2>Headings</h2>
@@ -235,9 +241,7 @@
                   </ul>
                   <div class="Tabs__item is-open">
                     <div class="Tabs__itemHeader">
-                      <div>Tab 1</div><svg class="Icon -chevron Tabs__itemArrow">
-                        <use href="#icon-chevron"></use>
-                      </svg>
+                      <div>Tab 1</div>
                     </div>
                     <div class="Tabs__itemContent">
                       <div>Tab 1 content</div>
@@ -245,9 +249,7 @@
                   </div>
                   <div class="Tabs__item">
                     <div class="Tabs__itemHeader">
-                      <div>Tab 2</div><svg class="Icon -chevron Tabs__itemArrow">
-                        <use href="#icon-chevron"></use>
-                      </svg>
+                      <div>Tab 2</div>
                     </div>
                     <div class="Tabs__itemContent">Tab 2 content</div>
                   </div>
@@ -315,14 +317,17 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
 </code></pre>
               </div>
-              <div class=""><svg class="Icon -search">
-                  <use href="#icon-search"></use>
-                </svg></div>
+              <div class="">
+<!-- inline: search.svg -->
+<svg viewBox="0 0 30 32" class="Icon -search">
+<path class="path1" d="M20.571 14.857q0-3.304-2.348-5.652t-5.652-2.348-5.652 2.348-2.348 5.652 2.348 5.652 5.652 2.348 5.652-2.348 2.348-5.652zM29.714 29.714q0 0.929-0.679 1.607t-1.607 0.679q-0.964 0-1.607-0.679l-6.125-6.107q-3.196 2.214-7.125 2.214-2.554 0-4.884-0.991t-4.018-2.679-2.679-4.018-0.991-4.884 0.991-4.884 2.679-4.018 4.018-2.679 4.884-0.991 4.884 0.991 4.018 2.679 2.679 4.018 0.991 4.884q0 3.929-2.214 7.125l6.125 6.125q0.661 0.661 0.661 1.607z"></path>
+</svg>
+</div>
             </div>
           </div>
         </div>
       </main>
-      <footer class="Footer bg-slate-800">
+      <footer class="Footer">
         <div class="container">
           <div class="text-sm text-center"><b>Webza</b> &copy; All rights reserved</div>
         </div>
@@ -330,15 +335,19 @@
     </div>
     <div class="NotificationsOrigin">
       <article class="Notification" id="notification1">
-        <button class="Button -nude Notification__closer"><svg class="Icon -cross">
-            <use href="#icon-cross"></use>
-          </svg></button>
+        <button class="Button -nude Notification__closer">
+<!-- inline: cross.svg -->
+<svg width="100" height="100" viewBox="0 0 100 100" class="Icon -cross">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.34315 9.34315C12.4673 6.21895 17.5327 6.21895 20.6569 9.34315L90.6569 79.3431C93.7811 82.4673 93.7811 87.5327 90.6569 90.6569C87.5327 93.7811 82.4673 93.7811 79.3431 90.6569L9.34315 20.6569C6.21895 17.5327 6.21895 12.4673 9.34315 9.34315Z"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M90.6569 9.34315C93.7811 12.4673 93.7811 17.5327 90.6569 20.6569L20.6569 90.6569C17.5327 93.7811 12.4673 93.7811 9.34315 90.6569C6.21895 87.5327 6.21895 82.4673 9.34315 79.3431L79.3431 9.34315C82.4673 6.21895 87.5327 6.21895 90.6569 9.34315Z"/>
+</svg>
+</button>
         <div class="Notification__body">
           <h4>Notification</h4>
           <p>Some notification text</p>
         </div>
       </article>
     </div>
-    <script src="scripts/index.2.js"></script>
+    <script src="scripts/index.1.js"></script>
   </body>
 </html>
