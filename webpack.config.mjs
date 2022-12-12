@@ -70,6 +70,7 @@ export default {
 			// Images
 			{
 				test: /\.(png|jpg|jpeg|gif|svg)$/i,
+				exclude: /images[\\/]icons/,
 				type: 'asset/resource',
 				generator: {
 					filename: (pathData) => {
@@ -78,6 +79,13 @@ export default {
 						return dirName + '/[name][ext]'
 					},
 				},
+			},
+
+			// Icons
+			{
+				test: /\.(svg)$/i,
+				type: 'asset',
+				include: /images[\\/]icons/,
 			},
 
 			// Fonts

@@ -1,3 +1,2 @@
 mixin icon(name)
-	svg(class=`Icon -${name}`)&attributes(attributes)
-		use(href="#icon-" + name)
+	img(class=`Icon -${name}` src=require(`~/images/icons/${name}.svg`))&attributes(attributes)
