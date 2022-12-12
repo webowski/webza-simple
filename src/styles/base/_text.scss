@@ -84,7 +84,6 @@ h1, .h1 {
 
 h2, .h2 {
 	font-size: 2.25rem;
-	color: var(--minor);
 
 	@include mediaUp(md) {
 		font-size: 2.125rem;
@@ -102,7 +101,7 @@ h3, .h3 {
 }
 
 h4, .h4 {
-	color: var(--muted);
+	color: var(--minor);
 	font-size: 1.25rem;
 }
 

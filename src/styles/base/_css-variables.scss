@@ -61,9 +61,10 @@
 		--disabled:             #{$gray-400};
 		--inverse:              #{$gray-700};
 		--bg:                   #{$gray-800};
-		--bgAlter:              #{$gray-400};
+		--bgAlter:              #{$black};
 		--border:               #{$gray-300};
 
 	// Shadow
 		--shadow-sm:            #{0 8px 20px -8px rgba(0,0,0,.6)};
+		--shadow-md:            #{0 .5rem 1rem rgba($black, .5)};
 }
