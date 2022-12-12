@@ -1,5 +1,4 @@
 import path, { resolve } from 'path'
-import SVGSpritemapPlugin from 'svg-spritemap-webpack-plugin'
 import PugPlugin from 'pug-plugin'
 import ImageMinimizerPlugin from 'image-minimizer-webpack-plugin'
 
@@ -114,19 +113,6 @@ export default {
 	},
 
 	plugins: [
-		new SVGSpritemapPlugin(resolve('./src/images/icons/*.svg'), {
-			output: {
-				filename: 'images/icons.min.svg',
-				svgo: false,
-			},
-			sprite: {
-				prefix: 'icon-',
-				generate: {
-					title: false,
-				},
-			},
-		}),
-
 		new PugPlugin({
 			pretty: true,
 			extractCss: {
