@@ -1,4 +1,5 @@
 import path, { resolve } from 'path'
+import fs from 'fs-extra'
 import PugPlugin from 'pug-plugin'
 import ImageMinimizerPlugin from 'image-minimizer-webpack-plugin'
 
@@ -6,10 +7,16 @@ const __dirname = resolve()
 const mode = process.env.NODE_ENV || 'development'
 const target = mode === 'development' ? 'web' : 'browserslist'
 
-const templates = {
-	index: './src/templates/index.pug',
-	docs: './src/templates/docs.pug',
-}
+const templates = fs
+	.readdirSync(path.join(__dirname, 'src/templates'))
+	.reduce((entries, file) => {
+		if (path.extname(file) === '.pug') {
+			let tplName = path.parse(file).name
+			let tplPath = path.join(__dirname, 'src/templates', file)
+			entries[tplName] = tplPath
+		}
+		return entries
+	}, {})
 
 export default {
 	mode: mode,
