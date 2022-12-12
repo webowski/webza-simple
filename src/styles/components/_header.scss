@@ -46,25 +46,24 @@
 	position: relative;
 }
 
-.SiteLogo {
+.Logo {
 	@include linkReset;
 	display: block;
 	width: 58px;
-	margin-top: -2px;
 	flex-shrink: 0;
 
 	@include mediaUp(md) {
-		width: 67px;
+		width: 88px;
 	}
 }
 
-.SiteLogo img,
-.SiteLogo svg {
+.Logo img,
+.Logo svg {
 	display: block;
 	width: 100%;
 }
 
-.SiteLogo svg {
+.Logo svg {
 	fill: var(--intense);
 	width: 100%;
 	max-width: 100%;
@@ -73,6 +72,6 @@
 	transition: fill var(--duration-sm);
 }
 
-.SiteLogo:hover svg {
+.Logo:hover svg {
 	fill: var(--brand);
 }
