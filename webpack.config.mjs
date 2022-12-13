@@ -2,6 +2,7 @@ import path, { resolve } from 'path'
 import fs from 'fs-extra'
 import PugPlugin from 'pug-plugin'
 import ImageMinimizerPlugin from 'image-minimizer-webpack-plugin'
+import FaviconsWebpackPlugin from 'favicons-webpack-plugin'
 
 const __dirname = resolve()
 const mode = process.env.NODE_ENV || 'development'
@@ -132,6 +133,22 @@ export default {
 			pretty: true,
 			extractCss: {
 				filename: 'styles/[name].css',
+			},
+		}),
+
+		new FaviconsWebpackPlugin({
+			logo: './src/images/favicon.svg',
+			prefix: 'images/',
+			inject: true,
+			favicons: {
+				icons: {
+					android: false,
+					appleIcon: false,
+					appleStartup: false,
+					favicons: true,
+					windows: false,
+					yandex: false,
+				},
 			},
 		}),
 	],
