@@ -145,7 +145,7 @@ export default {
 					android: false,
 					appleIcon: false,
 					appleStartup: false,
-					favicons: true,
+					favicons: ['favicon.ico', 'favicon.svg'],
 					windows: false,
 					yandex: false,
 				},
