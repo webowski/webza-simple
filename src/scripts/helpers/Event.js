@@ -3,8 +3,6 @@ let customEvents = {
 	close: new Event('close'),
 }
 
-// element - DOM Element
-// event - String
-export const trigger = (element, event) => {
-	element.dispatchEvent(customEvents[event])
+export const trigger = ($element, eventName) => {
+	$element.dispatchEvent(customEvents[eventName])
 }
