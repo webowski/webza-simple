@@ -283,7 +283,7 @@ export default {
 	},
 
 	devServer: {
-		open: true,
+		open: false,
 		liveReload: true,
 		hot: false,
 		// watchFiles: [
