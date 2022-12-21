@@ -1,28 +1,53 @@
-import * as basicLightbox from 'basiclightbox'
+export default class Popup {
+	constructor($element) {
+		this.$popup = $element
+		this.id = this.$popup.id
+		this.$closers = this.$popup.querySelectorAll('.do-popupCloser')
+		this.$openers = document.querySelectorAll(
+			`.do-popupOpener[data-target-popup="#${this.id}"`
+		)
+		this.init()
+	}
 
-const popups = []
-const $popupsContainers = document.querySelectorAll('.popup-container')
+	init() {
+		this.#manageClosers()
+		this.#manageOpeners()
+		this.#manageOuterClick()
+	}
 
-$popupsContainers.forEach(($popupContainer) => {
-	const options = {}
-	const instance = basicLightbox.create($popupContainer, options)
+	#manageOpeners() {
+		this.$openers.forEach(($opener) => {
+			$opener.addEventListener('click', () => this.open())
+		})
+	}
 
-	instance.id = $popupContainer.id
-	instance.type = $popupContainer.dataset.popupType
+	#manageClosers() {
+		this.$closers.forEach(($closer) => {
+			$closer.addEventListener('click', () => this.close())
+		})
+	}
 
-	popups.push(instance)
-})
+	#manageOuterClick() {
+		this.outerClickHandler = this.#handleOuterClick.bind(this)
+	}
 
-const $popupOpeners = document.querySelectorAll('.do-popup-opener')
+	#handleOuterClick(event) {
+		if (
+			this.$popup.classList.contains('is-open') &&
+			!event.target.closest('.Popup') &&
+			!event.target.classList.contains('do-popupOpener')
+		) {
+			this.close()
+		}
+	}
 
-$popupOpeners.forEach(($popupOpener) => {
-	const targetId = $popupOpener.dataset.targetPopup.replace(/^#/, '')
-	const targetInstance = popups.find((popup) => popup.id === targetId)
+	open() {
+		this.$popup.classList.add('is-open')
+		document.addEventListener('mousedown', this.outerClickHandler)
+	}
 
-	if (!targetInstance) return
-
-	$popupOpener.addEventListener('click', (event) => {
-		event.preventDefault()
-		targetInstance.show()
-	})
-})
+	close() {
+		this.$popup.classList.remove('is-open')
+		document.removeEventListener('mousedown', this.outerClickHandler)
+	}
+}

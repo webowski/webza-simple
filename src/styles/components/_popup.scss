@@ -1,4 +1,4 @@
-@import '../../node_modules/basiclightbox/src/styles/main.scss';
+// @import 'basiclightbox/src/styles/main.scss';
 
 .basicLightbox {
 	background-color: transparent;
@@ -24,24 +24,68 @@
 	opacity: 1;
 }
 
+.PopupOrigin {
+	position: relative;
+}
+
 .Popup {
-	width: 540px;
-	padding: 2.5rem;
-	background-color: $white;
+	position: absolute;
+	z-index: $z-popup;
+	padding: 2rem;
+	background-color: var(--bg);
+	border-radius: var(--radius-sm);
+	box-shadow: var(--shadow-md);
+}
+
+.Popup__header {
+	margin-bottom: 2rem;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1.5rem;
+}
+
+.Popup__title {
+	margin-bottom: 0;
 }
 
 .Popup__closer {
 	@include buttonReset;
+
+	.Icon {
+		width: 1.125rem;
+		height: 1.125rem;
+	}
+
+	&:hover {
+		color: var(--danger);
+	}
+}
+
+.Popup__footer {
+	margin-top: 2.5rem;
+}
+
+.Popup.-inContent {
+	width: 100%;
+	max-width: 40rem;
+	margin-top: 1.25rem;
 	position: absolute;
-	top: 1rem;
-	right: 1rem;
-	transition: color var(--duration-sm);
+	z-index: $z-content;
+	visibility: hidden;
+	opacity: 0;
+	transform: translateY(-1rem);
+	transition:
+		transform var(--duration-md),
+		opacity var(--duration-md),
+		visibility var(--duration-md) step-end;
 }
 
-.Popup__closer:hover {
-	color: $danger;
-}
-
-.Popup__closer + * {
-	margin-top: 0;
+.Popup.-inContent.is-open {
+	visibility: visible;
+	opacity: 1;
+	transform: translateY(0);
+	transition:
+		transform var(--duration-md),
+		opacity var(--duration-md);
 }

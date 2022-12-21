@@ -9,7 +9,7 @@ if (module.hot) module.hot.accept()
 // import './components/InputMask'
 // import './components/Navigation'
 import './init/Notifier'
-// import './components/Popup'
+import './init/Popup'
 // import './components/ScrollTo'
 // import './components/Slider'
 import './init/Tabs'

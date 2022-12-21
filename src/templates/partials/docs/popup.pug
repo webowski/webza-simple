@@ -1,0 +1,59 @@
+<h2>Popup</h2>
+
+<div class="grid grid-cols-2 items-start gap-6">
+	<div class="">
+		:markdown
+			```pug
+			<button class="Button -withIcon do-popupOpener" data-target-popup="#popupCreateWebsite">
+				| Открыть попап
+			</button>
+
+			<div class="PopupOrigin">
+				<section class="Popup -inContent" id="popupCreateWebsite">
+					<div class="Popup__header">
+						<h1 class="Popup__title">Heading</h1>
+						<button type="button" class="Popup__closer do-popupCloser">
+							+icon("cross")
+						</button>
+					</div>
+					<div class="Popup__body">
+
+						| ...
+
+					</div>
+					<div class="Popup__footer flex gap-3">
+						<button type="button" class="Button do-popupCloser">Отмена</button>
+						<button type="button" class="Button -primary do-popupCloser">Создать</button>
+					</div>
+				</section>
+			</div>
+			```
+	</div>
+	<div class="">
+
+		<button class="Button -withIcon do-popupOpener" data-target-popup="#popupCreateWebsite">
+			| Открыть попап
+		</button>
+
+		<div class="PopupOrigin">
+			<section class="Popup -inContent" id="popupCreateWebsite">
+				<div class="Popup__header">
+					<h3 class="Popup__title">Заголовок</h3>
+					<button type="button" class="Popup__closer do-popupCloser">
+						+icon("cross")
+					</button>
+				</div>
+				<div class="Popup__body">
+
+					| Содержимое...
+
+				</div>
+				<div class="Popup__footer flex gap-3">
+					<button type="button" class="Button do-popupCloser">Отмена</button>
+					<button type="button" class="Button -primary do-popupCloser">Создать</button>
+				</div>
+			</section>
+		</div>
+
+	</div>
+</div>
