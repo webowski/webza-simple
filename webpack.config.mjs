@@ -131,8 +131,11 @@ export default {
 	plugins: [
 		new PugPlugin({
 			pretty: true,
-			extractCss: {
-				filename: 'styles/[name].css',
+			css: {
+				filename: 'styles/[name].min.css',
+			},
+			js: {
+				filename: 'scripts/[name].min.js',
 			},
 		}),
 
@@ -266,13 +269,8 @@ export default {
 		},
 	},
 
-	// stats: {
-	// 	children: true
-	// },
-
 	devtool: mode === 'development' ? 'source-map' : false,
 	performance: {
-		// hints: 'warning',
 		hints: false,
 		maxEntrypointSize: 512000,
 		maxAssetSize: 512000,
