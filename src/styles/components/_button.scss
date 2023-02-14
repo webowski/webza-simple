@@ -44,7 +44,6 @@ $btnShadow-focus:
 .Button:active {
 	@include mediaUp(md) {
 		box-shadow: none !important;
-		transform: none;
 		transform: translateY(1px);
 	}
 }
@@ -65,18 +64,6 @@ $btnShadow-focus:
 	border-color: var(--brand);
 	background-color: var(--brand);
 	color: var(--inverse);
-}
-
-[data-theme="dark"] .Button.-primary {
-	color: var(--major);
-}
-
-.Button.-mutedToPrimary {
-	color: var(--muted);
-}
-
-.Button.-mutedToPrimary:hover {
-	color: var(--brand);
 }
 
 .Button.-nude {

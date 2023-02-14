@@ -10,7 +10,7 @@ body {
 }
 
 a {
-	color: var(--brand);
+	color: var(--primary);
 	text-decoration: underline;
 	text-underline-position: under;
 	// text-decoration-color: rgba(91,65,245,.3);
@@ -21,6 +21,7 @@ a {
 		color var(--duration-sm),
 		border-color var(--duration-sm),
 		background-color var(--duration-sm),
+		opacity var(--duration-sm),
 		box-shadow var(--duration-sm);
 }
 
@@ -28,27 +29,8 @@ a:is(:hover) {
 	text-decoration: none;
 }
 
-// – :any-link
-// – :focus-visible
-// – :focus-within
-// – :is
-// – :where
-// – :not
-// – :has()
-// – :empty
-
-// a:focus {
-// 	outline: none;
-// 	box-shadow: 0 0 2px 3px rgba(50,151,211,.3);
-// }
-
-// [data-theme="dark"] a:focus {
-// 	box-shadow:
-// 		0 0 0 3px rgba(100,201,255,.6)
-// }
-
 p {
-	max-width: 750px;
+	max-width: 72ch;
 	@include flowMargin;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
