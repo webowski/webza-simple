@@ -19,7 +19,8 @@
 		"last 2 versions",
 		"> 1%",
 		"not dead",
-		"not op_mini all"
+		"not op_mini all",
+		"not kaios > 0"
 	],
 	"devDependencies": {
 		"@babel/core": "^7.20.12",
