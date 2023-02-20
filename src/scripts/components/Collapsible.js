@@ -82,9 +82,3 @@ export default class Collapsible {
 		return (parseFloat(this.$collapsible.style.getPropertyValue('--duration')) * 1000 + 5) || 205
 	}
 }
-
-const $collapsibles = document.querySelectorAll('.collapsible')
-
-$collapsibles.forEach(($collapsible) => {
-	new Collapsible($collapsible)
-})

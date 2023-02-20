@@ -7,3 +7,117 @@
 .Collapsible summary::marker {
 	display: block;
 }
+
+.collapsible {
+	--duration-function: cubic-bezier(0.4,0,1,1);
+	--duration: .2s;
+	background-color: $biege;
+	border-radius: 25px;
+
+	& + & {
+		margin-top: 1.5rem;
+	}
+
+	@media (min-width: $md) {
+		border-radius: 30px;
+
+		& + & {
+			margin-top: 1.875rem;
+		}
+	}
+
+	@media (min-width: $xl) {
+		border-radius: 52px;
+	}
+}
+
+.collapsible__header {
+	padding: 25px 25px 25px 20px;
+	border-radius: 25px;
+	background-color: $biege-dark;
+	display: flex;
+	gap: 1.25rem;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+	user-select: none;
+
+	@media (min-width: $xl) {
+		padding: 18px 14px 18px 20px;
+		border-radius: 30px;
+	}
+
+	@media (min-width: $xl) {
+		border-radius: 52px;
+		padding: 2rem 2.5rem;
+	}
+}
+
+.collapsible__header h4 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.collapsible__header-icon {
+	display: none;
+	width: 22px;
+	height: 22px;
+	background: url('../img/icon/cross.svg') no-repeat 0 50%;
+	background-size: contain;
+	transition: transform var(--duration) var(--duration-function);
+	will-change: transform;
+	flex-shrink: 0;
+	align-self: flex-start;
+	margin-top: 0.3em;
+
+	@media (min-width: $md) {
+		display: block;
+		width: 22px;
+		height: 22px;
+	}
+
+	@media (min-width: $xl) {
+		display: block;
+		width: 30px;
+		height: 30px;
+	}
+}
+
+.collapsible__body {
+	overflow: hidden;
+	transition: height var(--duration) ease-out;
+	will-change: height;
+}
+
+.collapsible__content {
+	padding: 20px 20px;
+	font-size: 1.125rem;
+	transition: opacity var(--duration) ease-out;
+	opacity: 0;
+
+	p {
+		text-indent: 0;
+		max-width: 118ch;
+	}
+
+	@media (min-width: $md) {
+		padding: 25px 25px 40px;
+	}
+
+	@media (min-width: $xl) {
+		padding: 30px 40px 45px;
+	}
+}
+
+.collapsible:not(.is-open) .collapsible__body,
+.collapsible.is-collapsing.is-collapsing .collapsible__body {
+	height: 0;
+}
+
+.collapsible.is-open .collapsible__content {
+	opacity: 1;
+}
+
+.collapsible.is-open .collapsible__header-icon {
+	transform: rotate(45deg);
+}
