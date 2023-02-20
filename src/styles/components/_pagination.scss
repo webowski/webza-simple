@@ -46,10 +46,6 @@
 	color: $white;
 }
 
-.Pagination__item ~ .Pagination__item {
-	margin-left: 0.5rem;
-}
-
 .Pagination a.is-disabled {
 	pointer-events: none;
 	color: rgba($intense, .16);

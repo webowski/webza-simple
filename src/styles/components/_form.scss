@@ -1,13 +1,9 @@
 .FormInput {
-	border-radius: 4px;
-}
-
-.FormInput,
-input.FormInput {
 	width: 100%;
 	height: auto;
 	padding: 8px 10px;
 	border: 1px solid var(--border);
+	border-radius: var(--radius-sm);
 	display: block;
 	background-color: var(--lightest);
 	background-repeat: no-repeat;
@@ -16,11 +12,9 @@ input.FormInput {
 		background-color var(--duration-md) linear,
 		border-color var(--duration-md) linear,
 		color var(--duration-md) linear;
-	resize: none;
 	color: var(--intense);
 	font-size: 14px;
 	line-height: 1.2;
-	font-family: inherit;
 	font-weight: 400;
 
 	@include placeholder() {
@@ -32,23 +26,6 @@ input.FormInput {
 		font-size: 15px;
 		line-height: 1.25;
 	}
-}
-
-.FormInput:focus,
-.FormInput:focus-within {
-	background-color: var(--bg);
-	color: var(--intense);
-	box-shadow:
-		0 0 0 1px rgba(0,0,0,.1),
-		0 1px 1px 0 rgba(0,0,0,.05),
-		0 0 0 4px rgba(0,0,0,.1);
-	outline: none;
-}
-
-.FormInput--xl {
-	padding: 13px 18px;
-	font-size: 16px;
-	line-height: 1.25;
 }
 
 textarea.FormInput {
@@ -95,18 +72,9 @@ textarea.FormInput {
 
 
 .FormLabel {
-	// color: $minor;
-	// font-size: 15px;
-	// line-height: 18px;
-	// font-weight: normal;
-	transition:
-		color var(--duration-sm) linear,
-		transform var(--duration-sm) linear;
-
-	// @include mediaUp(md) {
-	// 	font-size: 15px;
-	// 	line-height: 18px;
-	// }
+	font-size: 15px;
+	line-height: 18px;
+	font-weight: normal;
 }
 
 
@@ -143,71 +111,7 @@ textarea.FormInput {
 		right: 20px;
 	}
 
-	&.has-value {
-
-		.FormInput {
-			background-color: $white;
-			color: $major;
-		}
-	}
-
-	&.is-active {
-
-	}
-
-	&.has-focus,
-	&.has-value {
-		.FormLabel {
-			transform: scale(.745) translateY(-11px);
-			color: $minor;
-		}
-	}
-
-	&.has-error {
-
-		.FormInput {
-			border-color: $danger;
-		}
-
-		.form-text {
-			color: $danger;
-		}
-
-		.icon-x {
-			display: block;
-		}
-	}
-
-	&.has-focus {
-		.FormInput {
-			color: $major;
-		}
-	}
-
-	@include mediaUp(md) {
-
-		.FormLabel {
-			left: 11px;
-			top: 16px;
-		}
-
-		.FormInput {
-			padding-top: 22px;
-			padding-bottom: 4px;
-		}
-
-		&.has-focus,
-		&.has-value {
-			.FormLabel {
-				transform: scale(.865) translateY(-11px);
-				color: $minor;
-			}
-		}
-	}
-
 }
-
-
 
 .FormInput.-range {
 	padding: 0 10px 0 23px;
@@ -356,16 +260,6 @@ textarea.FormInput {
 	font-weight: 500;
 }
 
-.FormInput.-inverse {
-	background-color: rgba(#494949, .84);
-	border-color: rgba(#d3d3d3, .56);
-	color: $white;
-
-	@include placeholder() {
-		color: rgba($white, .64);
-	}
-}
-
 .Checkbox {
 	margin-top: 12px;
 	margin-bottom: 12px;
@@ -479,22 +373,6 @@ textarea.FormInput {
 	transform: scale(1);
 }
 
-.Radio--colorVoice .Radio__label:before {
-	border-color: var(--voice);
-}
-
-.Radio--colorVoice input:checked ~ .Radio__label:before {
-	background-color: var(--voice);
-}
-
-.Radio--colorSuccess .Radio__label:before {
-	border-color: var(--success);
-}
-
-.Radio--colorSuccess input:checked ~ .Radio__label:before {
-	background-color: var(--success);
-}
-
 .Radio--voting {
 	padding: 15px 20px 15px 44px;
 	background-color: var(--lightest);
@@ -514,7 +392,6 @@ textarea.FormInput {
 .Radio--voting .Radio__label:before {
 	top: 15px;
 	left: 15px;
-			// background-color: var(--success);
 }
 
 .Radio--voting .Radio__tick {
@@ -553,11 +430,6 @@ textarea.FormInput {
 	text-align: center;
 }
 
-// .FormSelect option {
-// 	background-color: rgb(184, 194, 203);
-// 	font-size: 14px;
-// }
-
 .FormCheck[type="checkbox"] {
 	width: 20px;
 	height: 20px;
@@ -576,20 +448,4 @@ textarea.FormInput {
 .FormCheck:checked[type="checkbox"] {
 	background-color: $green;
 	background-image: url("data:image/svg+xml,%3Csvg width='22' height='16' viewBox='0 0 22 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.3556 3.75656L9.74968 15.3556C8.89025 16.2148 7.49611 16.2148 6.63587 15.3556L0.644818 9.36726C-0.214939 8.50811 -0.214939 7.11454 0.644818 6.25522C1.50474 5.39575 2.89876 5.39575 3.7583 6.2549L8.19324 10.6876L18.2416 0.644362C19.1015 -0.215113 20.4957 -0.214462 21.3553 0.644362C22.2149 1.50367 22.2149 2.89676 21.3556 3.75656Z' fill='white'/%3E%3C/svg%3E%0A");
-}
-
-.Button[type="checkbox"] {
-	appearance: none;
-	cursor: pointer;
-	display: block;
-	flex-shrink: 0;
-}
-
-.Button[type="checkbox"]:after {
-	content: 'not checked';
-	display: block;
-}
-
-.Button[type="checkbox"]:checked:after {
-	content: 'checked';
 }
