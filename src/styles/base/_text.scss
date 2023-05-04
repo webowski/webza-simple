@@ -17,12 +17,8 @@ a {
 	// text-decoration-skip: ink;
 	// text-decoration-thickness: 0.06em;
 	// text-underline-offset: 0.15em;
-	transition:
-		color var(--duration-sm),
-		border-color var(--duration-sm),
-		background-color var(--duration-sm),
-		opacity var(--duration-sm),
-		box-shadow var(--duration-sm);
+	transition-property: color, border-color, background-color, opacity, box-shadow;
+	transition-duration: var(--duration-sm);
 }
 
 a:is(:hover) {
