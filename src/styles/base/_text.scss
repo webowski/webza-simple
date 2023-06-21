@@ -45,6 +45,7 @@ h1, h2, h3, h4, h5, h6,
 	color: var(--major);
 	line-height: 1.2;
 	font-weight: 700;
+	text-wrap: balance;
 
 	@include mediaUp(md) {
 		margin-top: 2rem;
