@@ -1,0 +1,9 @@
+{
+	"projectName": "Webza",
+	"lang": "ru",
+	"nav": [
+		{ "url": "/", "title": "Homepage" },
+		{ "url": "/docs.html", "title": "Docs" },
+		{ "url": "/text.html", "title": "Text" }
+	]
+}

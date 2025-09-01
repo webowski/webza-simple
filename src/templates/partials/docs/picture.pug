@@ -1,0 +1,25 @@
+<h2>Picture</h2>
+
+<div class="grid grid-cols-2 items-start gap-6">
+	<div class="">
+		:markdown
+			```html
+			<picture class="Picture">
+				<source
+					sizes="(max-width: 1024px) 1024w, 2048px"
+					srcset="media/hero@2x.jpg 1024w, media/hero@2x.jpg 2048w"
+					type="image/webp"
+				>
+				<img
+					sizes="(max-width: 1024px) 1024px, 2048px"
+					src="media/hero.jpg"
+					srcset="media/hero@2x.jpg 1024w, media/hero@2x.jpg 2048w"
+					alt="Alt text"
+				>
+			</picture>
+			```
+	</div>
+	<div class="">
+		+picture(src="media/hero@2x.jpg" alt="Alt text").Picture
+	</div>
+</div>

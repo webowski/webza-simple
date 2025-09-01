@@ -1,0 +1,29 @@
+<h2>Notification</h2>
+
+<div class="flex gap-6  flex-col items-stretch">
+	<div class="grid grid-cols-2 items-start gap-6">
+		<div class="">
+			:markdown
+				```html
+				<div class="NotificationsOrigin">
+
+					<article class="Notification is-shown" id="notification1">
+						<button class="Button -nude Notification__closer">
+							<svg class="Icon">
+								<use href="#icon-cross"></use>
+							</svg>
+						</button>
+						<div class="Notification__body">
+							<h4>Notification</h4>
+							<p>Some notification text</p>
+						</div>
+					</article>
+
+				</div>
+				```
+		</div>
+		<div class="">
+			<button class="Button do-notify" data-target="#notification1">Call a notification</button>
+		</div>
+	</div>
+</div>

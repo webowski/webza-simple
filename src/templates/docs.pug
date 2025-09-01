@@ -1,0 +1,32 @@
+extends base/layout.pug
+
+block variables
+	- var title = 'Docs'
+	- var currentUrl = '/docs.html'
+
+block head-includes
+	link(rel='stylesheet' href=require('~/../node_modules/prismjs/themes/prism.css'))
+
+block main
+	<div class="Section">
+		<div class="container">
+
+			<h1>#{title}</h1>
+
+			include partials/docs/color
+			include partials/docs/headings
+			include partials/docs/button
+			include partials/docs/icon
+			include partials/docs/picture
+			include partials/docs/popup
+			include partials/docs/collapsible
+			include partials/docs/tabs
+			include partials/docs/notification
+
+		</div>
+	</div>
+
+block notifications
+	+notification(id="notification1")
+		<h4>Notification</h4>
+		<p>Some notification text</p>
