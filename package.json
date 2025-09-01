@@ -1,7 +1,7 @@
 {
-	"name": "webowski.ru",
-	"version": "3.1.0",
-	"description": "Webdeveloper website",
+	"name": "webza-simple",
+	"version": "1.0.0",
+	"description": "",
 	"author": "webowski",
 	"license": "ISC",
 	"scripts": {
