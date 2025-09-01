@@ -1,0 +1,504 @@
+@use "sass:math";
+@use "sass:color";
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.FormInput {
+	width: 100%;
+	height: auto;
+	padding: .75rem 1rem;
+	border-radius: 4px;
+	display: block;
+	border: 1px solid var(--border);
+	background-color: var(--white);
+	background-repeat: no-repeat;
+	box-shadow: none;
+	transition:
+		box-shadow var(--duration-md),
+		background-color var(--duration-md),
+		border-color var(--duration-md),
+		color var(--duration-md);
+	resize: none;
+	color: var(--intense);
+	font-size: 1rem;
+	line-height: var(--leading-lg);
+	font-family: inherit;
+	font-weight: 400;
+
+	@include placeholder() {
+		color: var(--muted);
+	}
+
+	@media (min-width: $md) {
+		font-size: var(--text-xs);
+	}
+
+	// :where(:root[data-theme="dark"]) & {
+  // 	border-color: transparent;
+	// 	background-color: --alpha(var(--mutedLight) / 12%);
+	// }
+}
+
+.FormInput:focus {
+	color: var(--intense);
+	outline: none;
+}
+
+textarea.FormInput {
+	min-height: 180px;
+	resize: vertical;
+	field-sizing: content;
+	line-height: inherit;
+
+	@media ($md <= width) {
+		min-height: 124px;
+		max-height: 200px;
+	}
+}
+
+.FormLabel {
+	color: var(--major);
+	font-size: 15px;
+	line-height: 16px;
+	font-weight: 400;
+	transition:
+		color var(--duration-md),
+		transform var(--duration-md);
+}
+
+.InputLabel {
+	margin-bottom: --spacing(1.5);
+	display: block;
+	width: fit-content;
+	font-weight: 500;
+}
+
+.RadioSet {
+	display: grid;
+	gap: --spacing(2);
+	grid-template-columns: 1fr;
+	align-items: stretch;
+	justify-items: stretch;
+
+	.wpcf7-list-item {
+		margin: initial;
+	}
+
+	.wpcf7-list-item label {
+		height: 100%;
+		padding: --spacing(4);
+		border-radius: 4px;
+		// background-color: var(--bg-alt);
+		background-color: var(--bg-400);
+		display: flex;
+		align-items: center;
+		gap: --spacing(2);
+		cursor: pointer;
+		font-size: var(--text-sm);
+		line-height: 1.5;
+		transition: color var(--duration-sm) linear, background-color var(--duration-sm) linear;
+		font-weight: 600;
+	}
+
+	.wpcf7-list-item label:has(:checked) {
+		background-color: var(--gray-400);
+	}
+
+	.wpcf7-list-item input {
+		cursor: pointer;
+		width: 1rem;
+		height: 1rem;
+		display: block;
+		margin: 0;
+	}
+
+	.wpcf7-list-item-label {
+		display: block;
+	}
+
+	@media (min-width: $sm) {
+		grid-template-columns: 1fr 1fr;
+
+		.wpcf7-list-item label {
+			flex-direction: column;
+			padding: --spacing(5);
+			align-items: start;
+		}
+	}
+
+	@media (min-width: $md) {
+		grid-template-columns: 1fr 1fr 1fr;
+
+		.wpcf7-list-item label {
+			flex-direction: column;
+			padding: --spacing(6);
+		}
+	}
+}
+
+.FormField.-complex .FormLabel {
+	white-space: nowrap;
+	position: absolute;
+	// left: $inputSidePadding;
+	top: 14px;
+	// right: $inputSidePadding;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	transform-origin: 2px 0;
+	pointer-events: none;
+	will-change: transform;
+
+	@media (max-width: 575px) {
+		top: 9px;
+	}
+
+	@media (min-width: 768px) {
+		top: 16px;
+	}
+}
+
+.FormField.-complex.has-focus .FormLabel,
+.FormField.-complex.has-value .FormLabel {
+	transform: scale(.85) translateY(-11px);
+
+	@media (max-width: 575px) {
+		transform: scale(.85) translateY(-4px);
+	}
+}
+
+.FormField.-complex .FormLabel small {
+	transition: opacity var(--duration-md);
+
+	@media (max-width: 575px) {
+		display: block;
+	}
+}
+
+.FormField.-complex.has-focus .FormLabel small,
+.FormField.-complex.has-value .FormLabel small {
+	opacity: 0;
+}
+
+.FormField.-complex .FormInput {
+	padding-top: 22px;
+	padding-bottom: 6px;
+}
+
+
+.FormInput:where(select) {
+	$padding: .6875em;
+	$arrow-width: .55em;
+  -webkit-appearance: none;
+	appearance: none;
+  display: block;
+  box-sizing: border-box;
+  max-width: 100%;
+	width: 100%;
+  padding: $padding #{$padding + $arrow-width + $padding} $padding $padding;
+  border: 1px solid var(--bg-400);
+  border-radius: .3em;
+	color: var(--intense);
+	background-color: var(--bg-400);
+	background-image:
+		linear-gradient(45deg, transparent 50%, currentColor 50%),
+		linear-gradient(-45deg, transparent 50%, currentColor 50%);
+  background-size: #{$arrow-width * .5} #{$arrow-width * .5};
+	background-position: calc(100% - #{$arrow-width * .5 + $padding}) center, calc(100% - #{$padding}) center;
+  background-repeat: no-repeat;
+	box-shadow: none;
+	cursor: pointer;
+  transition: .2s;
+	font-size: 1rem;
+	line-height: 1.25;
+
+	option {
+		cursor: pointer;
+		background-color: var(--bg);
+	}
+
+	&:focus {
+		outline: 0;
+		// box-shadow: 0 0 0 .15em hsla(0, 0%, 0%, .1);
+		border-color: var(--voice);
+	}
+
+	&:invalid {
+		background-color: hsla(0, 100%, 0%, .05);
+	}
+
+	&:disabled {
+		opacity: .7;
+		cursor: default;
+	}
+
+	// &:after {
+	// 	content: "";
+	// 	width: 0.8em;
+	// 	height: 0.5em;
+	// 	background-color: var(--select-arrow);
+	// 	clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+	// }
+
+	:where(:root[data-theme="dark"]) & {
+  	border-color: transparent;
+		background-color: --alpha(var(--mutedLight) / 12%);
+	}
+}
+
+// .FormInput--file {
+// 	padding: 0;
+// 	border: 0 none;
+// 	display: flex;
+// 	align-items: center;
+// 	cursor: default;
+// }
+
+// .FormInput--file .FormInput__caption {
+// 	font-size: 15px;
+// 	margin-right: 7px;
+// 	white-space: nowrap;
+// }
+
+// .FormInput--file .FormInput__message{
+// 	font-size: 15px;
+// 	margin-left: 7px;
+// 	flex-grow: 0;
+// 	overflow: hidden;
+// 	text-overflow: ellipsis;
+// 	white-space: nowrap;
+// }
+
+// .FormInput--file label {
+// }
+
+// .FormInput--file input[type=file] {
+// 	width: 0.1px;
+// 	height: 0.1px;
+// 	opacity: 0;
+// 	overflow: hidden;
+// 	position: absolute;
+// 	z-index: -1;
+// }
+
+
+// .FormLabel {
+// 	// font-size: 15px;
+// 	// line-height: 18px;
+// 	// font-weight: normal;
+// 	transition:
+// 		color var(--duration-sm) linear,
+// 		transform var(--duration-sm) linear;
+
+// 	// @media ($md <= width) {
+// 	// 	font-size: 15px;
+// 	// 	line-height: 18px;
+// 	// }
+// }
+
+
+// .FormField {
+// 	position: relative;
+// }
+
+// .FormField--complex {
+
+// 	.FormLabel {
+// 		white-space: nowrap;
+// 		position: absolute;
+// 		left: 11px;
+// 		top: 16px;
+// 		right: 10px;
+// 		overflow: hidden;
+// 		text-overflow: ellipsis;
+// 		transform-origin: 2px 0;
+// 		pointer-events: none;
+// 		will-change: transform;
+// 	}
+
+// 	.FormInput {
+// 		margin-top: 0;
+// 		padding-top: 22px;
+// 		padding-bottom: 4px;
+// 	}
+
+// 	.icon-x {
+// 		display: none;
+// 		position: absolute;
+// 		fill: var(--danger);
+// 		top: calc(50% - 8px);
+// 		right: 20px;
+// 	}
+
+// 	&.has-value {
+
+// 		.FormInput {
+// 			background-color: var(--white);
+// 		}
+// 	}
+
+// 	&.is-active {
+
+// 	}
+
+// 	&.has-focus,
+// 	&.has-value {
+// 		.FormLabel {
+// 			transform: scale(.745) translateY(-11px);
+// 		}
+// 	}
+
+// 	&.has-error {
+
+// 		.FormInput {
+// 			border-color: var(--danger);
+// 		}
+
+// 		.form-text {
+// 			color: var(--danger);
+// 		}
+
+// 		.icon-x {
+// 			display: block;
+// 		}
+// 	}
+
+// 	&.has-focus {
+// 		.FormInput {
+// 		}
+// 	}
+
+// 	@media ($md <= width) {
+
+// 		.FormLabel {
+// 			left: 11px;
+// 			top: 16px;
+// 		}
+
+// 		.FormInput {
+// 			padding-top: 22px;
+// 			padding-bottom: 4px;
+// 		}
+
+// 		&.has-focus,
+// 		&.has-value {
+// 			.FormLabel {
+// 				transform: scale(.865) translateY(-11px);
+// 			}
+// 		}
+// 	}
+
+// }
+
+
+// .Checkbox {
+// 	margin-top: 12px;
+// 	margin-bottom: 12px;
+// 	display: block;
+// 	cursor: pointer;
+// 	position: relative;
+// 	user-select: none;
+// }
+
+// .Checkbox input {
+// 	@include visually-hidden;
+// }
+
+// .Checkbox__label {
+// 	padding-top: 1px;
+// 	padding-left: 26px;
+// 	display: block;
+// 	font-size: 14px;
+// 	line-height: 130%;
+// }
+
+// .Checkbox__label:before {
+// 	@include pseudoBlock(18px, 18px);
+// 	top: 0;
+// 	left: 0;
+// 	background-color: var(--white);
+// 	border: 1px solid var(--brand);
+// 	border-radius: 2px;
+// 	transition:
+// 		background-color var(--duration-sm);
+// }
+
+// .Checkbox__tick {
+// 	width: 12px;
+// 	height: 12px;
+// 	position: absolute;
+// 	fill: var(--white);
+// 	top: 3px;
+// 	left: 3px;
+// 	z-index: 2;
+// 	opacity: 0;
+// 	transform: scale(2);
+// 	transition:
+// 		transform var(--duration-sm),
+// 		opacity var(--duration-sm);
+// }
+
+// .Checkbox input:checked ~ .Checkbox__label:before {
+// 	background-color: var(--brand);
+// }
+
+// .Checkbox input:checked + .Checkbox__tick {
+// 	opacity: 1;
+// 	transform: scale(1);
+// }
+
+
+// .Radio {
+// 	margin-top: 12px;
+// 	margin-bottom: 12px;
+// 	display: block;
+// 	cursor: pointer;
+// 	position: relative;
+// 	user-select: none;
+// }
+
+// .Radio input {
+// 	@include visually-hidden;
+// }
+
+// .Radio__label {
+// 	padding-top: 1px;
+// 	padding-left: 26px;
+// 	display: block;
+// 	font-size: 14px;
+// 	line-height: 130%;
+// }
+
+// .Radio__label:before {
+// 	@include pseudoBlock(22px, 22px);
+// 	top: 0;
+// 	left: 0;
+// 	background-color: var(--bg);
+// 	border: 1px solid var(--brand);
+// 	border-radius: 12px;
+// 	transition:
+// 		background-color var(--duration-sm);
+// }
+
+// .Radio__tick {
+// 	width: 12px;
+// 	height: 12px;
+// 	position: absolute;
+// 	fill: var(--inverse);
+// 	top: 3px;
+// 	left: 3px;
+// 	z-index: 2;
+// 	opacity: 0;
+// 	transform: scale(2);
+// 	transition:
+// 		transform var(--duration-sm),
+// 		opacity var(--duration-sm);
+// }
+
+// .Radio input:checked ~ .Radio__label:before {
+// 	background-color: var(--brand);
+// }
+
+// .Radio input:checked + .Radio__tick {
+// 	opacity: 1;
+// 	transform: scale(1);
+// }

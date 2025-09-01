@@ -1,0 +1,396 @@
+@use "sass:math";
+@use "sass:color";
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.ServiceCard {
+	--card-bg: hsl(227, 92%, 95%);
+	--card-stripe-bg: var(--minor);
+	--card-p-y: clamp(1.5rem, 9cqw, 3rem);
+	--card-p-x: clamp(1.5rem, 9cqw, 3rem);
+	--card-radius: 8px;
+	--card-edge: hsl(240 0% 0% / 5%);
+	container: ServiceCard / inline-size;
+	padding-bottom: 1rem;
+	display: grid;
+	grid-template-rows: 1fr auto;
+	flex: 1 1 100%;
+	font-size: var(--text-md);
+	position: relative;
+	border-radius: var(--card-radius);
+
+	@media (min-width: $md) {
+		--card-p-y: clamp(2rem, 13cqw, 3rem);
+		--card-p-x: clamp(2.5rem, 14cqw, 3.5rem);
+		font-size: var(--text-xs);
+	}
+
+	:root[data-theme="dark"] & {
+		--card-bg: var(--bg);
+		--card-stripe-bg: var(--intense);
+		--card-edge: hsl(240 100% 100% / 10%);
+	}
+}
+
+.ServiceCard__bg {
+	width: 100%;
+	height: 100%;
+	background-color: var(--card-bg);
+	position: absolute;
+	z-index: -1;
+	inset: 0;
+	box-shadow:
+		0 40px 80px -18px rgba(50,50,93,0.08),
+		0 25px 50px -25px rgba(0,0,0,0.15);
+	border: 1px solid var(--card-edge);
+	border-radius: inherit;
+
+	&::after {
+		@include pseudoBlock();
+		inset: -1px;
+		border-radius: inherit;
+		box-shadow:var(--card-edge) 0px 1px 0px 0px inset;
+	}
+}
+
+@property --gradient-angle {
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
+}
+
+:where(.swiper-slide) {
+	z-index: 1;
+}
+
+:where(.swiper-slide):has(> .ServiceCard.-emphasis) {
+	z-index: 0;
+}
+
+.ServiceCard.-emphasis {
+	position: relative;
+	transform: translateZ(0);
+	will-change: transform;
+
+	&::before,
+	&::after {
+		@include pseudoBlock();
+		inset: -2px;
+		animation: glowRotate 7s linear infinite;
+		background-image: conic-gradient(
+			from var(--gradient-angle),
+			var(--white),
+			var(--blue),
+			var(--blue),
+			var(--white)
+		);
+		z-index: -2;
+		border-radius: calc(var(--card-radius) + 2px);
+		will-change: background-image;
+	}
+
+	&::after {
+		display: none;
+	}
+
+	@media (hover:hover) {
+		&::after {
+			display: block;
+			filter: blur(3rem);
+			opacity: .2;
+			z-index: -3;
+		}
+	}
+
+}
+
+
+@keyframes glowRotate {
+	0% {
+		--gradient-angle: 0deg;
+	}
+	100% {
+		--gradient-angle: 360deg;
+	}
+}
+
+.ServiceCard__body {
+	padding: var(--card-p-y) var(--card-p-x) 1.5rem;
+	line-height: 1.5;
+
+	@media (min-width: $md) {
+		line-height: inherit;
+	}
+}
+
+.ServiceCard__footer {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	gap: --spacing(5);
+	position: relative;
+	z-index: 1;
+}
+
+.ServiceCard h4 {
+	font-size: 1.25rem;
+}
+
+.ServiceCard__term {
+	padding-left: var(--card-p-x);
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	z-index: 2;
+	position: relative;
+	color: var(--intense);
+	font-size: var(--text-sm);
+	line-height: var(--leading-xs);
+}
+
+.ServiceCard__price {
+	position: relative;
+	padding: 8px 20px 8px calc(var(--card-p-x) + 2px);
+	background-color: var(--card-stripe-bg);
+	color: var(--inverse);
+	font-weight: 700;
+	font-size: var(--text-xl);
+	line-height: var(--leading-sm);
+	isolation: isolate;
+	z-index: 1;
+	text-align: right;
+	border-radius: 0 var(--card-radius) var(--card-radius) var(--card-radius);
+
+	&:before {
+		@include pseudoBlock(20px);
+		border-radius: 20px;
+		bottom: calc(100%);
+		left: 0;
+		background-color: var(--card-bg);
+		z-index: -1;
+	}
+
+	&:after {
+		@include pseudoBlock(10px);
+		bottom: calc(100%);
+		left: 0;
+		background-color: var(--card-stripe-bg);
+		z-index: -2;
+	}
+
+	@media ($sm <= width) {
+		left: -2px;
+	}
+}
+
+.ServiceCard__decor {
+	--beyond: 20px;
+	position: absolute;
+	width: min(36cqw, 10rem);
+	height: min(36cqw, 10rem);
+	padding-top: var(--beyond);
+	padding-left: var(--beyond);
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.ServiceCard__decor img {
+	width: 100%;
+	display: block;
+	filter: invert(100%);
+	opacity: .55;
+	rotate: -20deg;
+
+	:root[data-theme="dark"] & {
+		opacity: .04;
+	}
+}
+
+// @container ServiceCard
+
+.swiper-container:not(.swiper-initialized) .ExampleSet {
+	container: ExampleSet / inline-size;
+
+	@media (min-width: $md) {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		grid-column-end: span 2;
+	}
+
+	@media (min-width: $lg) {
+		grid-column-end: span 2;
+	}
+}
+
+.ExampleCard {
+	aspect-ratio: 4/3;
+	position: relative;
+	background-size: cover;
+	overflow: hidden;
+	// grid-column-end: span 12;
+
+	// &:nth-child(3n+1):last-child {
+	// 	grid-column-start: 1;
+	// }
+
+	// @media (min-width: $sm) {
+	// 	grid-column-end: span 6;
+
+	// 	&:nth-child(3n+1):last-child {
+	// 		grid-column-start: 4;
+	// 	}
+	// }
+
+	@media (min-width: $md) {
+		grid-column-end: span 4;
+		aspect-ratio: 4/3;
+
+		&:nth-child(3n+1):last-child {
+			grid-column-start: 5;
+		}
+	}
+
+	@media (min-width: $xl) {
+		grid-column-end: span 3;
+
+		&:nth-child(3n+1):last-child {
+			grid-column-start: unset;
+		}
+	}
+}
+
+.ExampleCard a:not(.ExampleCard__repo) {
+	padding: 1rem;
+	position: absolute;
+	z-index: 3;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	flex: 1 1 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-end;
+	text-decoration: none;
+
+	@media ($md <= width) {
+		padding: 1.5rem;
+	}
+
+	&:focus-visible {
+		outline: 4px solid rgba(50,151,211,.3);
+	}
+}
+
+.ExampleCard__image {
+	--base-easing: cubic-bezier(0.3,0.1,0,1);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	transition:
+		filter var(--duration-lg),
+		transform var(--duration-lg) var(--base-easing);
+	z-index: 1;
+	object-fit: cover;
+}
+
+@media (hover:hover) {
+	.ExampleCard:hover .ExampleCard__image {
+		transform: scale(1.07);
+	}
+}
+
+.ExampleCard img {
+	object-fit: cover;
+	display: block;
+}
+
+.ExampleCard h4 {
+	margin-top: 0;
+	margin-bottom: 0;
+	color: var(--white);
+	align-self: flex-start;
+	width: 100%;
+}
+
+.ExampleCard__tags {
+	@include listReset;
+	display: flex;
+	position: absolute;
+	left: .75rem;
+	top: .75rem;
+	color: var(--white);
+	font-size: .875rem;
+
+	@media ($md <= width) {
+		left: 1.25rem;
+		top: 1.25rem;
+	}
+}
+
+.ExampleCard__tags li {
+	margin-right: .75rem;
+	padding: 1px 9px 1px;
+	border-radius: 4px;
+	background-color: --alpha(var(--white) / 11%);
+	backdrop-filter: blur(6px);
+	color: var(--white);
+	text-transform: lowercase;
+	font-weight: 500;
+}
+
+.ExampleCard__meta {
+	margin-top: 2px;
+	text-align: left;
+	color: var(--white);
+	font-size: .875rem;
+	line-height: 1;
+}
+
+.ExampleCard__icon {
+	width: 1rem;
+	height: 1rem;
+	fill: var(--white);
+	position: absolute;
+	right: 1.25rem;
+	bottom: 1.25rem;
+	transform: translate(35%, 35%);
+	opacity: 0;
+	transition:
+		opacity var(--duration-sm),
+		transform var(--duration-sm);
+	display: none;
+}
+
+.ExampleCard:hover .ExampleCard__icon {
+	opacity: 1;
+	transform: translate(0,0);
+}
+
+.ExampleCard__repo {
+	position: absolute;
+	right: 1.25rem;
+	top: 1.25rem;
+	z-index: 4;
+	color: var(--white);
+	opacity: .55;
+}
+
+.ExampleCard__repo svg {
+	width: 2.25rem;
+	height: 2.25rem;
+	fill: currentColor;
+	display: block;
+}
+
+.ExampleCard__repo:hover {
+	// color: var(--brand);
+	opacity: 1;
+}

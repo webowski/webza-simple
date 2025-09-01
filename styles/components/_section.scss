@@ -1,0 +1,66 @@
+@use "sass:math";
+@use "sass:color";
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+
+.Section {
+	--section-padding-y: clamp(3.5rem, 7vw, 5rem);
+	padding-top: var(--section-padding-y);
+	padding-bottom: var(--section-padding-y);
+	transition:
+		color var(--duration-sm),
+		background-color var(--duration-sm);
+	position: relative;
+}
+
+.bg-alter {
+	background-color: var(--bg-alt);
+}
+
+.Section.-screen {
+	max-height: 700px;
+	min-height: calc(100svh - var(--header-height));
+}
+
+.Section.-beforeFooter {
+	min-height: min(calc(100svh - var(--footer-height) - var(--header-height)), 690px);
+}
+
+.Section__decor {
+	pointer-events: none;
+	position: absolute;
+	z-index: -1;
+	opacity: .05;
+
+	[data-theme="dark"] & {
+		opacity: .023;
+		filter: invert(1);
+	}
+}
+
+.PageDecorOrigin {
+	pointer-events: none;
+	position: absolute;
+	inset: 0 0 auto 0;
+	min-height: 100%;
+	overflow: hidden;
+	padding-block: var(--section-padding-y);
+}
+
+.PageDecor {
+	pointer-events: none;
+	position: absolute;
+	isolation: isolate;
+	inset: 0;
+	background-size: contain;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	z-index: -1;
+
+	img {
+		height: 100%;
+		width: 100%;
+		display: block;
+	}
+}

@@ -1,0 +1,20 @@
+@use "../../node_modules/notyf/notyf.min.css" as *;
+
+.notyf__icon,
+.notyf__message {
+	animation: none;
+	opacity: initial;
+}
+
+.notyf__toast--disappear .notyf__icon,
+.notyf__toast--disappear .notyf__message {
+	animation: none;
+	opacity: initial;
+}
+
+
+.notyf__toast {
+	// animation: notyf-fadeinup 0.3s ease-in forwards;
+	animation-duration: var(--duration-md);
+	animation-timing-function: ease-in;
+}

@@ -1,0 +1,41 @@
+@use "sass:math";
+@use "sass:color";
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+
+.LangSwitch {
+	@include listReset(true);
+	display: flex;
+	font-size: var(--text-md);
+	line-height: 1;
+	font-weight: 500;
+	font-family: var(--font-heading);
+
+	@media (min-width: $lg) {
+		font-size: var(--text-xs);
+	}
+}
+
+.LangSwitch li + li {
+	margin-left: 1rem;
+}
+
+.LangSwitch a {
+	padding-top: 4px;
+	padding-bottom: 4px;
+	border-radius: 1px;
+	display: block;
+	color: var(--intense);
+	text-decoration: none;
+	text-transform: lowercase;
+}
+
+.lang-item.current-lang a {
+	color: var(--muted);
+	pointer-events: none;
+}
+
+.LangSwitch a:hover {
+	color: var(--voice);
+}

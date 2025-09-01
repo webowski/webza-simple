@@ -1,0 +1,12 @@
+@use "sass:math";
+@use "sass:color";
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.Footer {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	background-color: var(--brand);
+	color: var(--white);
+	font-size: var(--text-sm);
+}

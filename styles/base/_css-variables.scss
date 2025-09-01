@@ -1,0 +1,89 @@
+@use "variables" as *;
+
+:root {
+	color-scheme: light;
+
+	--fontSize:             1rem;
+	--lineHeight:           var(--leading-2xl);
+
+	// Absolute Colors
+	--whitest:              hsl(0, 0%, 100%);
+	--white:                hsl(240, 100%, 100%);
+	--white-400:            hsl(240, 17%, 85%);
+	--white-300:            hsl(240, 17%, 80%);
+
+	--blackest:             hsl(240, 20%, 13%);
+	--black-400:            hsl(240, 17%, 14%);
+	--black:                hsl(240, 16%, 18%);
+
+	--grayDarkest:          hsl(240, 10%, 21%);
+	--gray-400:             hsl(240, 10%, 35%);
+	--gray:                 hsl(240, 10%, 44%);
+	--gray-600:             hsl(240, 10%, 81%);
+
+	--yellow-400:           hsl(60, 100%, 64%);
+	--yellow:               hsl(60, 100%, 59%);
+	--yellow-600:           hsl(54, 93%, 60%);
+	--yellow-700:           hsl(60, 76%, 48%);
+	--red:                  hsl(0, 83%, 55%);
+	--green:                hsl(108, 50%, 47%);
+	--blue:                 hsl(240, 100%, 70%);
+
+	// Theme colors
+	--intense:              var(--blackest);
+	--major:                var(--black);
+	--minor:                var(--gray);
+	--muted:                --alpha(var(--black) / 40%);
+	--mutedLight:           hsl(240, 22%, 81%);
+	--disabled:             hsl(240, 22%, 81%);
+
+	--inverse:              var(--white);
+
+	--brand:                var(--blue);
+	--accent:               var(--blue);
+	--voice:                var(--blue);
+	--success:              var(--green);
+	--danger:               var(--red);
+
+	--bg-400:               var(--white-400);
+	--bg:                   var(--whitest);
+	--bg-alt:               hsla(240, 33%, 35%, .05);
+	--border:               hsla(240, 33%, 35%, .14);
+
+	// Dimensions
+	--containerMax:         1600px;
+	--padding-x-min:        1.5rem;
+	--padding-y-min:        2rem;
+	--padding-x:            clamp(1.5rem, 7.5vw, 8rem);
+	--padding-y:            clamp(2rem, 6vw, 5rem);
+	--header-height:        60px; // clamp(6rem, 10vw, 10.25rem)
+	--header-threshold:     12px;
+	--footer-height:        55px;
+
+	--duration-sm:          .12s;
+	--duration-md:          .2s;
+	--duration-lg:          .3s;
+	--duration-xl:          .6s;
+	--duration-xxl:         1s;
+	--duration-theme:       .12s;
+}
+
+:root[data-theme="dark"] {
+	color-scheme: dark;
+
+	--intense:              var(--white);
+	--major:                var(--white-400);
+	--minor:                var(--white-400);
+	--muted:                --alpha(var(--white) / 50%);
+	--disabled:             var(--white-300);
+
+	--inverse:              var(--black);
+
+	--brand:                var(--blue);
+	--accent:               var(--blue);
+	--danger:               var(--red);
+
+	--bg-400:               var(--black-400);
+	--bg:                   var(--blackest);
+	--bg-alt:               --alpha(var(--white) / 2%);
+}

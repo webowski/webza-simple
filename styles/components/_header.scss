@@ -1,0 +1,123 @@
+@use "sass:math";
+@use "sass:color";
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.Header {
+	// --header-mx: clamp(.75rem, 3.5vw, 4rem);
+	--header-px: clamp(1.5rem, 3.75vw, 4rem);
+	--header-mx: max(var(--header-threshold), calc(var(--padding-x) - var(--header-px)));
+	padding-left: var(--header-px);
+	padding-right: var(--header-px);
+	left: var(--header-mx);
+	right: var(--header-mx);
+	margin-inline: auto;
+	max-width: calc(var(--containerMax) + var(--header-px) * 2);
+	display: flex;
+	align-items: center;
+	position: fixed;
+	top: var(--header-threshold);
+	height: var(--header-height);
+	z-index: 50;
+	cursor: default;
+	transition:
+		translate var(--duration-sm),
+		background-color var(--duration-sm);
+	border-radius: 10px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05), 0 0 40px rgba(0,0,0,.03);
+	backdrop-filter: blur(16px);
+	background-color: --alpha(var(--bg) / 80%);
+
+	:root[data-theme="dark"] & {
+		box-shadow: 0 1px 4px 1px #00000822, 0 0 40px rgba(0,0,8,.24);
+		background-color: --alpha(var(--blackest) / 15%);
+		// background-color: hsla(0 0% 0% / 60%);
+	}
+
+	@media (min-width: $md) {
+		justify-content: space-between;
+	}
+
+	@media (min-width: $lg) {
+	}
+}
+
+body.g-headerHidden .Header {
+	translate: 0 calc(-100% - var(--header-threshold));
+
+	&.is-shown {
+		translate: 0 0;
+	}
+}
+
+
+.Header {
+	translate: 0 0;
+	position: fixed;
+	// top: 10px;
+	// margin-left: var(--header-mx);
+	// margin-right: var(--header-mx);
+	// left: initial;
+	// right: initial;
+}
+
+// .Header__overlay {
+// 	position: fixed;
+// 	top: 0;
+// 	left: 0;
+// 	width: 100vw;
+// 	height: 100vh;
+// 	background-color: var(--intense);
+// 	z-index: 75;
+// 	opacity: 0;
+// 	visibility: hidden;
+// 	transition:
+// 		opacity var(--duration-lg),
+// 		visibility 0s linear var(--duration-lg);
+// 	pointer-events: none;
+// 	will-change: opacity;
+// }
+
+// .Header__overlay.is-shown {
+// 	visibility: visible;
+// 	opacity: .2;
+// 	transition: opacity var(--duration-lg);
+// }
+
+// [data-theme="dark"] .Header__overlay.is-shown {
+// 	opacity: .1;
+// }
+
+// .Header__grid {
+// 	height: 60px;
+// 	display: flex;
+// 	justify-content: space-between;
+// 	align-items: center;
+// 	position: relative;
+// }
+
+.SiteLogo {
+	@include linkReset;
+	display: block;
+	width: 38px;
+	margin-top: -2px;
+	flex-shrink: 0;
+
+	@media ($md <= width) {
+		width: 40px;
+	}
+}
+
+.SiteLogo svg {
+	display: block;
+	fill: var(--intense);
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	cursor: pointer;
+	transition: fill var(--duration-sm);
+}
+
+.SiteLogo:hover svg {
+	fill: var(--brand);
+}

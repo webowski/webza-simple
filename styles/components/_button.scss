@@ -1,0 +1,131 @@
+@use "sass:math";
+@use "../base/variables" as *;
+
+.Button {
+	width: fit-content;
+	max-width: 100%;
+	padding: 9px 24px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	border: 0;
+	appearance: none;
+	background: var(--voice) none;
+	color: var(--whitest);
+	border-radius: var(--radius-sm);
+	font-size: var(--text-md);
+	line-height: var(--leading-lg);
+	font-weight: 600;
+	font-family: var(--font-heading);
+	letter-spacing: 0;
+	text-decoration: none;
+	text-align: center;
+	text-transform: none;
+	vertical-align: middle;
+	cursor: pointer;
+	white-space: nowrap;
+	transition:
+		background-color var(--duration-md),
+		border-color var(--duration-md),
+		color var(--duration-md),
+		box-shadow var(--duration-md),
+		transform var(--duration-sm);
+	will-change: transform;
+	box-shadow: 0px 7px 12px --alpha(var(--voice) / 12%);
+
+	@media (min-width: $md) {
+		padding: 10px 28px;
+		gap: 10px;
+		font-size: var(--text-sm);
+	}
+}
+
+@media (hover:hover) {
+	.Button:hover {
+		transform: translateY(-1px);
+	}
+}
+
+.Button.Button:active {
+	@media ($md <= width) {
+		box-shadow: none !important;
+		transform: none;
+		transform: translateY(1px);
+	}
+}
+
+.Button.Button:focus-visible {
+	outline: none;
+	box-shadow:
+		0 6px 15px 0 rgba(50,50,93,.2),
+		0 2px 2px 0 rgba(0,0,0,.1),
+		0 0 0 4px rgba(50,151,211,.3);
+}
+
+[data-theme="dark"] .Button.Button:focus-visible {
+	box-shadow:
+		0 6px 15px 0 rgba(50,50,93,.3),
+		0 2px 2px 0 rgba(0,0,0,.2),
+		0 0 0 4px rgba(100,201,255,.6);
+}
+
+.Button:where(.-alt) {
+	border: 2px solid var(--accent);
+	background-color: transparent;
+	padding: 8px 24px;
+	color: var(--major);
+
+	@media (hover:hover) {
+		&:hover {
+			background-color: transparent;
+			transform: translateY(-1px);
+		}
+	}
+
+	:root[data-theme="dark"] & {
+		color: var(--intense);
+	}
+}
+
+.Lemur {
+	container: Lemur / size;
+	position: relative;
+}
+
+@media (hover:hover) {
+	.Button:hover .Lemur__message {
+		transform: translate(0, 0);
+		opacity: 1;
+	}
+}
+
+.Lemur__message {
+	transform: translate(8px, 4px);
+	transform-style: preserve-3d;
+	will-change: transform, opacity;
+	pointer-events: none;
+	opacity: 0;
+	transition: transform var(--duration-sm), opacity var(--duration-sm);
+	position: absolute;
+	right: calc(100% + 4px);
+	bottom: 60cqh;
+	background-color: var(--white);
+	color: var(--black);
+	line-height: var(--leading-md);
+	border-radius: 20px 20px 0px 20px;
+	font-size: var(--text-2xs);
+	font-weight: 500;
+	padding: 12px 16px;
+	max-width: 120px;
+	width: max-content;
+	text-align: left;
+	text-align: start;
+	white-space: initial;
+	flex-shrink: 0;
+}
+
+.Lemur__image {
+	display: block;
+}

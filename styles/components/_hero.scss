@@ -1,0 +1,106 @@
+@use "sass:math";
+@use "sass:color";
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+
+.Hero {
+	--minor: --alpha(var(--blackest) / 38%);
+	--accent: var(--brand);
+	color: var(--major);
+	position: relative;
+	transition: color var(--duration-theme);
+
+	[data-theme="dark"] & {
+		// --major: var(--white-400);
+	}
+}
+
+.Hero__container {
+	max-width: var(--containerMax);
+	margin-left: auto;
+	margin-right: auto;
+	padding: var(--padding-y) var(--padding-x) calc(var(--padding-y) * 2/3);
+
+	@media (min-height: 500px) {
+		height: 100svh;
+		// max-height: min(100svh, 800px);
+	}
+}
+
+.Hero__bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: -1;
+	isolation: isolate;
+}
+
+.Hero__bg img {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+}
+
+.Hero__bg:after {
+	@include pseudoBlock(100%);
+	top: 0;
+	left: 0;
+	background-color: rgba(160, 180, 240, 0.8);
+	transition: background-color var(--duration-theme);
+}
+
+[data-theme="dark"] .Hero__bg:after {
+	background-color: rgba(0, 0, 18, .82);
+	background-image: linear-gradient(180deg, transparent 80%, var(--blackest) 100%);
+}
+
+.Hero > .container {
+	z-index: 1;
+	min-width: 280px;
+}
+
+.Hero__heading {
+	margin-top: --spacing(4);
+	font-weight: 900;
+	// font-size: clamp(1rem, 3vw, 1.125rem);
+	font-size: 1.125rem;
+	line-height: 1.2;
+	font-family: var(--font-heading);
+	color: var(--intense);
+	transition: color var(--duration-theme);
+}
+
+.TypingCursor {
+	position: relative;
+	top: 2px;
+	margin-left: 0px;
+	font-size: inherit;
+	height: .8em;
+	width: 2px;
+	background-color: var(--brand);
+	display: inline-block;
+	vertical-align: baseline;
+	margin-left: 1px;
+
+	&.is-animating {
+		animation: Typing-cursor 1s infinite;
+	}
+}
+
+@keyframes Typing-cursor {
+	0% {
+		opacity: 1
+	}
+	50% {
+		opacity:0
+	}
+	100% {
+		opacity: 1
+	}
+}

@@ -1,0 +1,73 @@
+@use "sass:math";
+@use "sass:color";
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+
+html {
+	// scroll-behavior: smooth;
+	scrollbar-color: var(--major) var(--bg);
+	scrollbar-width: thin;
+	scrollbar-gutter: stable;
+	// scroll-margin-top: var(--header-height);
+}
+
+body {
+	background-color: var(--bg);
+}
+
+.Wrap {
+	padding-top: calc(var(--header-height) + var(--header-threshold));
+	position: relative;
+}
+
+body.g-headerHidden .Wrap {
+	padding-top: initial;
+}
+
+// content overlay
+body .Wrap:before {
+	@include pseudoBlock(100%);
+	top: 0;
+	left: 0;
+	background-color: rgb(160 180 240 / .4);
+	background-color: rgb(255,255,255,.7);
+	z-index: 49;
+	position: fixed;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity .3s ease, visibility 0s linear .3s;
+
+	[data-theme="dark"] & {
+		background-color: rgba(39, 39, 54,.4);
+	}
+}
+
+body.G-navOverlay {
+
+	.Wrap:before {
+		opacity: 1;
+		visibility: visible;
+		transition: opacity .3s ease-out;
+	}
+}
+
+.skip-to-content {
+	position: absolute;
+	left: -999px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.skip-to-content:focus {
+	left: 1rem;
+	top: 1rem;
+	width: auto;
+	height: auto;
+	background: var(--accent);
+	color: var(--white);
+	padding: 0.5rem 1rem;
+	z-index: 1000;
+}

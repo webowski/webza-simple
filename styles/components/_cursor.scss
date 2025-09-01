@@ -1,0 +1,38 @@
+body {
+	cursor: none !important;
+}
+
+*, *:hover {
+	cursor: none !important;
+}
+
+// .cursor {
+// 	pointer-events: none;
+
+// 	&__ball {
+// 		position: fixed;
+// 		top: 0;
+// 		left: 0;
+// 		mix-blend-mode: difference;
+// 		z-index: 1000;
+
+// 		circle {
+// 			fill: #f7f8fa;
+// 		}
+// 	}
+// }
+
+.cursor {
+  position: fixed;
+  background: var(--major);
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  margin-top: -5px;
+  border-radius: 50%;
+  will-change: transform;
+  user-select: none;
+  pointer-events: none;
+  z-index: 10000;
+	mix-blend-mode: difference;
+}

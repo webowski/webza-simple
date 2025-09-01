@@ -1,0 +1,48 @@
+/*!
+Theme Name: Webza Wordpress Blank Theme
+Author: webowski
+Version: 1.0.0
+Description: Webza Wordpress Blank Theme
+Text Domain: webza
+*/
+
+// Base
+@use "tailwind";
+@use 'base/variables' as *;
+@use 'base/mixins' as *;
+@use 'base/css-variables' as *;
+@use 'base/normalize' as *;
+@use 'base/text' as *;
+
+// Components
+// @use 'components/article' as *;
+// @use 'components/badge' as *;
+@use 'components/button' as *;
+@use 'components/card' as *;
+// @use 'components/cursor' as *;
+@use 'components/global-mods' as *;
+@use 'components/icon' as *;
+@use 'components/image' as *;
+@use 'components/lang' as *;
+@use 'components/layout' as *;
+@use 'components/logo' as *;
+@use 'components/footer' as *;
+@use 'components/form' as *;
+@use 'components/form-cf7' as *;
+@use 'components/header' as *;
+@use 'components/hero' as *;
+@use 'components/navigation' as *;
+@use 'components/notification' as *;
+@use 'components/popup' as *;
+@use 'components/quiz' as *;
+// @use 'components/scroll' as *;
+@use 'components/section' as *;
+@use 'components/slider' as *;
+// @use 'components/social' as *;
+// @use 'components/tag' as *;
+// @use 'components/tooltip' as *;
+@use 'components/theme-switch' as *;
+
+// Utilities
+@use 'utilities/custom' as *;
+@use "../node_modules/tailwindcss/utilities.css";
