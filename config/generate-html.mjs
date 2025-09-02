@@ -32,7 +32,7 @@ function registerPartials(dir, prefix = "partials") {
 			const name = `${prefix}/${path.basename(entry.name, ".hbs")}`
 			const src = fs.readFileSync(fullPath, "utf8")
 			Handlebars.registerPartial(name, src)
-			console.log(`🔗 Registered Handlebars	 partial: ${name}`)
+			// console.log(`🔗 Registered Handlebars partial: ${name}`)
 		}
 	})
 }
