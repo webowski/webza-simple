@@ -10,8 +10,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, "..");
 
-const inputFile = path.join(projectRoot, "images/favicon/favicon.svg");
-const outputDir = path.join(projectRoot, "images", "favicon");
+const inputFile = path.join(projectRoot, "src/images/favicon/favicon.svg");
+const outputDir = path.join(projectRoot, "dist/images/favicon");
 
 mkdirSync(outputDir, { recursive: true });
 
