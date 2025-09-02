@@ -9,7 +9,8 @@
 		"scripts": "NODE_ENV=production esbuild scripts/bundle.js --bundle --outfile=scripts/bundle.min.js --minify",
 		"icons": "node config/generate-icons.mjs",
 		"favicon": "node ./config/generate-favicon.mjs",
-		"build": "npm run styles && npm run scripts",
+		"html": "node ./config/generate-html.mjs",
+		"build": "npm run styles && npm run scripts && npm run html",
 		"styles:dev": "sass styles/bundle.scss | postcss --config config/postcss.config.mjs > style.css",
 		"scripts:dev": "esbuild scripts/bundle.js --bundle --outfile=scripts/bundle.min.js --sourcemap",
 		"build:dev": "npm run styles:dev && npm run scripts:dev && npm run icons && npm run deps",
@@ -17,7 +18,7 @@
 		"watch:scripts": "npm run scripts -- --watch",
 		"watch:icons": "chokidar 'images/icons/*.svg' -c 'npm run icons'",
 		"watch": "npm run watch:styles && npm run watch:scripts && npm run watch:icons",
-		"serve": "node --no-deprecation ./node_modules/.bin/browser-sync start --proxy 'test.loc' --files 'style.css, scripts/bundle.min.js, **/*.php'",
+		"serve": "node --no-deprecation ./node_modules/.bin/browser-sync start --proxy 'localhost' --files 'style.css, scripts/bundle.min.js, **/*.php'",
 		"start": "npm-run-all --parallel watch:* serve"
 	},
 	"browserslist": [
@@ -35,6 +36,7 @@
 		"esbuild": "^0.25.9",
 		"favicons": "^7.2.0",
 		"globby": "^14.1.0",
+		"handlebars": "^4.7.8",
 		"npm-run-all": "^4.1.5",
 		"postcss": "^8.5.6",
 		"postcss-cli": "^11.0.1",
