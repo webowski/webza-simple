@@ -1,15 +1,15 @@
-import { readFileSync, writeFileSync, mkdirSync } from 'fs';
-import { dirname, resolve } from 'path';
-import { globby } from 'globby';
-import SVGSpriter from 'svg-sprite';
+import { readFileSync, writeFileSync, mkdirSync } from 'fs'
+import { dirname, resolve } from 'path'
+import { globby } from 'globby'
+import SVGSpriter from 'svg-sprite'
 
-// Конфигурация
+// config
 const config = {
   dest: '.', // корневая директория вывода
   mode: {
     symbol: {
       dest: '',
-      sprite: 'images/icons.min.svg',
+      sprite: 'dist/images/icons.min.svg',
       example: false
     }
   },
@@ -23,26 +23,26 @@ const config = {
     xmlDeclaration: false,
     doctypeDeclaration: false
   }
-};
+}
 
-const spriter = new SVGSpriter(config);
+const spriter = new SVGSpriter(config)
 
-// Сканируем SVG-файлы
-const svgFiles = await globby('images/icons/*.svg');
+// scan svg files
+const svgFiles = await globby('src/images/icons/*.svg')
 
 for (const file of svgFiles) {
-  const content = readFileSync(file, 'utf-8');
-  spriter.add(resolve(file), null, content);
+  const content = readFileSync(file, 'utf-8')
+  spriter.add(resolve(file), null, content)
 }
 
 // Компилируем
-const { result } = await spriter.compileAsync();
+const { result } = await spriter.compileAsync()
 
 // Записываем результат
 for (const mode of Object.values(result)) {
   for (const resource of Object.values(mode)) {
-    mkdirSync(dirname(resource.path), { recursive: true });
-    writeFileSync(resource.path, resource.contents);
-    console.log('✅ written:', resource.path);
+    mkdirSync(dirname(resource.path), { recursive: true })
+    writeFileSync(resource.path, resource.contents)
+    console.log('✅ written:', resource.path)
   }
 }

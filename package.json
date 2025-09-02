@@ -5,12 +5,12 @@
 	"author": "webowski",
 	"license": "ISC",
 	"scripts": {
-		"styles": "NODE_ENV=production sass styles/bundle.scss | NODE_ENV=production postcss --config config/postcss.config.mjs > style.css",
-		"scripts": "NODE_ENV=production esbuild scripts/bundle.js --bundle --outfile=scripts/bundle.min.js --minify",
+		"styles": "mkdir -p dist/styles && NODE_ENV=production sass src/styles/bundle.scss | NODE_ENV=production postcss --config config/postcss.config.mjs > dist/styles/bundle.min.css",
+		"scripts": "NODE_ENV=production esbuild src/scripts/bundle.js --bundle --outfile=dist/scripts/bundle.min.js --minify",
 		"icons": "node config/generate-icons.mjs",
 		"favicon": "node ./config/generate-favicon.mjs",
 		"html": "node ./config/generate-html.mjs",
-		"build": "npm run styles && npm run scripts && npm run html",
+		"build": "npm run clean && npm run styles && npm run scripts && npm run html && npm run icons",
 		"styles:dev": "sass styles/bundle.scss | postcss --config config/postcss.config.mjs > style.css",
 		"scripts:dev": "esbuild scripts/bundle.js --bundle --outfile=scripts/bundle.min.js --sourcemap",
 		"build:dev": "npm run styles:dev && npm run scripts:dev && npm run icons && npm run deps",
@@ -19,7 +19,8 @@
 		"watch:icons": "chokidar 'images/icons/*.svg' -c 'npm run icons'",
 		"watch": "npm run watch:styles && npm run watch:scripts && npm run watch:icons",
 		"serve": "node --no-deprecation ./node_modules/.bin/browser-sync start --proxy 'localhost' --files 'style.css, scripts/bundle.min.js, **/*.php'",
-		"start": "npm-run-all --parallel watch:* serve"
+		"start": "npm-run-all --parallel watch:* serve",
+		"clean": "rm -rf dist"
 	},
 	"browserslist": [
 		"last 2 versions",

@@ -3,7 +3,7 @@
 @use "../base/variables" as *;
 @use "../base/mixins" as *;
 
-@use '../../node_modules/swiper/swiper';
+@use '../../../node_modules/swiper/swiper';
 
 .Slider {
 	--arrow-position: max(0px, calc(var(--padding-x) * .5 - 1.5rem));
