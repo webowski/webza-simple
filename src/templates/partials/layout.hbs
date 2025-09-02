@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{data.lang}}">
+<head>
+	<meta charset="utf-8">
+	<title>{{title}} — {{data.projectName}}</title>
+</head>
+<body>
+	<div class="Wrap">
+		{{> partials/header}}
+
+		<main class="Main">
+			<div class="container">
+
+				<h1>{{title}}</h1>
+				<p>{{data.projectName}}</p>
+				<ul>
+					{{!-- {{#each nav}}
+						<li><a href="{{url}}">{{title}}</a></li>
+					{{/each}} --}}
+				</ul>
+
+			</div>
+		</main>
+
+		{{> partials/footer}}
+	</div>
+
+	<script src="./scripts/bundle.min.js"></script>
+</body>
+</html>

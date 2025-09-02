@@ -1,4 +1,9 @@
 {
+	"title": "Главная страница",
+	"data": {
+		"projectName": "My Project",
+		"lang": "ru"
+	},
 	"projectName": "Webza",
 	"lang": "ru",
 	"nav": [
