@@ -1,10 +1,2 @@
 /node_modules
 /.vscode
-/languages/*backup*
-/style.css
-/style.css.map
-/scripts/style.min.js
-/scripts/style.min.js.map
-/scripts/bundle.min.js
-/scripts/bundle.min.js.map
-/scripts/bundle.min.js.LICENSE.txt
