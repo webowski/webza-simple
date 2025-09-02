@@ -16,7 +16,7 @@
 		"watch:styles": "chokidar 'src/styles/**/*.scss' 'src/**/*.hbs' 'src/**/*.js' --ignore 'node_modules' -c 'npm run styles'",
 		"watch:scripts": "npm run scripts -- --watch",
 		"watch:icons": "chokidar 'src/images/icons/*.svg' -c 'npm run icons'",
-		"watch:html": "chokidar 'src/templates/**/*.hbs' -c 'npm run html'",
+		"watch:html": "chokidar 'src/templates/**/*.hbs' 'src/templates/base/data.json' -c 'npm run html'",
 		"watch": "npm run watch:styles && npm run watch:scripts && npm run watch:icons",
 		"styles:dev": "sass styles/bundle.scss | postcss --config config/postcss.config.mjs > style.css",
 		"scripts:dev": "esbuild scripts/bundle.js --bundle --outfile=scripts/bundle.min.js --sourcemap",
